@@ -1,0 +1,101 @@
+@import "tailwindcss";
+
+/* ---------------------------------------------------------
+   PALETTE HORIZON 91 — EVENT HORIZON
+--------------------------------------------------------- */
+@theme inline {
+  --color-h91-gravity: #05070A;        /* Noir gravité */
+  --color-h91-relativistic: #1A8CFF;   /* Bleu relativiste */
+  --color-h91-ion: #00F0FF;            /* Cyan ionisé */
+  --color-h91-accretion: #FF7A1A;      /* Orange accrétion */
+  --color-h91-fusion: #FFD65C;         /* Jaune fusion */
+  --color-h91-warp: #6A00FF;           /* Violet gravitationnel */
+  --color-h91-stellar: #F2F7FF;        /* Blanc stellaire */
+
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+/* ---------------------------------------------------------
+   BACKGROUND COSMIQUE — HORIZON 91
+   (Ciel étoilé + halos relativistes + aurora sombre)
+--------------------------------------------------------- */
+
+/* --- CIEL ÉTOILÉ --- */
+.night-sky {
+  position: fixed;
+  inset: 0;
+  z-index: -3;
+  background:
+    /* Halo bleu relativiste */
+    radial-gradient(circle at 50% 20%, rgba(26, 140, 255, 0.12), transparent 70%),
+
+    /* Halo cyan ionisé */
+    radial-gradient(circle at 80% 80%, rgba(0, 240, 255, 0.12), transparent 75%),
+
+    /* Halo violet warp */
+    radial-gradient(circle at 20% 90%, rgba(106, 0, 255, 0.10), transparent 75%),
+
+    /* Fond noir gravité */
+    #05070A;
+  background-size: cover;
+  pointer-events: none;
+}
+
+/* --- AURORA BORÉALE SOMBRE --- */
+.aurora-band {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background:
+    /* Aurora bleu relativiste */
+    radial-gradient(circle at 20% 60%, rgba(26, 140, 255, 0.25), transparent 50%),
+
+    /* Aurora violet warp */
+    radial-gradient(circle at 70% 30%, rgba(106, 0, 255, 0.20), transparent 50%),
+
+    /* Aurora cyan ionisé */
+    radial-gradient(circle at 40% 80%, rgba(0, 240, 255, 0.18), transparent 50%);
+  filter: blur(70px);
+  animation: auroraMove 18s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+/* --- DISQUE D’ACCRÉTION (ORANGE + JAUNE) --- */
+.accretion-ring {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(circle at 50% 110%, rgba(221, 108, 27, 0.25), transparent 50%),
+    radial-gradient(circle at 50% 120%, rgba(184, 144, 24, 0.2), transparent 50%);
+  filter: blur(90px);
+  animation: accretionPulse 12s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+/* --- ANIMATION AURORA --- */
+@keyframes auroraMove {
+  0% { transform: translateY(0px) translateX(0px); }
+  100% { transform: translateY(-40px) translateX(20px); }
+}
+
+/* --- ANIMATION ACCRÉTION --- */
+@keyframes accretionPulse {
+  0% { opacity: 0.6; transform: scale(1); }
+  100% { opacity: 0.9; transform: scale(1.1); }
+}
+
+
+/* --- ANIMATION AURORA --- */
+@keyframes auroraMove {
+  0% { transform: translateY(0px) translateX(0px); }
+  100% { transform: translateY(-40px) translateX(20px); }
+}
+
+/* ---------------------------------------------------------
+   STYLE GLOBAL DU BODY
+--------------------------------------------------------- */
+body {
+  @apply bg-h91-gravity text-h91-stellar;
+}
