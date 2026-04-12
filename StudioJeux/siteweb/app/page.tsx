@@ -7,10 +7,10 @@ export default function Home() {
       {/* HERO SECTION */}
       <main
         id="hero"
-        className="flex flex-col items-center justify-center min-h-screen text-center px-6 pt-32"
+        className="flex flex-col items-center justify-center min-h-screen text-center px-6 pt-0"
       >
         {/* Titre */}
-        <h1 className="text-6xl md:text-8xl font-bold text-nordik-glacier mb-4">
+        <h1 className="text-6xl md:text-8xl font-bold text-nordik-glacier mb-6">
           Nordik Legion Studio
         </h1>
 
@@ -26,7 +26,7 @@ export default function Home() {
         />
 
         {/* Tagline courte */}
-        <p className="mt-2 text-lg md:text-xl text-nordik-snow/80 max-w-2xl">
+        <p className="mt-0 text-lg md:text-xl text-nordik-snow/80 max-w-2xl">
           Studio indépendant avec des racines nordiques.  
           Nous forgeons des expériences uniques entre mythologie, technologie et créativité.
         </p>
@@ -35,9 +35,9 @@ export default function Home() {
       {/* SECTION PRÉSENTATION */}
       <section
         id="accueil"
-        className="py-12 px-6 max-w-4xl mx-auto text-center"
+        className="py-6 px-6 max-w-4xl mx-auto text-center"
       >
-        <h2 className="text-4xl md:text-5xl font-bold text-nordik-glacier mb-0">
+        <h2 className="text-4xl md:text-5xl font-bold text-nordik-glacier mb-6">
           Qui sommes-nous ?
         </h2>
 
