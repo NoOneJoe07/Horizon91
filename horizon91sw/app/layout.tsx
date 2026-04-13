@@ -29,18 +29,17 @@ export default function RootLayout({
       lang="fr"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      {/* IMPORTANT : body transparent pour laisser voir le fond cosmique */}
-      <body className="min-h-full flex flex-col text-h91-stellar bg-transparent">
+      <body className="min-h-screen flex flex-col text-h91-stellar bg-transparent">
 
         {/* Fond cosmique */}
         <div className="night-sky"></div>
         <div className="aurora-band"></div>
-
+        <div className="accretion-ring"></div>
         {/* HEADER */}
         <Header />
 
         {/* CONTENU DES PAGES */}
-        <main className="pt-32">
+        <main className="flex-1 pt-32">
           {children}
         </main>
 
@@ -51,5 +50,6 @@ export default function RootLayout({
     </html>
   );
 }
+
 
 

@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 /* ---------------------------------------------------------
-   PALETTE HORIZON 91 — EVENT HORIZON
+   PALETTE HORIZON 91 — EVENT HORIZON (VERSION RÉCHAUFFÉE)
 --------------------------------------------------------- */
 @theme inline {
   --color-h91-gravity: #05070A;        /* Noir gravité */
@@ -18,7 +18,7 @@
 
 /* ---------------------------------------------------------
    BACKGROUND COSMIQUE — HORIZON 91
-   (Ciel étoilé + halos relativistes + aurora sombre)
+   (Ciel étoilé + halos relativistes + disque d’accrétion)
 --------------------------------------------------------- */
 
 /* --- CIEL ÉTOILÉ --- */
@@ -27,8 +27,11 @@
   inset: 0;
   z-index: -3;
   background:
-    /* Halo bleu relativiste */
-    radial-gradient(circle at 50% 20%, rgba(26, 140, 255, 0.12), transparent 70%),
+    /* Noyau chaud central */
+    radial-gradient(circle at 50% 50%, rgba(255, 122, 26, 0.35), transparent 55%),
+
+    /* Halo bleu relativiste en périphérie */
+    radial-gradient(circle at 50% 10%, rgba(26, 140, 255, 0.12), transparent 70%),
 
     /* Halo cyan ionisé */
     radial-gradient(circle at 80% 80%, rgba(0, 240, 255, 0.12), transparent 75%),
@@ -42,35 +45,31 @@
   pointer-events: none;
 }
 
-/* --- AURORA BORÉALE SOMBRE --- */
+/* --- AURORA SOMBRE (LÉGÈRE, PAS BORÉALE) --- */
 .aurora-band {
   position: fixed;
   inset: 0;
   z-index: -2;
   background:
-    /* Aurora bleu relativiste */
-    radial-gradient(circle at 20% 60%, rgba(26, 140, 255, 0.25), transparent 50%),
-
-    /* Aurora violet warp */
-    radial-gradient(circle at 70% 30%, rgba(106, 0, 255, 0.20), transparent 50%),
-
-    /* Aurora cyan ionisé */
-    radial-gradient(circle at 40% 80%, rgba(0, 240, 255, 0.18), transparent 50%);
+    radial-gradient(circle at 20% 60%, rgba(26, 140, 255, 0.22), transparent 55%),
+    radial-gradient(circle at 70% 30%, rgba(106, 0, 255, 0.18), transparent 55%),
+    radial-gradient(circle at 40% 80%, rgba(0, 240, 255, 0.15), transparent 55%);
   filter: blur(70px);
   animation: auroraMove 18s ease-in-out infinite alternate;
   pointer-events: none;
 }
 
-/* --- DISQUE D’ACCRÉTION (ORANGE + JAUNE) --- */
+/* --- DISQUE D’ACCRÉTION (CHAUD, SUBTIL, PREMIUM) --- */
 .accretion-ring {
   position: fixed;
   inset: 0;
   z-index: -1;
   background:
-    radial-gradient(circle at 50% 110%, rgba(221, 108, 27, 0.25), transparent 50%),
-    radial-gradient(circle at 50% 120%, rgba(184, 144, 24, 0.2), transparent 50%);
-  filter: blur(90px);
-  animation: accretionPulse 12s ease-in-out infinite alternate;
+    radial-gradient(circle at 50% 115%, rgba(255, 122, 26, 0.28), transparent 55%),
+    radial-gradient(circle at 50% 130%, rgba(255, 214, 92, 0.22), transparent 55%),
+    radial-gradient(circle at 50% 145%, rgba(255, 90, 60, 0.18), transparent 55%);
+  filter: blur(95px);
+  animation: accretionPulse 14s ease-in-out infinite alternate;
   pointer-events: none;
 }
 
@@ -82,15 +81,93 @@
 
 /* --- ANIMATION ACCRÉTION --- */
 @keyframes accretionPulse {
-  0% { opacity: 0.6; transform: scale(1); }
-  100% { opacity: 0.9; transform: scale(1.1); }
+  0% { opacity: 0.55; transform: scale(1); }
+  100% { opacity: 0.85; transform: scale(1.12); }
 }
 
+/* ---------------------------------------------------------
+   NOYAU ORBITAL AUTOUR DU LOGO (EFFET DE ROTATION)
+--------------------------------------------------------- */
 
-/* --- ANIMATION AURORA --- */
-@keyframes auroraMove {
-  0% { transform: translateY(0px) translateX(0px); }
-  100% { transform: translateY(-40px) translateX(20px); }
+/* --- NOYAU ORBITAL CHAUD --- */
+.orbital-core {
+  position: absolute;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  background: conic-gradient(
+    from 0deg,
+    rgba(255, 122, 26, 0.55),
+    rgba(255, 214, 92, 0.55),
+    rgba(255, 90, 60, 0.55),
+    rgba(255, 122, 26, 0.55)
+  );
+  filter: blur(18px);
+  opacity: 0.55;
+  animation: coreSpin 18s linear infinite;
+  z-index: -1;
+}
+
+@keyframes coreSpin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* --- HALO FROID AUTOUR DU LOGO --- */
+.blue-halo {
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(26, 140, 255, 0.35) 0%,
+    rgba(26, 140, 255, 0.15) 40%,
+    rgba(10, 10, 15, 0) 70%
+  );
+  filter: blur(25px);
+  opacity: 0.45;
+  z-index: -2;
+}
+/* ---------------------------------------------------------
+   GRADIENT DU FROID VERS LE CHAUD — TITRE HORIZON 91
+--------------------------------------------------------- */
+.h91-title-gradient {
+  background: linear-gradient(
+    90deg,
+    var(--color-h91-relativistic),
+    var(--color-h91-ion),
+    var(--color-h91-accretion),
+    var(--color-h91-fusion)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ---------------------------------------------------------
+   GRADIENT ANIMÉ — HORIZON 91 (FROID → CHAUD → FROID)
+--------------------------------------------------------- */
+.h91-title-gradient-animated {
+  background: linear-gradient(
+    90deg,
+    var(--color-h91-relativistic),
+    var(--color-h91-ion),
+    var(--color-h91-accretion),
+    var(--color-h91-fusion),
+    var(--color-h91-accretion),
+    var(--color-h91-ion),
+    var(--color-h91-relativistic)
+  );
+  background-size: 400% 400%;
+  animation: h91GradientFlow 12s ease-in-out infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@keyframes h91GradientFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 /* ---------------------------------------------------------
@@ -99,3 +176,5 @@
 body {
   @apply bg-h91-gravity text-h91-stellar;
 }
+
+

@@ -9,18 +9,29 @@ export default function Home() {
         className="flex flex-col items-center justify-center min-h-screen text-center px-6 pt-0"
       >
         {/* Titre principal au-dessus du logo */}
-        <h1 className="text-6xl md:text-8xl font-bold text-h91-relativistic mb-6">
-          Horizon 91 - Groupe Créatif & Technologique
+        <h1 className="text-6xl md:text-8xl font-bold h91-title-gradient-animated mb-6">
+          Horizon 91
         </h1>
+ 
 
-        {/* Logo Horizon 91 */}
-        <Image
-          src="/LogoHorizon91.svg"
-          alt="Logo Horizon 91"
-          width={600}
-          height={600}
-          className="mb-6 drop-shadow-2xl"
-        />
+        {/* LOGO + ORBITAL EFFECT */}
+        <div className="relative flex items-center justify-center mb-6">
+
+          {/* Halo froid */}
+          <div className="blue-halo"></div>
+
+          {/* Noyau orbital chaud */}
+          <div className="orbital-core"></div>
+
+          {/* Logo Horizon 91 */}
+          <Image
+            src="/LogoHorizon91.svg"
+            alt="Logo Horizon 91"
+            width={800}
+            height={800}
+            className="relative z-10 drop-shadow-2xl"
+          />
+        </div>
 
         {/* Tagline courte */}
         <p className="mt-0 text-lg md:text-xl text-h91-stellar/80 max-w-2xl">
@@ -58,6 +69,7 @@ export default function Home() {
     </>
   );
 }
+
 
 
 

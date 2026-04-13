@@ -8,7 +8,7 @@ export default function Header() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50 bg-h91-gravity/80 backdrop-blur-md border-b border-h91-relativistic/30">
+    <header className="fixed top-0 left-0 w-full z-50 bg-transparent backdrop-blur-md border-b border-h91-relativistic/30">
       <div className="max-w-6xl mx-auto flex items-center px-6 py-4">
 
         {/* ZONE GAUCHE — LOGO + TEXTE */}
