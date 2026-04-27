@@ -1,0 +1,22 @@
+version: "3.9"
+
+services:
+  horizon_site:
+    container_name: horizon91_site
+    build:
+      context: ../divisions/Web/HorizonSite
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    env_file:
+      - ../divisions/Web/HorizonSite/.env
+    restart: unless-stopped
+    #volumes:
+    #  - ../divisions/Web/HorizonSite:/app
+    #  - /app/node_modules
+    networks:
+      - horizon_net
+
+networks:
+  horizon_net:
+    driver: bridge
