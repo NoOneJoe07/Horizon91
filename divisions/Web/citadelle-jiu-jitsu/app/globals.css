@@ -1,26 +1,157 @@
+/* ==========================================================================
+ * Citadelle Jiu-Jitsu — Styles globaux
+ * Tailwind v4 (config inline via @theme)
+ * --------------------------------------------------------------------------
+ * Design tokens en CSS variables → swap trivial quand l'identité visuelle
+ * définitive arrive (logo + palette client).
+ * ==========================================================================
+ */
+
 @import "tailwindcss";
 
+@theme {
+  /* Palette PLACEHOLDER (à remplacer par la palette officielle) */
+  --color-citadelle-bg: #0b0d12;        /* fond très sombre, presque noir */
+  --color-citadelle-surface: #14181f;   /* surfaces (cards, header) */
+  --color-citadelle-surface-2: #1c2230;
+  --color-citadelle-border: #2a3140;
+  --color-citadelle-text: #e8eaed;
+  --color-citadelle-text-muted: #9aa3b2;
+  --color-citadelle-gold: #c9a04a;      /* accent principal */
+  --color-citadelle-gold-dark: #8c6d2c;
+  --color-citadelle-blood: #8b1f25;     /* accent secondaire (compétition) */
+  --color-citadelle-success: #2f9e6b;
+  --color-citadelle-danger: #c94545;
+
+  /* Typographie */
+  --font-display: ui-serif, Georgia, "Times New Roman", serif;
+  --font-body: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+  /* Rayons et ombres */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --shadow-citadelle: 0 8px 32px rgba(0, 0, 0, 0.45);
+}
+
+/* --- Base ---------------------------------------------------------------- */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  color-scheme: dark;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+html,
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-citadelle-bg);
+  color: var(--color-citadelle-text);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  letter-spacing: -0.01em;
+}
+
+a {
+  color: var(--color-citadelle-gold);
+  text-decoration: none;
+  transition: color 150ms ease;
+}
+
+a:hover {
+  color: var(--color-citadelle-text);
+}
+
+/* Focus visible pour accessibilité */
+:focus-visible {
+  outline: 2px solid var(--color-citadelle-gold);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+/* --- Utilitaires custom -------------------------------------------------- */
+
+.container-citadelle {
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+.section {
+  padding-block: 4rem;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background-color: var(--color-citadelle-gold);
+  color: var(--color-citadelle-bg);
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  transition: transform 150ms ease, background-color 150ms ease;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-citadelle-gold-dark);
+  color: var(--color-citadelle-bg);
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background-color: transparent;
+  color: var(--color-citadelle-text);
+  border: 1px solid var(--color-citadelle-border);
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  transition: all 150ms ease;
+}
+
+.btn-secondary:hover {
+  border-color: var(--color-citadelle-gold);
+  color: var(--color-citadelle-gold);
+}
+
+.card {
+  background-color: var(--color-citadelle-surface);
+  border: 1px solid var(--color-citadelle-border);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-citadelle);
+}
+
+.input {
+  width: 100%;
+  padding: 0.65rem 0.85rem;
+  background-color: var(--color-citadelle-surface-2);
+  border: 1px solid var(--color-citadelle-border);
+  border-radius: var(--radius-md);
+  color: var(--color-citadelle-text);
+  font-family: inherit;
+  transition: border-color 150ms ease;
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--color-citadelle-gold);
+}
+
+.label {
+  display: block;
+  margin-bottom: 0.35rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-citadelle-text-muted);
 }

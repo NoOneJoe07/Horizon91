@@ -1,0 +1,189 @@
+{
+  "Meta": {
+    "title": "Citadelle Jiu-Jitsu — Martial arts school in Québec",
+    "description": "Brazilian jiu-jitsu school in Québec City. Classes for adults, kids and competitors. First trial class is free."
+  },
+  "Nav": {
+    "home": "Home",
+    "instructors": "Instructors",
+    "schedule": "Schedule",
+    "subscriptions": "Memberships",
+    "shop": "Shop",
+    "gallery": "Gallery",
+    "contact": "Contact",
+    "trial": "Trial class",
+    "login": "Sign in",
+    "register": "Sign up",
+    "logout": "Sign out",
+    "admin": "Admin"
+  },
+  "Home": {
+    "hero": {
+      "tagline": "The art of combat. The discipline of the warrior.",
+      "title": "Welcome to the Citadelle",
+      "subtitle": "Brazilian jiu-jitsu school in Québec City. For adults, kids, and competitors.",
+      "ctaTrial": "Book my free trial class",
+      "ctaPlans": "View memberships"
+    },
+    "values": {
+      "title": "Our values",
+      "discipline": {
+        "title": "Discipline",
+        "desc": "Every training session forges body, mind, and character."
+      },
+      "respect": {
+        "title": "Respect",
+        "desc": "From the mat to daily life — respect for partners, instructors, and yourself."
+      },
+      "progress": {
+        "title": "Progress",
+        "desc": "Structured curriculum from white belt to black belt."
+      }
+    },
+    "about": {
+      "title": "Our dojo",
+      "body": "Founded in Québec City, the Citadelle is more than a school: it's a martial arts family. We offer a safe yet demanding environment where every student progresses at their own pace, guided by certified black belt instructors."
+    }
+  },
+  "Instructors": {
+    "title": "Our instructors",
+    "subtitle": "A team of certified, passionate black belts."
+  },
+  "Schedule": {
+    "title": "Class schedule",
+    "subtitle": "All weekly classes.",
+    "days": {
+      "monday": "Monday",
+      "tuesday": "Tuesday",
+      "wednesday": "Wednesday",
+      "thursday": "Thursday",
+      "friday": "Friday",
+      "saturday": "Saturday",
+      "sunday": "Sunday"
+    },
+    "noClass": "No class"
+  },
+  "Subscriptions": {
+    "title": "Choose your membership",
+    "subtitle": "Plans that fit every level and every budget.",
+    "perMonth": "/month",
+    "perYear": "/year",
+    "selectPlan": "Select this plan",
+    "popular": "Most popular",
+    "features": "Included:",
+    "guarantee": "No commitment after the first month — cancel anytime."
+  },
+  "Shop": {
+    "title": "Citadelle Shop",
+    "subtitle": "Official dojo equipment and merchandise.",
+    "addToCart": "Add to cart",
+    "outOfStock": "Out of stock",
+    "pickup": "Dojo pickup OR manual delivery",
+    "noShipping": "No automatic shipping — coordinated directly with the owner."
+  },
+  "Trial": {
+    "title": "Book your free trial class",
+    "subtitle": "An introductory class on the house for newcomers. No commitment.",
+    "form": {
+      "firstName": "First name",
+      "lastName": "Last name",
+      "email": "Email",
+      "phone": "Phone",
+      "age": "Age",
+      "experience": "Martial arts experience",
+      "experienceNone": "None",
+      "experienceSome": "A few months",
+      "experienceYears": "Several years",
+      "preferredDate": "Preferred date",
+      "message": "Message (optional)",
+      "submit": "Book my class",
+      "submitting": "Submitting...",
+      "success": "Thanks! The owner will contact you within 24 hours to confirm.",
+      "error": "Something went wrong. Try again or contact us directly."
+    }
+  },
+  "Contact": {
+    "title": "Contact us",
+    "subtitle": "A question? A group project? Drop us a line.",
+    "address": "Address",
+    "phone": "Phone",
+    "email": "Email",
+    "hours": "Dojo opening hours",
+    "form": {
+      "name": "Full name",
+      "email": "Email",
+      "subject": "Subject",
+      "message": "Message",
+      "submit": "Send",
+      "success": "Message received. We'll reply shortly.",
+      "error": "Something went wrong. Try again."
+    }
+  },
+  "Gallery": {
+    "title": "Gallery",
+    "subtitle": "Highlights from the dojo and our competitors."
+  },
+  "Auth": {
+    "login": {
+      "title": "Sign in",
+      "email": "Email",
+      "password": "Password",
+      "submit": "Sign in",
+      "submitting": "Signing in...",
+      "noAccount": "Don't have an account?",
+      "register": "Create one",
+      "forgotPassword": "Forgot password?",
+      "error": "Invalid credentials."
+    },
+    "register": {
+      "title": "Create an account",
+      "firstName": "First name",
+      "lastName": "Last name",
+      "email": "Email",
+      "password": "Password",
+      "confirmPassword": "Confirm password",
+      "submit": "Create account",
+      "submitting": "Creating...",
+      "hasAccount": "Already have an account?",
+      "login": "Sign in",
+      "passwordMismatch": "Passwords don't match.",
+      "error": "Account creation failed."
+    }
+  },
+  "Admin": {
+    "title": "Dashboard",
+    "welcome": "Welcome to the Citadelle admin panel",
+    "sections": {
+      "products": "Products",
+      "subscriptions": "Memberships",
+      "trials": "Trial classes",
+      "users": "Users",
+      "orders": "Orders"
+    },
+    "actions": {
+      "create": "Create",
+      "edit": "Edit",
+      "delete": "Delete",
+      "save": "Save",
+      "cancel": "Cancel",
+      "confirmDelete": "Confirm deletion?"
+    }
+  },
+  "Footer": {
+    "tagline": "Brazilian jiu-jitsu school — Québec City, QC",
+    "quickLinks": "Quick links",
+    "legal": "Legal",
+    "privacy": "Privacy policy",
+    "terms": "Terms of use",
+    "developedBy": "Built by",
+    "copyright": "All rights reserved"
+  },
+  "Errors": {
+    "notFound": {
+      "title": "Page not found",
+      "subtitle": "The page you're looking for doesn't exist or has been moved.",
+      "backHome": "Back to home"
+    },
+    "generic": "Something went wrong. Try again or contact us."
+  }
+}

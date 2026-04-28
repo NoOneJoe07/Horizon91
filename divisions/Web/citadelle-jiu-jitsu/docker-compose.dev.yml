@@ -1,0 +1,32 @@
+# =============================================================================
+# docker-compose pour DÉVELOPPEMENT local (PostgreSQL uniquement)
+# -----------------------------------------------------------------------------
+# Lance juste la BD ; le frontend Next.js tourne en local avec `npm run dev`
+# pour bénéficier du hot reload.
+#
+# Usage :
+#   docker compose -f docker-compose.dev.yml up -d
+#   docker compose -f docker-compose.dev.yml down
+# =============================================================================
+
+services:
+  citadelle_db:
+    image: postgres:16-alpine
+    container_name: citadelle_db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: citadelle
+      POSTGRES_PASSWORD: changeme
+      POSTGRES_DB: citadelle_dev
+    ports:
+      - "5432:5432"
+    volumes:
+      - citadelle_db_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U citadelle -d citadelle_dev"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+volumes:
+  citadelle_db_data:

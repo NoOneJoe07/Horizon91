@@ -1,0 +1,189 @@
+{
+  "Meta": {
+    "title": "Citadelle Jiu-Jitsu — École d'arts martiaux à Québec",
+    "description": "École de jiu-jitsu brésilien à Québec. Cours pour adultes, enfants et compétiteurs. Première séance d'essai gratuite."
+  },
+  "Nav": {
+    "home": "Accueil",
+    "instructors": "Instructeurs",
+    "schedule": "Horaires",
+    "subscriptions": "Abonnements",
+    "shop": "Boutique",
+    "gallery": "Galerie",
+    "contact": "Contact",
+    "trial": "Séance d'essai",
+    "login": "Connexion",
+    "register": "Inscription",
+    "logout": "Déconnexion",
+    "admin": "Admin"
+  },
+  "Home": {
+    "hero": {
+      "tagline": "L'art du combat. La discipline du guerrier.",
+      "title": "Bienvenue à la Citadelle",
+      "subtitle": "École de jiu-jitsu brésilien à Québec. Pour adultes, enfants et compétiteurs.",
+      "ctaTrial": "Réserver ma séance d'essai gratuite",
+      "ctaPlans": "Voir les abonnements"
+    },
+    "values": {
+      "title": "Nos valeurs",
+      "discipline": {
+        "title": "Discipline",
+        "desc": "Chaque entraînement forge le corps, l'esprit et le caractère."
+      },
+      "respect": {
+        "title": "Respect",
+        "desc": "Du tatami à la vie quotidienne — respect des partenaires, des instructeurs et de soi-même."
+      },
+      "progress": {
+        "title": "Progression",
+        "desc": "Une pédagogie structurée du débutant à la ceinture noire."
+      }
+    },
+    "about": {
+      "title": "Notre dojo",
+      "body": "Fondée à Québec, la Citadelle est plus qu'une école : c'est une famille d'arts martiaux. Nous offrons un environnement sécuritaire et exigeant où chaque élève progresse à son rythme, encadré par des instructeurs ceinture noire reconnus."
+    }
+  },
+  "Instructors": {
+    "title": "Nos instructeurs",
+    "subtitle": "Une équipe de gradés passionnés et certifiés."
+  },
+  "Schedule": {
+    "title": "Horaires des cours",
+    "subtitle": "Tous nos cours hebdomadaires.",
+    "days": {
+      "monday": "Lundi",
+      "tuesday": "Mardi",
+      "wednesday": "Mercredi",
+      "thursday": "Jeudi",
+      "friday": "Vendredi",
+      "saturday": "Samedi",
+      "sunday": "Dimanche"
+    },
+    "noClass": "Aucun cours"
+  },
+  "Subscriptions": {
+    "title": "Choisis ton abonnement",
+    "subtitle": "Des forfaits adaptés à tous les niveaux et toutes les bourses.",
+    "perMonth": "/mois",
+    "perYear": "/an",
+    "selectPlan": "Choisir ce forfait",
+    "popular": "Le plus populaire",
+    "features": "Inclus :",
+    "guarantee": "Sans engagement après le 1er mois — résiliation libre."
+  },
+  "Shop": {
+    "title": "Boutique Citadelle",
+    "subtitle": "Équipement et marchandise officielle du dojo.",
+    "addToCart": "Ajouter au panier",
+    "outOfStock": "Rupture",
+    "pickup": "Ramassage au dojo OU livraison manuelle",
+    "noShipping": "Pas d'expédition automatique — coordonné directement avec le propriétaire."
+  },
+  "Trial": {
+    "title": "Réserve ta séance d'essai gratuite",
+    "subtitle": "Une cours d'introduction offert à tous les nouveaux. Aucun engagement.",
+    "form": {
+      "firstName": "Prénom",
+      "lastName": "Nom",
+      "email": "Courriel",
+      "phone": "Téléphone",
+      "age": "Âge",
+      "experience": "Expérience en arts martiaux",
+      "experienceNone": "Aucune",
+      "experienceSome": "Quelques mois",
+      "experienceYears": "Plusieurs années",
+      "preferredDate": "Date souhaitée",
+      "message": "Message (optionnel)",
+      "submit": "Réserver ma séance",
+      "submitting": "Envoi en cours...",
+      "success": "Merci ! Le propriétaire te contactera sous 24h pour confirmer.",
+      "error": "Une erreur est survenue. Réessaie ou contacte-nous directement."
+    }
+  },
+  "Contact": {
+    "title": "Nous contacter",
+    "subtitle": "Une question ? Un projet de groupe ? Écris-nous.",
+    "address": "Adresse",
+    "phone": "Téléphone",
+    "email": "Courriel",
+    "hours": "Heures d'ouverture du dojo",
+    "form": {
+      "name": "Nom complet",
+      "email": "Courriel",
+      "subject": "Sujet",
+      "message": "Message",
+      "submit": "Envoyer",
+      "success": "Message reçu. On te répond rapidement.",
+      "error": "Une erreur est survenue. Réessaie."
+    }
+  },
+  "Gallery": {
+    "title": "Galerie",
+    "subtitle": "Quelques moments forts du dojo et de nos compétiteurs."
+  },
+  "Auth": {
+    "login": {
+      "title": "Connexion",
+      "email": "Courriel",
+      "password": "Mot de passe",
+      "submit": "Se connecter",
+      "submitting": "Connexion...",
+      "noAccount": "Pas encore de compte ?",
+      "register": "Créer un compte",
+      "forgotPassword": "Mot de passe oublié ?",
+      "error": "Identifiants invalides."
+    },
+    "register": {
+      "title": "Créer un compte",
+      "firstName": "Prénom",
+      "lastName": "Nom",
+      "email": "Courriel",
+      "password": "Mot de passe",
+      "confirmPassword": "Confirmer le mot de passe",
+      "submit": "Créer le compte",
+      "submitting": "Création...",
+      "hasAccount": "Déjà un compte ?",
+      "login": "Se connecter",
+      "passwordMismatch": "Les mots de passe ne correspondent pas.",
+      "error": "Erreur lors de la création du compte."
+    }
+  },
+  "Admin": {
+    "title": "Tableau de bord",
+    "welcome": "Bienvenue dans l'administration de la Citadelle",
+    "sections": {
+      "products": "Produits",
+      "subscriptions": "Abonnements",
+      "trials": "Séances d'essai",
+      "users": "Utilisateurs",
+      "orders": "Commandes"
+    },
+    "actions": {
+      "create": "Créer",
+      "edit": "Modifier",
+      "delete": "Supprimer",
+      "save": "Enregistrer",
+      "cancel": "Annuler",
+      "confirmDelete": "Confirmer la suppression ?"
+    }
+  },
+  "Footer": {
+    "tagline": "École de jiu-jitsu brésilien — Québec, QC",
+    "quickLinks": "Liens rapides",
+    "legal": "Légal",
+    "privacy": "Politique de confidentialité",
+    "terms": "Conditions d'utilisation",
+    "developedBy": "Développé par",
+    "copyright": "Tous droits réservés"
+  },
+  "Errors": {
+    "notFound": {
+      "title": "Page introuvable",
+      "subtitle": "La page que tu cherches n'existe pas ou a été déplacée.",
+      "backHome": "Retour à l'accueil"
+    },
+    "generic": "Une erreur est survenue. Réessaie ou contacte-nous."
+  }
+}

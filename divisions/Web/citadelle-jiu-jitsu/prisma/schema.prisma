@@ -1,0 +1,238 @@
+// =============================================================================
+// Schéma Prisma — Citadelle Jiu-Jitsu
+// -----------------------------------------------------------------------------
+// Source unique de vérité pour la base de données PostgreSQL.
+// Modifier ce fichier puis lancer : npx prisma migrate dev --name <description>
+// =============================================================================
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// -----------------------------------------------------------------------------
+// AUTHENTIFICATION
+// -----------------------------------------------------------------------------
+
+enum Role {
+  USER
+  ADMIN
+}
+
+model User {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  firstName    String
+  lastName     String
+  passwordHash String
+  role         Role     @default(USER)
+  phone        String?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  // Relations
+  subscriptions UserSubscription[]
+  orders        Order[]
+  trialSessions TrialSession[]
+
+  @@index([email])
+}
+
+// -----------------------------------------------------------------------------
+// ABONNEMENTS (plans + souscriptions)
+// -----------------------------------------------------------------------------
+
+enum BillingInterval {
+  MONTH
+  YEAR
+}
+
+model SubscriptionPlan {
+  id              String          @id @default(cuid())
+  slug            String          @unique // "adulte-mensuel", "famille-mensuel", etc.
+  nameFr          String
+  nameEn          String
+  descriptionFr   String
+  descriptionEn   String
+  priceCents      Int             // prix en centimes (CAD)
+  interval        BillingInterval
+  featuresFr      String[]        // liste de features (i18n FR)
+  featuresEn      String[]        // liste de features (i18n EN)
+  stripeProductId String?         @unique
+  stripePriceId   String?         @unique
+  active          Boolean         @default(true)
+  popular         Boolean         @default(false)
+  sortOrder       Int             @default(0)
+  createdAt       DateTime        @default(now())
+  updatedAt       DateTime        @updatedAt
+
+  subscriptions UserSubscription[]
+}
+
+enum SubscriptionStatus {
+  ACTIVE
+  PAST_DUE
+  CANCELED
+  EXPIRED
+  PENDING
+}
+
+model UserSubscription {
+  id                   String             @id @default(cuid())
+  userId               String
+  planId               String
+  status               SubscriptionStatus @default(PENDING)
+  stripeSubscriptionId String?            @unique
+  currentPeriodStart   DateTime?
+  currentPeriodEnd     DateTime?
+  cancelAtPeriodEnd    Boolean            @default(false)
+  createdAt            DateTime           @default(now())
+  updatedAt            DateTime           @updatedAt
+
+  user User             @relation(fields: [userId], references: [id], onDelete: Cascade)
+  plan SubscriptionPlan @relation(fields: [planId], references: [id])
+
+  @@index([userId])
+  @@index([status])
+}
+
+// -----------------------------------------------------------------------------
+// BOUTIQUE (produits + commandes)
+// -----------------------------------------------------------------------------
+
+enum ProductCategory {
+  APPAREL    // hoodies, t-shirts
+  GEAR       // gi, ceintures, protection
+  ACCESSORY  // sacs, gourdes, etc.
+}
+
+model Product {
+  id              String          @id @default(cuid())
+  slug            String          @unique
+  nameFr          String
+  nameEn          String
+  descriptionFr   String
+  descriptionEn   String
+  priceCents      Int
+  category        ProductCategory
+  imageUrl        String?
+  stockQuantity   Int             @default(0)
+  active          Boolean         @default(true)
+  stripeProductId String?         @unique
+  stripePriceId   String?         @unique
+  createdAt       DateTime        @default(now())
+  updatedAt       DateTime        @updatedAt
+
+  orderItems OrderItem[]
+}
+
+enum OrderStatus {
+  PENDING       // créée, paiement non confirmé
+  PAID          // paiement Stripe confirmé
+  READY_PICKUP  // prête à être ramassée au dojo
+  DELIVERED     // livrée / ramassée
+  CANCELED
+  REFUNDED
+}
+
+enum FulfillmentMethod {
+  PICKUP   // ramassage au dojo
+  DELIVERY // livraison manuelle par le proprio
+}
+
+model Order {
+  id                String            @id @default(cuid())
+  userId            String?           // null = guest checkout possible plus tard
+  email             String            // copie pour traçabilité même si user supprimé
+  totalCents        Int
+  status            OrderStatus       @default(PENDING)
+  fulfillment       FulfillmentMethod @default(PICKUP)
+  stripeSessionId   String?           @unique
+  stripePaymentIntentId String?       @unique
+  notes             String?           // note du proprio (ex: "remis le 5 mai")
+  createdAt         DateTime          @default(now())
+  updatedAt         DateTime          @updatedAt
+
+  user  User?       @relation(fields: [userId], references: [id], onDelete: SetNull)
+  items OrderItem[]
+
+  @@index([userId])
+  @@index([status])
+  @@index([createdAt])
+}
+
+model OrderItem {
+  id           String @id @default(cuid())
+  orderId      String
+  productId    String
+  quantity     Int
+  unitPriceCents Int  // prix au moment de l'achat (snapshot)
+  productNameFr String // snapshot pour historique
+  productNameEn String
+
+  order   Order   @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  product Product @relation(fields: [productId], references: [id])
+
+  @@index([orderId])
+}
+
+// -----------------------------------------------------------------------------
+// SÉANCES D'ESSAI (lead capture)
+// -----------------------------------------------------------------------------
+
+enum TrialStatus {
+  PENDING     // demande reçue
+  CONFIRMED   // proprio a confirmé date/heure
+  ATTENDED    // élève est venu
+  NO_SHOW     // ne s'est pas présenté
+  CANCELED
+}
+
+enum ExperienceLevel {
+  NONE
+  SOME
+  YEARS
+}
+
+model TrialSession {
+  id            String          @id @default(cuid())
+  userId        String?         // si formulaire rempli en étant connecté
+  firstName     String
+  lastName      String
+  email         String
+  phone         String
+  age           Int
+  experience    ExperienceLevel
+  preferredDate DateTime
+  message       String?
+  status        TrialStatus     @default(PENDING)
+  notes         String?         // note interne du proprio
+  createdAt     DateTime        @default(now())
+  updatedAt     DateTime        @updatedAt
+
+  user User? @relation(fields: [userId], references: [id], onDelete: SetNull)
+
+  @@index([status])
+  @@index([preferredDate])
+}
+
+// -----------------------------------------------------------------------------
+// CONTACT (formulaire site)
+// -----------------------------------------------------------------------------
+
+model ContactMessage {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  subject   String
+  message   String
+  read      Boolean  @default(false)
+  createdAt DateTime @default(now())
+
+  @@index([read])
+  @@index([createdAt])
+}
