@@ -77,6 +77,50 @@ export async function Footer({ locale }: FooterProps) {
             </ul>
           </div>
 
+          {/* Contact & Social */}
+          <div>
+            <h3
+              style={{
+                fontSize: "0.875rem",
+                color: "var(--color-citadelle-text-muted)",
+                marginBottom: "0.75rem",
+                textTransform: "uppercase",
+                letterSpacing: "0.05em",
+              }}
+            >
+              {tFooter("contact")}
+            </h3>
+            <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "grid", gap: "0.4rem", fontSize: "0.875rem" }}>
+              <li>
+                <a href="tel:+14185641047" style={{ color: "inherit" }}>
+                  418-564-1047
+                </a>
+              </li>
+              <li style={{ color: "var(--color-citadelle-text-muted)" }}>
+                964 Rue Mainguy, Québec, QC
+              </li>
+              <li style={{ marginTop: "0.5rem" }}>
+                <a
+                  href="https://www.instagram.com/citadellebjj/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ color: "var(--color-citadelle-gold)" }}
+                >
+                  Instagram
+                </a>
+                {" · "}
+                <a
+                  href="https://www.facebook.com/p/Citadelle-Jiu-Jitsu-61578755165328/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ color: "var(--color-citadelle-gold)" }}
+                >
+                  Facebook
+                </a>
+              </li>
+            </ul>
+          </div>
+
           {/* Legal */}
           <div>
             <h3

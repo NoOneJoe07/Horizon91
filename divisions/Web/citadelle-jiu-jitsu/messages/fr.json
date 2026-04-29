@@ -23,7 +23,26 @@
       "title": "Bienvenue à la Citadelle",
       "subtitle": "École de jiu-jitsu brésilien à Québec. Pour adultes, enfants et compétiteurs.",
       "ctaTrial": "Réserver ma séance d'essai gratuite",
-      "ctaPlans": "Voir les abonnements"
+      "ctaPlans": "Voir les abonnements",
+      "scrollLabel": "Défiler"
+    },
+    "coach": {
+      "sectionLabel": "Votre instructeur",
+      "title": "Formé par les meilleurs au monde",
+      "subtitle": "Top 5 canadien. Compétiteur international. Une passion transmise avec rigueur et bienveillance — à Québec, au cœur de la Citadelle.",
+      "cta": "Découvrir son parcours",
+      "photoAlt": "Photo du fondateur — à venir"
+    },
+    "showcase": {
+      "title": "La Citadelle en action",
+      "subtitle": "Entraînements, compétitions et moments forts — les médias arrivent bientôt.",
+      "comingSoon": "Photos & vidéos bientôt disponibles",
+      "ctaGallery": "Voir la galerie"
+    },
+    "trialBanner": {
+      "title": "Prêt à rejoindre la Citadelle ?",
+      "subtitle": "Première séance d'essai offerte à tous les nouveaux. Aucun engagement.",
+      "cta": "Réserver ma séance gratuite"
     },
     "values": {
       "title": "Nos valeurs",
@@ -47,7 +66,14 @@
   },
   "Instructors": {
     "title": "Nos instructeurs",
-    "subtitle": "Une équipe de gradés passionnés et certifiés."
+    "subtitle": "Des gradés passionnés et certifiés, à ton service.",
+    "achievements": "Accomplissements",
+    "philosophy": "Philosophie",
+    "stats": "En chiffres",
+    "teamSoon": "L'équipe s'agrandit — d'autres instructeurs seront annoncés prochainement.",
+    "trialCta": "Rejoins la Citadelle",
+    "trialCtaSubtitle": "Première séance d'essai gratuite — viens voir par toi-même.",
+    "trialCtaLink": "Réserver ma séance d'essai"
   },
   "Schedule": {
     "title": "Horaires des cours",
@@ -172,6 +198,7 @@
   "Footer": {
     "tagline": "École de jiu-jitsu brésilien — Québec, QC",
     "quickLinks": "Liens rapides",
+    "contact": "Contact",
     "legal": "Légal",
     "privacy": "Politique de confidentialité",
     "terms": "Conditions d'utilisation",

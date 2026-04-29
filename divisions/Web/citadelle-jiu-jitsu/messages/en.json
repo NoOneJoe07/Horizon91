@@ -23,7 +23,26 @@
       "title": "Welcome to the Citadelle",
       "subtitle": "Brazilian jiu-jitsu school in Québec City. For adults, kids, and competitors.",
       "ctaTrial": "Book my free trial class",
-      "ctaPlans": "View memberships"
+      "ctaPlans": "View memberships",
+      "scrollLabel": "Scroll"
+    },
+    "coach": {
+      "sectionLabel": "Your instructor",
+      "title": "Trained by the world's best",
+      "subtitle": "Top 5 in Canada. International competitor. A passion for jiu-jitsu shared with rigor and care — in Québec City, at the heart of the Citadelle.",
+      "cta": "Discover his journey",
+      "photoAlt": "Founder photo — coming soon"
+    },
+    "showcase": {
+      "title": "The Citadelle in action",
+      "subtitle": "Training sessions, competitions and highlights — media coming soon.",
+      "comingSoon": "Photos & videos coming soon",
+      "ctaGallery": "View gallery"
+    },
+    "trialBanner": {
+      "title": "Ready to join the Citadelle?",
+      "subtitle": "First trial class free for all newcomers. No commitment.",
+      "cta": "Book my free trial class"
     },
     "values": {
       "title": "Our values",
@@ -47,7 +66,14 @@
   },
   "Instructors": {
     "title": "Our instructors",
-    "subtitle": "A team of certified, passionate black belts."
+    "subtitle": "Certified, passionate black belts — at your service.",
+    "achievements": "Achievements",
+    "philosophy": "Philosophy",
+    "stats": "By the numbers",
+    "teamSoon": "The team is growing — more instructors will be announced soon.",
+    "trialCta": "Join the Citadelle",
+    "trialCtaSubtitle": "First trial class is free — come see for yourself.",
+    "trialCtaLink": "Book my trial class"
   },
   "Schedule": {
     "title": "Class schedule",
@@ -172,6 +198,7 @@
   "Footer": {
     "tagline": "Brazilian jiu-jitsu school — Québec City, QC",
     "quickLinks": "Quick links",
+    "contact": "Contact",
     "legal": "Legal",
     "privacy": "Privacy policy",
     "terms": "Terms of use",

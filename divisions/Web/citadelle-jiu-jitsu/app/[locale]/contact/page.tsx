@@ -38,10 +38,23 @@ export default async function ContactPage({
               {t("address")}
             </h3>
             <p style={{ marginTop: "0.5rem" }}>
-              123 rue Saint-Jean
+              964 Rue Mainguy
               <br />
-              Québec, QC G1R 1N5
+              Québec, QC G1V 3S4
             </p>
+            <a
+              href="https://maps.google.com/?q=964+Rue+Mainguy,+Quebec,+QC+G1V+3S4"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: "inline-block",
+                marginTop: "0.5rem",
+                fontSize: "0.875rem",
+                color: "var(--color-citadelle-gold)",
+              }}
+            >
+              {locale === "fr" ? "Voir sur Google Maps →" : "View on Google Maps →"}
+            </a>
           </div>
           <div className="card">
             <h3
@@ -54,7 +67,11 @@ export default async function ContactPage({
             >
               {t("phone")}
             </h3>
-            <p style={{ marginTop: "0.5rem" }}>(418) 555-0182</p>
+            <p style={{ marginTop: "0.5rem" }}>
+              <a href="tel:+14185641047" style={{ color: "inherit" }}>
+                418-564-1047
+              </a>
+            </p>
           </div>
           <div className="card">
             <h3
@@ -65,9 +82,26 @@ export default async function ContactPage({
                 letterSpacing: "0.05em",
               }}
             >
-              {t("email")}
+              {locale === "fr" ? "Réseaux sociaux" : "Social media"}
             </h3>
-            <p style={{ marginTop: "0.5rem" }}>info@citadellejiujitsu.ca</p>
+            <div style={{ marginTop: "0.5rem", display: "grid", gap: "0.4rem" }}>
+              <a
+                href="https://www.instagram.com/citadellebjj/"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ color: "var(--color-citadelle-gold)" }}
+              >
+                Instagram — @citadellebjj
+              </a>
+              <a
+                href="https://www.facebook.com/p/Citadelle-Jiu-Jitsu-61578755165328/"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ color: "var(--color-citadelle-gold)" }}
+              >
+                Facebook — Citadelle Jiu-Jitsu
+              </a>
+            </div>
           </div>
         </div>
 

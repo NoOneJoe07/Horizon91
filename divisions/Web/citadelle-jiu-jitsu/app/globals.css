@@ -155,3 +155,97 @@ a:hover {
   font-weight: 500;
   color: var(--color-citadelle-text-muted);
 }
+
+/* --- Animations hero ------------------------------------------------------ */
+
+@keyframes hero-gradient-shift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes orb-breathe {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50%       { opacity: 0.55; transform: scale(1.1); }
+}
+
+@keyframes scroll-indicator {
+  0%, 100% { opacity: 0.4; transform: translateY(0); }
+  50%       { opacity: 0.9; transform: translateY(6px); }
+}
+
+@keyframes shimmer-in {
+  from { transform: scaleX(0); opacity: 0; }
+  to   { transform: scaleX(1); opacity: 1; }
+}
+
+.hero-animated-bg {
+  background: linear-gradient(
+    -45deg,
+    #0b0d12,
+    #0f1108,
+    #1a1508,
+    #0d0f14,
+    #0b0d12
+  );
+  background-size: 400% 400%;
+  animation: hero-gradient-shift 20s ease infinite;
+}
+
+.fade-in-up   { animation: fade-in-up 0.9s ease both; }
+.fade-in-up-1 { animation: fade-in-up 0.9s 0.18s ease both; }
+.fade-in-up-2 { animation: fade-in-up 0.9s 0.36s ease both; }
+.fade-in-up-3 { animation: fade-in-up 0.9s 0.54s ease both; }
+.fade-in-up-4 { animation: fade-in-up 0.9s 0.72s ease both; }
+
+.orb-breathe        { animation: orb-breathe 8s ease-in-out infinite; }
+.orb-breathe-offset { animation: orb-breathe 8s 4s ease-in-out infinite; }
+
+.scroll-indicator { animation: scroll-indicator 2s ease-in-out infinite; }
+
+.gold-divider {
+  width: 3.5rem;
+  height: 2px;
+  background: var(--color-citadelle-gold);
+  transform-origin: left center;
+  animation: shimmer-in 0.8s 0.3s ease both;
+}
+
+/* --- Stat card accent ----------------------------------------------------- */
+.stat-card-border {
+  border-left: 2px solid var(--color-citadelle-gold);
+  padding-left: 1rem;
+}
+
+/* --- Achievement item ----------------------------------------------------- */
+.achievement-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding-block: 0.65rem;
+  border-bottom: 1px solid var(--color-citadelle-border);
+}
+
+.achievement-item:last-child {
+  border-bottom: none;
+}
+
+/* --- Showcase tile -------------------------------------------------------- */
+.showcase-tile {
+  aspect-ratio: 16 / 9;
+  background: var(--color-citadelle-surface-2);
+  border: 1px solid var(--color-citadelle-border);
+  border-radius: var(--radius-md);
+  display: grid;
+  place-items: center;
+  transition: border-color 200ms ease;
+}
+
+.showcase-tile:hover {
+  border-color: var(--color-citadelle-gold);
+}
