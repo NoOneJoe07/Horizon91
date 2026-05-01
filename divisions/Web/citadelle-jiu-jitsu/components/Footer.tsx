@@ -35,17 +35,12 @@ export async function Footer({ locale }: FooterProps) {
         >
           {/* Branding */}
           <div>
-            <div
-              style={{
-                fontFamily: "var(--font-display)",
-                fontSize: "1.25rem",
-                fontWeight: 700,
-                color: "var(--color-citadelle-gold)",
-                marginBottom: "0.5rem",
-              }}
-            >
-              CITADELLE
-            </div>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/logo-citadelle.svg"
+              alt="Citadelle Jiu-Jitsu"
+              style={{ height: "72px", width: "auto", marginBottom: "0.75rem" }}
+            />
             <p
               style={{
                 color: "var(--color-citadelle-text-muted)",

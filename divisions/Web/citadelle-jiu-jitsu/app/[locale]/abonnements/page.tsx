@@ -1,5 +1,6 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { prisma } from "@/lib/db";
+import { CheckoutButton } from "@/components/CheckoutButton";
 import type { Locale } from "@/lib/locales";
 
 function formatPrice(cents: number): string {
@@ -143,13 +144,11 @@ export default async function SubscriptionsPage({
                     </ul>
                   </div>
 
-                  <form action="/api/checkout" method="POST">
-                    <input type="hidden" name="planId" value={plan.id} />
-                    <input type="hidden" name="locale" value={locale} />
-                    <button type="submit" className="btn-primary" style={{ width: "100%" }}>
-                      {t("selectPlan")}
-                    </button>
-                  </form>
+                  <CheckoutButton
+                    planId={plan.id}
+                    locale={locale}
+                    label={t("selectPlan")}
+                  />
                 </article>
               );
             })}

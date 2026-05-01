@@ -53,7 +53,8 @@ export async function POST(req: NextRequest) {
               currency: "cad",
               product_data: {
                 name: locale === "fr" ? plan.nameFr : plan.nameEn,
-                description: locale === "fr" ? plan.descriptionFr : plan.descriptionEn,
+                description:
+                  (locale === "fr" ? plan.descriptionFr : plan.descriptionEn) ?? undefined,
               },
               unit_amount: plan.priceCents,
               recurring: {
@@ -72,7 +73,11 @@ export async function POST(req: NextRequest) {
         },
       });
 
-      return NextResponse.redirect(checkoutSession.url ?? `${baseUrl}/${locale}`, 303);
+      console.log("[/api/checkout] session créée :", checkoutSession.id, "url:", checkoutSession.url);
+      if (!checkoutSession.url) {
+        return NextResponse.json({ error: "Stripe n'a pas retourné d'URL de paiement" }, { status: 500 });
+      }
+      return NextResponse.json({ url: checkoutSession.url });
     }
 
     // -------------------------------------------------------------------------
@@ -98,7 +103,8 @@ export async function POST(req: NextRequest) {
               currency: "cad",
               product_data: {
                 name: locale === "fr" ? product.nameFr : product.nameEn,
-                description: locale === "fr" ? product.descriptionFr : product.descriptionEn,
+                description:
+                  (locale === "fr" ? product.descriptionFr : product.descriptionEn) ?? undefined,
               },
               unit_amount: product.priceCents,
             },
@@ -114,12 +120,16 @@ export async function POST(req: NextRequest) {
         },
       });
 
-      return NextResponse.redirect(checkoutSession.url ?? `${baseUrl}/${locale}`, 303);
+      console.log("[/api/checkout] produit session :", checkoutSession.id, "url:", checkoutSession.url);
+      if (!checkoutSession.url) {
+        return NextResponse.json({ error: "Stripe n'a pas retourné d'URL de paiement" }, { status: 500 });
+      }
+      return NextResponse.json({ url: checkoutSession.url });
     }
 
     return NextResponse.json({ error: "Cas non géré" }, { status: 400 });
   } catch (e) {
-    console.error("[/api/checkout]", e);
-    return NextResponse.json({ error: "Erreur Stripe" }, { status: 500 });
+    console.error("[/api/checkout] ERREUR:", e);
+    return NextResponse.json({ error: "Erreur Stripe", detail: String(e) }, { status: 500 });
   }
 }

@@ -23,7 +23,7 @@ export function getStripe(): Stripe {
     _stripe = new Stripe(getStripeKey(), {
       // Toujours pinner la version d'API pour éviter les surprises
       // lors d'updates Stripe automatiques.
-      apiVersion: "2024-12-18.acacia" as Stripe.LatestApiVersion,
+      apiVersion: "2025-03-31.basil" as Stripe.LatestApiVersion,
       typescript: true,
     });
   }

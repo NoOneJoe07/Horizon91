@@ -1,11 +1,13 @@
 // =============================================================================
 // Header global — navigation principale + switcher de langue
+// Desktop : nav horizontale | Mobile : hamburger → MobileNav (Client Component)
 // =============================================================================
 
 import Link from "next/link";
 import { getTranslations } from "next-intl/server";
 import { getSession } from "@/lib/auth";
 import { LocaleSwitcher } from "./LocaleSwitcher";
+import { MobileNav } from "./MobileNav";
 import type { Locale } from "@/lib/locales";
 
 interface HeaderProps {
@@ -17,13 +19,24 @@ export async function Header({ locale }: HeaderProps) {
   const session = await getSession();
 
   const navLinks = [
-    { href: `/${locale}`, label: t("home") },
+    { href: `/${locale}`,              label: t("home") },
     { href: `/${locale}/instructeurs`, label: t("instructors") },
-    { href: `/${locale}/horaires`, label: t("schedule") },
-    { href: `/${locale}/abonnements`, label: t("subscriptions") },
-    { href: `/${locale}/boutique`, label: t("shop") },
-    { href: `/${locale}/contact`, label: t("contact") },
+    { href: `/${locale}/horaires`,     label: t("schedule") },
+    { href: `/${locale}/abonnements`,  label: t("subscriptions") },
+    { href: `/${locale}/boutique`,     label: t("shop") },
+    { href: `/${locale}/contact`,      label: t("contact") },
   ];
+
+  // Données passées au Client Component MobileNav
+  const mobileSession = session ? { role: session.role } : null;
+  const mobileLabels = {
+    trial:     t("trial"),
+    login:     t("login"),
+    logout:    t("logout"),
+    admin:     t("admin"),
+    openMenu:  locale === "fr" ? "Ouvrir le menu" : "Open menu",
+    closeMenu: locale === "fr" ? "Fermer le menu" : "Close menu",
+  };
 
   return (
     <header
@@ -41,33 +54,29 @@ export async function Header({ locale }: HeaderProps) {
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
-          paddingBlock: "1rem",
-          gap: "2rem",
+          paddingBlock: "0.75rem",
+          gap: "1.5rem",
         }}
       >
-        {/* Logo (placeholder texte — à remplacer par <Image> du logo officiel) */}
-        <Link
-          href={`/${locale}`}
-          style={{
-            fontFamily: "var(--font-display)",
-            fontSize: "1.5rem",
-            fontWeight: 700,
-            color: "var(--color-citadelle-gold)",
-            letterSpacing: "0.05em",
-          }}
-        >
-          CITADELLE
+        {/* Logo officiel */}
+        <Link href={`/${locale}`} style={{ display: "flex", alignItems: "center", flexShrink: 0 }}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/logo-citadelle.svg"
+            alt="Citadelle Jiu-Jitsu"
+            style={{ height: "52px", width: "auto" }}
+          />
         </Link>
 
-        {/* Navigation principale */}
-        <nav style={{ display: "flex", gap: "1.5rem", flexWrap: "wrap" }}>
+        {/* ---- Navigation desktop (cachée sur mobile) ---- */}
+        <nav className="desktop-only" style={{ display: "flex", gap: "1.25rem", flexWrap: "wrap" }}>
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
               style={{
                 color: "var(--color-citadelle-text)",
-                fontSize: "0.95rem",
+                fontSize: "0.9rem",
                 fontWeight: 500,
               }}
             >
@@ -76,9 +85,9 @@ export async function Header({ locale }: HeaderProps) {
           ))}
         </nav>
 
-        {/* Actions: trial CTA + auth + langue */}
-        <div style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
-          <Link href={`/${locale}/seance-essai`} className="btn-primary" style={{ fontSize: "0.875rem" }}>
+        {/* ---- Actions desktop (cachées sur mobile) ---- */}
+        <div className="desktop-only" style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
+          <Link href={`/${locale}/seance-essai`} className="btn-primary" style={{ fontSize: "0.85rem" }}>
             {t("trial")}
           </Link>
 
@@ -92,12 +101,8 @@ export async function Header({ locale }: HeaderProps) {
                   {t("admin")}
                 </Link>
               )}
-              <form action={`/${locale}/api/auth/logout`} method="POST">
-                <button
-                  type="submit"
-                  className="btn-secondary"
-                  style={{ fontSize: "0.875rem" }}
-                >
+              <form action={`/api/auth/logout`} method="POST">
+                <button type="submit" className="btn-secondary" style={{ fontSize: "0.85rem" }}>
                   {t("logout")}
                 </button>
               </form>
@@ -112,6 +117,17 @@ export async function Header({ locale }: HeaderProps) {
           )}
 
           <LocaleSwitcher currentLocale={locale} />
+        </div>
+
+        {/* ---- Côté droit mobile : switcher langue + hamburger ---- */}
+        <div className="mobile-only" style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+          <LocaleSwitcher currentLocale={locale} />
+          <MobileNav
+            locale={locale}
+            navLinks={navLinks}
+            labels={mobileLabels}
+            session={mobileSession}
+          />
         </div>
       </div>
     </header>

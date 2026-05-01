@@ -37,6 +37,25 @@ export default async function HomePage({
           paddingBlock: "6rem",
         }}
       >
+        {/* Emblème watermark — centré, très subtil */}
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/favicon.svg"
+          alt=""
+          aria-hidden="true"
+          style={{
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            width: "72vmin",
+            height: "72vmin",
+            opacity: 0.055,
+            pointerEvents: "none",
+            userSelect: "none",
+          }}
+        />
+
         {/* Orbes décoratifs */}
         <div
           className="orb-breathe"
