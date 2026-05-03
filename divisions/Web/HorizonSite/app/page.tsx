@@ -29,6 +29,8 @@ export default function Home() {
             alt="Logo Horizon 91"
             width={800}
             height={800}
+            priority
+            style={{ width: "100%", height: "auto", maxWidth: "800px" }}
             className="relative z-10 drop-shadow-2xl"
           />
         </div>

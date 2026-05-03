@@ -19,6 +19,7 @@ export default function Header() {
               alt="Logo Horizon 91"
               width={42}
               height={42}
+              style={{ width: "42px", height: "42px" }}
               className="drop-shadow-lg"
             />
             <span className="text-xl font-bold text-h91-relativistic">
@@ -29,8 +30,9 @@ export default function Header() {
 
         {/* ZONE CENTRALE — MENU CENTRÉ */}
         <nav className="hidden md:flex flex-1 justify-center items-center gap-12 text-h91-stellar">
-          <Link href="/accueil">Accueil</Link>
+          <Link href="/">Accueil</Link>
           <Link href="/divisions">Divisions</Link>
+          <Link href="/portfolio">Portfolio</Link>
           <Link href="/contacts">Contacts</Link>
         </nav>
 
@@ -58,8 +60,9 @@ export default function Header() {
       {/* MENU MOBILE */}
       {open && (
         <div className="md:hidden bg-h91-gravity border-t border-h91-relativistic/30 px-6 py-4 flex flex-col gap-4 text-h91-stellar">
-          <Link href="/accueil" onClick={() => setOpen(false)}>Accueil</Link>
+          <Link href="/" onClick={() => setOpen(false)}>Accueil</Link>
           <Link href="/divisions" onClick={() => setOpen(false)}>Divisions</Link>
+          <Link href="/portfolio" onClick={() => setOpen(false)}>Portfolio</Link>
           <Link href="/contacts" onClick={() => setOpen(false)}>Contacts</Link>
 
           <Link

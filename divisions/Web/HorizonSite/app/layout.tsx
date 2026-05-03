@@ -39,9 +39,9 @@ export default function RootLayout({
         <Header />
 
         {/* CONTENU DES PAGES */}
-        <main className="flex-1 pt-32">
+        <div className="flex-1 pt-32">
           {children}
-        </main>
+        </div>
 
         {/* FOOTER */}
         <Footer />
