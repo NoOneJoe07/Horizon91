@@ -1,8 +1,8 @@
 # Contexte Session — Citadelle Jiu-Jitsu
 
 > Document de handoff entre sessions. À uploader en début de chaque nouvelle conversation.
-> **Dernière mise à jour : 29 avril 2026 — session données client + redesign frontend.**
-> Auteur : Jonathan Patoine, Horizon 91.
+> **Dernière mise à jour : 4 mai 2026 — Banner paiement, checkout boutique corrigé, formulaire contact, SEO, Loi 25. Rebranding Horizon 91 → Groupe Supernova.**
+> Auteur : Jonathan Patoine, Groupe Supernova.
 
 ---
 
@@ -38,38 +38,35 @@ Compléter ce document à la fin de chaque session significative.
 
 ---
 
-## 3. Situation des deux copies du projet
+## 3. Architecture deux copies — workflow de sync
 
-> **IMPORTANT — à régler demain matin en priorité**
+> **Décision finale** : Cowork édite OneDrive, dev server tourne dans WSL. Merger complexe → on garde le workflow cp manuel.
 
-Il existe présentement **deux copies** du projet :
-- **Cowork (OneDrive)** : là où Claude fait les modifications
-- **WSL** : là où tourne `npm run dev`
-
-**Plan pour demain** : merger tout vers OneDrive et pointer le dev server vers ce dossier, pour qu'il n'y ait plus qu'une seule source de vérité.
-
-En attendant, après chaque session Cowork, copier avec ce bloc WSL :
+Après chaque session Cowork, copier avec ce bloc dans le terminal WSL :
 
 ```bash
-SRC="/mnt/c/Users/Pc/OneDrive/Documents/Horizon 91/Web/Citadelle_JiuJitsu/Citadelle Jiu-Jitsu"
-DEST="$HOME/Horizon91/divisions/Web/citadelle-jiu-jitsu"
+ONEDRIVE="/mnt/c/Users/Pc/OneDrive/Documents/Horizon 91/Web/Citadelle_JiuJitsu/Citadelle Jiu-Jitsu"
+WSL="$HOME/Horizon91/divisions/Web/citadelle-jiu-jitsu"
 
-cp "$SRC/lib/data/instructors.ts"            "$DEST/lib/data/instructors.ts"
-cp "$SRC/lib/data/schedule.ts"               "$DEST/lib/data/schedule.ts"
-cp "$SRC/app/globals.css"                    "$DEST/app/globals.css"
-cp "$SRC/app/[locale]/page.tsx"              "$DEST/app/[locale]/page.tsx"
-cp "$SRC/app/[locale]/instructeurs/page.tsx" "$DEST/app/[locale]/instructeurs/page.tsx"
-cp "$SRC/app/[locale]/contact/page.tsx"      "$DEST/app/[locale]/contact/page.tsx"
-cp "$SRC/components/Footer.tsx"              "$DEST/components/Footer.tsx"
-cp "$SRC/messages/fr.json"                   "$DEST/messages/fr.json"
-cp "$SRC/messages/en.json"                   "$DEST/messages/en.json"
+# Ajouter les fichiers modifiés pendant la session
+cp "$ONEDRIVE/app/api/checkout/route.ts"            "$WSL/app/api/checkout/route.ts"
+cp "$ONEDRIVE/lib/stripe.ts"                         "$WSL/lib/stripe.ts"
+cp "$ONEDRIVE/components/CheckoutButton.tsx"         "$WSL/components/CheckoutButton.tsx"
+cp "$ONEDRIVE/app/[locale]/abonnements/page.tsx"     "$WSL/app/[locale]/abonnements/page.tsx"
+cp "$ONEDRIVE/next.config.ts"                        "$WSL/next.config.ts"
+```
+
+Puis valider avec :
+```bash
+grep -n "redirect" "$WSL/app/api/checkout/route.ts"
+# → aucun résultat = bon
 ```
 
 ---
 
-## 4. État technique au 29 avril 2026
+## 4. État technique au 1er mai 2026
 
-### Ce qui est livré et fonctionnel (hérité du 28 avril)
+### Ce qui est livré et fonctionnel
 
 ✅ **Scaffold complet Next.js 16.2.4 + TypeScript strict + Tailwind v4**
 ✅ **i18n bilingue FR/EN** (next-intl v4) — routing `/fr` et `/en`, switcher langue
@@ -80,52 +77,93 @@ cp "$SRC/messages/en.json"                   "$DEST/messages/en.json"
 ✅ **Admin protégé** — middleware + re-vérif rôle BD, dashboard avec stats, sous-pages
 ✅ **Sécurité** — CSP, HSTS, X-Frame-Options, honeypot, validation Zod
 ✅ **Docker** — Dockerfile multi-stage + `docker-compose.dev.yml`
+✅ **Logo SVG officiel** intégré — Header, Footer, hero watermark, favicon
+✅ **Menu hamburger mobile** — `MobileNav.tsx` Client Component, drawer animé
+✅ **Hero cinématique** — animated gradient, orbes dorées, fade-in-up, watermark
+✅ **Page Instructeurs** — redesign personal brand (2 colonnes, stats, accomplissements, citation)
+✅ **Données client réelles** — adresse, téléphone, Instagram, Facebook, horaire
 
-### Ajouts du 29 avril
+### ✅ NOUVEAU — Session du 4 mai 2026
 
-✅ **Données réelles client intégrées**
-- Adresse : 964 Rue Mainguy, Québec, QC G1V 3S4
-- Téléphone : 418-564-1047 (cliquable `tel:`)
-- Instagram : https://www.instagram.com/citadellebjj/
-- Facebook : https://www.facebook.com/p/Citadelle-Jiu-Jitsu-61578755165328/
+**Standards de code établis :**
+- Annotations obligatoires sur tous les fichiers Horizon 91 (en-tête, sections, inline)
+- Convention : commenter le *pourquoi*, pas le *quoi*
+- Standard à appliquer à tous les projets futurs de l'agence
 
-✅ **Horaire réel** (`lib/data/schedule.ts`) :
-- Lun–Jeu : 12h00–13h30 et 19h00–21h00
-- Mercredi : + nouveau cours 16h30–18h00 (nom à confirmer)
-- Vendredi : 12h00–13h30 et Open Mat 18h00–19h00
-- Sam & Dim : 11h00–12h30
+**Livrés et validés :**
+- `components/PaymentBanner.tsx` — banner vert/rouge post-paiement Stripe, disparition auto 8s, bouton ×, bilingue, `<Suspense>` requis
+- `app/[locale]/abonnements/page.tsx` — PaymentBanner intégré
+- `app/[locale]/boutique/page.tsx` — checkout migré vers `<CheckoutButton>`, PaymentBanner ajouté, bouton hors-stock propre
+- `components/ContactForm.tsx` — formulaire contact client component, honeypot, cycle idle/submitting/success/error
+- `app/api/contact/route.ts` — validation Zod, honeypot silencieux, sauvegarde BD ContactMessage, TODO Resend documenté
+- `app/[locale]/contact/page.tsx` — placeholder retiré, ContactForm branché
+- `generateMetadata()` sur toutes les pages publiques (layout template + 7 pages)
+- Open Graph ajouté dans le layout (partages réseaux sociaux)
+- `messages/fr.json` et `en.json` — clé `Meta.siteName` ajoutée
+- `app/[locale]/confidentialite/page.tsx` — politique Loi 25 complète, bilingue FR/EN, 10 sections, robots:noindex
 
-✅ **Page Contact** mise à jour — vraie adresse, vrai téléphone, liens réseaux sociaux + Google Maps
+**Validé en test :**
+- ✅ Banner vert "Paiement réussi !" après checkout Stripe 4242
+- ✅ Banner rouge "Paiement annulé" via bouton annulation Stripe et URL directe
+- ✅ Reset carte sur retour navigateur (comportement Stripe attendu)
 
-✅ **Footer** — nouvelle colonne Contact/Social (téléphone, adresse, Instagram, Facebook)
+**Notions apprises :**
+- SEO : title template Next.js, generateMetadata, différence metadata vs contenu
+- Balise `<meta keywords>` obsolète depuis 2009 (Google l'ignore)
+- Push media (Obox) vs Pull media (SEO content) — deux modèles distincts
+- Syndication de contenu : canonical tag, publier l'original d'abord
+- `<Suspense>` requis pour tout composant utilisant `useSearchParams()`
+- `mkdir -p` avant `cp` quand le dossier cible n'existe pas encore
+- Docker Desktop doit tourner en arrière-plan avant toute commande docker WSL
 
-✅ **Interface Instructor étendue** — `achievements`, `stats`, `philosophyFr/En`, `isFounder`, `titleFr/En`
+### ✅ Stripe checkout fonctionnel (1er mai 2026)
 
-✅ **Page d'accueil — redesign cinématique complet** :
-- Hero full-viewport avec background animé (CSS keyframes `hero-animated-bg`)
-- Orbes dorées respirantes
-- Textes avec animations `fade-in-up` échelonnées
-- Indicateur de scroll
-- Section **Coach Spotlight** : stats Top 5 Canada / Intl. / Houston / 15 ans + placeholder photo
-- Section Valeurs améliorée (accent doré top)
-- Section **Showcase** — grille placeholder prête pour photos/vidéos
-- **Trial Banner** final cinématique
+**Problème résolu** : `NextResponse.redirect(303)` renvoyait `url: null` silencieusement vers la page d'accueil.
 
-✅ **Page Instructeurs — redesign personal brand** :
-- Hero banner avec titre du fondateur
-- Profil 2 colonnes : photo 3/4 + identité VS stats + bio + accomplissements + citation
-- Note "équipe à venir" si un seul instructeur
-- CTA séance d'essai
+**Solution implémentée** :
+- `lib/stripe.ts` — API version mise à jour `2024-12-18.acacia` → `2025-03-31.basil`
+- `app/api/checkout/route.ts` — retourne maintenant `{ url }` en JSON (plus de redirect serveur)
+- `components/CheckoutButton.tsx` — nouveau Client Component : `fetch('/api/checkout')` → `window.location.href = data.url`
+- `app/[locale]/abonnements/page.tsx` — `<form>` remplacé par `<CheckoutButton>`
+- `next.config.ts` — CSP corrigé : `'unsafe-eval'` ajouté uniquement en `NODE_ENV === "development"`
 
-✅ **Animations CSS** ajoutées dans `globals.css` :
-- `hero-animated-bg`, `fade-in-up` (4 délais), `orb-breathe`, `scroll-indicator`, `shimmer-in`, `gold-divider`
-- Classes utilitaires : `stat-card-border`, `achievement-item`, `showcase-tile`
+**Testé et validé** :
+- ✅ `POST /api/checkout 200` (plus de 303)
+- ✅ URL Stripe générée et loggée côté serveur
+- ✅ Page de paiement Stripe ouverte dans le navigateur
+- ✅ Paiement test carte `4242 4242 4242 4242` complété
+- ✅ 12 webhooks Stripe reçus et vérifiés (signature `whsec_` valide)
+- ✅ Handler `checkout.session.completed` opérationnel
+- ✅ Redirection vers `/fr/abonnements?success=1`
 
-✅ **i18n** — nouveaux namespaces `Home.coach.*`, `Home.showcase.*`, `Home.trialBanner.*`, `Home.hero.scrollLabel`, `Instructors.achievements/philosophy/stats/teamSoon/trialCta*`
+**Note webhook** : les événements `charge.succeeded`, `invoice.created`, etc. tombent dans le `default` (log "event non géré") — c'est intentionnel. Seul `checkout.session.completed` crée l'abonnement en BD (nécessite un `userId` → l'utilisateur doit être connecté).
 
 ---
 
-## 5. Versions exactes (figées)
+## 5. Stripe — configuration actuelle
+
+| Variable | Statut |
+|---|---|
+| `STRIPE_SECRET_KEY` | ✅ clé test `sk_test_...` dans `.env` WSL |
+| `NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY` | ✅ clé test `pk_test_...` dans `.env` WSL |
+| `STRIPE_WEBHOOK_SECRET` | ✅ `whsec_...` du `stripe listen` dans `.env` WSL |
+| Plans BD (4) | ✅ seeded avec vrais `stripeProductId` + `stripePriceId` |
+
+**Pour relancer Stripe en dev** (3 terminaux) :
+```bash
+# Terminal 1 : dev server
+npm run dev
+
+# Terminal 2 : Prisma Studio (optionnel)
+npm run prisma:studio
+
+# Terminal 3 : Stripe webhook listener
+stripe listen --forward-to http://localhost:3000/api/webhooks/stripe
+```
+
+---
+
+## 6. Versions exactes (figées)
 
 | Package | Version |
 |---|---|
@@ -142,7 +180,7 @@ cp "$SRC/messages/en.json"                   "$DEST/messages/en.json"
 
 ---
 
-## 6. Convention d'architecture (NON-NÉGOCIABLE)
+## 7. Convention d'architecture (NON-NÉGOCIABLE)
 
 - **Pas de `src/`** — tout à la racine (`app/`, `components/`, `lib/`, etc.)
 - **Path alias** : `@/*` → `./*`
@@ -152,85 +190,85 @@ cp "$SRC/messages/en.json"                   "$DEST/messages/en.json"
 - **Validation** : tous les inputs serveur passent par Zod (`lib/validation.ts`)
 - **Auth** : `getSession()`, `requireUser()`, `requireAdmin()` dans `lib/auth.ts`
 - **Prix** : TOUJOURS lus depuis la BD côté checkout Stripe
+- **Checkout** : pattern JSON + `window.location.href` (jamais `NextResponse.redirect` vers Stripe)
 
 ---
 
-## 7. En attente du client
+## 8. En attente du client
 
 ### Contenu bloquant (frontend incomplet sans ça)
-- [ ] **Logo** — SVG ou PNG haute-res (le client va vérifier ses fichiers)
-- [ ] **Domaine** — il en possède un, va l'envoyer
-- [ ] **Courriel professionnel** — il va s'en créer un pour toute la messagerie
 - [ ] **Vrai nom + bio** du fondateur (historique impressionnant : Top 5 Canada, Houston, compétitions internationales, ceinture noire)
 - [ ] **Photo** du fondateur (pour `public/` + `imageUrl` dans `instructors.ts`)
 - [ ] **Nom exact du cours mercredi 16h30** (type, niveau)
 
 ### Stripe / Business
-- [ ] **Forfaits abonnement** — structure (1 mois / 3 mois / 1 an) + prix + inclus
+- [ ] **Forfaits abonnement** — structure (1 mois / 3 mois / 1 an) + prix + inclus (actuellement : Adulte Mensuel 120$/mois, Adulte Annuel 1200$/an, Enfant 80$/mois, Famille 300$/mois)
 - [ ] **Cours privés** — prix, durée, fonctionnement réservation, politique annulation
 - [ ] **Produits boutique** — liste + photos + prix CAD
-- [ ] **Taxes** — confirmé enregistré TPS/TVQ (Jonathan vérifie) → Stripe doit collecter
-- [ ] **Politique de remboursement** abonnements (Jonathan vérifie avec le client)
-- [ ] Compte Stripe — le client doit créer le sien (5 min)
+- [ ] **Taxes** — confirmé enregistré TPS/TVQ → Stripe doit collecter
+- [ ] **Politique de remboursement** abonnements
+- [ ] Compte Stripe **production** — le client doit créer le sien
 
 ### Contenu marketing (2e vague)
 - [ ] Photos du dojo (intérieur, tatami, cours en action)
 - [ ] Témoignages d'élèves (3-5 quotes)
 - [ ] Résultats de compétition (palmarès)
-- [ ] Vrai horaire hebdomadaire complet (noms des cours)
-- [ ] Comptes réseaux sociaux → déjà récupérés ✅
 
 ---
 
-## 8. Pièges connus
+## 9. Pièges connus
 
 | Piège | Solution |
 |---|---|
 | `Environment variable not found: DATABASE_URL` | Prisma CLI lit `.env`, pas `.env.local`. Toujours `cp .env.example .env`. |
 | `Port 3000 is in use` | `docker stop horizon91_site` ou utiliser port 3001. |
 | Warning `middleware deprecated` | Next 16 a renommé. `middleware.ts` → `proxy.ts` (backlog — ne casse rien). |
-| `eval() not supported (CSP)` | Ajouter `'unsafe-eval'` au `script-src` UNIQUEMENT en dev, conditionné sur `NODE_ENV`. |
-| `favicon.ico 404` | En attente du logo SVG client. |
-| Deux copies du projet | Cowork édite OneDrive, dev server tourne dans WSL. Merger demain matin. |
+| `eval() not supported (CSP)` | ✅ Résolu — `'unsafe-eval'` ajouté au CSP uniquement en dev (`NODE_ENV`). |
+| Fichiers Cowork pas dans WSL | Copier manuellement avec le bloc `cp` de la section 3. |
+| Dev server sert ancien code après cp | `rm -rf .next && npm run dev` pour forcer recompilation. |
+| `checkoutSession.url` null (Stripe) | ✅ Résolu — retourner JSON + `window.location.href` côté client. |
 | Pour relancer après reboot | `docker compose -f docker-compose.dev.yml up -d` puis `npm run dev`. |
 
 ---
 
-## 9. Plan session 30 avril 2026
+## 10. Backlog (prochaines sessions)
 
-### Priorité 0 — Merger les deux copies (5 min)
-- Choisir OneDrive comme source unique
-- Configurer le dev server pour tourner depuis `/mnt/c/Users/Pc/OneDrive/...`
-- Plus jamais de copie manuelle
+### 🔄 Rebranding — Horizon 91 → Groupe Supernova (4 mai 2026)
+- Nouveau nom officiel : **Groupe Supernova** (FR) / **Supernova Group** (EN)
+- Domaines enregistrés chez Namecheap (2 ans) :
+  - `groupesupernova.ca` ✅
+  - `supernovagroup.ca` ✅
+- Logo existant (trou noir absorbant une étoile) = parfaitement aligné avec "Supernova"
+- **À faire prochaine session HorizonSite** :
+  - Remplacer "Horizon 91" par "Groupe Supernova" partout dans le code
+  - Mettre à jour CLAUDE.md et AGENTS.md
+  - Configurer redirection DNS vers le futur site
+  - Courriel : jonathan@groupesupernova.ca (à configurer)
 
-### Priorité 1 — Intégration logo (si reçu)
-- `public/logo-citadelle.svg`
-- Modifier `Header.tsx` et `Footer.tsx`
-- Générer favicon
+### Priorité haute — avant démo client
+- [x] ~~Banner `?success=1` / `?canceled=1` sur la page abonnements~~ ✅ 2026-05-04
+- [x] ~~Formulaire contact `/api/contact`~~ ✅ 2026-05-04
+- [x] ~~Page `/confidentialite` Loi 25 Québec~~ ✅ 2026-05-04
+- [x] ~~SEO generateMetadata toutes les pages~~ ✅ 2026-05-04
+- [ ] Page `/seance-essai` — formulaire fonctionnel → email Resend (attente config Resend)
 
-### Priorité 2 — Stripe en mode test
-- `STRIPE_SECRET_KEY` + `NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY` dans `.env`
-- `stripe listen --forward-to localhost:3001/api/webhooks/stripe`
-- Tester carte `4242 4242 4242 4242`
+### Priorité moyenne
+- [ ] CRUD admin complet (modales create/edit/delete pour plans, produits, instructeurs)
+- [ ] Notifications email Resend (confirmation séance, confirmation commande, contact)
+- [ ] Page `/conditions` — conditions d'utilisation (lien déjà dans le footer)
 
-### Priorité 3 — Vrai contenu instructeur (si reçu)
-- Remplacer les placeholders dans `lib/data/instructors.ts`
-- Ajouter photo dans `public/`
-
-### Backlog
-- CRUD admin complet (modales create/edit/delete)
-- Formulaire contact `/api/contact` (skeleton prêt)
-- Notifications email Resend
-- Page `/confidentialite` Loi 25 Québec
-- Rate limiting
-- Renommer `middleware.ts` → `proxy.ts`
-- Tests Vitest + Playwright
-- CI GitHub Actions
-- Déploiement final (OVH Canada / Vercel / AWS Lightsail)
+### Backlog technique
+- [ ] Renommer `middleware.ts` → `proxy.ts`
+- [ ] Rate limiting sur API routes publiques
+- [ ] Prisma 6 → 7 (major update, post-tests)
+- [ ] Locale `es` (espagnol) — 3e langue planifiée
+- [ ] Tests Vitest + Playwright
+- [ ] CI GitHub Actions
+- [ ] Déploiement final (OVH Canada / Vercel / AWS Lightsail)
 
 ---
 
-## 10. Commandes essentielles
+## 11. Commandes essentielles
 
 ```bash
 # Depuis WSL — se positionner
@@ -247,14 +285,20 @@ npm run dev
 npm run prisma:studio
 # → http://localhost:5555
 
+# Stripe webhook listener (terminal séparé)
+stripe listen --forward-to http://localhost:3000/api/webhooks/stripe
+
 # Quand on modifie schema.prisma
 npm run prisma:migrate
 npm run prisma:seed
+
+# Reseed Stripe (si les IDs sont perdus)
+npx tsx scripts/stripe-seed.ts
 ```
 
 ---
 
-## 11. Conseil modèle Claude
+## 12. Conseil modèle Claude
 
 - **Sonnet 4.6** : suffisant pour 80% du travail (pages, debug, intégration, i18n)
 - **Opus** : architecture complexe, debug multi-fichiers tordu, audit sécurité
