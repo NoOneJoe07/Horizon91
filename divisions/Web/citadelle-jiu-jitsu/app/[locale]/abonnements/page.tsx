@@ -1,8 +1,64 @@
+// =============================================================================
+// app/[locale]/abonnements/page.tsx — Page des abonnements
+// -----------------------------------------------------------------------------
+// RÔLE :
+//   Affiche les plans d'abonnement disponibles (lus depuis la BD Postgres via
+//   Prisma) et permet à l'utilisateur de souscrire via Stripe.
+//
+// TYPE : Server Component (async) — s'exécute côté serveur Node.js.
+//   → Avantage : accès direct à Prisma/BD sans passer par une API REST.
+//   → Les données sont prêtes au moment où le HTML est envoyé au navigateur
+//     (meilleur SEO, pas de "flash" de chargement).
+//
+// ROUTE : /fr/abonnements  ou  /en/abonnements  (routing i18n via [locale])
+//
+// COMPOSANTS ENFANTS :
+//   - PaymentBanner  : Client Component — lit ?success=1/?canceled=1 dans l'URL
+//   - CheckoutButton : Client Component — déclenche le paiement Stripe
+//
+// DONNÉES :
+//   - Plans d'abonnement lus depuis la table `SubscriptionPlan` en BD
+//   - Si la BD n'est pas disponible, affiche un message de fallback (try/catch)
+//
+// AUTEUR    : Horizon 91 — Jonathan Patoine + Claude (Anthropic)
+// CRÉÉ      : 2026-04-xx  |  MODIFIÉ : 2026-05-04 (ajout PaymentBanner)
+// =============================================================================
+
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { prisma } from "@/lib/db";
 import { CheckoutButton } from "@/components/CheckoutButton";
+import { PaymentBanner } from "@/components/PaymentBanner";
+import { Suspense } from "react";
+import type { Metadata } from "next";
 import type { Locale } from "@/lib/locales";
 
+// ---------------------------------------------------------------------------
+// SEO — Métadonnées de la page
+// ---------------------------------------------------------------------------
+// Next.js fusionne ce retour avec le template du layout parent :
+//   title "Abonnements & Tarifs" + template "— Citadelle Jiu-Jitsu"
+//   → <title>Abonnements & Tarifs — Citadelle Jiu-Jitsu</title>
+// La description cible les recherches locales spécifiques aux abonnements BJJ.
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: Locale }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  return {
+    title:       locale === "fr" ? "Abonnements & Tarifs"          : "Memberships & Pricing",
+    description: locale === "fr"
+      ? "Abonnements jiu-jitsu à Québec : adulte, enfant, famille. Sans engagement après le premier mois."
+      : "Jiu-jitsu memberships in Québec City: adult, child, family plans. No commitment after first month.",
+  };
+}
+
+// ---------------------------------------------------------------------------
+// Utilitaire : formate un montant en centimes → chaîne CAD lisible
+// Ex : 12000 → "120 $"
+// On stocke les prix en centimes (entiers) pour éviter les erreurs
+// d'arrondi des nombres flottants (ex: 0.1 + 0.2 ≠ 0.3 en JavaScript).
+// ---------------------------------------------------------------------------
 function formatPrice(cents: number): string {
   return (cents / 100).toLocaleString("fr-CA", {
     style: "currency",
@@ -11,6 +67,11 @@ function formatPrice(cents: number): string {
   });
 }
 
+// ---------------------------------------------------------------------------
+// Composant de page (Server Component async)
+// ---------------------------------------------------------------------------
+// params est une Promise en Next.js 15+ App Router — on doit l'awaiter.
+// { locale } vient du segment [locale] dans le chemin de fichier.
 export default async function SubscriptionsPage({
   params,
 }: {
@@ -35,6 +96,31 @@ export default async function SubscriptionsPage({
   return (
     <section className="section">
       <div className="container-citadelle">
+
+        {/*
+          ── SUSPENSE + CLIENT COMPONENT ──────────────────────────────────────
+          PaymentBanner utilise useSearchParams() pour lire ?success=1 dans
+          l'URL. Ce hook est réservé aux Client Components (navigateur).
+
+          Règle Next.js App Router : tout composant utilisant useSearchParams()
+          DOIT être enveloppé dans <Suspense> dans son parent Server Component.
+
+          Pourquoi ? Pendant le rendu serveur (SSR), Next.js ne connaît pas
+          encore les paramètres d'URL du navigateur. <Suspense> lui dit :
+          "rends le reste de la page normalement côté serveur, et hydrate
+          PaymentBanner séparément côté client une fois que le navigateur
+          a chargé le JavaScript."
+
+          fallback={null} = rien d'affiché pendant ce court délai d'hydratation
+          (le banner est un bonus UX, pas du contenu critique → invisible OK).
+
+          Sans <Suspense> ici → erreur de build :
+          "useSearchParams() should be wrapped in a suspense boundary"
+          ─────────────────────────────────────────────────────────────────── */}
+        <Suspense fallback={null}>
+          <PaymentBanner locale={locale} />
+        </Suspense>
+
         <header style={{ textAlign: "center", marginBottom: "3rem" }}>
           <h1 style={{ fontSize: "2.5rem", marginBottom: "0.5rem" }}>{t("title")}</h1>
           <p style={{ color: "var(--color-citadelle-text-muted)" }}>{t("subtitle")}</p>

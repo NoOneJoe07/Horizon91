@@ -27,13 +27,42 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "Meta" });
+
   return {
-    title: t("title"),
+    // ── Title template ──────────────────────────────────────────────────────
+    // "template" : modèle appliqué aux pages enfants qui exportent generateMetadata.
+    //   %s = le titre fourni par la page enfant
+    //   Ex: page abonnements retourne title: "Abonnements & Tarifs"
+    //       → Next.js produit : "Abonnements & Tarifs — Citadelle Jiu-Jitsu"
+    //
+    // "default" : titre utilisé si une page n'exporte PAS generateMetadata.
+    //   → La page d'accueil et les pages sans métadonnées spécifiques
+    //     utilisent ce titre complet comme fallback.
+    //
+    // Avantage : le nom de la marque est défini UNE SEULE FOIS ici.
+    // Pour renommer → modifier uniquement ce fichier.
+    title: {
+      template: `%s — ${t("siteName")}`,
+      default: t("title"),
+    },
     description: t("description"),
+
+    // ── Icônes (favicon) ────────────────────────────────────────────────────
+    // Même SVG utilisé pour tous les contextes (onglet, raccourci, Apple).
+    // Quand le client fournira un PNG haute résolution → ajouter ici.
     icons: {
-      icon: "/favicon.svg",
+      icon:     "/favicon.svg",
       shortcut: "/favicon.svg",
-      apple: "/favicon.svg",
+      apple:    "/favicon.svg",
+    },
+
+    // ── Open Graph (partage sur réseaux sociaux) ────────────────────────────
+    // Contrôle l'aperçu quand quelqu'un partage un lien sur Facebook,
+    // WhatsApp, iMessage, etc. Sans ça → l'aperçu est générique ou vide.
+    openGraph: {
+      siteName: t("siteName"),
+      locale:   locale === "fr" ? "fr_CA" : "en_CA",
+      type:     "website",
     },
   };
 }

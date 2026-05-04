@@ -1,6 +1,26 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { TrialForm } from "@/components/TrialForm";
+import type { Metadata } from "next";
 import type { Locale } from "@/lib/locales";
+
+// ---------------------------------------------------------------------------
+// SEO — Métadonnées de la page séance d'essai
+// ---------------------------------------------------------------------------
+// Page clé pour la conversion : quelqu'un qui cherche "essai jiu-jitsu Québec"
+// doit atterrir ici. La description mentionne "gratuit" — mot fort en SEO.
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: Locale }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  return {
+    title:       locale === "fr" ? "Séance d'essai gratuite"    : "Free Trial Class",
+    description: locale === "fr"
+      ? "Réserve ta séance d'essai gratuite au dojo Citadelle Jiu-Jitsu à Québec. Aucun engagement. Pour adultes et enfants."
+      : "Book your free trial class at Citadelle Jiu-Jitsu dojo in Québec City. No commitment. For adults and kids.",
+  };
+}
 
 export default async function TrialPage({
   params,

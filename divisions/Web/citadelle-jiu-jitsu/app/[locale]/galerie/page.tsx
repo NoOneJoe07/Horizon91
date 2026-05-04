@@ -1,5 +1,23 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import type { Metadata } from "next";
 import type { Locale } from "@/lib/locales";
+
+// ---------------------------------------------------------------------------
+// SEO — Métadonnées de la page galerie
+// ---------------------------------------------------------------------------
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: Locale }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  return {
+    title:       locale === "fr" ? "Galerie"           : "Gallery",
+    description: locale === "fr"
+      ? "Photos et vidéos du dojo Citadelle Jiu-Jitsu : entraînements, compétitions et moments forts à Québec."
+      : "Photos and videos from Citadelle Jiu-Jitsu dojo: training, competitions and highlights in Québec City.",
+  };
+}
 
 export default async function GalleryPage({
   params,

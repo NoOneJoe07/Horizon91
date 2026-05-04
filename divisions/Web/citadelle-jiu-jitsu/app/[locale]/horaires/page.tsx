@@ -1,6 +1,24 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { weeklySchedule, type DayKey } from "@/lib/data/schedule";
+import type { Metadata } from "next";
 import type { Locale } from "@/lib/locales";
+
+// ---------------------------------------------------------------------------
+// SEO — Métadonnées de la page horaires
+// ---------------------------------------------------------------------------
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: Locale }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  return {
+    title:       locale === "fr" ? "Horaires des cours"  : "Class Schedule",
+    description: locale === "fr"
+      ? "Horaires des cours de jiu-jitsu brésilien à Québec : adultes, enfants, no-gi. Dojo Citadelle, 964 Rue Mainguy."
+      : "Brazilian jiu-jitsu class schedule in Québec City: adults, kids, no-gi. Citadelle dojo, 964 Rue Mainguy.",
+  };
+}
 
 const DAYS: DayKey[] = [
   "monday",

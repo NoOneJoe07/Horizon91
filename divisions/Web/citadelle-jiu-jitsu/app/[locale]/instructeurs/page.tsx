@@ -7,7 +7,26 @@
 import Link from "next/link";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { instructors } from "@/lib/data/instructors";
+import type { Metadata } from "next";
 import type { Locale } from "@/lib/locales";
+
+// ---------------------------------------------------------------------------
+// SEO — Métadonnées de la page instructeurs
+// ---------------------------------------------------------------------------
+// TODO : quand le client envoie son vrai nom, le remplacer dans la description.
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: Locale }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  return {
+    title:       locale === "fr" ? "Nos instructeurs"  : "Our instructors",
+    description: locale === "fr"
+      ? "Rencontrez les instructeurs ceinture noire de Citadelle Jiu-Jitsu à Québec. Top 5 Canada, compétiteur international."
+      : "Meet the black belt instructors at Citadelle Jiu-Jitsu in Québec City. Top 5 Canada, international competitor.",
+  };
+}
 
 export default async function InstructorsPage({
   params,
