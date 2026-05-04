@@ -1,7 +1,7 @@
 # Contexte Session — Citadelle Jiu-Jitsu
 
 > Document de handoff entre sessions. À uploader en début de chaque nouvelle conversation.
-> **Dernière mise à jour : 4 mai 2026 — Banner paiement, checkout boutique corrigé, formulaire contact, SEO, Loi 25. Rebranding Horizon 91 → Groupe Supernova.**
+> **Dernière mise à jour : 4 mai 2026 — Session closée proprement. Commit pushé sur main. Voir section 4 pour le détail.**
 > Auteur : Jonathan Patoine, Groupe Supernova.
 
 ---
@@ -10,8 +10,18 @@
 
 À l'ouverture d'une nouvelle session avec Claude (Sonnet ou Opus) :
 1. Upload ce fichier dans le contexte
-2. Upload aussi `AGENTS.md` (source de vérité des conventions Horizon 91)
+2. Upload aussi `contexte_groupesupernova.md` (constitution agence — standards, vision, conventions)
 3. Décris la tâche du jour. L'agent saura où on est sans avoir besoin de tout relire.
+
+### Rituel de closing (OBLIGATOIRE à chaque fin de session)
+
+```bash
+cd "$HOME/Horizon91/divisions/Web/citadelle-jiu-jitsu"
+git add -A
+git commit -m "type: description courte"
+git push origin main
+```
+Puis mettre à jour ce fichier contexte avant de fermer.
 
 Compléter ce document à la fin de chaque session significative.
 
