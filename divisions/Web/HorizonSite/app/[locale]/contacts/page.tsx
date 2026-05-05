@@ -1,42 +1,25 @@
+import { useTranslations } from "next-intl";
+
 export default function ContactsPage() {
-  const contacts = [
-    {
-      titre: "Direction générale",
-      couleur: "text-h91-fusion",
-      courriel: "direction@groupesupernova.ca",
-      note: "Partenariats, vision stratégique, collaborations.",
-    },
-    {
-      titre: "Développement Web",
-      couleur: "text-h91-warp",
-      courriel: "web@groupesupernova.ca",
-      note: "Sites web, e-commerce, SEO, identité visuelle.",
-    },
-    {
-      titre: "Cybersécurité",
-      couleur: "text-h91-accretion",
-      courriel: "cyber@groupesupernova.ca",
-      note: "Audits, sécurisation, formation.",
-    },
-    {
-      titre: "Studio Nordik Legion",
-      couleur: "text-h91-ion",
-      courriel: "studio@groupesupernova.ca",
-      note: "Jeux vidéo, expériences interactives.",
-    },
-  ];
+  const t = useTranslations("contacts");
+  const membres = t.raw("membres") as {
+    titre: string;
+    couleur: string;
+    courriel: string;
+    note: string;
+  }[];
 
   return (
     <main className="max-w-4xl mx-auto px-6 py-20">
       <h1 className="text-5xl font-bold text-h91-stellar text-center mb-4">
-        Contacts
+        {t("title")}
       </h1>
       <p className="text-center text-h91-stellar/60 mb-14 text-lg">
-        Une équipe, plusieurs expertises. Parlez à la bonne personne.
+        {t("subtitle")}
       </p>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {contacts.map((c) => (
+        {membres.map((c) => (
           <div
             key={c.titre}
             className="p-6 border border-h91-accretion/20 rounded-xl bg-h91-gravity/50 flex flex-col gap-2 hover:border-h91-accretion/50 transition"
@@ -55,10 +38,10 @@ export default function ContactsPage() {
 
       <div className="mt-14 text-center">
         <a
-          href="/rejoindre"
+          href="rejoindre"
           className="inline-block px-8 py-4 bg-h91-accretion text-h91-gravity font-bold rounded-lg text-lg hover:bg-h91-fusion transition"
         >
-          Nous joindre →
+          {t("cta")}
         </a>
       </div>
     </main>

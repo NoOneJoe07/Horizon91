@@ -1,0 +1,184 @@
+{
+  "brand": {
+    "name": "Grupo Supernova",
+    "tagline_footer": "Agencia Creativa & Tecnológica"
+  },
+  "nav": {
+    "home": "Inicio",
+    "divisions": "Divisiones",
+    "portfolio": "Portafolio",
+    "contacts": "Contactos",
+    "join": "Contáctanos"
+  },
+  "home": {
+    "tagline": "Agencia creativa y tecnológica con sede en Sainte-Marie-de-Beauce, Quebec. Tomamos tu pasión, la digitalizamos y la hacemos brillar.",
+    "team": {
+      "title": "El equipo",
+      "subtitle": "Personas apasionadas detrás de cada proyecto.",
+      "badge_soon": "Próximamente",
+      "members": {
+        "jonathan": {
+          "nom": "Jonathan Patoine",
+          "titre": "Fundador y Director General",
+          "bio": "Policía. Emprendedor. Estudiante. Gamer. Padre. Jonathan combina una carrera atípica en seguridad pública y emprendimiento con una pasión inquebrantable por los videojuegos y la creación digital. Actualmente estudia ciberseguridad en el Collège Cumberland, lidera la visión estratégica del grupo y dirige el desarrollo de Studio Nordik Legion."
+        },
+        "alexandra": {
+          "nom": "Alexandra Marcela Espin Espinoza",
+          "titre": "Directora General — Comunicaciones",
+          "bio": "Retrato y biografía próximamente."
+        },
+        "paulina": {
+          "nom": "Paulina Jaramillo",
+          "titre": "Directora — Marketing y Fotografía",
+          "bio": "Retrato y biografía próximamente."
+        },
+        "gabriel": {
+          "nom": "Gabriel Patoine",
+          "titre": "CISO — División Ciberseguridad",
+          "bio": "Gabriel se unirá oficialmente a Groupe Supernova como responsable de la seguridad de los sistemas de información. Su formación especializada y su red en ciberseguridad serán activos clave para proteger la infraestructura de nuestros clientes."
+        }
+      }
+    },
+    "histoire": {
+      "title": "Nuestra historia",
+      "p1": "Jonathan Patoine no siguió un solo camino. Recorrió muchos — reforestador, agente de seguridad, policía, emprendedor en restauración, editor para medios de comunicación en Montreal — y en cada uno buscó lo mismo sin siempre poder nombrarlo: un lugar donde sus habilidades se encontraran con algo verdaderamente valioso.",
+      "p2": "Ese algo lo encontró por primera vez frente a una pantalla de Atari. No en el juego en sí, sino en lo que representaba: la prueba viviente de que un poco de código podía crear un mundo entero. Esa fascinación nunca lo abandonó.",
+      "p3": "En diciembre de 2022, su empresa cierra por decisión gubernamental. Vuelve a empezar con su hermano, abre una franquicia, lucha. No es suficiente. Luego un CISO — responsable de la ciberseguridad de una autoridad sanitaria regional — les abre una puerta inesperada. Jonathan se inscribe en un programa AEC en el Collège Cumberland. Aprende protocolos, redes, vulnerabilidades. Al aprender cómo caen los sistemas, finalmente entiende cómo funcionan.",
+      "p4": "Es durante este período que comienza a trabajar con inteligencia artificial — no como una herramienta, sino como un socio. Se da cuenta de algo fundamental: ya no está bloqueado detrás del muro de conocimientos que necesitaría adquirir antes de poder crear. La imaginación puede preceder a la maestría. Comienza a construir su estudio de videojuegos. Comienza a soñar más grande.",
+      "p5": "A principios de 2026, su contrato editorial en Montreal termina. Esa es la supernova. La explosión que precede al renacimiento.",
+      "p6": "En marzo de 2026, Groupe Supernova nace oficialmente — con una misión precisa: empezar local. Ayudar a los emprendedores y artesanos de la región a construir su presencia digital y a vivir genuinamente de lo que aman hacer. El primer proyecto piloto: un dojo de jiu-jitsu brasileño en Beauce. Un profesor apasionado que tiene dificultades para llegar a suficientes clientes. Exactamente el tipo de persona para quien todo esto fue construido.",
+      "quote": "Una supernova no es un final. Es la explosión que dispersa por el universo los elementos necesarios para crear nuevas estrellas.",
+      "cta": "Explorar nuestras divisiones"
+    }
+  },
+  "divisions": {
+    "title": "Nuestras Divisiones",
+    "subtitle": "Tres áreas de expertise. Una sola visión.",
+    "web": {
+      "nom": "Desarrollo Web",
+      "description": "Sitios web modernos, tiendas en línea, sistemas de reservas y soluciones digitales personalizadas para emprendedores locales y pymes. Diseño gráfico, identidad visual y estrategia de contenido incluidos.",
+      "services": ["Sitios vitrina & e-commerce", "SEO & búsqueda local", "Identidad visual & diseño gráfico", "Mantenimiento mensual & retención"],
+      "cta": "Ver nuestros proyectos →"
+    },
+    "cyber": {
+      "nom": "Ciberseguridad",
+      "description": "Análisis de vulnerabilidades, fortalecimiento de infraestructuras, capacitación y concientización sobre buenas prácticas de ciberseguridad para empresas.",
+      "services": ["Auditorías de seguridad", "Protección de datos", "Capacitación de equipos", "Cumplimiento & buenas prácticas"],
+      "cta": "Acceder al departamento →"
+    },
+    "studio": {
+      "nom": "Estudio de Juegos — Nordik Legion",
+      "description": "Desarrollo de videojuegos independientes, experiencias interactivas y universos narrativos inmersivos. Proyecto insignia: Cyber-Mythos Labyrinth.",
+      "services": ["Juegos independientes", "Experiencias interactivas", "Diseño narrativo", "Lore & construcción de mundos"],
+      "cta": "Visitar el estudio →"
+    }
+  },
+  "portfolio": {
+    "title": "Portafolio",
+    "subtitle": "Soluciones concretas para personas apasionadas.",
+    "empty": "Aún no hay proyectos en esta categoría.",
+    "categories": {
+      "Tous": "Todos",
+      "Services": "Servicios",
+      "Artisanat": "Artesanía",
+      "Construction": "Construcción",
+      "Alimentation": "Alimentación",
+      "Immobilier": "Inmobiliaria",
+      "Cybersécurité": "Ciberseguridad"
+    },
+    "statuts": {
+      "Livré": "Entregado",
+      "En cours": "En progreso",
+      "À venir": "Próximamente"
+    },
+    "projets": [
+      {
+        "nom": "Citadelle Jiu-Jitsu",
+        "client": "Dojo Citadelle, Québec",
+        "categorie": "Services",
+        "description": "Sitio web completo para un dojo de jiu-jitsu brasileño: membresías en línea, pagos Stripe, panel de administración, bilingüe FR/EN, reserva de clase de prueba gratuita.",
+        "resultats": ["Pagos en línea integrados", "Panel de administración completo", "Bilingüe FR/EN", "SEO local"],
+        "statut": "En cours",
+        "couleur": "border-h91-ion"
+      },
+      {
+        "nom": "Atelier91",
+        "client": "Artesano local, Scott, Beauce",
+        "categorie": "Artisanat",
+        "description": "Tienda en línea para jabones artesanales, velas, cerámica y superficies de concreto. Galería de productos, carrito de compras, pedidos locales.",
+        "resultats": ["Tienda e-commerce", "Galería visual", "Pedidos locales"],
+        "statut": "À venir",
+        "couleur": "border-h91-fusion"
+      },
+      {
+        "nom": "Salon Mélanie Roy",
+        "client": "Salón de peluquería & barbería, Beauce",
+        "categorie": "Services",
+        "description": "Sitio web premium para salón de peluquería y barbería. Reservas en línea, boutique de productos naturales, SEO local para destacar frente a la competencia.",
+        "resultats": ["Reservas en línea", "Boutique de productos", "SEO local"],
+        "statut": "À venir",
+        "couleur": "border-h91-accretion"
+      },
+      {
+        "nom": "Construction Bois Rond",
+        "client": "Contratista, St-Patrice-de-Beaurivage",
+        "categorie": "Construction",
+        "description": "Portafolio de proyectos y generación de leads para un constructor de casas de troncos. Galería, formulario de cotización, SEO regional.",
+        "resultats": ["Portafolio de proyectos", "Generación de leads", "SEO Chaudière-Appalaches"],
+        "statut": "À venir",
+        "couleur": "border-h91-accretion"
+      },
+      {
+        "nom": "Eliza Doyon — Agente REMAX",
+        "client": "Corredora inmobiliaria, Beauce",
+        "categorie": "Immobilier",
+        "description": "Sitio personal para una corredora inmobiliaria independiente. Listados, testimonios de clientes, identidad de marca sólida más allá del sello REMAX.",
+        "resultats": ["Sitio personal", "Listados integrados", "Marca personal"],
+        "statut": "À venir",
+        "couleur": "border-h91-warp"
+      }
+    ]
+  },
+  "contacts": {
+    "title": "Contactos",
+    "subtitle": "Un equipo, múltiples áreas de expertise. Hable con la persona indicada.",
+    "cta": "Contáctanos →",
+    "membres": [
+      {
+        "titre": "Dirección General",
+        "couleur": "text-h91-fusion",
+        "courriel": "direction@groupesupernova.ca",
+        "note": "Alianzas, visión estratégica, colaboraciones."
+      },
+      {
+        "titre": "Desarrollo Web",
+        "couleur": "text-h91-warp",
+        "courriel": "web@groupesupernova.ca",
+        "note": "Sitios web, e-commerce, SEO, identidad visual."
+      },
+      {
+        "titre": "Ciberseguridad",
+        "couleur": "text-h91-accretion",
+        "courriel": "cyber@groupesupernova.ca",
+        "note": "Auditorías, fortalecimiento, capacitación."
+      },
+      {
+        "titre": "Estudio Nordik Legion",
+        "couleur": "text-h91-ion",
+        "courriel": "studio@groupesupernova.ca",
+        "note": "Videojuegos, experiencias interactivas."
+      }
+    ]
+  },
+  "rejoindre": {
+    "title": "Contáctanos",
+    "description": "Para cualquier consulta, colaboración, alianza o información general, puede contactarnos directamente a través de los siguientes medios.",
+    "phone_label": "Teléfono",
+    "email_label": "Correo electrónico",
+    "address_label": "Dirección",
+    "phone": "(418) 000‑0000",
+    "email": "contact@groupesupernova.ca",
+    "address": "Sainte‑Marie, Chaudière‑Appalaches, Québec",
+    "cta": "Enviar un correo"
+  }
+}

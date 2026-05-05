@@ -1,12 +1,12 @@
 // =============================================================================
-// /portfolio — Réalisations Horizon 91
+// /portfolio — Réalisations Groupe Supernova
 // Filtre par catégorie côté client (Client Component)
 // =============================================================================
 "use client";
 
 import { useState } from "react";
 
-type Categorie = "Tous" | "Services" | "Artisanat" | "Construction" | "Alimentation" | "Immobilier";
+type Categorie = "Tous" | "Services" | "Artisanat" | "Construction" | "Alimentation" | "Immobilier" | "Cybersécurité";
 
 interface Projet {
   nom: string;
@@ -47,7 +47,7 @@ const projets: Projet[] = [
       "Site premium pour salon de coiffure et barbier. Réservation en ligne, boutique de produits naturels, SEO local pour sortir du lot face aux concurrents.",
     resultats: ["Réservation en ligne", "Boutique produits", "SEO local"],
     statut: "À venir",
-    couleur: "border-h91-relativistic",
+    couleur: "border-h91-accretion",
   },
   {
     nom: "Construction Bois Rond",
@@ -71,7 +71,7 @@ const projets: Projet[] = [
   },
 ];
 
-const categories: Categorie[] = ["Tous", "Services", "Artisanat", "Construction", "Alimentation", "Immobilier"];
+const categories: Categorie[] = ["Tous", "Services", "Artisanat", "Construction", "Alimentation", "Immobilier", "Cybersécurité"];
 
 export default function PortfolioPage() {
   const [actif, setActif] = useState<Categorie>("Tous");
@@ -82,7 +82,7 @@ export default function PortfolioPage() {
 
   return (
     <main className="max-w-6xl mx-auto px-6 py-20">
-      <h1 className="text-5xl font-bold text-h91-relativistic text-center mb-4">
+      <h1 className="text-5xl font-bold text-h91-stellar text-center mb-4">
         Portfolio
       </h1>
       <p className="text-center text-h91-stellar/60 mb-10 text-lg">
@@ -97,8 +97,8 @@ export default function PortfolioPage() {
             onClick={() => setActif(cat)}
             className={`px-5 py-2 rounded-full text-sm font-semibold transition border ${
               actif === cat
-                ? "bg-h91-relativistic text-h91-gravity border-h91-relativistic"
-                : "bg-transparent text-h91-stellar/70 border-h91-relativistic/30 hover:border-h91-relativistic/70"
+                ? "bg-h91-accretion text-h91-gravity border-h91-accretion"
+                : "bg-transparent text-h91-stellar/70 border-h91-accretion/30 hover:border-h91-accretion/70"
             }`}
           >
             {cat}

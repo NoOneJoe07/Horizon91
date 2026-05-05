@@ -1,10 +1,10 @@
 @import "tailwindcss";
 
 /* ---------------------------------------------------------
-   PALETTE HORIZON 91 — EVENT HORIZON (VERSION RÉCHAUFFÉE)
+   PALETTE GROUPE SUPERNOVA — TROU NOIR ABSOLU
 --------------------------------------------------------- */
 @theme inline {
-  --color-h91-gravity: #05070A;        /* Noir gravité */
+  --color-h91-gravity: #000000;        /* Vide absolu */
   --color-h91-relativistic: #1A8CFF;   /* Bleu relativiste */
   --color-h91-ion: #00F0FF;            /* Cyan ionisé */
   --color-h91-accretion: #FF7A1A;      /* Orange accrétion */
@@ -17,58 +17,34 @@
 }
 
 /* ---------------------------------------------------------
-   BACKGROUND COSMIQUE — HORIZON 91
-   (Ciel étoilé + halos relativistes + disque d’accrétion)
+   BACKGROUND — TROU NOIR ABSOLU
+   Le vide total. Seul le gaz en orbite émet de la lumière.
 --------------------------------------------------------- */
 
-/* --- CIEL ÉTOILÉ --- */
+/* --- VIDE SPATIAL TOTAL --- */
 .night-sky {
   position: fixed;
   inset: 0;
   z-index: -3;
-  background:
-    /* Noyau chaud central */
-    radial-gradient(circle at 50% 50%, rgba(255, 122, 26, 0.35), transparent 55%),
-
-    /* Halo bleu relativiste en périphérie */
-    radial-gradient(circle at 50% 10%, rgba(26, 140, 255, 0.12), transparent 70%),
-
-    /* Halo cyan ionisé */
-    radial-gradient(circle at 80% 80%, rgba(0, 240, 255, 0.12), transparent 75%),
-
-    /* Halo violet warp */
-    radial-gradient(circle at 20% 90%, rgba(106, 0, 255, 0.10), transparent 75%),
-
-    /* Fond noir gravité */
-    #05070A;
-  background-size: cover;
+  background: #000000;
   pointer-events: none;
 }
 
-/* --- AURORA SOMBRE (LÉGÈRE, PAS BORÉALE) --- */
+/* --- AURORA DÉSACTIVÉE — le vide n’a pas d’aurora --- */
 .aurora-band {
-  position: fixed;
-  inset: 0;
-  z-index: -2;
-  background:
-    radial-gradient(circle at 20% 60%, rgba(26, 140, 255, 0.22), transparent 55%),
-    radial-gradient(circle at 70% 30%, rgba(106, 0, 255, 0.18), transparent 55%),
-    radial-gradient(circle at 40% 80%, rgba(0, 240, 255, 0.15), transparent 55%);
-  filter: blur(70px);
-  animation: auroraMove 18s ease-in-out infinite alternate;
-  pointer-events: none;
+  display: none;
 }
 
-/* --- DISQUE D’ACCRÉTION (CHAUD, SUBTIL, PREMIUM) --- */
+/* --- DISQUE D’ACCRÉTION — seule lumière ambiante, gaz ionisé en chute --- */
 .accretion-ring {
   position: fixed;
   inset: 0;
   z-index: -1;
   background:
-    radial-gradient(circle at 50% 115%, rgba(255, 122, 26, 0.28), transparent 55%),
-    radial-gradient(circle at 50% 130%, rgba(255, 214, 92, 0.22), transparent 55%),
-    radial-gradient(circle at 50% 145%, rgba(255, 90, 60, 0.18), transparent 55%);
-  filter: blur(95px);
+    radial-gradient(circle at 50% 110%, rgba(255, 180, 60, 0.55), transparent 45%),
+    radial-gradient(circle at 50% 125%, rgba(255, 100, 20, 0.45), transparent 50%),
+    radial-gradient(circle at 50% 145%, rgba(200, 50, 0, 0.30), transparent 55%);
+  filter: blur(80px);
   animation: accretionPulse 14s ease-in-out infinite alternate;
   pointer-events: none;
 }
@@ -97,13 +73,14 @@
   border-radius: 50%;
   background: conic-gradient(
     from 0deg,
-    rgba(255, 122, 26, 0.55),
-    rgba(255, 214, 92, 0.55),
-    rgba(255, 90, 60, 0.55),
-    rgba(255, 122, 26, 0.55)
+    rgba(255, 30, 0, 0.80),
+    rgba(255, 140, 20, 0.85),
+    rgba(255, 230, 80, 0.80),
+    rgba(255, 140, 20, 0.85),
+    rgba(255, 30, 0, 0.80)
   );
-  filter: blur(18px);
-  opacity: 0.55;
+  filter: blur(14px);
+  opacity: 0.82;
   animation: coreSpin 18s linear infinite;
   z-index: -1;
 }
@@ -113,31 +90,31 @@
   to   { transform: rotate(360deg); }
 }
 
-/* --- HALO FROID AUTOUR DU LOGO --- */
+/* --- CORONA DE GAZ — lueur du gaz ionisé autour de l'étoile --- */
 .blue-halo {
   position: absolute;
-  width: 420px;
-  height: 420px;
+  width: 480px;
+  height: 480px;
   border-radius: 50%;
   background: radial-gradient(
     circle,
-    rgba(26, 140, 255, 0.35) 0%,
-    rgba(26, 140, 255, 0.15) 40%,
-    rgba(10, 10, 15, 0) 70%
+    rgba(255, 180, 60, 0.30) 0%,
+    rgba(255, 80, 10, 0.18) 45%,
+    rgba(0, 0, 0, 0) 72%
   );
-  filter: blur(25px);
-  opacity: 0.45;
+  filter: blur(22px);
+  opacity: 0.70;
   z-index: -2;
 }
 /* ---------------------------------------------------------
-   GRADIENT DU FROID VERS LE CHAUD — TITRE HORIZON 91
+   GRADIENT GAZ BRÛLANT — TITRE GROUPE SUPERNOVA
 --------------------------------------------------------- */
 .h91-title-gradient {
   background: linear-gradient(
     90deg,
-    var(--color-h91-relativistic),
-    var(--color-h91-ion),
     var(--color-h91-accretion),
+    var(--color-h91-fusion),
+    #FFFFFF,
     var(--color-h91-fusion)
   );
   -webkit-background-clip: text;
@@ -145,18 +122,18 @@
 }
 
 /* ---------------------------------------------------------
-   GRADIENT ANIMÉ — HORIZON 91 (FROID → CHAUD → FROID)
+   GRADIENT ANIMÉ — GAZ EN ORBITE (CHAUD → BLANC → CHAUD)
 --------------------------------------------------------- */
 .h91-title-gradient-animated {
   background: linear-gradient(
     90deg,
-    var(--color-h91-relativistic),
-    var(--color-h91-ion),
     var(--color-h91-accretion),
     var(--color-h91-fusion),
+    #FFFFFF,
+    var(--color-h91-fusion),
     var(--color-h91-accretion),
-    var(--color-h91-ion),
-    var(--color-h91-relativistic)
+    var(--color-h91-fusion),
+    var(--color-h91-accretion)
   );
   background-size: 400% 400%;
   animation: h91GradientFlow 12s ease-in-out infinite;
