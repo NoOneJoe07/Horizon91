@@ -1,25 +1,29 @@
 import { useTranslations } from "next-intl";
 import Image from "next/image";
+import { Link } from "@/i18n/navigation";
 
 const divisionsMeta = [
   {
     key: "web",
     mark: "/mark-web.svg",
     couleur: "text-h91-warp",
-    href: "/portfolio",
+    borderColor: "border-h91-warp/30 hover:border-h91-warp/70",
+    href: "/divisions/web",
     externe: false,
   },
   {
     key: "cyber",
     mark: "/mark-cyber.svg",
     couleur: "text-h91-accretion",
-    href: "/contacts",
+    borderColor: "border-h91-accretion/30 hover:border-h91-accretion/70",
+    href: "/divisions/cyber",
     externe: false,
   },
   {
     key: "studio",
     mark: "/mark-nordik.svg",
     couleur: "text-h91-ion",
+    borderColor: "border-h91-ion/30 hover:border-h91-ion/70",
     href: "https://nordiklegion.ca",
     externe: true,
   },
@@ -40,10 +44,9 @@ export default function DivisionsPage() {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {divisionsMeta.map((div) => {
           const services = t.raw(`${div.key}.services`) as string[];
-          return (
+          const card = (
             <div
-              key={div.key}
-              className="p-6 border border-h91-accretion/20 rounded-xl bg-h91-gravity/50 flex flex-col gap-4 hover:border-h91-accretion/50 transition"
+              className={`p-6 border ${div.borderColor} rounded-xl bg-h91-gravity/50 flex flex-col gap-4 transition h-full`}
             >
               <Image
                 src={div.mark}
@@ -66,20 +69,31 @@ export default function DivisionsPage() {
                     key={s}
                     className="text-h91-stellar/60 text-xs flex items-center gap-2"
                   >
-                    <span className="text-h91-ion">▸</span> {s}
+                    <span className={div.couleur}>▸</span> {s}
                   </li>
                 ))}
               </ul>
 
-              <a
-                href={div.href}
-                target={div.externe ? "_blank" : undefined}
-                rel={div.externe ? "noopener noreferrer" : undefined}
-                className="mt-2 inline-block px-5 py-2 bg-h91-accretion text-h91-gravity font-semibold rounded-lg text-sm hover:bg-h91-fusion transition text-center"
-              >
+              <span className={`mt-2 inline-block px-5 py-2 bg-h91-accretion text-h91-gravity font-semibold rounded-lg text-sm hover:bg-h91-fusion transition text-center`}>
                 {t(`${div.key}.cta`)}
-              </a>
+              </span>
             </div>
+          );
+
+          return div.externe ? (
+            <a
+              key={div.key}
+              href={div.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block"
+            >
+              {card}
+            </a>
+          ) : (
+            <Link key={div.key} href={div.href} className="block">
+              {card}
+            </Link>
           );
         })}
       </div>

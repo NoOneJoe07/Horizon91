@@ -7,6 +7,7 @@
     "home": "Accueil",
     "divisions": "Divisions",
     "portfolio": "Portfolio",
+    "news": "Actualités",
     "contacts": "Contacts",
     "join": "Nous joindre"
   },
@@ -54,6 +55,45 @@
   "divisions": {
     "title": "Nos Divisions",
     "subtitle": "Trois pôles d'expertise. Une seule vision.",
+    "divisionWeb": {
+      "hero_titre": "Division Web",
+      "hero_tagline": "La Flamme",
+      "hero_description": "On conçoit des présences numériques qui travaillent pour toi — même quand tu dors. Sites rapides, beaux, référencés et maintenus par une équipe locale qui comprend la réalité des entrepreneurs d'ici.",
+      "services_titre": "Ce qu'on fait",
+      "services": [
+        { "titre": "Site vitrine professionnel", "desc": "Design sur mesure, mobile-first, chargement ultra-rapide. Ton image en ligne à la hauteur de ton travail." },
+        { "titre": "Boutique en ligne & e-commerce", "desc": "Vends tes produits 24h/24. Gestion de stock, paiement Stripe, tableau de bord pour toi." },
+        { "titre": "Système de réservation", "desc": "Prises de rendez-vous en ligne, gestion des plages horaires, rappels automatiques." },
+        { "titre": "SEO & référencement local", "desc": "Sors en premier quand tes clients cherchent ce que tu offres dans ta région." },
+        { "titre": "Identité visuelle & infographie", "desc": "Logo, palette, typographie — une marque cohérente qui se démarque." },
+        { "titre": "Maintenance & support mensuel", "desc": "Mises à jour, sécurité, contenu — on garde ton site en santé pendant que tu te concentres sur ton métier." }
+      ],
+      "approche_titre": "Notre approche",
+      "approche_texte": "On ne livre pas des sites web à la chaîne. Chaque projet commence par comprendre ton entreprise, ta clientèle et tes objectifs. Le résultat : un outil numérique qui génère de vraies retombées, pas juste une belle vitrine.",
+      "cta_titre": "Prêt à bâtir ta présence en ligne ?",
+      "cta_bouton": "Parlons de ton projet",
+      "cta_portfolio": "Voir nos réalisations"
+    },
+    "divisionCyber": {
+      "hero_titre": "Division Cybersécurité",
+      "hero_tagline": "Singularité",
+      "hero_description": "Tes données, ton infrastructure et la confiance de tes clients méritent une protection sérieuse. On analyse, on sécurise, on forme — pour que tu puisses croître sans vulnérabilité cachée.",
+      "services_titre": "Ce qu'on fait",
+      "services": [
+        { "titre": "Audit de sécurité", "desc": "Analyse complète de tes systèmes pour identifier les vulnérabilités avant que quelqu'un d'autre ne le fasse." },
+        { "titre": "Sécurisation d'infrastructure", "desc": "Renforcement de tes réseaux, serveurs et postes de travail selon les meilleures pratiques du domaine." },
+        { "titre": "Protection des données", "desc": "Conformité Loi 25 (Québec), politiques de confidentialité, gestion des accès et chiffrement." },
+        { "titre": "Formation des équipes", "desc": "Tes employés sont ta première ligne de défense. On les sensibilise aux menaces réelles : hameçonnage, mots de passe, comportements à risque." },
+        { "titre": "Réponse aux incidents", "desc": "Plan de réponse en cas de compromission — minimiser les dommages, reprendre le contrôle rapidement." },
+        { "titre": "Veille & bonnes pratiques", "desc": "Le paysage des menaces évolue. On reste à jour pour que tu n'aies pas à t'en préoccuper." }
+      ],
+      "approche_titre": "Sécurité sans jargon",
+      "approche_texte": "La cybersécurité n'est pas réservée aux grandes entreprises. Une PME compromise, c'est des données clients volées, une réputation atteinte et des coûts de récupération importants. On rend la protection accessible, compréhensible et proportionnelle à ta réalité.",
+      "badge": "Division en développement actif",
+      "cta_titre": "Tu veux évaluer ta posture de sécurité ?",
+      "cta_bouton": "Parler à notre équipe",
+      "cta_portfolio": "Retour aux divisions"
+    }
     "web": {
       "nom": "Développement Web",
       "description": "Sites web modernes, boutiques en ligne, systèmes de réservation et solutions numériques sur mesure pour entrepreneurs locaux et PME. Conception graphique, identité visuelle et stratégie de contenu incluses.",
@@ -180,5 +220,12 @@
     "email": "contact@groupesupernova.ca",
     "address": "Sainte‑Marie, Chaudière‑Appalaches, Québec",
     "cta": "Envoyer un courriel"
+  },
+  "actualites": {
+    "title": "Actualités",
+    "subtitle": "Articles, coulisses et ressources pour les entrepreneurs d'ici.",
+    "coming_soon": "Contenu en préparation",
+    "coming_desc": "On documente nos projets, on partage nos apprentissages et on prépare des ressources utiles pour les entrepreneurs locaux. Revenez bientôt.",
+    "back_home": "Retour à l'accueil"
   }
 }

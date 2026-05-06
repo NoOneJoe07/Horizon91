@@ -7,6 +7,7 @@
     "home": "Home",
     "divisions": "Divisions",
     "portfolio": "Portfolio",
+    "news": "News",
     "contacts": "Contacts",
     "join": "Contact Us"
   },
@@ -54,6 +55,45 @@
   "divisions": {
     "title": "Our Divisions",
     "subtitle": "Three areas of expertise. One vision.",
+    "divisionWeb": {
+      "hero_titre": "Web Division",
+      "hero_tagline": "La Flamme",
+      "hero_description": "We build digital presences that work for you — even while you sleep. Fast, beautiful, SEO-optimized websites maintained by a local team that understands what entrepreneurs here actually need.",
+      "services_titre": "What we do",
+      "services": [
+        { "titre": "Professional showcase website", "desc": "Custom design, mobile-first, ultra-fast loading. Your online image at the level of your work." },
+        { "titre": "Online store & e-commerce", "desc": "Sell your products 24/7. Inventory management, Stripe payments, your own dashboard." },
+        { "titre": "Booking system", "desc": "Online appointment scheduling, time slot management, automatic reminders." },
+        { "titre": "SEO & local search", "desc": "Show up first when your customers search for what you offer in your area." },
+        { "titre": "Visual identity & graphic design", "desc": "Logo, color palette, typography — a consistent brand that stands out." },
+        { "titre": "Monthly maintenance & support", "desc": "Updates, security, content — we keep your site healthy while you focus on your business." }
+      ],
+      "approche_titre": "Our approach",
+      "approche_texte": "We don't churn out websites. Every project starts with understanding your business, your customers, and your goals. The result: a digital tool that generates real results, not just a pretty storefront.",
+      "cta_titre": "Ready to build your online presence?",
+      "cta_bouton": "Let's talk about your project",
+      "cta_portfolio": "See our work"
+    },
+    "divisionCyber": {
+      "hero_titre": "Cybersecurity Division",
+      "hero_tagline": "Singularité",
+      "hero_description": "Your data, your infrastructure, and your clients' trust deserve serious protection. We analyze, secure, and train — so you can grow without hidden vulnerabilities.",
+      "services_titre": "What we do",
+      "services": [
+        { "titre": "Security audit", "desc": "Complete analysis of your systems to identify vulnerabilities before someone else does." },
+        { "titre": "Infrastructure hardening", "desc": "Strengthening your networks, servers, and workstations following industry best practices." },
+        { "titre": "Data protection", "desc": "Quebec Law 25 compliance, privacy policies, access management, and encryption." },
+        { "titre": "Team training", "desc": "Your employees are your first line of defense. We train them on real threats: phishing, passwords, risky behaviors." },
+        { "titre": "Incident response", "desc": "Response plan in case of compromise — minimize damage, regain control fast." },
+        { "titre": "Ongoing security practices", "desc": "The threat landscape evolves. We stay current so you don't have to worry about it." }
+      ],
+      "approche_titre": "Security without jargon",
+      "approche_texte": "Cybersecurity isn't just for large corporations. A compromised SMB means stolen client data, a damaged reputation, and significant recovery costs. We make protection accessible, understandable, and proportional to your reality.",
+      "badge": "Division in active development",
+      "cta_titre": "Want to assess your security posture?",
+      "cta_bouton": "Talk to our team",
+      "cta_portfolio": "Back to divisions"
+    }
     "web": {
       "nom": "Web Development",
       "description": "Modern websites, online stores, booking systems and custom digital solutions for local entrepreneurs and SMBs. Graphic design, visual identity and content strategy included.",
@@ -180,5 +220,12 @@
     "email": "contact@groupesupernova.ca",
     "address": "Sainte‑Marie, Chaudière‑Appalaches, Québec",
     "cta": "Send an email"
+  },
+  "actualites": {
+    "title": "News",
+    "subtitle": "Articles, behind-the-scenes and resources for local entrepreneurs.",
+    "coming_soon": "Content coming soon",
+    "coming_desc": "We're documenting our projects, sharing our learnings, and preparing useful resources for local entrepreneurs. Check back soon.",
+    "back_home": "Back to home"
   }
 }

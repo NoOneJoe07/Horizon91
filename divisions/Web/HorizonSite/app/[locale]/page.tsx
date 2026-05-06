@@ -1,5 +1,61 @@
 import { useTranslations } from "next-intl";
+import { getLocale } from "next-intl/server";
 import Image from "next/image";
+
+// ─────────────────────────────────────────────────────────
+// JSON-LD — LocalBusiness (SEO structuré)
+// ─────────────────────────────────────────────────────────
+async function LocalBusinessJsonLd() {
+  const locale = await getLocale();
+  const name =
+    locale === "en" ? "Supernova Group" : locale === "es" ? "Grupo Supernova" : "Groupe Supernova";
+  const url =
+    locale === "en" ? "https://supernovagroup.ca" : "https://groupesupernova.ca";
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    name,
+    url,
+    logo: `${url}/LogoGroupeSupernova.svg`,
+    image: `${url}/og-image.jpg`,
+    description:
+      locale === "en"
+        ? "Web agency, cybersecurity and game studio based in Sainte-Marie-de-Beauce, Quebec."
+        : locale === "es"
+        ? "Agencia web, ciberseguridad y estudio de videojuegos en Sainte-Marie-de-Beauce, Quebec."
+        : "Agence web, cybersécurité et studio de jeux vidéo à Sainte-Marie-de-Beauce, Québec.",
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Sainte-Marie",
+      addressRegion: "QC",
+      addressCountry: "CA",
+    },
+    areaServed: [
+      { "@type": "Place", name: "Beauce" },
+      { "@type": "Place", name: "Chaudière-Appalaches" },
+      { "@type": "Place", name: "Québec" },
+    ],
+    contactPoint: {
+      "@type": "ContactPoint",
+      email: "contact@groupesupernova.ca",
+      contactType: "customer service",
+    },
+    sameAs: [
+      "https://www.facebook.com/groupesupernova",
+      "https://www.instagram.com/groupesupernova",
+      "https://www.linkedin.com/company/groupesupernova",
+      "https://www.youtube.com/@groupesupernova",
+    ],
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+    />
+  );
+}
 
 const membresMeta = [
   {
@@ -38,6 +94,7 @@ export default function HomePage() {
 
   return (
     <>
+      <LocalBusinessJsonLd />
       {/* ================================================================
           HERO
       ================================================================ */}

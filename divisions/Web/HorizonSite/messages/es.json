@@ -7,6 +7,7 @@
     "home": "Inicio",
     "divisions": "Divisiones",
     "portfolio": "Portafolio",
+    "news": "Noticias",
     "contacts": "Contactos",
     "join": "Contáctanos"
   },
@@ -54,6 +55,45 @@
   "divisions": {
     "title": "Nuestras Divisiones",
     "subtitle": "Tres áreas de expertise. Una sola visión.",
+    "divisionWeb": {
+      "hero_titre": "División Web",
+      "hero_tagline": "La Flamme",
+      "hero_description": "Creamos presencias digitales que trabajan por ti — incluso mientras duermes. Sitios rápidos, bellos y posicionados, mantenidos por un equipo local que entiende la realidad de los emprendedores de aquí.",
+      "services_titre": "Lo que hacemos",
+      "services": [
+        { "titre": "Sitio vitrina profesional", "desc": "Diseño personalizado, mobile-first, carga ultrarrápida. Tu imagen en línea a la altura de tu trabajo." },
+        { "titre": "Tienda en línea & e-commerce", "desc": "Vende tus productos 24/7. Gestión de inventario, pagos Stripe, panel de administración para ti." },
+        { "titre": "Sistema de reservas", "desc": "Citas en línea, gestión de horarios, recordatorios automáticos." },
+        { "titre": "SEO & búsqueda local", "desc": "Aparece primero cuando tus clientes buscan lo que ofreces en tu región." },
+        { "titre": "Identidad visual & diseño gráfico", "desc": "Logo, paleta, tipografía — una marca coherente que se destaca." },
+        { "titre": "Mantenimiento & soporte mensual", "desc": "Actualizaciones, seguridad, contenido — mantenemos tu sitio en óptimas condiciones." }
+      ],
+      "approche_titre": "Nuestro enfoque",
+      "approche_texte": "No fabricamos sitios web en serie. Cada proyecto comienza entendiendo tu negocio, tus clientes y tus objetivos. El resultado: una herramienta digital que genera resultados reales, no solo una bonita vitrina.",
+      "cta_titre": "¿Listo para construir tu presencia en línea?",
+      "cta_bouton": "Hablemos de tu proyecto",
+      "cta_portfolio": "Ver nuestros proyectos"
+    },
+    "divisionCyber": {
+      "hero_titre": "División Ciberseguridad",
+      "hero_tagline": "Singularité",
+      "hero_description": "Tus datos, tu infraestructura y la confianza de tus clientes merecen protección seria. Analizamos, aseguramos y formamos — para que puedas crecer sin vulnerabilidades ocultas.",
+      "services_titre": "Lo que hacemos",
+      "services": [
+        { "titre": "Auditoría de seguridad", "desc": "Análisis completo de tus sistemas para identificar vulnerabilidades antes de que alguien más lo haga." },
+        { "titre": "Fortalecimiento de infraestructura", "desc": "Reforzamiento de redes, servidores y estaciones de trabajo según las mejores prácticas del sector." },
+        { "titre": "Protección de datos", "desc": "Cumplimiento normativo, políticas de privacidad, gestión de accesos y cifrado." },
+        { "titre": "Formación de equipos", "desc": "Tus empleados son tu primera línea de defensa. Los sensibilizamos ante amenazas reales: phishing, contraseñas, comportamientos de riesgo." },
+        { "titre": "Respuesta a incidentes", "desc": "Plan de respuesta ante compromisos — minimizar daños, recuperar el control rápidamente." },
+        { "titre": "Buenas prácticas continuas", "desc": "El panorama de amenazas evoluciona. Nos mantenemos actualizados para que no tengas que preocuparte." }
+      ],
+      "approche_titre": "Seguridad sin tecnicismos",
+      "approche_texte": "La ciberseguridad no es solo para grandes empresas. Una pyme comprometida significa datos de clientes robados, reputación dañada y costos de recuperación significativos. Hacemos la protección accesible, comprensible y proporcional a tu realidad.",
+      "badge": "División en desarrollo activo",
+      "cta_titre": "¿Quieres evaluar tu postura de seguridad?",
+      "cta_bouton": "Hablar con nuestro equipo",
+      "cta_portfolio": "Volver a las divisiones"
+    }
     "web": {
       "nom": "Desarrollo Web",
       "description": "Sitios web modernos, tiendas en línea, sistemas de reservas y soluciones digitales personalizadas para emprendedores locales y pymes. Diseño gráfico, identidad visual y estrategia de contenido incluidos.",
@@ -180,5 +220,12 @@
     "email": "contact@groupesupernova.ca",
     "address": "Sainte‑Marie, Chaudière‑Appalaches, Québec",
     "cta": "Enviar un correo"
+  },
+  "actualites": {
+    "title": "Noticias",
+    "subtitle": "Artículos, bastidores y recursos para emprendedores locales.",
+    "coming_soon": "Contenido en preparación",
+    "coming_desc": "Estamos documentando nuestros proyectos, compartiendo aprendizajes y preparando recursos útiles para emprendedores locales. Vuelve pronto.",
+    "back_home": "Volver al inicio"
   }
 }
