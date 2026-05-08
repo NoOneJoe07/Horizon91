@@ -7,6 +7,7 @@
     "home": "Accueil",
     "divisions": "Divisions",
     "portfolio": "Portfolio",
+    "pricing": "Tarification",
     "news": "Actualités",
     "contacts": "Contacts",
     "join": "Nous joindre"
@@ -230,6 +231,140 @@
     "success_title": "Message envoyé !",
     "success_desc": "On vous répond dans les 24-48 heures.",
     "error_generic": "Une erreur est survenue. Réessayez ou écrivez-nous directement."
+  },
+  "tarification": {
+    "title": "Tarification",
+    "subtitle": "Des prix justes pour la région. Pas de cachette — de quoi à quoi.",
+    "livrables_title": "Inclus dans chaque forfait — sans exception",
+    "livrables": [
+      {
+        "titre": "Contrat de service détaillé",
+        "desc": "Ce qui est inclus, les délais, les révisions comprises, les modalités de paiement et les conditions d'annulation. Pas de surprises."
+      },
+      {
+        "titre": "Document de garanties & conditions",
+        "desc": "Ce qui est couvert (bugs, compatibilité, sécurité) et ce qui s'applique. Modifications non autorisées, retard de maintenance — tout est documenté clairement."
+      },
+      {
+        "titre": "Guide administrateur personnalisé",
+        "desc": "Comment mettre à jour le contenu, ajouter une photo, modifier les heures. Simple, visuel, fait pour quelqu'un qui n'est pas techno. Votre site, votre autonomie."
+      }
+    ],
+    "web_title": "Sites web — livraison unique",
+    "web_packages": [
+      {
+        "nom": "Vitrine Essentielle",
+        "cible": "Artisans, thérapeutes, services locaux",
+        "prix_min": "1 500 $",
+        "prix_max": "2 200 $",
+        "features": [
+          "Design sur mesure, mobile-first",
+          "Jusqu'à 5 sections / pages",
+          "Formulaire de contact",
+          "SEO de base + Google Maps",
+          "Hébergement inclus 1 an",
+          "3 livrables documentaires inclus"
+        ],
+        "featured": false
+      },
+      {
+        "nom": "Pro Interactif",
+        "cible": "Salons, dojos, restaurants, professionnels",
+        "prix_min": "3 000 $",
+        "prix_max": "4 500 $",
+        "features": [
+          "Tout du forfait Essentielle",
+          "Réservation en ligne ou blog",
+          "Galerie photos / vidéos",
+          "Multilingue — FR, EN, ES et plus selon vos clientèles",
+          "SEO local avancé",
+          "Panneau d'administration",
+          "3 livrables documentaires inclus"
+        ],
+        "featured": true
+      },
+      {
+        "nom": "Commerce Complet",
+        "cible": "Boutiques, e-commerce, abonnements",
+        "prix_min": "5 500 $",
+        "prix_max": "8 000 $+",
+        "features": [
+          "Tout du forfait Pro",
+          "Boutique en ligne complète",
+          "Paiements Stripe intégrés",
+          "Gestion stock & commandes",
+          "Espace membres / abonnements",
+          "Tableau de bord client dédié",
+          "3 livrables documentaires inclus"
+        ],
+        "featured": false
+      }
+    ],
+    "popular_badge": "Le plus populaire",
+    "maintenance_title": "Maintenance mensuelle — obligatoire avec tout forfait",
+    "maintenance": [
+      {
+        "nom": "Option A — Client autonome",
+        "prix": "150 $ / mois",
+        "desc": "Mises à jour sécurité, monitoring, sauvegardes. Tu gères ton contenu via ton panneau admin."
+      },
+      {
+        "nom": "Option B — Supernova gère tout",
+        "prix": "200 $ — 350 $ / mois",
+        "desc": "Contenu, textes, photos, mises à jour — on s'en occupe pendant que tu travailles."
+      }
+    ],
+    "heures_title": "Heures supplémentaires hors forfait",
+    "heures": [
+      { "label": "Support & modifications de contenu", "prix": "60 $ — 80 $ / h" },
+      { "label": "Développement (nouvelle fonctionnalité)", "prix": "80 $ — 100 $ / h" },
+      { "label": "Banque d'heures prépayée — 10 h", "prix": "700 $", "note": "économie de 100 $" }
+    ],
+    "social_title": "Gestion des médias sociaux — add-on mensuel",
+    "social_packages": [
+      {
+        "nom": "Présence Essentielle",
+        "cible": "Facebook + Instagram",
+        "prix_min": "300 $",
+        "prix_max": "400 $ / mois",
+        "features": [
+          "2–3 publications / semaine",
+          "Réponse aux commentaires",
+          "Rapport mensuel"
+        ],
+        "featured": false
+      },
+      {
+        "nom": "Présence Active",
+        "cible": "Multi-plateformes + vidéo",
+        "prix_min": "500 $",
+        "prix_max": "700 $ / mois",
+        "features": [
+          "Tout de l'Essentielle",
+          "1 visite filmée / mois",
+          "Reel Instagram + Short TikTok",
+          "Publication YouTube + article site"
+        ],
+        "featured": true
+      },
+      {
+        "nom": "Présence Complète",
+        "cible": "Écosystème + book mensuel postal",
+        "prix_min": "800 $",
+        "prix_max": "1 200 $ / mois",
+        "features": [
+          "Tout de l'Active",
+          "Fréquence accrue + événements",
+          "Inclusion book mensuel distribué",
+          "Co-promotion écosystème Supernova"
+        ],
+        "featured": false
+      }
+    ],
+    "recommended_badge": "Recommandé",
+    "cta_title": "Prêt à démarrer ?",
+    "cta_desc": "Chaque projet commence par une conversation. On analyse vos besoins et on vous propose le forfait qui vous correspond vraiment.",
+    "cta_bouton": "Parlons de votre projet"
   },
   "actualites": {
     "title": "Actualités",

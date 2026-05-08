@@ -1,7 +1,7 @@
 @AGENTS.md
 
 # CONTEXTE PROJET — Groupe Supernova / HorizonSite
-Dernière mise à jour : 2026-05-06
+Dernière mise à jour : 2026-05-06 (soir)
 
 ## Stack technique
 - Next.js 16.2.3 App Router (TypeScript, Tailwind v4)
@@ -92,9 +92,17 @@ h91-relativistic: #1A8CFF /* Bleu (token réservé, non utilisé en UI) */
 - Paulina Jaramillo — DG Marketing & Photographie (Division Web + réseaux sociaux)
 - Gabriel Patoine — CISO Division Cybersécurité (en formation, à venir)
 
-## Emails (Zoho Mail gratuit — voir ZOHO-MAIL.md)
-Vrais comptes : jonathan, alexandra, paulina, gabriel, contact
-Alias → redirect : direction, web, cyber, studio, facturation, noreply
+## Emails (Zoho Mail Lite — voir ZOHO-MAIL.md)
+Plan : Mail Lite, C$1.25/user/mois, 5 users, 10 Go/user, renouvellement mai 2027
+Format adresses : prenom.nom@groupesupernova.ca (future-proof)
+Vrais comptes ✅ :
+  - jonathan.patoine@groupesupernova.ca (Super Admin)
+  - alexandra.espin@groupesupernova.ca
+  - paulina.jaramillo@groupesupernova.ca
+  - gabriel.patoine@groupesupernova.ca
+  - contact@groupesupernova.ca
+Alias → redirect : direction, web, cyber, studio, facturation, noreply (À CRÉER dans Admin Console)
+DNS configuré ✅ : MX zohocloud.ca + SPF + DKIM (propagation DKIM en cours)
 
 ## Architecture de site décidée
 - groupesupernova.ca = site principal maison mère
@@ -160,11 +168,16 @@ Alias → redirect : direction, web, cyber, studio, facturation, noreply
 ## À faire — Jonathan (hors code)
 - [ ] Enregistrement légal : NEQ (Registraire entreprises QC) + numéro fédéral ARC
 - [ ] Numéros de taxes : TPS/TVQ (seuil obligatoire 30 000$/an, recommandé dès maintenant)
-- [ ] Configurer Zoho Mail (voir ZOHO-MAIL.md)
+- ✅ Zoho Mail configuré — comptes créés, DNS en place (voir ZOHO-MAIL.md)
+- ✅ Alias Zoho créés (direction, studio, facturation → jonathan / web → paulina / cyber → gabriel / noreply → contact)
+- ✅ DKIM propagé et vérifié
+- ✅ Test courriel envoyé — premier courriel professionnel expédié à Citadelle Jiu-Jitsu
+- ✅ Signature courriel configurée dans Zoho webmail
 - [ ] Réserver handles @groupesupernova sur toutes les plateformes sociales
 - [ ] Créer og-image.jpg (1200×630px) pour Open Graph — logo sur fond cosmique
 - [ ] Photos d'équipe (Jonathan, Alexandra, Paulina) — attendues cette semaine
 - [ ] Bios Alexandra et Paulina — à rédiger
+- [ ] Contenu Citadelle Jiu-Jitsu — en attente retour client
 
 ## Prochaines étapes techniques — Objectif déploiement fin mai 2026
 1. ✅ Conflits de routing résolus (vieilles pages → redirects)
@@ -174,11 +187,18 @@ Alias → redirect : direction, web, cyber, studio, facturation, noreply
 5. ✅ Section /actualites plantée (structure vide phase 2)
 6. ✅ Guide déploiement Vercel (DEPLOIEMENT.md)
 7. ✅ Guide Zoho Mail (ZOHO-MAIL.md)
-8. [ ] Créer og-image.jpg (public/)
-9. [ ] Photos équipe → remplacer placeholders initiales
-10. [ ] Déploiement Vercel + config domaines Namecheap
-11. [ ] Zoho Mail → comptes + alias opérationnels
-12. [ ] Enregistrement légal Jonathan
-13. [ ] Google Search Console → soumettre sitemap
-14. [ ] Google Business Profile → créer fiche
-15. [ ] Comptes sociaux → créer + réserver handles
+8. ✅ Zoho Mail opérationnel — 5 comptes créés, DNS MX + SPF + DKIM configurés
+9. ✅ DNS Namecheap complet — A record Vercel + CNAME www + MX + SPF + DKIM
+10. ✅ Alias Zoho créés (direction, studio, facturation, web, cyber, noreply)
+11. ✅ DKIM propagé et vérifié
+12. ✅ Premier courriel professionnel envoyé (Citadelle Jiu-Jitsu)
+13. [ ] Fix syntaxe JSON — virgule manquante entre divisionCyber et web dans en.json et es.json
+14. [ ] Créer og-image.jpg (public/) — priorité avant lancement
+15. [ ] Formulaire de contact fonctionnel → connecter SMTP Zoho
+16. [ ] DMARC record → ajouter dans Namecheap
+17. [ ] Photos équipe → remplacer placeholders initiales
+18. [ ] Déploiement Vercel + config domaines Namecheap (DNS déjà prêt ✅)
+19. [ ] Enregistrement légal Jonathan
+20. [ ] Google Search Console → soumettre sitemap
+21. [ ] Google Business Profile → créer fiche
+22. [ ] Comptes sociaux → créer + réserver handles

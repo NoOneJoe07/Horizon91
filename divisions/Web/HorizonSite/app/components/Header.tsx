@@ -54,6 +54,7 @@ export default function Header() {
           <Link href="/">{t("home")}</Link>
           <Link href="/divisions">{t("divisions")}</Link>
           <Link href="/portfolio">{t("portfolio")}</Link>
+          <Link href="/tarification">{t("pricing")}</Link>
           <Link href="/actualites">{t("news")}</Link>
           <Link href="/contacts">{t("contacts")}</Link>
         </nav>
@@ -108,6 +109,7 @@ export default function Header() {
           <Link href="/" onClick={() => setOpen(false)}>{t("home")}</Link>
           <Link href="/divisions" onClick={() => setOpen(false)}>{t("divisions")}</Link>
           <Link href="/portfolio" onClick={() => setOpen(false)}>{t("portfolio")}</Link>
+          <Link href="/tarification" onClick={() => setOpen(false)}>{t("pricing")}</Link>
           <Link href="/actualites" onClick={() => setOpen(false)}>{t("news")}</Link>
           <Link href="/contacts" onClick={() => setOpen(false)}>{t("contacts")}</Link>
 

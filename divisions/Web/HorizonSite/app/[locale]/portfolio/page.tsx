@@ -73,11 +73,16 @@ export default function PortfolioPage() {
 
       {/* Grille projets */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {filtres.map((projet) => (
+        {filtres.map((projet) => {
+          const isRedacted = projet.statut === "À venir";
+          return (
           <article
             key={projet.nom}
-            className={`p-6 border-2 ${projet.couleur} rounded-xl bg-h91-gravity/50 flex flex-col gap-3 hover:bg-h91-gravity/80 transition`}
+            className={`relative p-6 border-2 ${projet.couleur} rounded-xl bg-h91-gravity/50 flex flex-col gap-3 transition overflow-hidden ${
+              isRedacted ? "cursor-default" : "hover:bg-h91-gravity/80"
+            }`}
           >
+            {/* Badge catégorie + statut — toujours visible */}
             <div className="flex items-center justify-between">
               <span className="text-xs font-semibold text-h91-stellar/50 uppercase tracking-widest">
                 {projet.categorie}
@@ -95,24 +100,46 @@ export default function PortfolioPage() {
               </span>
             </div>
 
-            <h2 className="text-xl font-bold text-h91-stellar">{projet.nom}</h2>
-            <p className="text-h91-stellar/50 text-xs">{projet.client}</p>
-            <p className="text-h91-stellar/80 text-sm leading-relaxed flex-1">
-              {projet.description}
-            </p>
+            {/* Contenu flou pour les projets non confirmés */}
+            <div className={isRedacted ? "blur-sm select-none pointer-events-none" : ""}>
+              <h2 className="text-xl font-bold text-h91-stellar">{projet.nom}</h2>
+              <p className="text-h91-stellar/50 text-xs">{projet.client}</p>
+              <p className="text-h91-stellar/80 text-sm leading-relaxed flex-1">
+                {projet.description}
+              </p>
+              <ul className="flex flex-col gap-1 mt-2">
+                {projet.resultats.map((r) => (
+                  <li
+                    key={r}
+                    className="text-h91-stellar/60 text-xs flex items-center gap-2"
+                  >
+                    <span className="text-h91-ion">✓</span> {r}
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-            <ul className="flex flex-col gap-1 mt-2">
-              {projet.resultats.map((r) => (
-                <li
-                  key={r}
-                  className="text-h91-stellar/60 text-xs flex items-center gap-2"
-                >
-                  <span className="text-h91-ion">✓</span> {r}
-                </li>
-              ))}
-            </ul>
+            {/* Overlay zone en formation */}
+            {isRedacted && (
+              <div className="absolute inset-0 flex flex-col items-center justify-center bg-h91-gravity/60 rounded-xl gap-3">
+                {/* Icône cosmique */}
+                <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" className="opacity-80">
+                  <circle cx="24" cy="24" r="22" stroke="#FF7A1A" strokeWidth="1.5" strokeDasharray="4 3"/>
+                  <circle cx="24" cy="24" r="4" fill="#FF7A1A"/>
+                  <ellipse cx="24" cy="24" rx="22" ry="8" stroke="#FF7A1A" strokeWidth="1" strokeDasharray="3 3" transform="rotate(-30 24 24)"/>
+                  <ellipse cx="24" cy="24" rx="22" ry="8" stroke="#FFD65C" strokeWidth="1" strokeDasharray="3 3" transform="rotate(30 24 24)" opacity="0.6"/>
+                </svg>
+                <p className="text-h91-accretion text-xs font-bold uppercase tracking-widest text-center px-4">
+                  Secteur en formation
+                </p>
+                <p className="text-h91-stellar/40 text-xs text-center px-6">
+                  Négociation en cours
+                </p>
+              </div>
+            )}
           </article>
-        ))}
+          );
+        })}
 
         {filtres.length === 0 && (
           <p className="col-span-full text-center text-h91-stellar/40 py-16">
