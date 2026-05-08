@@ -93,7 +93,7 @@
       "cta_titre": "Want to assess your security posture?",
       "cta_bouton": "Talk to our team",
       "cta_portfolio": "Back to divisions"
-    },
+    }
     "web": {
       "nom": "Web Development",
       "description": "Modern websites, online stores, booking systems and custom digital solutions for local entrepreneurs and SMBs. Graphic design, visual identity and content strategy included.",
@@ -212,24 +212,14 @@
   },
   "rejoindre": {
     "title": "Contact Us",
-    "description": "For any inquiry, collaboration, partnership or general information, write to us directly.",
+    "description": "For any inquiry, collaboration, partnership or general information, you can reach us directly through the following channels.",
     "phone_label": "Phone",
     "email_label": "Email",
     "address_label": "Address",
     "phone": "(418) 000‑0000",
     "email": "contact@groupesupernova.ca",
     "address": "Sainte‑Marie, Chaudière‑Appalaches, Québec",
-    "label_nom": "Your name",
-    "label_courriel": "Your email",
-    "label_message": "Your message",
-    "placeholder_nom": "John Smith",
-    "placeholder_courriel": "john@example.com",
-    "placeholder_message": "Hello, I'm interested in your services...",
-    "cta": "Send message",
-    "sending": "Sending...",
-    "success_title": "Message sent!",
-    "success_desc": "We'll get back to you within 24-48 hours.",
-    "error_generic": "An error occurred. Please try again or email us directly."
+    "cta": "Send an email"
   },
   "actualites": {
     "title": "News",

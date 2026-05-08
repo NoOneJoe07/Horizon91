@@ -1,0 +1,29 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="rg-sn" cx="85%" cy="50%" r="90%">
+      <stop offset="0%" stop-color="#FFD65C"/>
+      <stop offset="45%" stop-color="#FF7A1A"/>
+      <stop offset="100%" stop-color="#6B1500" stop-opacity="0.7"/>
+    </radialGradient>
+    <clipPath id="clip-right-sn">
+      <rect x="50" y="0" width="50" height="100"/>
+    </clipPath>
+  </defs>
+
+  <!-- Black base circle -->
+  <circle cx="50" cy="50" r="47" fill="#000000"/>
+
+  <!-- Orange/gold right half -->
+  <circle cx="50" cy="50" r="47" fill="url(#rg-sn)" clip-path="url(#clip-right-sn)"/>
+
+  <!-- Outer ring -->
+  <circle cx="50" cy="50" r="47" fill="none" stroke="#FF7A1A" stroke-width="1.5"/>
+
+  <!-- Gold vertical dividing line -->
+  <line x1="50" y1="3" x2="50" y2="97" stroke="#FFD65C" stroke-width="1"/>
+
+  <!-- Center black hole -->
+  <circle cx="50" cy="50" r="14" fill="#000000"/>
+  <!-- Gold singularity dot -->
+  <circle cx="50" cy="50" r="4.5" fill="#FFD65C"/>
+</svg>

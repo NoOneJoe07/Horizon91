@@ -93,7 +93,7 @@
       "cta_titre": "¿Quieres evaluar tu postura de seguridad?",
       "cta_bouton": "Hablar con nuestro equipo",
       "cta_portfolio": "Volver a las divisiones"
-    },
+    }
     "web": {
       "nom": "Desarrollo Web",
       "description": "Sitios web modernos, tiendas en línea, sistemas de reservas y soluciones digitales personalizadas para emprendedores locales y pymes. Diseño gráfico, identidad visual y estrategia de contenido incluidos.",
@@ -212,24 +212,14 @@
   },
   "rejoindre": {
     "title": "Contáctanos",
-    "description": "Para cualquier consulta, colaboración, alianza o información general, escríbenos directamente.",
+    "description": "Para cualquier consulta, colaboración, alianza o información general, puede contactarnos directamente a través de los siguientes medios.",
     "phone_label": "Teléfono",
     "email_label": "Correo electrónico",
     "address_label": "Dirección",
     "phone": "(418) 000‑0000",
     "email": "contact@groupesupernova.ca",
     "address": "Sainte‑Marie, Chaudière‑Appalaches, Québec",
-    "label_nom": "Tu nombre",
-    "label_courriel": "Tu correo electrónico",
-    "label_message": "Tu mensaje",
-    "placeholder_nom": "Juan García",
-    "placeholder_courriel": "juan@ejemplo.com",
-    "placeholder_message": "Hola, estoy interesado en sus servicios...",
-    "cta": "Enviar mensaje",
-    "sending": "Enviando...",
-    "success_title": "¡Mensaje enviado!",
-    "success_desc": "Te respondemos en 24-48 horas.",
-    "error_generic": "Ocurrió un error. Inténtalo de nuevo o escríbenos directamente."
+    "cta": "Enviar un correo"
   },
   "actualites": {
     "title": "Noticias",

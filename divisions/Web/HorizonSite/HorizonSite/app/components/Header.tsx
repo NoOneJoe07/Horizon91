@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useTranslations, useLocale } from "next-intl";
 import { useRouter, usePathname, Link } from "@/i18n/navigation";
 import Image from "next/image";
@@ -13,16 +13,11 @@ const locales = [
 
 export default function Header() {
   const [open, setOpen] = useState(false);
-  const [mounted, setMounted] = useState(false);
   const t = useTranslations("nav");
   const tBrand = useTranslations("brand");
   const locale = useLocale();
   const router = useRouter();
   const pathname = usePathname();
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   const switchLocale = (newLocale: string) => {
     router.replace(pathname, { locale: newLocale });
@@ -65,8 +60,7 @@ export default function Header() {
             {locales.map((loc, i) => (
               <span key={loc.code} className="flex items-center">
                 <button
-                  onClick={() => mounted && switchLocale(loc.code)}
-                  disabled={!mounted}
+                  onClick={() => switchLocale(loc.code)}
                   className={`text-xs font-bold px-1 transition ${
                     locale === loc.code
                       ? "text-h91-accretion"
@@ -116,8 +110,7 @@ export default function Header() {
             {locales.map((loc) => (
               <button
                 key={loc.code}
-                onClick={() => { if (mounted) { switchLocale(loc.code); setOpen(false); } }}
-                disabled={!mounted}
+                onClick={() => { switchLocale(loc.code); setOpen(false); }}
                 className={`text-sm font-bold transition ${
                   locale === loc.code
                     ? "text-h91-accretion"
