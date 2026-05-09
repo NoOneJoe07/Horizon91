@@ -24,8 +24,8 @@ const divisionsMeta = [
     mark: "/mark-nordik.svg",
     couleur: "text-h91-ion",
     borderColor: "border-h91-ion/30 hover:border-h91-ion/70",
-    href: "https://nordiklegion.ca",
-    externe: true,
+    href: "/divisions",
+    externe: false,
   },
 ] as const;
 

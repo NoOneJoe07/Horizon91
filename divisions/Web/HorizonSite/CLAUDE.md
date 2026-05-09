@@ -1,14 +1,15 @@
 @AGENTS.md
 
 # CONTEXTE PROJET — Groupe Supernova / HorizonSite
-Dernière mise à jour : 2026-05-06 (soir)
+Dernière mise à jour : 2026-05-08 (soir) — SITE EN PRODUCTION ✅
 
 ## Stack technique
-- Next.js 16.2.3 App Router (TypeScript, Tailwind v4)
-- next-intl pour l'internationalisation (FR/EN/ES)
+- Next.js 15.5.18 App Router (TypeScript, Tailwind v4) — package.json: ^15.3.1
+- next-intl 3.26.5 pour l'internationalisation (FR/EN/ES)
 - Deux copies : OneDrive (Cowork édite ici) ↔ WSL ~/Horizon91/divisions/Web/HorizonSite (npm run dev)
-- Sync manuel requis après chaque session : cp depuis OneDrive vers WSL
-- Middleware actif : middleware.ts (proxy.ts = résidu vidé, peut être supprimé du repo)
+- Sync manuel requis après chaque session : rsync depuis OneDrive vers WSL, puis git add/commit/push
+- Middleware actif : middleware.ts — proxy.ts SUPPRIMÉ
+- Déployé sur Vercel (Hobby) — Framework Preset: Next.js, Root Directory: divisions/Web/HorizonSite
 
 ## Structure app/
 ```
@@ -174,12 +175,11 @@ DNS configuré ✅ : MX zohocloud.ca + SPF + DKIM (propagation DKIM en cours)
 - ✅ Test courriel envoyé — premier courriel professionnel expédié à Citadelle Jiu-Jitsu
 - ✅ Signature courriel configurée dans Zoho webmail
 - [ ] Réserver handles @groupesupernova sur toutes les plateformes sociales
-- [ ] Créer og-image.jpg (1200×630px) pour Open Graph — logo sur fond cosmique
 - [ ] Photos d'équipe (Jonathan, Alexandra, Paulina) — attendues cette semaine
 - [ ] Bios Alexandra et Paulina — à rédiger
 - [ ] Contenu Citadelle Jiu-Jitsu — en attente retour client
 
-## Prochaines étapes techniques — Objectif déploiement fin mai 2026
+## Prochaines étapes techniques — POST-LANCEMENT (session 2026-05-08)
 1. ✅ Conflits de routing résolus (vieilles pages → redirects)
 2. ✅ SEO : metadata, Open Graph, JSON-LD LocalBusiness, sitemap, robots.txt
 3. ✅ Pages /divisions/web et /divisions/cyber créées
@@ -188,17 +188,31 @@ DNS configuré ✅ : MX zohocloud.ca + SPF + DKIM (propagation DKIM en cours)
 6. ✅ Guide déploiement Vercel (DEPLOIEMENT.md)
 7. ✅ Guide Zoho Mail (ZOHO-MAIL.md)
 8. ✅ Zoho Mail opérationnel — 5 comptes créés, DNS MX + SPF + DKIM configurés
-9. ✅ DNS Namecheap complet — A record Vercel + CNAME www + MX + SPF + DKIM
-10. ✅ Alias Zoho créés (direction, studio, facturation, web, cyber, noreply)
-11. ✅ DKIM propagé et vérifié
-12. ✅ Premier courriel professionnel envoyé (Citadelle Jiu-Jitsu)
-13. [ ] Fix syntaxe JSON — virgule manquante entre divisionCyber et web dans en.json et es.json
-14. [ ] Créer og-image.jpg (public/) — priorité avant lancement
-15. [ ] Formulaire de contact fonctionnel → connecter SMTP Zoho
-16. [ ] DMARC record → ajouter dans Namecheap
-17. [ ] Photos équipe → remplacer placeholders initiales
-18. [ ] Déploiement Vercel + config domaines Namecheap (DNS déjà prêt ✅)
-19. [ ] Enregistrement légal Jonathan
-20. [ ] Google Search Console → soumettre sitemap
-21. [ ] Google Business Profile → créer fiche
-22. [ ] Comptes sociaux → créer + réserver handles
+9. ✅ DNS Namecheap complet — A record + CNAME www + MX + SPF + DKIM + DMARC
+10. ✅ Alias Zoho créés + DKIM propagé + premier courriel envoyé
+11. ✅ Page /tarification créée (trilingue, 5 sections, forfaits web/maintenance/heures/social)
+12. ✅ Page /confidentialite créée (Loi 25 QC + PIPEDA fédéral, trilingue)
+13. ✅ Security headers renforcés (HSTS, CSP, COOP, CORP, Permissions-Policy)
+14. ✅ JSON translations complets — 151 clés FR/EN/ES, aucune manquante
+15. ✅ DÉPLOYÉ SUR VERCEL — groupesupernova.ca + supernovagroup.ca en production
+16. ✅ Domaines configurés : groupesupernova.ca, www (301), supernovagroup.ca, www (301)
+17. ✅ SSL certificates actifs sur les 4 domaines
+18. ✅ Framework Preset Next.js + Root Directory divisions/Web/HorizonSite
+19. [ ] og-image.jpg → remplacer placeholder par version finale (avec Paulina)
+20. [ ] Formulaire de contact → connecter SMTP Zoho (nodemailer, variables ENV Vercel)
+21. [ ] Photos équipe → remplacer placeholders (initiales) par vraies photos
+22. [ ] Google Search Console → soumettre groupesupernova.ca + sitemap
+23. [ ] Google Business Profile → créer fiche locale Sainte-Marie-de-Beauce
+24. [ ] Comptes sociaux → créer + réserver @groupesupernova sur toutes plateformes
+25. [ ] Enregistrement légal (NEQ + ARC fédéral)
+26. [ ] Upgrade Next.js → latest (tester localement d'abord, session dédiée)
+27. [ ] Formation Vercel — Analytics, Speed Insights, Firewall, Storage, fonctionnalités avancées
+
+## Vercel — Notes configuration
+- Projet : horizon91-2zpm (Hobby plan)
+- Root Directory : divisions/Web/HorizonSite
+- Framework Preset : Next.js ← CRITIQUE, ne pas changer
+- Node.js : 24.x
+- Build auto sur chaque push git → main
+- Domaines Production : groupesupernova.ca, supernovagroup.ca
+- ATTENTION : changer Root Directory ou Framework Preset casse le déploiement
