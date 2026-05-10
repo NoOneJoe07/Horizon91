@@ -8,6 +8,55 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { instructors } from "@/lib/data/instructors";
 import type { Locale } from "@/lib/locales";
 
+// ---------------------------------------------------------------------------
+// JSON-LD — SportsClub / LocalBusiness
+// ---------------------------------------------------------------------------
+// Données structurées pour Google : aide à afficher une fiche enrichie dans
+// les résultats de recherche (adresse, téléphone, heures, type d'activité).
+// Norme : schema.org/SportsClub
+// Outil de test : https://search.google.com/test/rich-results
+// ---------------------------------------------------------------------------
+function JsonLd({ locale }: { locale: Locale }) {
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "SportsClub",
+    name: "Citadelle Jiu-Jitsu",
+    description:
+      locale === "fr"
+        ? "École de jiu-jitsu brésilien à Québec. Cours adultes, enfants, no-gi et compétition. Première séance d'essai gratuite."
+        : "Brazilian jiu-jitsu school in Québec City. Adult, kids, no-gi and competition classes. First trial class free.",
+    url: `https://citadellejiujitsu.ca/${locale}`,
+    telephone: "+14185641047",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "964 Rue Mainguy",
+      addressLocality: "Québec",
+      addressRegion: "QC",
+      postalCode: "G1V 3S4",
+      addressCountry: "CA",
+    },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: 46.7748,
+      longitude: -71.2756,
+    },
+    sameAs: [
+      "https://www.instagram.com/citadellebjj/",
+      "https://www.facebook.com/p/Citadelle-Jiu-Jitsu-61578755165328/",
+    ],
+    sport: "Brazilian Jiu-Jitsu",
+    priceRange: "$$",
+    image: "https://citadellejiujitsu.ca/logo-citadelle.svg",
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
+  );
+}
+
 export default async function HomePage({
   params,
 }: {
@@ -21,6 +70,8 @@ export default async function HomePage({
 
   return (
     <>
+      <JsonLd locale={locale} />
+
       {/* ================================================================
           HERO — Full viewport, background animé
       ================================================================ */}

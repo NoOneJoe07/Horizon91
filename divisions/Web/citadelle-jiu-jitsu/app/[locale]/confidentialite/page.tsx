@@ -104,7 +104,19 @@ function PrivacyFR() {
   return (
     <>
       <p style={{ ...styles.p, fontStyle: "italic" }}>
-        Dernière mise à jour : 4 mai 2026
+        Dernière mise à jour : 10 mai 2026
+      </p>
+
+      <p style={styles.p}>
+        La présente politique est conforme à la{" "}
+        <strong style={{ color: "var(--color-citadelle-text)" }}>
+          Loi modernisant des dispositions législatives en matière de protection des renseignements personnels (Loi 25)
+        </strong>{" "}
+        du Québec ainsi qu'à la{" "}
+        <strong style={{ color: "var(--color-citadelle-text)" }}>
+          Loi sur la protection des renseignements personnels et les documents électroniques (LPRPDE)
+        </strong>{" "}
+        du gouvernement fédéral canadien.
       </p>
 
       {/* ── 1. Responsable ──────────────────────────────────────────────── */}
@@ -254,16 +266,34 @@ function PrivacyFR() {
       <div style={styles.section}>
         <h2 style={styles.h2}>10. Droit de porter plainte</h2>
         <p style={styles.p}>
-          Si vous estimez que vos droits ne sont pas respectés, vous pouvez porter plainte auprès de la{" "}
-          <a
-            href="https://www.cai.gouv.qc.ca/"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ color: "var(--color-citadelle-gold)" }}
-          >
-            Commission d'accès à l'information du Québec (CAI)
-          </a>.
+          Si vous estimez que vos droits ne sont pas respectés, vous pouvez porter plainte auprès des autorités compétentes selon votre juridiction :
         </p>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: "1rem", marginTop: "0.75rem" }}>
+          <div style={{ padding: "1rem", border: "1px solid var(--color-citadelle-border)", borderRadius: "0.5rem", backgroundColor: "var(--color-citadelle-surface-2)" }}>
+            <p style={{ color: "var(--color-citadelle-text)", fontWeight: 600, fontSize: "0.875rem", marginBottom: "0.4rem" }}>
+              Niveau provincial — Québec
+            </p>
+            <p style={{ color: "var(--color-citadelle-text-muted)", fontSize: "0.875rem", marginBottom: "0.25rem" }}>
+              Commission d'accès à l'information (CAI)
+            </p>
+            <a href="https://www.cai.gouv.qc.ca/" target="_blank" rel="noopener noreferrer" style={{ color: "var(--color-citadelle-gold)", fontSize: "0.875rem" }}>
+              www.cai.gouv.qc.ca
+            </a>
+            <p style={{ color: "var(--color-citadelle-text-muted)", fontSize: "0.8rem", marginTop: "0.25rem" }}>1 888 528-7741</p>
+          </div>
+          <div style={{ padding: "1rem", border: "1px solid var(--color-citadelle-border)", borderRadius: "0.5rem", backgroundColor: "var(--color-citadelle-surface-2)" }}>
+            <p style={{ color: "var(--color-citadelle-text)", fontWeight: 600, fontSize: "0.875rem", marginBottom: "0.4rem" }}>
+              Niveau fédéral — Canada
+            </p>
+            <p style={{ color: "var(--color-citadelle-text-muted)", fontSize: "0.875rem", marginBottom: "0.25rem" }}>
+              Commissariat à la protection de la vie privée du Canada (CPVP)
+            </p>
+            <a href="https://www.priv.gc.ca" target="_blank" rel="noopener noreferrer" style={{ color: "var(--color-citadelle-gold)", fontSize: "0.875rem" }}>
+              www.priv.gc.ca
+            </a>
+            <p style={{ color: "var(--color-citadelle-text-muted)", fontSize: "0.8rem", marginTop: "0.25rem" }}>1 800 282-1376</p>
+          </div>
+        </div>
       </div>
     </>
   );
@@ -276,7 +306,19 @@ function PrivacyEN() {
   return (
     <>
       <p style={{ ...styles.p, fontStyle: "italic" }}>
-        Last updated: May 4, 2026
+        Last updated: May 10, 2026
+      </p>
+
+      <p style={styles.p}>
+        This policy complies with{" "}
+        <strong style={{ color: "var(--color-citadelle-text)" }}>
+          Quebec Law 25
+        </strong>{" "}
+        (Act to modernize legislative provisions respecting the protection of personal information) and the{" "}
+        <strong style={{ color: "var(--color-citadelle-text)" }}>
+          Personal Information Protection and Electronic Documents Act (PIPEDA)
+        </strong>{" "}
+        of the Government of Canada.
       </p>
 
       <div style={styles.section}>
@@ -397,16 +439,34 @@ function PrivacyEN() {
       <div style={styles.section}>
         <h2 style={styles.h2}>10. Right to File a Complaint</h2>
         <p style={styles.p}>
-          If you believe your rights have not been respected, you may file a complaint with the{" "}
-          <a
-            href="https://www.cai.gouv.qc.ca/en/"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ color: "var(--color-citadelle-gold)" }}
-          >
-            Commission d'accès à l'information du Québec (CAI)
-          </a>.
+          If you believe your rights have not been respected, you may file a complaint with the competent authority for your jurisdiction:
         </p>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: "1rem", marginTop: "0.75rem" }}>
+          <div style={{ padding: "1rem", border: "1px solid var(--color-citadelle-border)", borderRadius: "0.5rem", backgroundColor: "var(--color-citadelle-surface-2)" }}>
+            <p style={{ color: "var(--color-citadelle-text)", fontWeight: 600, fontSize: "0.875rem", marginBottom: "0.4rem" }}>
+              Provincial — Québec
+            </p>
+            <p style={{ color: "var(--color-citadelle-text-muted)", fontSize: "0.875rem", marginBottom: "0.25rem" }}>
+              Commission d'accès à l'information (CAI)
+            </p>
+            <a href="https://www.cai.gouv.qc.ca/en/" target="_blank" rel="noopener noreferrer" style={{ color: "var(--color-citadelle-gold)", fontSize: "0.875rem" }}>
+              www.cai.gouv.qc.ca
+            </a>
+            <p style={{ color: "var(--color-citadelle-text-muted)", fontSize: "0.8rem", marginTop: "0.25rem" }}>1 888 528-7741</p>
+          </div>
+          <div style={{ padding: "1rem", border: "1px solid var(--color-citadelle-border)", borderRadius: "0.5rem", backgroundColor: "var(--color-citadelle-surface-2)" }}>
+            <p style={{ color: "var(--color-citadelle-text)", fontWeight: 600, fontSize: "0.875rem", marginBottom: "0.4rem" }}>
+              Federal — Canada
+            </p>
+            <p style={{ color: "var(--color-citadelle-text-muted)", fontSize: "0.875rem", marginBottom: "0.25rem" }}>
+              Office of the Privacy Commissioner of Canada (OPC)
+            </p>
+            <a href="https://www.priv.gc.ca" target="_blank" rel="noopener noreferrer" style={{ color: "var(--color-citadelle-gold)", fontSize: "0.875rem" }}>
+              www.priv.gc.ca
+            </a>
+            <p style={{ color: "var(--color-citadelle-text-muted)", fontSize: "0.8rem", marginTop: "0.25rem" }}>1 800 282-1376</p>
+          </div>
+        </div>
       </div>
     </>
   );

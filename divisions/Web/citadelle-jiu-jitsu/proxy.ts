@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { locales, defaultLocale } from "@/lib/locales";
 
 // =============================================================================
-// Middleware Next.js
+// Proxy Next.js (anciennement middleware.ts — renommé proxy.ts en Next.js 16)
 // -----------------------------------------------------------------------------
 // 1. Routing i18n (next-intl) — préfixe /fr ou /en sur toutes les routes
 // 2. Protection des routes admin via cookie JWT
@@ -13,7 +13,8 @@ import { locales, defaultLocale } from "@/lib/locales";
 const intlMiddleware = createMiddleware({
   locales,
   defaultLocale,
-  localePrefix: "always", // /fr/... et /en/... toujours explicites
+  localePrefix: "always",  // /fr/... et /en/... toujours explicites
+  localeDetection: false,  // ignore la langue du navigateur — toujours /fr par défaut
 });
 
 // Routes nécessitant une session admin (vérifiées en plus de l'i18n).

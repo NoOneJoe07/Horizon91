@@ -154,8 +154,8 @@ export async function Footer({ locale }: FooterProps) {
           </div>
           <div>
             {tFooter("developedBy")}{" "}
-            <a href="https://horizon91.ca" target="_blank" rel="noopener noreferrer">
-              Horizon 91
+            <a href="https://groupesupernova.ca" target="_blank" rel="noopener noreferrer">
+              Groupe Supernova
             </a>
           </div>
         </div>
