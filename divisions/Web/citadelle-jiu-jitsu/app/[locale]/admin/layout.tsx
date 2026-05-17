@@ -40,12 +40,13 @@ export default async function AdminLayout({
   const t = await getTranslations({ locale, namespace: "Admin" });
 
   const navItems = [
-    { href: `/${locale}/admin`, label: t("title") },
-    { href: `/${locale}/admin/produits`, label: t("sections.products") },
-    { href: `/${locale}/admin/abonnements`, label: t("sections.subscriptions") },
-    { href: `/${locale}/admin/inscriptions`, label: t("sections.trials") },
-    { href: `/${locale}/admin/utilisateurs`, label: t("sections.users") },
-    { href: `/${locale}/admin/commandes`, label: t("sections.orders") },
+    { href: `/${locale}/admin`,               label: t("title") },
+    { href: `/${locale}/admin/produits`,      label: t("sections.products") },
+    { href: `/${locale}/admin/abonnements`,   label: t("sections.subscriptions") },
+    { href: `/${locale}/admin/inscriptions`,  label: t("sections.trials") },
+    { href: `/${locale}/admin/commandes`,     label: t("sections.orders") },
+    { href: `/${locale}/admin/messages`,      label: locale === "fr" ? "Messages" : "Messages" },
+    { href: `/${locale}/admin/utilisateurs`,  label: t("sections.users") },
   ];
 
   return (
