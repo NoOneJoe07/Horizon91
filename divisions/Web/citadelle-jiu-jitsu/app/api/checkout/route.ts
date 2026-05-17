@@ -44,11 +44,12 @@ export async function POST(req: NextRequest) {
         return NextResponse.json({ error: "Plan introuvable" }, { status: 404 });
       }
 
-      const checkoutSession = await stripe.checkout.sessions.create({
-        mode: "subscription",
-        payment_method_types: ["card"],
-        line_items: [
-          {
+      // Les plans ONETIME (carte 10 séances, cours privé, drop-in) passent par
+      // mode:"payment" (paiement unique) ; les plans récurrents par mode:"subscription".
+      const isRecurring = plan.interval === "MONTH" || plan.interval === "YEAR";
+
+      const lineItem = isRecurring
+        ? {
             price_data: {
               currency: "cad",
               product_data: {
@@ -58,12 +59,28 @@ export async function POST(req: NextRequest) {
               },
               unit_amount: plan.priceCents,
               recurring: {
-                interval: plan.interval === "MONTH" ? "month" : "year",
+                interval: (plan.interval === "MONTH" ? "month" : "year") as "month" | "year",
               },
             },
             quantity: 1,
-          },
-        ],
+          }
+        : {
+            price_data: {
+              currency: "cad",
+              product_data: {
+                name: locale === "fr" ? plan.nameFr : plan.nameEn,
+                description:
+                  (locale === "fr" ? plan.descriptionFr : plan.descriptionEn) ?? undefined,
+              },
+              unit_amount: plan.priceCents,
+            },
+            quantity: 1,
+          };
+
+      const checkoutSession = await stripe.checkout.sessions.create({
+        mode: isRecurring ? "subscription" : "payment",
+        payment_method_types: ["card"],
+        line_items: [lineItem],
         customer_email: session?.email,
         success_url: `${baseUrl}/${locale}/abonnements?success=1`,
         cancel_url: `${baseUrl}/${locale}/abonnements?canceled=1`,

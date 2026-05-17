@@ -49,6 +49,7 @@ model User {
 enum BillingInterval {
   MONTH
   YEAR
+  ONETIME  // paiement unique — carte, cours privé, drop-in
 }
 
 model SubscriptionPlan {

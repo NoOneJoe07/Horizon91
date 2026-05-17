@@ -3,9 +3,11 @@
 // -----------------------------------------------------------------------------
 // Crée :
 //   - 1 compte ADMIN (depuis SEED_ADMIN_EMAIL / SEED_ADMIN_PASSWORD)
-//   - 4 plans d'abonnement fictifs réalistes
-//   - 6 produits boutique fictifs
+//   - 4 plans réels : Mensuel + Carte 10 séances + Cours privé + Drop-in
+//   - 4 produits boutique réels : Rash Guard, Cuissard, Hoodie, Crew Neck
+//
 // Lancer : npm run prisma:seed
+// IMPORTANT : lancer `npx prisma migrate dev` d'abord si schéma modifié.
 // =============================================================================
 
 import { PrismaClient, Role, BillingInterval, ProductCategory } from "@prisma/client";
@@ -45,171 +47,182 @@ async function main() {
   console.log(`[seed] admin créé: ${adminEmail}`);
 
   // ---------------------------------------------------------------------------
-  // 2. Plans d'abonnement
+  // 2. Plans — tarifs réels confirmés par JS (mai 2026)
+  // Tous les prix sont AVANT taxes (TPS/TVQ appliquées par Stripe Tax plus tard)
   // ---------------------------------------------------------------------------
   const plans = [
     {
-      slug: "adulte-mensuel",
-      nameFr: "Adulte — Mensuel",
-      nameEn: "Adult — Monthly",
-      descriptionFr: "Accès illimité à tous les cours adultes.",
-      descriptionEn: "Unlimited access to all adult classes.",
-      priceCents: 12000,
+      slug: "mensuel",
+      nameFr: "Abonnement Mensuel",
+      nameEn: "Monthly Membership",
+      descriptionFr:
+        "Accès illimité à tous les cours. Sans engagement après le premier mois.",
+      descriptionEn:
+        "Unlimited access to all classes. No commitment after the first month.",
+      priceCents: 13500, // 135 $ + taxes
       interval: BillingInterval.MONTH,
+      popular: true,
       featuresFr: [
-        "Accès illimité aux cours adultes",
-        "Accès au tatami libre",
-        "Premier kimono à prix réduit",
+        "Cours illimités — accès complet",
+        "Tatami libre inclus",
+        "Résiliation libre après le 1er mois",
       ],
       featuresEn: [
-        "Unlimited adult classes",
-        "Open mat access",
-        "Discount on first gi",
+        "Unlimited classes — full access",
+        "Open mat included",
+        "Cancel anytime after month 1",
       ],
       sortOrder: 1,
     },
     {
-      slug: "adulte-annuel",
-      nameFr: "Adulte — Annuel",
-      nameEn: "Adult — Annual",
-      descriptionFr: "Tout l'accès adulte avec 2 mois offerts.",
-      descriptionEn: "Full adult access — 2 months free.",
-      priceCents: 120000,
-      interval: BillingInterval.YEAR,
+      slug: "carte-10-seances",
+      nameFr: "Carte 10 séances",
+      nameEn: "10-Class Pack",
+      descriptionFr:
+        "Un bloc de 10 cours au choix — valide 3 mois. Idéal si ton horaire varie.",
+      descriptionEn:
+        "A block of 10 classes — valid 3 months. Ideal if your schedule varies.",
+      priceCents: 15000, // 150 $ + taxes
+      interval: BillingInterval.ONETIME,
       featuresFr: [
-        "Tous les avantages du forfait mensuel",
-        "Économie de 240$ par année",
-        "Kimono Citadelle inclus",
+        "10 cours au choix",
+        "Valide 3 mois à partir de l'achat",
+        "Revient à 15 $ par séance",
       ],
       featuresEn: [
-        "All monthly plan benefits",
-        "Save $240 per year",
-        "Citadelle gi included",
+        "10 classes of your choice",
+        "Valid 3 months from purchase",
+        "Only $15 per class",
       ],
-      popular: true,
       sortOrder: 2,
     },
     {
-      slug: "enfant-mensuel",
-      nameFr: "Enfant (6-12 ans)",
-      nameEn: "Kids (6-12)",
-      descriptionFr: "Cours dédiés aux jeunes guerriers.",
-      descriptionEn: "Classes dedicated to young warriors.",
-      priceCents: 8000,
-      interval: BillingInterval.MONTH,
+      slug: "cours-prive",
+      nameFr: "Cours privé",
+      nameEn: "Private lesson",
+      descriptionFr:
+        "Séance individuelle 60 min avec Jean-Sébastien Dionne — travail ciblé sur tes objectifs.",
+      descriptionEn:
+        "60-min one-on-one session with Jean-Sébastien Dionne — focused on your goals.",
+      priceCents: 7000, // 70 $ + taxes
+      interval: BillingInterval.ONETIME,
       featuresFr: [
-        "Accès aux cours enfants",
-        "Suivi pédagogique personnalisé",
-        "Système de ceintures jeunesse",
+        "Séance 1-1 avec le fondateur",
+        "60 minutes, technique sur mesure",
+        "Compétition, défense ou progression générale",
       ],
       featuresEn: [
-        "Access to kids classes",
-        "Personalized progression tracking",
-        "Youth belt system",
+        "1-on-1 session with the founder",
+        "60 minutes, personalized technique",
+        "Competition, self-defense, or general progress",
       ],
       sortOrder: 3,
     },
     {
-      slug: "famille-mensuel",
-      nameFr: "Famille (2 adultes + 2 enfants)",
-      nameEn: "Family (2 adults + 2 kids)",
-      descriptionFr: "Le forfait pour s'entraîner en famille.",
-      descriptionEn: "Train as a family.",
-      priceCents: 30000,
-      interval: BillingInterval.MONTH,
+      slug: "drop-in",
+      nameFr: "Drop-in (cours à l'unité)",
+      nameEn: "Drop-in (single class)",
+      descriptionFr:
+        "Une seule visite, aucun abonnement requis. Parfait pour voyageurs ou première fois.",
+      descriptionEn:
+        "One visit, no membership needed. Perfect for travelers or a first try.",
+      priceCents: 2000, // 20 $ + taxes
+      interval: BillingInterval.ONETIME,
       featuresFr: [
-        "Accès illimité pour 4 personnes",
-        "Économie vs forfaits individuels",
-        "Sortie familiale annuelle",
+        "Un cours au choix",
+        "Sans engagement",
+        "Bienvenue aux visiteurs & compétiteurs de passage",
       ],
       featuresEn: [
-        "Unlimited access for 4 people",
-        "Save vs individual plans",
-        "Annual family outing",
+        "One class of your choice",
+        "No commitment",
+        "Visitors & traveling competitors welcome",
       ],
       sortOrder: 4,
     },
   ];
 
+  // Désactiver les vieux plans fictifs qui ne correspondent plus
+  const oldSlugs = ["adulte-mensuel", "adulte-annuel", "enfant-mensuel", "famille-mensuel"];
+  await prisma.subscriptionPlan.updateMany({
+    where: { slug: { in: oldSlugs } },
+    data: { active: false },
+  });
+
   for (const plan of plans) {
     await prisma.subscriptionPlan.upsert({
       where: { slug: plan.slug },
-      update: {},
+      update: plan,  // met à jour si déjà présent
       create: plan,
     });
   }
   console.log(`[seed] ${plans.length} plans créés`);
 
   // ---------------------------------------------------------------------------
-  // 3. Produits boutique
+  // 3. Produits boutique — liste réelle confirmée par JS (mai 2026)
+  // Photo URLs à ajouter quand Kristina envoie les images (Resend email attendu)
+  // Couleur Bleu en attente de confirmation — seulement Noir pour l'instant
   // ---------------------------------------------------------------------------
   const products = [
+    {
+      slug: "rash-guard-long-noir",
+      nameFr: "Rash Guard manches longues — Noir",
+      nameEn: "Long-sleeve Rash Guard — Black",
+      descriptionFr: "Protection confort pour le no-gi. Logo Citadelle brodé.",
+      descriptionEn: "Comfort protection for no-gi. Embroidered Citadelle logo.",
+      priceCents: 6000, // 60 $ + taxes
+      category: ProductCategory.APPAREL,
+      stockQuantity: 20,
+    },
+    {
+      slug: "training-short-noir",
+      nameFr: "Training Short (cuissard) — Noir",
+      nameEn: "Training Short — Black",
+      descriptionFr: "Cuissard d'entraînement no-gi. Logo Citadelle brodé.",
+      descriptionEn: "No-gi training short. Embroidered Citadelle logo.",
+      priceCents: 6000, // 60 $ + taxes
+      category: ProductCategory.APPAREL,
+      stockQuantity: 20,
+    },
     {
       slug: "hoodie-citadelle-noir",
       nameFr: "Hoodie Citadelle — Noir",
       nameEn: "Citadelle Hoodie — Black",
-      descriptionFr: "Coton lourd, broderie or sur la poitrine.",
-      descriptionEn: "Heavyweight cotton, gold chest embroidery.",
-      priceCents: 6500,
+      descriptionFr: "Coton lourd, logo Citadelle brodé. Édition dojo.",
+      descriptionEn: "Heavyweight cotton, embroidered Citadelle logo. Dojo edition.",
+      priceCents: 6500, // 65 $ + taxes
       category: ProductCategory.APPAREL,
-      stockQuantity: 25,
+      stockQuantity: 20,
     },
     {
-      slug: "tshirt-citadelle-blanc",
-      nameFr: "T-shirt Citadelle — Blanc",
-      nameEn: "Citadelle T-shirt — White",
-      descriptionFr: "Coton premium, logo discret.",
-      descriptionEn: "Premium cotton, subtle logo.",
-      priceCents: 3000,
+      slug: "crew-neck-citadelle-noir",
+      nameFr: "Crew Neck Citadelle — Noir",
+      nameEn: "Citadelle Crew Neck — Black",
+      descriptionFr: "Sweater col rond, logo Citadelle brodé. Édition dojo.",
+      descriptionEn: "Crewneck sweater, embroidered Citadelle logo. Dojo edition.",
+      priceCents: 6500, // 65 $ + taxes
       category: ProductCategory.APPAREL,
-      stockQuantity: 40,
-    },
-    {
-      slug: "gi-citadelle-blanc-a2",
-      nameFr: "Gi Citadelle — Blanc A2",
-      nameEn: "Citadelle Gi — White A2",
-      descriptionFr: "Kimono officiel, coupe compétition, IBJJF approved.",
-      descriptionEn: "Official kimono, competition cut, IBJJF approved.",
-      priceCents: 18000,
-      category: ProductCategory.GEAR,
-      stockQuantity: 12,
-    },
-    {
-      slug: "gi-citadelle-noir-a2",
-      nameFr: "Gi Citadelle — Noir A2",
-      nameEn: "Citadelle Gi — Black A2",
-      descriptionFr: "Édition limitée, broderies dorées.",
-      descriptionEn: "Limited edition, gold embroidery.",
-      priceCents: 22000,
-      category: ProductCategory.GEAR,
-      stockQuantity: 6,
-    },
-    {
-      slug: "ceinture-blanche",
-      nameFr: "Ceinture blanche — Officielle",
-      nameEn: "White belt — Official",
-      descriptionFr: "Ceinture standard, coton 100%.",
-      descriptionEn: "Standard belt, 100% cotton.",
-      priceCents: 2000,
-      category: ProductCategory.GEAR,
-      stockQuantity: 30,
-    },
-    {
-      slug: "sac-tatami",
-      nameFr: "Sac Tatami Citadelle",
-      nameEn: "Citadelle Tatami Bag",
-      descriptionFr: "Sac de transport pour kimono et équipement.",
-      descriptionEn: "Transport bag for gi and gear.",
-      priceCents: 5500,
-      category: ProductCategory.ACCESSORY,
-      stockQuantity: 18,
+      stockQuantity: 20,
     },
   ];
+
+  // Désactiver les vieux produits fictifs
+  const oldProductSlugs = [
+    "tshirt-citadelle-blanc",
+    "gi-citadelle-blanc-a2",
+    "gi-citadelle-noir-a2",
+    "ceinture-blanche",
+    "sac-tatami",
+  ];
+  await prisma.product.updateMany({
+    where: { slug: { in: oldProductSlugs } },
+    data: { active: false },
+  });
 
   for (const product of products) {
     await prisma.product.upsert({
       where: { slug: product.slug },
-      update: {},
+      update: product,
       create: product,
     });
   }

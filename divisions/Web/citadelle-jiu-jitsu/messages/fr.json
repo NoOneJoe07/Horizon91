@@ -21,7 +21,7 @@
   "Home": {
     "hero": {
       "tagline": "L'art du combat. La discipline du guerrier.",
-      "title": "Bienvenue à la Citadelle",
+      "title": "Bienvenue chez Citadelle Jiu-Jitsu",
       "subtitle": "École de jiu-jitsu brésilien à Québec. Pour adultes, enfants et compétiteurs.",
       "ctaTrial": "Réserver ma séance d'essai gratuite",
       "ctaPlans": "Voir les abonnements",
@@ -41,7 +41,7 @@
       "ctaGallery": "Voir la galerie"
     },
     "trialBanner": {
-      "title": "Prêt à rejoindre la Citadelle ?",
+      "title": "Prêt à rejoindre Citadelle Jiu-Jitsu ?",
       "subtitle": "Première séance d'essai offerte à tous les nouveaux. Aucun engagement.",
       "cta": "Réserver ma séance gratuite"
     },
@@ -72,7 +72,7 @@
     "philosophy": "Philosophie",
     "stats": "En chiffres",
     "teamSoon": "L'équipe s'agrandit — d'autres instructeurs seront annoncés prochainement.",
-    "trialCta": "Rejoins la Citadelle",
+    "trialCta": "Rejoins Citadelle Jiu-Jitsu",
     "trialCtaSubtitle": "Première séance d'essai gratuite — viens voir par toi-même.",
     "trialCtaLink": "Réserver ma séance d'essai"
   },
@@ -91,14 +91,17 @@
     "noClass": "Aucun cours"
   },
   "Subscriptions": {
-    "title": "Choisis ton abonnement",
-    "subtitle": "Des forfaits adaptés à tous les niveaux et toutes les bourses.",
+    "title": "Nos forfaits",
+    "subtitle": "Abonnement mensuel, carte de séances, cours privés ou drop-in — à toi de choisir.",
     "perMonth": "/mois",
     "perYear": "/an",
+    "oneTime": "paiement unique",
+    "plusTaxes": "+ taxes",
     "selectPlan": "Choisir ce forfait",
     "popular": "Le plus populaire",
     "features": "Inclus :",
-    "guarantee": "Sans engagement après le 1er mois — résiliation libre."
+    "guarantee": "Abonnement mensuel sans engagement après le 1er mois — résiliation libre.",
+    "taxNote": "Tous les prix sont avant taxes (TPS/TVQ applicables)."
   },
   "Shop": {
     "title": "Boutique Citadelle",

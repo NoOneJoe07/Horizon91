@@ -21,7 +21,7 @@
   "Home": {
     "hero": {
       "tagline": "The art of combat. The discipline of the warrior.",
-      "title": "Welcome to the Citadelle",
+      "title": "Welcome to Citadelle Jiu-Jitsu",
       "subtitle": "Brazilian jiu-jitsu school in Québec City. For adults, kids, and competitors.",
       "ctaTrial": "Book my free trial class",
       "ctaPlans": "View memberships",
@@ -41,7 +41,7 @@
       "ctaGallery": "View gallery"
     },
     "trialBanner": {
-      "title": "Ready to join the Citadelle?",
+      "title": "Ready to join Citadelle Jiu-Jitsu?",
       "subtitle": "First trial class free for all newcomers. No commitment.",
       "cta": "Book my free trial class"
     },
@@ -72,7 +72,7 @@
     "philosophy": "Philosophy",
     "stats": "By the numbers",
     "teamSoon": "The team is growing — more instructors will be announced soon.",
-    "trialCta": "Join the Citadelle",
+    "trialCta": "Join Citadelle Jiu-Jitsu",
     "trialCtaSubtitle": "First trial class is free — come see for yourself.",
     "trialCtaLink": "Book my trial class"
   },
@@ -91,14 +91,17 @@
     "noClass": "No class"
   },
   "Subscriptions": {
-    "title": "Choose your membership",
-    "subtitle": "Plans that fit every level and every budget.",
+    "title": "Our plans",
+    "subtitle": "Monthly membership, class packs, private lessons, or drop-in — your choice.",
     "perMonth": "/month",
     "perYear": "/year",
+    "oneTime": "one-time",
+    "plusTaxes": "+ tax",
     "selectPlan": "Select this plan",
     "popular": "Most popular",
     "features": "Included:",
-    "guarantee": "No commitment after the first month — cancel anytime."
+    "guarantee": "Monthly membership — no commitment after the first month, cancel anytime.",
+    "taxNote": "All prices are before tax (GST/QST applicable)."
   },
   "Shop": {
     "title": "Citadelle Shop",
