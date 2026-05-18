@@ -12,6 +12,7 @@
     "shop": "Boutique",
     "gallery": "Galerie",
     "contact": "Contact",
+    "dojoTime": "Dojo Time",
     "trial": "Séance d'essai",
     "login": "Connexion",
     "register": "Inscription",
@@ -208,6 +209,21 @@
     "terms": "Conditions d'utilisation",
     "developedBy": "Développé par",
     "copyright": "Tous droits réservés"
+  },
+  "DojoTime": {
+    "title": "Dojo Time",
+    "subtitle": "Compétitions, remises de ceintures, annonces et moments de la Citadelle.",
+    "readMore": "Lire la suite",
+    "backToFeed": "← Retour au Dojo Time",
+    "externalLink": "Voir l'analyse complète",
+    "categories": {
+      "COMPETITION":  "Compétition",
+      "BELTS":        "Ceintures",
+      "ANNOUNCEMENT": "Annonce",
+      "COMMUNITY":    "Communauté"
+    },
+    "empty": "Aucun article pour l'instant — revenez bientôt.",
+    "share": "Partager"
   },
   "Errors": {
     "notFound": {

@@ -231,3 +231,153 @@ export async function deleteContactMessage(id: string) {
     return { error: e instanceof Error ? e.message : "Erreur inconnue" };
   }
 }
+
+// =============================================================================
+// DOJO TIME — Articles
+// =============================================================================
+
+const PostSchema = z.object({
+  titleFr:     z.string().min(2).max(200),
+  titleEn:     z.string().min(2).max(200),
+  excerptFr:   z.string().min(2).max(400),
+  excerptEn:   z.string().min(2).max(400),
+  contentFr:   z.string().min(10),
+  contentEn:   z.string().min(10),
+  category:    z.enum(["COMPETITION", "BELTS", "ANNOUNCEMENT", "COMMUNITY"]),
+  imageUrl:    z.string().url().optional().or(z.literal("")),
+  externalUrl: z.string().url().optional().or(z.literal("")),
+  publishedAt: z.string().optional(),
+  status:      z.enum(["DRAFT", "PUBLISHED"]),
+});
+
+function generateSlug(title: string): string {
+  return title
+    .toLowerCase()
+    .normalize("NFD").replace(/[̀-ͯ]/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "")
+    + "-" + Date.now().toString(36);
+}
+
+export async function createPost(formData: FormData) {
+  try {
+    await requireAdmin();
+
+    const raw = {
+      titleFr:     formData.get("titleFr"),
+      titleEn:     formData.get("titleEn"),
+      excerptFr:   formData.get("excerptFr"),
+      excerptEn:   formData.get("excerptEn"),
+      contentFr:   formData.get("contentFr"),
+      contentEn:   formData.get("contentEn"),
+      category:    formData.get("category"),
+      imageUrl:    formData.get("imageUrl") || undefined,
+      externalUrl: formData.get("externalUrl") || undefined,
+      publishedAt: formData.get("publishedAt") || undefined,
+      status:      formData.get("status"),
+    };
+
+    const data = PostSchema.parse(raw);
+    const slug = generateSlug(data.titleFr);
+
+    await prisma.post.create({
+      data: {
+        slug,
+        titleFr:     data.titleFr,
+        titleEn:     data.titleEn,
+        excerptFr:   data.excerptFr,
+        excerptEn:   data.excerptEn,
+        contentFr:   data.contentFr,
+        contentEn:   data.contentEn,
+        category:    data.category,
+        status:      data.status,
+        imageUrl:    data.imageUrl    || null,
+        externalUrl: data.externalUrl || null,
+        publishedAt: data.publishedAt ? new Date(data.publishedAt) : new Date(),
+      },
+    });
+
+    revalidatePath("/fr/dojo-time");
+    revalidatePath("/en/dojo-time");
+    revalidatePath("/fr/admin/dojo-time");
+    revalidatePath("/en/admin/dojo-time");
+    return { success: true };
+  } catch (e) {
+    return { error: e instanceof Error ? e.message : "Erreur inconnue" };
+  }
+}
+
+export async function updatePost(id: string, formData: FormData) {
+  try {
+    await requireAdmin();
+
+    const raw = {
+      titleFr:     formData.get("titleFr"),
+      titleEn:     formData.get("titleEn"),
+      excerptFr:   formData.get("excerptFr"),
+      excerptEn:   formData.get("excerptEn"),
+      contentFr:   formData.get("contentFr"),
+      contentEn:   formData.get("contentEn"),
+      category:    formData.get("category"),
+      imageUrl:    formData.get("imageUrl") || undefined,
+      externalUrl: formData.get("externalUrl") || undefined,
+      publishedAt: formData.get("publishedAt") || undefined,
+      status:      formData.get("status"),
+    };
+
+    const data = PostSchema.parse(raw);
+
+    await prisma.post.update({
+      where: { id },
+      data: {
+        titleFr:     data.titleFr,
+        titleEn:     data.titleEn,
+        excerptFr:   data.excerptFr,
+        excerptEn:   data.excerptEn,
+        contentFr:   data.contentFr,
+        contentEn:   data.contentEn,
+        category:    data.category,
+        status:      data.status,
+        imageUrl:    data.imageUrl    || null,
+        externalUrl: data.externalUrl || null,
+        publishedAt: data.publishedAt ? new Date(data.publishedAt) : undefined,
+      },
+    });
+
+    revalidatePath("/fr/dojo-time");
+    revalidatePath("/en/dojo-time");
+    revalidatePath("/fr/admin/dojo-time");
+    revalidatePath("/en/admin/dojo-time");
+    return { success: true };
+  } catch (e) {
+    return { error: e instanceof Error ? e.message : "Erreur inconnue" };
+  }
+}
+
+export async function togglePostStatus(id: string, status: "DRAFT" | "PUBLISHED") {
+  try {
+    await requireAdmin();
+    await prisma.post.update({ where: { id }, data: { status } });
+    revalidatePath("/fr/dojo-time");
+    revalidatePath("/en/dojo-time");
+    revalidatePath("/fr/admin/dojo-time");
+    revalidatePath("/en/admin/dojo-time");
+    return { success: true };
+  } catch (e) {
+    return { error: e instanceof Error ? e.message : "Erreur inconnue" };
+  }
+}
+
+export async function deletePost(id: string) {
+  try {
+    await requireAdmin();
+    await prisma.post.delete({ where: { id } });
+    revalidatePath("/fr/dojo-time");
+    revalidatePath("/en/dojo-time");
+    revalidatePath("/fr/admin/dojo-time");
+    revalidatePath("/en/admin/dojo-time");
+    return { success: true };
+  } catch (e) {
+    return { error: e instanceof Error ? e.message : "Erreur inconnue" };
+  }
+}

@@ -24,6 +24,7 @@ export async function Header({ locale }: HeaderProps) {
     { href: `/${locale}/horaires`,     label: t("schedule") },
     { href: `/${locale}/abonnements`,  label: t("subscriptions") },
     { href: `/${locale}/boutique`,     label: t("shop") },
+    { href: `/${locale}/dojo-time`,    label: t("dojoTime") },
     { href: `/${locale}/contact`,      label: t("contact") },
   ];
 
@@ -64,7 +65,7 @@ export async function Header({ locale }: HeaderProps) {
           <img
             src="/logo-citadelle.svg"
             alt="Citadelle Jiu-Jitsu"
-            style={{ height: "52px", width: "auto" }}
+            style={{ height: "68px", width: "auto" }}
           />
         </Link>
 
@@ -93,12 +94,19 @@ export async function Header({ locale }: HeaderProps) {
 
           {session ? (
             <>
-              {session.role === "ADMIN" && (
+              {session.role === "ADMIN" ? (
                 <Link
                   href={`/${locale}/admin`}
                   style={{ fontSize: "0.875rem", color: "var(--color-citadelle-gold)" }}
                 >
                   {t("admin")}
+                </Link>
+              ) : (
+                <Link
+                  href={`/${locale}/mon-compte`}
+                  style={{ fontSize: "0.875rem", color: "var(--color-citadelle-text)" }}
+                >
+                  {locale === "fr" ? "Mon compte" : "My account"}
                 </Link>
               )}
               <form action={`/api/auth/logout`} method="POST">

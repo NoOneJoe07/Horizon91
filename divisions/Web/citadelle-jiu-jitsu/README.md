@@ -29,8 +29,8 @@ npm install
 ### 2. Variables d'environnement
 
 ```bash
-cp .env.example .env.local
-# Éditer .env.local et remplir au minimum :
+cp .env.example .env       # IMPORTANT: .env (pas .env.local) — Prisma CLI ne lit que .env
+# Éditer .env et remplir au minimum :
 #   - DATABASE_URL (déjà bon pour Docker local par défaut)
 #   - JWT_SECRET (générer avec : openssl rand -base64 64)
 #   - STRIPE_SECRET_KEY + NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY (mode test)

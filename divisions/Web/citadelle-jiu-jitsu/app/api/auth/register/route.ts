@@ -13,8 +13,21 @@ import {
   setSessionCookie,
 } from "@/lib/auth";
 import { registerSchema } from "@/lib/validation";
+import { checkRegisterRateLimit } from "@/lib/ratelimit";
 
 export async function POST(req: NextRequest) {
+  // Rate limiting — 3 créations / heure par IP
+  const ip = req.headers.get("x-forwarded-for")?.split(",")[0]?.trim()
+    ?? req.headers.get("x-real-ip")
+    ?? "unknown";
+  const rl = await checkRegisterRateLimit(ip);
+  if (!rl.success) {
+    return NextResponse.json(
+      { error: `Trop de tentatives. Réessaie dans ${Math.ceil(rl.retryAfter / 60)} min.` },
+      { status: 429, headers: { "Retry-After": String(rl.retryAfter) } },
+    );
+  }
+
   const body = await req.json().catch(() => null);
   const parsed = registerSchema.safeParse(body);
   if (!parsed.success) {

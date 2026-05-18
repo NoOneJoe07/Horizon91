@@ -25,7 +25,9 @@ export function AuthForm({ mode, locale }: AuthFormProps) {
     setErrorMsg(null);
 
     const formData = new FormData(e.currentTarget);
-    const payload = Object.fromEntries(formData.entries());
+    const payload: Record<string, unknown> = Object.fromEntries(formData.entries());
+    // Checkbox non cochée = absente du FormData → on normalise en booléen
+    payload.rememberMe = formData.get("rememberMe") === "on";
 
     try {
       const endpoint = mode === "login" ? "/api/auth/login" : "/api/auth/register";
@@ -108,6 +110,22 @@ export function AuthForm({ mode, locale }: AuthFormProps) {
             className="input"
           />
         </div>
+      )}
+
+      {/* Remember me — visible uniquement sur le formulaire de connexion */}
+      {mode === "login" && (
+        <label style={{
+          display: "flex", alignItems: "center", gap: "0.5rem",
+          fontSize: "0.875rem", color: "var(--color-citadelle-text-muted)",
+          cursor: "pointer",
+        }}>
+          <input
+            type="checkbox"
+            name="rememberMe"
+            style={{ width: "1rem", height: "1rem", accentColor: "var(--color-citadelle-gold)", cursor: "pointer" }}
+          />
+          {locale === "fr" ? "Se souvenir de moi (7 jours)" : "Remember me (7 days)"}
+        </label>
       )}
 
       <button

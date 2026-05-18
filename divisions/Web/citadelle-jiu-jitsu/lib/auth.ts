@@ -11,7 +11,8 @@ import { cookies } from "next/headers";
 import { prisma } from "@/lib/db";
 
 const COOKIE_NAME = "citadelle_session";
-const COOKIE_MAX_AGE = 60 * 60 * 24 * 7; // 7 jours
+export const COOKIE_MAX_AGE_LONG  = 60 * 60 * 24 * 7; // 7 jours  — Remember me / Admin
+export const COOKIE_MAX_AGE_SHORT = 60 * 60 * 2;       // 2 heures — JWT sans remember me
 
 function getSecret(): Uint8Array {
   const secret = process.env.JWT_SECRET;
@@ -50,11 +51,12 @@ export interface SessionPayload extends JWTPayload {
 
 export async function createSessionToken(
   payload: Omit<SessionPayload, "iat" | "exp">,
+  maxAge: number = COOKIE_MAX_AGE_LONG,
 ): Promise<string> {
   return new SignJWT(payload)
     .setProtectedHeader({ alg: "HS256" })
     .setIssuedAt()
-    .setExpirationTime(`${COOKIE_MAX_AGE}s`)
+    .setExpirationTime(`${maxAge}s`)
     .sign(getSecret());
 }
 
@@ -73,14 +75,16 @@ export async function verifySessionToken(
 // Cookies de session (Next.js Server Components / Route Handlers)
 // -----------------------------------------------------------------------------
 
-export async function setSessionCookie(token: string): Promise<void> {
+export async function setSessionCookie(token: string, maxAge?: number): Promise<void> {
   const cookieStore = await cookies();
   cookieStore.set(COOKIE_NAME, token, {
     httpOnly: true,
     secure: process.env.NODE_ENV === "production",
     sameSite: "lax",
     path: "/",
-    maxAge: COOKIE_MAX_AGE,
+    // maxAge undefined = session cookie (expire à la fermeture du navigateur)
+    // maxAge number   = cookie persistant (Remember me / Admin)
+    ...(maxAge !== undefined ? { maxAge } : {}),
   });
 }
 

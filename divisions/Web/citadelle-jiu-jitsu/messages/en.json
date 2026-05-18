@@ -12,6 +12,7 @@
     "shop": "Shop",
     "gallery": "Gallery",
     "contact": "Contact",
+    "dojoTime": "Dojo Time",
     "trial": "Trial class",
     "login": "Sign in",
     "register": "Sign up",
@@ -208,6 +209,21 @@
     "terms": "Terms of use",
     "developedBy": "Built by",
     "copyright": "All rights reserved"
+  },
+  "DojoTime": {
+    "title": "Dojo Time",
+    "subtitle": "Competitions, belt promotions, announcements and moments from the Citadelle.",
+    "readMore": "Read more",
+    "backToFeed": "← Back to Dojo Time",
+    "externalLink": "Read the full breakdown",
+    "categories": {
+      "COMPETITION":  "Competition",
+      "BELTS":        "Belts",
+      "ANNOUNCEMENT": "Announcement",
+      "COMMUNITY":    "Community"
+    },
+    "empty": "No posts yet — check back soon.",
+    "share": "Share"
   },
   "Errors": {
     "notFound": {

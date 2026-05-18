@@ -237,3 +237,42 @@ model ContactMessage {
   @@index([read])
   @@index([createdAt])
 }
+
+// -----------------------------------------------------------------------------
+// DOJO TIME — Feed d'actualités du dojo
+// Compétitions, remises de ceintures, annonces, vie communautaire
+// -----------------------------------------------------------------------------
+
+enum PostCategory {
+  COMPETITION   // résultat ou annonce de compétition
+  BELTS         // remise de ceintures / graduation
+  ANNOUNCEMENT  // annonce événement, partenariat, nouveauté
+  COMMUNITY     // vie du dojo, brotherhood, photos d'entraînement
+}
+
+enum PostStatus {
+  DRAFT      // brouillon — visible en admin seulement
+  PUBLISHED  // publié — visible sur le site public
+}
+
+model Post {
+  id          String       @id @default(cuid())
+  slug        String       @unique
+  titleFr     String
+  titleEn     String
+  excerptFr   String       // résumé court pour les cards du feed
+  excerptEn   String
+  contentFr   String       @db.Text  // texte complet de l'article
+  contentEn   String       @db.Text
+  imageUrl    String?      // URL photo principale (podium, ceinture, etc.)
+  category    PostCategory
+  status      PostStatus   @default(DRAFT)
+  externalUrl String?      // lien optionnel → futur site martial arts Supernova
+  publishedAt DateTime?    // date affichée (peut différer de createdAt)
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+
+  @@index([status])
+  @@index([category])
+  @@index([publishedAt])
+}

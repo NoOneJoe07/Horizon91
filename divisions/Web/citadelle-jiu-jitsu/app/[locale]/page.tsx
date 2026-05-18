@@ -99,9 +99,9 @@ export default async function HomePage({
             top: "50%",
             left: "50%",
             transform: "translate(-50%, -50%)",
-            width: "72vmin",
-            height: "72vmin",
-            opacity: 0.055,
+            width: "88vmin",
+            height: "88vmin",
+            opacity: 0.09,
             pointerEvents: "none",
             userSelect: "none",
           }}

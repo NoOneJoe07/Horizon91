@@ -60,8 +60,8 @@ npm install
 ### 3. Configurer l'environnement
 
 ```bash
-cp .env.example .env.local
-nano .env.local
+cp .env.example .env       # IMPORTANT: .env (pas .env.local) car Prisma CLI ne lit que .env
+nano .env
 # Au minimum, remplir :
 #   - JWT_SECRET (générer : openssl rand -base64 64)
 #   - SEED_ADMIN_EMAIL + SEED_ADMIN_PASSWORD
