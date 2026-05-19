@@ -177,6 +177,15 @@
         "resultats": ["Site personnel", "Listings intégrés", "Marque personnelle"],
         "statut": "À venir",
         "couleur": "border-h91-warp"
+      },
+      {
+        "nom": "Argos — Surveillance Dark Web",
+        "client": "Groupe Supernova — Produit interne",
+        "categorie": "Cybersécurité",
+        "description": "SaaS de surveillance du Dark Web en temps réel. Argos scanne en continu les marchés clandestins, forums et fuites de données pour alerter les entreprises dès que leurs informations apparaissent.",
+        "resultats": ["Scan Dark Web continu", "Alertes temps réel", "4 tiers tarifaires", "Données au Québec"],
+        "statut": "En cours",
+        "couleur": "border-h91-accretion"
       }
     ]
   },

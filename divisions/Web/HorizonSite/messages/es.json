@@ -177,6 +177,15 @@
         "resultats": ["Sitio personal", "Listados integrados", "Marca personal"],
         "statut": "À venir",
         "couleur": "border-h91-warp"
+      },
+      {
+        "nom": "Argos — Vigilancia Dark Web",
+        "client": "Grupo Supernova — Producto interno",
+        "categorie": "Cybersécurité",
+        "description": "SaaS de vigilancia del Dark Web en tiempo real. Argos escanea continuamente mercados clandestinos, foros y filtraciones de datos para alertar a las empresas cuando su información aparece.",
+        "resultats": ["Escaneo Dark Web continuo", "Alertas en tiempo real", "4 niveles de precios", "Datos alojados en Quebec"],
+        "statut": "En cours",
+        "couleur": "border-h91-accretion"
       }
     ]
   },
