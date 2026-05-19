@@ -255,15 +255,15 @@
     ],
     "heures_title": "Extra hours outside your package",
     "heures": [
-      { "label": "Support & content modifications", "prix": "$60 — $80 / h" },
-      { "label": "Development (new feature)", "prix": "$80 — $100 / h" },
+      { "label": "Support & content modifications", "prix": "$75 — $90 / h" },
+      { "label": "Development (new feature)", "prix": "$80 — $120 / h" },
       { "label": "Prepaid hour bank — 10 h", "prix": "$700", "note": "save $100" }
     ],
     "social_title": "Social media management — monthly add-on",
     "social_packages": [
-      { "nom": "Essential Presence", "cible": "Facebook + Instagram", "prix_min": "$300", "prix_max": "$400 / month", "features": ["2–3 posts / week", "Comment responses", "Monthly report"], "featured": false },
-      { "nom": "Active Presence", "cible": "Multi-platform + video", "prix_min": "$500", "prix_max": "$700 / month", "features": ["Everything in Essential", "1 filmed visit / month", "Instagram Reel + TikTok Short", "YouTube upload + site article"], "featured": true },
-      { "nom": "Full Presence", "cible": "Ecosystem + monthly postal book", "prix_min": "$800", "prix_max": "$1,200 / month", "features": ["Everything in Active", "Higher frequency + events", "Inclusion in monthly mailed book", "Co-promotion in Supernova ecosystem"], "featured": false }
+      { "nom": "Essential Presence", "cible": "Facebook + Instagram", "prix_min": "$399 / month", "prix_max": "", "features": ["2–3 posts / week", "Comment responses", "Monthly report"], "featured": false },
+      { "nom": "Active Presence", "cible": "Multi-platform + video", "prix_min": "$699 / month", "prix_max": "", "features": ["Everything in Essential", "1 filmed visit / month", "Instagram Reel + TikTok Short", "YouTube upload + site article"], "featured": true },
+      { "nom": "Full Presence", "cible": "Ecosystem + monthly postal book", "prix_min": "$1,099 / month", "prix_max": "", "features": ["Everything in Active", "Higher frequency + events", "Inclusion in monthly mailed book", "Co-promotion in Supernova ecosystem"], "featured": false }
     ],
     "recommended_badge": "Recommended",
     "cta_title": "Ready to get started?",

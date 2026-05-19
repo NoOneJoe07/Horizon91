@@ -1,7 +1,13 @@
 @AGENTS.md
 
 # CONTEXTE PROJET — Groupe Supernova / HorizonSite
-Dernière mise à jour : 2026-05-08 (soir) — SITE EN PRODUCTION ✅
+Dernière mise à jour : 2026-05-11 — SITE EN PRODUCTION ✅
+
+## Fichiers de contexte global Horizon 91
+- **Master context :** `C:\Users\Pc\OneDrive\Documents\Horizon 91\horizon91_master.md`
+- **Starlog officiel :** `C:\Users\Pc\OneDrive\Documents\Horizon 91\STARLOG_Vaisseau_Horizon91.md`
+- À uploader en début de session pour le contexte complet de l'écosystème Horizon 91
+- À mettre à jour en fin de session si décisions systémiques prises (master) ou session productive (starlog)
 
 ## Stack technique
 - Next.js 15.5.18 App Router (TypeScript, Tailwind v4) — package.json: ^15.3.1

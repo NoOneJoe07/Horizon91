@@ -316,8 +316,8 @@
     ],
     "heures_title": "Heures supplémentaires hors forfait",
     "heures": [
-      { "label": "Support & modifications de contenu", "prix": "60 $ — 80 $ / h" },
-      { "label": "Développement (nouvelle fonctionnalité)", "prix": "80 $ — 100 $ / h" },
+      { "label": "Support & modifications de contenu", "prix": "75 $ — 90 $ / h" },
+      { "label": "Développement (nouvelle fonctionnalité)", "prix": "80 $ — 120 $ / h" },
       { "label": "Banque d'heures prépayée — 10 h", "prix": "700 $", "note": "économie de 100 $" }
     ],
     "social_title": "Gestion des médias sociaux — add-on mensuel",
@@ -325,8 +325,8 @@
       {
         "nom": "Présence Essentielle",
         "cible": "Facebook + Instagram",
-        "prix_min": "300 $",
-        "prix_max": "400 $ / mois",
+        "prix_min": "399 $ / mois",
+        "prix_max": "",
         "features": [
           "2–3 publications / semaine",
           "Réponse aux commentaires",
@@ -337,8 +337,8 @@
       {
         "nom": "Présence Active",
         "cible": "Multi-plateformes + vidéo",
-        "prix_min": "500 $",
-        "prix_max": "700 $ / mois",
+        "prix_min": "699 $ / mois",
+        "prix_max": "",
         "features": [
           "Tout de l'Essentielle",
           "1 visite filmée / mois",
@@ -350,8 +350,8 @@
       {
         "nom": "Présence Complète",
         "cible": "Écosystème + book mensuel postal",
-        "prix_min": "800 $",
-        "prix_max": "1 200 $ / mois",
+        "prix_min": "1 099 $ / mois",
+        "prix_max": "",
         "features": [
           "Tout de l'Active",
           "Fréquence accrue + événements",

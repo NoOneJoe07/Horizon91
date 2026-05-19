@@ -248,7 +248,9 @@ export default function TarificationPage() {
                 >
                   {pkg.prix_min}
                 </span>
-                <span className="text-h91-stellar/40 text-sm">→ {pkg.prix_max}</span>
+                {pkg.prix_max && (
+                  <span className="text-h91-stellar/40 text-sm">→ {pkg.prix_max}</span>
+                )}
               </div>
 
               <ul className="flex flex-col gap-2 flex-1">

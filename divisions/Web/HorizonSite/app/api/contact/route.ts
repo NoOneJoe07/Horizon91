@@ -1,109 +1,111 @@
 import { NextRequest, NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 
-// Rate limiting simple en mémoire
-const rateLimitMap = new Map<string, { count: number; resetTime: number }>();
-const RATE_LIMIT = 3; // max 3 soumissions
-const RATE_WINDOW = 60 * 60 * 1000; // par heure
+/* ─────────────────────────────────────────────────────────
+   Variables d'environnement requises dans Vercel :
+   ZOHO_USER    = noreply@groupesupernova.ca
+   ZOHO_PASS    = mot de passe du compte Zoho noreply
+   CONTACT_TO   = contact@groupesupernova.ca (destinataire)
+───────────────────────────────────────────────────────────── */
 
-function checkRateLimit(ip: string): boolean {
-  const now = Date.now();
-  const entry = rateLimitMap.get(ip);
-
-  if (!entry || now > entry.resetTime) {
-    rateLimitMap.set(ip, { count: 1, resetTime: now + RATE_WINDOW });
-    return true;
-  }
-
-  if (entry.count >= RATE_LIMIT) return false;
-
-  entry.count++;
-  return true;
-}
+const transporter = nodemailer.createTransport({
+  host: "smtp.zoho.com",
+  port: 465,
+  secure: true,
+  auth: {
+    user: process.env.ZOHO_USER,
+    pass: process.env.ZOHO_PASS,
+  },
+});
 
 export async function POST(req: NextRequest) {
-  // IP du visiteur
-  const ip =
-    req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ?? "unknown";
-
-  // Rate limiting
-  if (!checkRateLimit(ip)) {
-    return NextResponse.json(
-      { error: "Trop de tentatives. Réessayez dans une heure." },
-      { status: 429 }
-    );
-  }
-
-  // Lecture et validation des données
-  let body: { nom?: string; courriel?: string; message?: string; locale?: string };
   try {
-    body = await req.json();
-  } catch {
-    return NextResponse.json({ error: "Données invalides." }, { status: 400 });
-  }
+    const body = await req.json();
+    const { nom, courriel, message, locale } = body as {
+      nom: string;
+      courriel: string;
+      message: string;
+      locale: string;
+    };
 
-  const { nom, courriel, message, locale } = body;
+    if (
+      !nom?.trim() ||
+      !courriel?.trim() ||
+      !message?.trim() ||
+      nom.trim().length < 2 ||
+      message.trim().length < 10 ||
+      !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(courriel)
+    ) {
+      return NextResponse.json({ error: "Données invalides." }, { status: 400 });
+    }
 
-  // Validation basique
-  if (!nom || typeof nom !== "string" || nom.trim().length < 2) {
-    return NextResponse.json({ error: "Nom invalide." }, { status: 400 });
-  }
-  if (!courriel || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(courriel)) {
-    return NextResponse.json({ error: "Courriel invalide." }, { status: 400 });
-  }
-  if (!message || typeof message !== "string" || message.trim().length < 10) {
-    return NextResponse.json({ error: "Message trop court." }, { status: 400 });
-  }
+    const labelMap: Record<string, { subject: string; from: string }> = {
+      fr: {
+        subject: `Nouveau message — ${nom}`,
+        from: `"Groupe Supernova" <${process.env.ZOHO_USER}>`,
+      },
+      en: {
+        subject: `New message — ${nom}`,
+        from: `"Supernova Group" <${process.env.ZOHO_USER}>`,
+      },
+      es: {
+        subject: `Nuevo mensaje — ${nom}`,
+        from: `"Grupo Supernova" <${process.env.ZOHO_USER}>`,
+      },
+    };
 
-  // Sanitisation légère (éviter injections dans les headers)
-  const safeName = nom.trim().replace(/[\r\n]/g, "");
-  const safeEmail = courriel.trim().toLowerCase();
-  const safeMessage = message.trim().slice(0, 5000);
+    const labels = labelMap[locale] ?? labelMap.fr;
 
-  // Transporter SMTP Zoho
-  const transporter = nodemailer.createTransport({
-    host: process.env.SMTP_HOST,
-    port: Number(process.env.SMTP_PORT),
-    secure: true, // SSL port 465
-    auth: {
-      user: process.env.SMTP_USER,
-      pass: process.env.SMTP_PASS,
-    },
-  });
-
-  const subject =
-    locale === "en"
-      ? `New contact message from ${safeName}`
-      : locale === "es"
-      ? `Nuevo mensaje de contacto de ${safeName}`
-      : `Nouveau message de contact — ${safeName}`;
-
-  try {
     await transporter.sendMail({
-      from: `"${safeName}" <${process.env.SMTP_USER}>`,
-      replyTo: safeEmail,
-      to: process.env.CONTACT_TO,
-      subject,
-      text: `Nom / Name: ${safeName}\nCourriel / Email: ${safeEmail}\n\n${safeMessage}`,
+      from: labels.from,
+      to: process.env.CONTACT_TO ?? "contact@groupesupernova.ca",
+      replyTo: courriel,
+      subject: labels.subject,
       html: `
-        <div style="font-family: Arial, sans-serif; max-width: 600px;">
-          <h2 style="color: #FF7A1A;">Nouveau message — Groupe Supernova</h2>
-          <p><strong>Nom :</strong> ${safeName}</p>
-          <p><strong>Courriel :</strong> <a href="mailto:${safeEmail}">${safeEmail}</a></p>
-          <hr style="border-color: #FF7A1A;" />
-          <p style="white-space: pre-wrap;">${safeMessage}</p>
-          <hr style="border-color: #333;" />
-          <p style="color: #888; font-size: 12px;">Envoyé depuis groupesupernova.ca</p>
+        <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;background:#0a0a0a;color:#F2F7FF;padding:32px;border-radius:12px;border:1px solid #FF7A1A33;">
+          <div style="text-align:center;margin-bottom:24px;">
+            <span style="font-size:12px;font-weight:bold;letter-spacing:0.15em;text-transform:uppercase;color:#FF7A1A;">
+              groupesupernova.ca — Formulaire de contact
+            </span>
+          </div>
+          <h2 style="color:#F2F7FF;font-size:22px;margin:0 0 20px;">Nouveau message</h2>
+          <table style="width:100%;border-collapse:collapse;">
+            <tr>
+              <td style="padding:8px 12px;font-size:12px;color:#F2F7FF88;text-transform:uppercase;letter-spacing:0.1em;width:120px;">Nom</td>
+              <td style="padding:8px 12px;color:#F2F7FF;font-weight:bold;">${escapeHtml(nom)}</td>
+            </tr>
+            <tr style="background:#FF7A1A0D;">
+              <td style="padding:8px 12px;font-size:12px;color:#F2F7FF88;text-transform:uppercase;letter-spacing:0.1em;">Courriel</td>
+              <td style="padding:8px 12px;"><a href="mailto:${escapeHtml(courriel)}" style="color:#FF7A1A;">${escapeHtml(courriel)}</a></td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;font-size:12px;color:#F2F7FF88;text-transform:uppercase;letter-spacing:0.1em;">Langue</td>
+              <td style="padding:8px 12px;color:#F2F7FF;">${locale.toUpperCase()}</td>
+            </tr>
+          </table>
+          <div style="margin-top:24px;padding:20px;background:#111;border-radius:8px;border-left:3px solid #FF7A1A;">
+            <p style="font-size:12px;color:#F2F7FF44;text-transform:uppercase;letter-spacing:0.1em;margin:0 0 10px;">Message</p>
+            <p style="color:#F2F7FF;line-height:1.7;margin:0;white-space:pre-wrap;">${escapeHtml(message)}</p>
+          </div>
+          <p style="margin-top:24px;font-size:11px;color:#F2F7FF33;text-align:center;">
+            Répondre directement à cet email pour contacter l'expéditeur.
+          </p>
         </div>
       `,
     });
 
-    return NextResponse.json({ success: true }, { status: 200 });
-  } catch (error) {
-    console.error("SMTP error:", error);
-    return NextResponse.json(
-      { error: "Erreur d'envoi. Réessayez plus tard." },
-      { status: 500 }
-    );
+    return NextResponse.json({ ok: true }, { status: 200 });
+  } catch (err) {
+    console.error("[API /contact]", err);
+    return NextResponse.json({ error: "Erreur serveur. Réessayez plus tard." }, { status: 500 });
   }
+}
+
+function escapeHtml(str: string): string {
+  return str
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
 }
