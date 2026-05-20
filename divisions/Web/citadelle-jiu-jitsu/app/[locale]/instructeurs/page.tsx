@@ -132,12 +132,12 @@ export default async function InstructorsPage({
                       "radial-gradient(ellipse at bottom, rgba(201,160,74,0.06) 0%, transparent 65%)",
                   }}
                 />
-                {founder.imageUrl ? (
+                {(founder.imageUrlGi ?? founder.imageUrl) ? (
                   // eslint-disable-next-line @next/next/no-img-element
                   <img
-                    src={founder.imageUrl}
+                    src={founder.imageUrlGi ?? founder.imageUrl}
                     alt={locale === "fr" ? founder.nameFr : founder.nameEn}
-                    style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                    style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top center" }}
                   />
                 ) : (
                   <>
@@ -346,6 +346,32 @@ export default async function InstructorsPage({
                   </div>
                 </div>
               )}
+
+              {/* Profil compétiteur Smoothcomp */}
+              <div style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "0.75rem",
+                padding: "0.85rem 1.1rem",
+                background: "var(--color-citadelle-surface-2)",
+                borderRadius: "var(--radius-md)",
+                border: "1px solid var(--color-citadelle-border)",
+              }}>
+                <span style={{ fontSize: "1.1rem" }}>🏆</span>
+                <div>
+                  <p style={{ fontSize: "0.72rem", textTransform: "uppercase", letterSpacing: "0.1em", color: "var(--color-citadelle-text-muted)", marginBottom: "0.2rem" }}>
+                    {locale === "fr" ? "Profil compétiteur officiel" : "Official competitor profile"}
+                  </p>
+                  <a
+                    href="https://smoothcomp.com/en/profile/77192"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ fontSize: "0.9rem", fontWeight: 600, color: "var(--color-citadelle-gold)" }}
+                  >
+                    Smoothcomp — Jean-Sébastien Dionne-Roy ↗
+                  </a>
+                </div>
+              </div>
 
               {/* Philosophie */}
               {(founder.philosophyFr || founder.philosophyEn) && (

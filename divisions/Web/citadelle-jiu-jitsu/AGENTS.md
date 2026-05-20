@@ -9,7 +9,8 @@
 
 Site web officiel de **Citadelle Jiu-Jitsu**, gym d'arts martiaux à Québec.
 Premier projet pilote de l'agence **Horizon 91** (Jonathan Patoine).
-Sert de **template de référence** pour tous les futurs projets Horizon Web.
+Sert de **template de référence Commerce Complet** pour tous les futurs projets Horizon Web.
+Client : Kristina (proprio) + JS (directeur marketing).
 
 ---
 
@@ -25,9 +26,10 @@ Sert de **template de référence** pour tous les futurs projets Horizon Web.
 | BD | PostgreSQL 16 (Docker en dev) |
 | Auth | JWT (jose, edge-compatible) + bcryptjs (hash) |
 | Paiement | Stripe (Checkout Sessions) |
+| Rate limiting | @upstash/ratelimit + @upstash/redis (Vercel Edge) |
 | Lint | ESLint 9 (config Next.js) |
 | Format | Prettier 3 |
-| Hébergement cible | OVH Canada / Vercel / AWS Lightsail |
+| Hébergement cible | Vercel |
 
 ---
 
@@ -38,6 +40,7 @@ Sert de **template de référence** pour tous les futurs projets Horizon Web.
 - Path alias : `@/*` → `./*`
 - App Router avec routing `[locale]` : `app/[locale]/<page>/page.tsx`
 - API routes : `app/api/<endpoint>/route.ts`
+- **`proxy.ts`** remplace `middleware.ts` (Next.js 16 breaking change — ne jamais recréer middleware.ts)
 
 ### Nommage
 - Composants : `PascalCase.tsx` dans `components/`
@@ -64,13 +67,17 @@ Types : `feat`, `fix`, `refactor`, `docs`, `style`, `chore`, `test`, `build`.
 7. **Re-vérification BD du rôle admin** dans le layout admin (défense en profondeur — pas que le JWT).
 8. **Prix lus depuis la BD**, jamais depuis le client (Stripe Checkout).
 9. **Webhook Stripe** vérifie la signature avec `STRIPE_WEBHOOK_SECRET`.
-10. **Conformité Loi 25 Québec** — politique de confidentialité à finaliser avant lancement public.
+10. **Conformité Loi 25 Québec** — politique de confidentialité livrée.
+11. **Rate limiting** Upstash : 5 tentatives login / 15 min, 3 inscriptions / h, par IP.
 
 ---
 
 ## Commandes essentielles
 
 ```bash
+# Sync OneDrive → WSL (toujours faire en début de session)
+~/sync-citadelle.sh
+
 # Installer les dépendances (à faire une fois)
 npm install
 
@@ -78,7 +85,7 @@ npm install
 docker compose -f docker-compose.dev.yml up -d
 
 # Migrer + seeder la BD (à refaire à chaque modif schema.prisma)
-npm run prisma:migrate
+npx prisma migrate dev --name "description"
 npm run prisma:seed
 
 # Développement
@@ -96,51 +103,145 @@ npm run start
 
 ---
 
-## Modules livrés (état au 28 avril 2026)
+## Modules livrés (état au 19 mai 2026)
 
+### Infrastructure
 ✅ Setup Next.js 16 + TypeScript + Tailwind v4
 ✅ i18n FR/EN complet (next-intl)
-✅ Schéma Prisma (User, SubscriptionPlan, UserSubscription, Product, Order, TrialSession, ContactMessage)
-✅ Seed avec 1 admin + 4 plans + 6 produits
-✅ Auth JWT + bcrypt + cookies HttpOnly
-✅ API routes : login, register, logout, me, trial, checkout, webhook Stripe
-✅ Pages publiques : accueil, instructeurs, horaires, galerie, contact, séance d'essai, abonnements, boutique
-✅ Pages auth : connexion, inscription
-✅ Admin : layout protégé + dashboard + listes produits/abonnements/séances d'essai
-✅ Sécurité : headers HTTP (CSP, HSTS, etc.), middleware de protection admin, honeypot anti-spam
+✅ Schéma Prisma (User, SubscriptionPlan, UserSubscription, Product, Order, OrderItem, TrialSession, ContactMessage, Post)
+✅ BillingInterval : MONTH, YEAR, ONETIME
+✅ PostCategory : COMPETITION, BELTS, ANNOUNCEMENT, COMMUNITY
+✅ Seed avec 1 admin + 4 plans réels + 4 produits réels
 ✅ Docker : Dockerfile multi-stage + docker-compose dev (Postgres)
+✅ proxy.ts (ex-middleware.ts) — i18n + protection routes admin
+✅ Sitemap dynamique (routes statiques + slugs Dojo Time)
+✅ robots.ts
+✅ SEO : metadata, JSON-LD SportsClub, Open Graph
+
+### Auth
+✅ JWT + bcrypt + cookies HttpOnly/Secure/SameSite=Lax
+✅ Register / Login / Logout
+✅ Remember me : session cookie (2h JWT) ou persistant 7 jours
+✅ ADMIN toujours 7 jours, USER selon checkbox
+✅ Feedback logout : redirect /connexion?bye=1 + bannière verte
+✅ Rate limiting Upstash : login 5/15min, register 3/h (désactivé gracieusement en dev sans vars)
+✅ Anti-énumération : même message email inconnu / mot de passe faux
+✅ Re-vérification rôle en BD dans le layout admin
+
+### Pages publiques
+✅ Accueil (hero animé, coach spotlight, valeurs, showcase, CTA)
+✅ Instructeurs
+✅ Horaires
+✅ Galerie
+✅ Contact
+✅ Séance d'essai (formulaire + API)
+✅ Abonnements (plans réels : mensuel 135$/mo, carte 10 séances 150$, cours privé 70$, drop-in 20$)
+✅ Boutique (rash guard, cuissard, hoodie, crew neck — Noir)
+✅ Dojo Time (feed PUBLISHED, filtré, ordonné par date)
+✅ Dojo Time / [slug] (article individuel, renderer Markdown léger : ##, **bold**, *italic*, ---)
+✅ Lien Smoothcomp sur page accueil (section coach) + page instructeurs (entre accomplissements et philosophie)
+✅ Confidentialité (Loi 25 QC + PIPEDA)
+✅ Conditions
+
+### Pages auth / compte
+✅ /connexion (Remember me checkbox, bannière bye)
+✅ /inscription
+✅ /mon-compte (abonnement actif, historique commandes, profil)
+
+### Admin (/[locale]/admin/*)
+✅ Dashboard (stats agrégées : commandes, inscriptions, messages non-lus, membres)
+✅ Produits (CRUD complet : créer, modifier, activer/désactiver, supprimer)
+✅ Abonnements (toggle actif/inactif — modifs prix via Stripe Groupe Supernova)
+✅ Inscriptions / séances d'essai (machine d'état : PENDING→CONFIRMED/CANCELED→ATTENDED/NO_SHOW)
+✅ Commandes (PAID→READY_PICKUP→DELIVERED)
+✅ Messages contact (lire/marquer lu, supprimer)
+✅ Utilisateurs (liste read-only, badge ADMIN gold)
+✅ Dojo Time (CRUD articles : créer, modifier, publier/dépublier, supprimer)
+
+### Sécurité headers
+✅ CSP, HSTS, X-Frame-Options, X-Content-Type-Options, Permissions-Policy
+
+### Composants admin (Client Components)
+✅ ProductModal, ProductActions, ProductCreateButton
+✅ PlanToggle
+✅ TrialActions
+✅ OrderActions
+✅ ContactMessageActions
+✅ PostModal, PostAdminActions
 
 ---
 
-## À faire (sessions futures, par ordre de priorité)
+## Contenu Dojo Time — articles créés (19 mai 2026)
 
-1. **Notifications email** — Resend pour notifier le proprio des nouvelles séances d'essai et commandes
-2. **CRUD admin complet** — modales create/edit/delete pour produits, plans, utilisateurs (Server Actions)
-3. **Page commandes admin** — historique, marquer "remis", refunds
-4. **Page utilisateurs admin** — promouvoir/rétrograder rôle, voir abonnements actifs
-5. **Formulaire contact public** — analogue à TrialForm + endpoint `/api/contact`
-6. **Politique de confidentialité Loi 25** — `/[locale]/confidentialite`
-7. **Branding officiel** — remplacer placeholders dans `globals.css` (`--color-citadelle-*`) + logo dans `public/`
-8. **Photos clients** — galerie + photos d'instructeurs
-9. **Rate limiting** — middleware avec Upstash ou en-mémoire pour les endpoints publics
-10. **Tests** — Vitest pour la logique métier, Playwright pour les flows critiques
-11. **CI/CD** — GitHub Actions (lint + type-check + build sur PR)
-12. **Déploiement** — choix final entre OVH Canada / Vercel / Lightsail
+5 articles PUBLISHED en base, chronologiques :
+
+| Slug | Catégorie | Date | Image |
+|---|---|---|---|
+| `east-coast-absolute-or-mai-2026` | COMPETITION | 18 mai 2026 | ⏳ à copier (`JS ECFS.jpg` → `public/images/dojo-time/east-coast-absolute-mai-2026.jpg`) |
+| `hub-grappling-double-or-mai-2026` | COMPETITION | 10 mai 2026 | ⏳ placeholder (photo à recevoir de JS) |
+| `adcc-calgary-open-argent-avril-2026` | COMPETITION | 28 avr 2026 | ⏳ placeholder (photo à recevoir de JS) |
+| `ouverture-citadelle-jiu-jitsu-quebec` | ANNOUNCEMENT | 1 avr 2026 | — |
+| `pourquoi-commencer-bjj-quebec` | COMMUNITY | 15 avr 2026 | — |
+
+**À créer prochainement :**
+- Article IBJJF Montreal International Open 2026 (double or JS + Max) — dossier photo en préparation par Jonathan
+- Fiche instructeur Max — en attente infos/photo
+- Article Hub Grappling mai 2026 (photo podium à recevoir)
+
+**Images en attente :**
+- JS ECFS (East Coast) → déjà sauvegardée dans `Images/JS ECFS.jpg`
+- JS IBJJF Montreal Open double or → à sauvegarder depuis Facebook
+- JS Hub Grappling → à sauvegarder depuis Facebook
+- Max au Montreal Open → à sauvegarder
+
+---
+
+## En attente (client / déploiement)
+
+| Item | Bloqué sur |
+|---|---|
+| Notifications email (commandes, séances d'essai) | Email Resend — JS doit fournir l'email business |
+| Reset mot de passe ("Mot de passe oublié") | Resend idem |
+| Photos instructeurs (JS + Max) | JS / Paulina |
+| Photos produits | Kristina |
+| Dossier historique Citadelle (compétitions, événements) | Jonathan — en préparation |
+| Fiche instructeur Max (nom complet, grade, bio) | JS |
+| Décision politique enfants / mensuel | JS |
+| Clés Stripe production | Pre-deploy |
+| Credentials Upstash production | Pre-deploy (upstash.com → créer DB Redis gratuit) |
+| Manuel client PDF | Fin de projet, remis en main propre |
+
+---
+
+## Pre-deploy checklist (session dédiée)
+
+- [ ] `npm run build` propre (0 erreurs TypeScript)
+- [ ] `npm run lint` propre
+- [ ] Variables Vercel : DATABASE_URL, JWT_SECRET, STRIPE_*, UPSTASH_*, NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
+- [ ] Stripe live keys (sk_live_, pk_live_)
+- [ ] Upstash Redis créé + vars copiées
+- [ ] Test flow complet : inscription → achat → webhook → commande admin
+- [ ] Test Stripe Checkout séance d'essai
+- [ ] DNS Vercel → citadellejiujitsu.ca
+- [ ] Google Search Console → soumettre sitemap
 
 ---
 
 ## Notes spécifiques au projet
 
-- **Boutique sans expédition automatique** : ramassage au dojo OU livraison manuelle par le proprio. Pas d'intégration transporteur (fournisseur au Pakistan, le proprio gère).
-- **Compte admin** : créé automatiquement par le seed depuis `SEED_ADMIN_EMAIL`. À CHANGER après la 1ère connexion en prod.
-- **Stripe en mode test** par défaut — clés `sk_test_` / `pk_test_`. Passer en `_live_` uniquement après audit complet.
-- **Loi 25 Québec** : tous les inputs utilisateurs sont stockés dans la BD locale (pas de tracking tiers). Politique de confidentialité à rédiger.
+- **Boutique sans expédition automatique** : ramassage au dojo OU livraison manuelle. Pas d'intégration transporteur.
+- **Compte admin** : créé par seed depuis `SEED_ADMIN_EMAIL` / `SEED_ADMIN_PASSWORD`. À changer après 1ère connexion prod.
+- **Stripe en mode test** par défaut — passer en `_live_` uniquement après pre-deploy complet.
+- **BillingInterval ONETIME** → Stripe `mode:"payment"` (pas subscription).
+- **Dojo Time externalUrl** → champ optionnel pour lier vers futur site Groupe Supernova arts martiaux (flywheel strategy).
+- **middleware.ts SUPPRIMÉ** — Next.js 16 utilise proxy.ts. Ne jamais recréer middleware.ts.
+- **Sync requis** : OneDrive (Cowork édite) → WSL (npm run dev). Toujours `~/sync-citadelle.sh` avant de lancer le serveur.
 
 ---
 
 ## Liens utiles
 
-- Spec projet originale : `~/Horizon91/divisions/Web/citadelle-jiu-jitsu/CLAUDE.md` → `@AGENTS.md`
-- Documents Horizon 91 : `~/Horizon91/core/Documentation/`
-- Branding Horizon 91 : `~/Horizon91/core/Branding/`
+- Spec projet originale : `AGENTS.md` (ce fichier)
 - Site vitrine Horizon 91 (frère) : `~/Horizon91/divisions/Web/HorizonSite/`
+- Master context Horizon 91 : `C:\Users\Pc\OneDrive\Documents\Horizon 91\horizon91_master.md`
+- Starlog : `C:\Users\Pc\OneDrive\Documents\Horizon 91\STARLOG_Vaisseau_Horizon91.md`

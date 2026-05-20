@@ -23,7 +23,6 @@ export async function Header({ locale }: HeaderProps) {
     { href: `/${locale}/instructeurs`, label: t("instructors") },
     { href: `/${locale}/horaires`,     label: t("schedule") },
     { href: `/${locale}/abonnements`,  label: t("subscriptions") },
-    { href: `/${locale}/boutique`,     label: t("shop") },
     { href: `/${locale}/dojo-time`,    label: t("dojoTime") },
     { href: `/${locale}/contact`,      label: t("contact") },
   ];

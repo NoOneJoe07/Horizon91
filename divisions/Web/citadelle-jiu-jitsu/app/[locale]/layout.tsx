@@ -8,6 +8,7 @@
 // =============================================================================
 
 import type { Metadata } from "next";
+import { Cinzel } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
@@ -15,6 +16,15 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { locales, type Locale } from "@/lib/locales";
 import "../globals.css";
+
+// Cinzel — typographie principale officielle Citadelle Jiu-Jitsu (brand manual Paulina)
+// Serif haut de gamme : élégance, autorité, tradition, stabilité
+const cinzel = Cinzel({
+  subsets: ["latin"],
+  weight: ["400", "600", "700", "900"],
+  variable: "--font-cinzel",
+  display: "swap",
+});
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -115,7 +125,7 @@ export default async function LocaleLayout({
   const messages = await getMessages();
 
   return (
-    <html lang={locale}>
+    <html lang={locale} className={cinzel.variable}>
       <body
         style={{
           minHeight: "100vh",

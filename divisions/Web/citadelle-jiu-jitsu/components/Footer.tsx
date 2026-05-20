@@ -66,8 +66,8 @@ export async function Footer({ locale }: FooterProps) {
             </h3>
             <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "grid", gap: "0.4rem" }}>
               <li><Link href={`/${locale}/abonnements`}>{tNav("subscriptions")}</Link></li>
-              <li><Link href={`/${locale}/boutique`}>{tNav("shop")}</Link></li>
               <li><Link href={`/${locale}/horaires`}>{tNav("schedule")}</Link></li>
+              <li><Link href={`/${locale}/dojo-time`}>{tNav("dojoTime")}</Link></li>
               <li><Link href={`/${locale}/contact`}>{tNav("contact")}</Link></li>
             </ul>
           </div>
@@ -91,8 +91,13 @@ export async function Footer({ locale }: FooterProps) {
                   418-564-1047
                 </a>
               </li>
+              <li>
+                <a href="mailto:citadellejiujitsu@gmail.com" style={{ color: "inherit", fontSize: "0.875rem" }}>
+                  citadellejiujitsu@gmail.com
+                </a>
+              </li>
               <li style={{ color: "var(--color-citadelle-text-muted)" }}>
-                964 Rue Mainguy, Québec, QC
+                964 Rue Mainguy, Québec, QC G1V 3S4
               </li>
               <li style={{ marginTop: "0.5rem" }}>
                 <a

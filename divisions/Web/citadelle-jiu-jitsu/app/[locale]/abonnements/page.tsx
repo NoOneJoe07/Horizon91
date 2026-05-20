@@ -3,28 +3,26 @@
 // -----------------------------------------------------------------------------
 // RÔLE :
 //   Affiche les 4 forfaits réels de Citadelle Jiu-Jitsu (lus depuis la BD via
-//   Prisma) et permet à l'utilisateur de payer via Stripe.
+//   Prisma). Le paiement en ligne Stripe est temporairement désactivé —
+//   les boutons redirigent vers /contact pour s'inscrire manuellement.
+//   Stripe sera réactivé en septembre 2026 (voir CheckoutButton.tsx).
 //
 //   Forfaits :
 //     1. Mensuel (MONTH)            — 135 $/mois récurrent
-//     2. Carte 10 séances (ONETIME) — 150 $ paiement unique
+//     2. Carte 10 séances (ONETIME) — 155 $ paiement unique
 //     3. Cours privé (ONETIME)      — 70 $ paiement unique
-//     4. Drop-in (ONETIME)          — 20 $ paiement unique
+//     4. Drop-in (ONETIME)          — 25 $ paiement unique
 //
 // TYPE : Server Component (async)
-// COMPOSANTS ENFANTS :
-//   - PaymentBanner  : lit ?success=1/?canceled=1 dans l'URL (Client Component)
-//   - CheckoutButton : déclenche le paiement Stripe (Client Component)
 //
 // AUTEUR    : Horizon 91 — Jonathan Patoine + Claude (Anthropic)
-// CRÉÉ      : 2026-04-xx  |  MODIFIÉ : 2026-05-17 (tarifs réels JS)
+// CRÉÉ      : 2026-04-xx  |  MODIFIÉ : 2026-05-20 (désactivation Stripe temporaire)
 // =============================================================================
 
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { prisma } from "@/lib/db";
-import { CheckoutButton } from "@/components/CheckoutButton";
-import { PaymentBanner } from "@/components/PaymentBanner";
 import { Suspense } from "react";
+import Link from "next/link";
 import type { Metadata } from "next";
 import type { Locale } from "@/lib/locales";
 
@@ -92,9 +90,23 @@ export default async function SubscriptionsPage({
           l'URL. Ce hook est réservé aux Client Components (navigateur).
           Sans <Suspense> ici → erreur de build Next.js App Router.
           ─────────────────────────────────────────────────────────────────── */}
-        <Suspense fallback={null}>
-          <PaymentBanner locale={locale} />
-        </Suspense>
+        {/* Bannière info paiement temporairement désactivé */}
+        <div
+          style={{
+            background: "var(--color-citadelle-surface)",
+            border: "1px solid var(--color-citadelle-border)",
+            borderRadius: "var(--radius-md)",
+            padding: "1rem 1.5rem",
+            marginBottom: "2rem",
+            textAlign: "center",
+            fontSize: "0.9rem",
+            color: "var(--color-citadelle-text-muted)",
+          }}
+        >
+          {locale === "fr"
+            ? "Le paiement en ligne sera disponible prochainement. Pour vous inscrire, contactez-nous directement."
+            : "Online payment coming soon. To register, contact us directly."}
+        </div>
 
         <header style={{ textAlign: "center", marginBottom: "3rem" }}>
           <h1 style={{ fontSize: "2.5rem", marginBottom: "0.5rem" }}>{t("title")}</h1>
@@ -264,11 +276,16 @@ export default async function SubscriptionsPage({
                       </ul>
                     </div>
 
-                    <CheckoutButton
-                      planId={plan.id}
-                      locale={locale}
-                      label={t("selectPlan")}
-                    />
+                    {/* Stripe désactivé temporairement — réactiver en septembre 2026
+                        Remplacer ce bloc par <CheckoutButton planId={plan.id} locale={locale} label={t("selectPlan")} />
+                        et réimporter CheckoutButton + PaymentBanner en haut du fichier. */}
+                    <Link
+                      href={`/${locale}/contact`}
+                      className="btn-primary"
+                      style={{ display: "block", textAlign: "center", width: "100%" }}
+                    >
+                      {locale === "fr" ? "Nous contacter" : "Contact us"}
+                    </Link>
                   </article>
                 );
               })}

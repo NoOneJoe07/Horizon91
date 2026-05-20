@@ -82,17 +82,17 @@ async function main() {
         "Un bloc de 10 cours au choix — valide 3 mois. Idéal si ton horaire varie.",
       descriptionEn:
         "A block of 10 classes — valid 3 months. Ideal if your schedule varies.",
-      priceCents: 15000, // 150 $ + taxes
+      priceCents: 15500, // 155 $ + taxes
       interval: BillingInterval.ONETIME,
       featuresFr: [
         "10 cours au choix",
         "Valide 3 mois à partir de l'achat",
-        "Revient à 15 $ par séance",
+        "Revient à 15,50 $ par séance",
       ],
       featuresEn: [
         "10 classes of your choice",
         "Valid 3 months from purchase",
-        "Only $15 per class",
+        "Only $15.50 per class",
       ],
       sortOrder: 2,
     },
@@ -126,7 +126,7 @@ async function main() {
         "Une seule visite, aucun abonnement requis. Parfait pour voyageurs ou première fois.",
       descriptionEn:
         "One visit, no membership needed. Perfect for travelers or a first try.",
-      priceCents: 2000, // 20 $ + taxes
+      priceCents: 2500, // 25 $ + taxes
       interval: BillingInterval.ONETIME,
       featuresFr: [
         "Un cours au choix",

@@ -42,6 +42,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/db";
 import { contactSchema } from "@/lib/validation";
+import { sendEmail } from "@/lib/email";
 
 // ---------------------------------------------------------------------------
 // Handler POST
@@ -93,16 +94,22 @@ export async function POST(req: NextRequest) {
       },
     });
 
-    // ── TODO: Notification courriel via Resend ──────────────────────────────
-    // À décommenter quand Resend sera configuré (variable RESEND_API_KEY dans .env).
-    //
-    // await resend.emails.send({
-    //   from:    "noreply@citadellejiujitsu.ca",
-    //   to:      process.env.OWNER_EMAIL!,  // courriel de Jean-Sébastien
-    //   subject: `[Citadelle] Nouveau message : ${parsed.data.subject}`,
-    //   html:    `<p>De : ${parsed.data.name} (${parsed.data.email})</p>
-    //             <p>${parsed.data.message}</p>`,
-    // });
+    // ── Notification courriel via Nodemailer + Gmail SMTP ──────────────────
+    // sendEmail() est gracieux : loggue un warning si SMTP non configuré,
+    // ne crashe pas l'API. Message déjà sauvegardé en BD à ce point.
+    await sendEmail({
+      to:      process.env.OWNER_EMAIL ?? "citadellejiujitsu@gmail.com",
+      subject: `[Citadelle] Nouveau message : ${parsed.data.subject}`,
+      html: `
+        <h2 style="color:#c9a227">Nouveau message de contact</h2>
+        <p><strong>De :</strong> ${parsed.data.name} &lt;${parsed.data.email}&gt;</p>
+        <p><strong>Sujet :</strong> ${parsed.data.subject}</p>
+        <hr style="border-color:#333"/>
+        <p style="white-space:pre-wrap">${parsed.data.message}</p>
+        <hr style="border-color:#333"/>
+        <p style="font-size:0.85em;color:#888">Voir dans l'admin : <a href="https://citadellejiujitsu.ca/fr/admin/messages">Panel admin — Messages</a></p>
+      `,
+    });
 
     return NextResponse.json({ ok: true });
 

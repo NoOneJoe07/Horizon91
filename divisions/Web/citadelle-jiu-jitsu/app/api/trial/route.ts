@@ -9,6 +9,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/db";
 import { trialSessionSchema } from "@/lib/validation";
 import { getSession } from "@/lib/auth";
+import { sendEmail } from "@/lib/email";
 
 export async function POST(req: NextRequest) {
   const body = await req.json().catch(() => null);
@@ -44,8 +45,29 @@ export async function POST(req: NextRequest) {
       },
     });
 
-    // TODO: envoyer un email au propriétaire via Resend
-    //   await sendOwnerNotification({ trialSession: ... });
+    // Notification courriel via Nodemailer + Gmail SMTP
+    const dateStr = parsed.data.preferredDate
+      ? new Date(parsed.data.preferredDate).toLocaleDateString("fr-CA", {
+          weekday: "long", year: "numeric", month: "long", day: "numeric",
+        })
+      : "Non précisée";
+
+    await sendEmail({
+      to:      process.env.OWNER_EMAIL ?? "citadellejiujitsu@gmail.com",
+      subject: `[Citadelle] Nouvelle séance d'essai — ${parsed.data.firstName} ${parsed.data.lastName}`,
+      html: `
+        <h2 style="color:#c9a227">Nouvelle demande de séance d'essai</h2>
+        <p><strong>Nom :</strong> ${parsed.data.firstName} ${parsed.data.lastName}</p>
+        <p><strong>Courriel :</strong> <a href="mailto:${parsed.data.email}">${parsed.data.email}</a></p>
+        <p><strong>Téléphone :</strong> ${parsed.data.phone ?? "Non fourni"}</p>
+        <p><strong>Âge :</strong> ${parsed.data.age ?? "Non précisé"}</p>
+        <p><strong>Expérience :</strong> ${parsed.data.experience ?? "Aucune précision"}</p>
+        <p><strong>Date souhaitée :</strong> ${dateStr}</p>
+        ${parsed.data.message ? `<p><strong>Message :</strong> ${parsed.data.message}</p>` : ""}
+        <hr style="border-color:#333"/>
+        <p style="font-size:0.85em;color:#888">Voir dans l'admin : <a href="https://citadellejiujitsu.ca/fr/admin/inscriptions">Panel admin — Inscriptions</a></p>
+      `,
+    });
 
     return NextResponse.json({ ok: true });
   } catch (e) {

@@ -10,7 +10,7 @@
 @import "tailwindcss";
 
 @theme {
-  /* Palette PLACEHOLDER (à remplacer par la palette officielle) */
+  /* Palette officielle — Brand manual Citadelle Jiu-Jitsu (Paulina Jaramillo, 2026-05-18) */
   --color-citadelle-bg: #0b0d12;        /* fond très sombre, presque noir */
   --color-citadelle-surface: #14181f;   /* surfaces (cards, header) */
   --color-citadelle-surface-2: #1c2230;
@@ -23,9 +23,9 @@
   --color-citadelle-success: #2f9e6b;
   --color-citadelle-danger: #c94545;
 
-  /* Typographie */
-  --font-display: ui-serif, Georgia, "Times New Roman", serif;
-  --font-body: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  /* Typographie — Cinzel (officiel brand manual Citadelle) */
+  --font-display: var(--font-cinzel), "Cinzel", Georgia, serif;
+  --font-body: "Helvetica Neue", Helvetica, system-ui, -apple-system, sans-serif;
 
   /* Rayons et ombres */
   --radius-sm: 0.25rem;

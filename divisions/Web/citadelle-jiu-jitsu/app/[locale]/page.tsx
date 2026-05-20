@@ -346,6 +346,24 @@ export default async function HomePage({
               >
                 {t("coach.cta")} →
               </Link>
+
+              <a
+                href="https://smoothcomp.com/en/profile/77192"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  alignSelf: "flex-start",
+                  fontSize: "0.82rem",
+                  color: "var(--color-citadelle-text-muted)",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "0.4rem",
+                }}
+              >
+                🏆 {locale === "fr"
+                  ? "Voir son profil compétiteur — Smoothcomp ↗"
+                  : "View competitor profile — Smoothcomp ↗"}
+              </a>
             </div>
 
             {/* Photo placeholder */}
@@ -445,11 +463,11 @@ export default async function HomePage({
           <div
             style={{
               display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
-              gap: "1.5rem",
+              gridTemplateColumns: "repeat(auto-fit, minmax(140px, 1fr))",
+              gap: "1.25rem",
             }}
           >
-            {(["discipline", "respect", "progress"] as const).map((key) => (
+            {(["discipline", "respect", "strategie", "perseverance", "honneur"] as const).map((key) => (
               <div
                 key={key}
                 className="card"
@@ -517,7 +535,7 @@ export default async function HomePage({
             </p>
           </div>
 
-          {/* Grille placeholder 2x3 */}
+          {/* Grille photos dojo */}
           <div
             style={{
               display: "grid",
@@ -526,49 +544,32 @@ export default async function HomePage({
               marginBottom: "2rem",
             }}
           >
-            {/* Grande tuile principale */}
+            {/* Grande tuile principale — photo de groupe */}
             <div
               className="showcase-tile"
-              style={{
-                gridColumn: "span 2",
-                aspectRatio: "16 / 7",
-              }}
+              style={{ gridColumn: "span 2", aspectRatio: "16 / 7", padding: 0, overflow: "hidden" }}
             >
-              <div style={{ textAlign: "center" }}>
-                <div
-                  style={{
-                    fontSize: "2.5rem",
-                    color: "var(--color-citadelle-gold)",
-                    opacity: 0.25,
-                    marginBottom: "0.5rem",
-                  }}
-                >
-                  ▶
-                </div>
-                <p
-                  style={{
-                    color: "var(--color-citadelle-text-muted)",
-                    fontSize: "0.8rem",
-                    textTransform: "uppercase",
-                    letterSpacing: "0.1em",
-                  }}
-                >
-                  {t("showcase.comingSoon")}
-                </p>
-              </div>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/images/JS_Dionne_and_co/_MG_3577 copia.jpg"
+                alt="Citadelle Jiu-Jitsu — équipe au dojo"
+                style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top" }}
+              />
             </div>
-            {/* Petites tuiles */}
-            {[1, 2, 3, 4].map((n) => (
-              <div key={n} className="showcase-tile">
-                <div
-                  style={{
-                    fontSize: "1.5rem",
-                    color: "var(--color-citadelle-gold)",
-                    opacity: 0.15,
-                  }}
-                >
-                  ◆
-                </div>
+            {/* Petites tuiles — portraits individuels */}
+            {[
+              { src: "/images/JS_Dionne_and_co/_MG_3522.jpg",              alt: "Jean-Sébastien Dionne-Roy — fondateur" },
+              { src: "/images/JS_Dionne_and_co/_MG_3530-Enhanced-NR.jpg",  alt: "JS sur le tatami" },
+              { src: "/images/JS_Dionne_and_co/_MG_3531-Enhanced-NR.jpg",  alt: "JS — portrait dojo" },
+              { src: "/images/JS_Dionne_and_co/_MG_3534-Enhanced-NR.jpg",  alt: "JS — gi ceinture noire" },
+            ].map((photo) => (
+              <div key={photo.src} className="showcase-tile" style={{ padding: 0, overflow: "hidden" }}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={photo.src}
+                  alt={photo.alt}
+                  style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top center" }}
+                />
               </div>
             ))}
           </div>

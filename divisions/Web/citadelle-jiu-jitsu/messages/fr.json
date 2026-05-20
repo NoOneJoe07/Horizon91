@@ -21,9 +21,9 @@
   },
   "Home": {
     "hero": {
-      "tagline": "L'art du combat. La discipline du guerrier.",
+      "tagline": "La discipline forge la force intérieure.",
       "title": "Bienvenue chez Citadelle Jiu-Jitsu",
-      "subtitle": "École de jiu-jitsu brésilien à Québec. Pour adultes, enfants et compétiteurs.",
+      "subtitle": "École de jiu-jitsu brésilien à Québec. Un environnement structuré pour forger la maîtrise, la stratégie et la résilience.",
       "ctaTrial": "Réserver ma séance d'essai gratuite",
       "ctaPlans": "Voir les abonnements",
       "scrollLabel": "Défiler"
@@ -33,11 +33,11 @@
       "title": "Formé par les meilleurs au monde",
       "subtitle": "Top 5 canadien. Compétiteur international. Une passion transmise avec rigueur et bienveillance — à Québec, au cœur de la Citadelle.",
       "cta": "Découvrir son parcours",
-      "photoAlt": "Photo du fondateur — à venir"
+      "photoAlt": "Jean-Sébastien Dionne-Roy — Fondateur, Citadelle Jiu-Jitsu"
     },
     "showcase": {
-      "title": "La Citadelle en action",
-      "subtitle": "Entraînements, compétitions et moments forts — les médias arrivent bientôt.",
+      "title": "Citadelle Jiu-Jitsu en action",
+      "subtitle": "Entraînements, compétitions et moments du dojo — photographié par Pao.",
       "comingSoon": "Photos & vidéos bientôt disponibles",
       "ctaGallery": "Voir la galerie"
     },
@@ -50,15 +50,23 @@
       "title": "Nos valeurs",
       "discipline": {
         "title": "Discipline",
-        "desc": "Chaque entraînement forge le corps, l'esprit et le caractère."
+        "desc": "Chaque séance construit la rigueur intérieure. La constance est la fondation de toute maîtrise."
       },
       "respect": {
         "title": "Respect",
-        "desc": "Du tatami à la vie quotidienne — respect des partenaires, des instructeurs et de soi-même."
+        "desc": "Du tatami à la vie quotidienne — envers les partenaires, les instructeurs et soi-même."
       },
-      "progress": {
-        "title": "Progression",
-        "desc": "Une pédagogie structurée du débutant à la ceinture noire."
+      "strategie": {
+        "title": "Stratégie",
+        "desc": "Le jiu-jitsu est un art de l'intelligence. Lire, anticiper, contrôler — penser avant d'agir."
+      },
+      "perseverance": {
+        "title": "Persévérance",
+        "desc": "La progression n'est pas linéaire. Chaque défi surmonté forge une résilience durable."
+      },
+      "honneur": {
+        "title": "Honneur",
+        "desc": "Gagner avec humilité, perdre avec dignité. L'honneur guide chaque geste sur le tatami."
       }
     },
     "about": {

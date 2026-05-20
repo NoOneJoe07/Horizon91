@@ -21,9 +21,9 @@
   },
   "Home": {
     "hero": {
-      "tagline": "The art of combat. The discipline of the warrior.",
+      "tagline": "Discipline forges inner strength.",
       "title": "Welcome to Citadelle Jiu-Jitsu",
-      "subtitle": "Brazilian jiu-jitsu school in Québec City. For adults, kids, and competitors.",
+      "subtitle": "Brazilian jiu-jitsu school in Québec City. A structured environment to build mastery, strategy, and resilience.",
       "ctaTrial": "Book my free trial class",
       "ctaPlans": "View memberships",
       "scrollLabel": "Scroll"
@@ -33,11 +33,11 @@
       "title": "Trained by the world's best",
       "subtitle": "Top 5 in Canada. International competitor. A passion for jiu-jitsu shared with rigor and care — in Québec City, at the heart of the Citadelle.",
       "cta": "Discover his journey",
-      "photoAlt": "Founder photo — coming soon"
+      "photoAlt": "Jean-Sébastien Dionne-Roy — Founder, Citadelle Jiu-Jitsu"
     },
     "showcase": {
-      "title": "The Citadelle in action",
-      "subtitle": "Training sessions, competitions and highlights — media coming soon.",
+      "title": "Citadelle Jiu-Jitsu in action",
+      "subtitle": "Training sessions, competitions and dojo moments — photographed by Pao.",
       "comingSoon": "Photos & videos coming soon",
       "ctaGallery": "View gallery"
     },
@@ -50,15 +50,23 @@
       "title": "Our values",
       "discipline": {
         "title": "Discipline",
-        "desc": "Every training session forges body, mind, and character."
+        "desc": "Every session builds inner rigor. Consistency is the foundation of true mastery."
       },
       "respect": {
         "title": "Respect",
-        "desc": "From the mat to daily life — respect for partners, instructors, and yourself."
+        "desc": "From the mat to daily life — toward training partners, instructors, and yourself."
       },
-      "progress": {
-        "title": "Progress",
-        "desc": "Structured curriculum from white belt to black belt."
+      "strategie": {
+        "title": "Strategy",
+        "desc": "Jiu-jitsu is an art of intelligence. Read, anticipate, control — think before you act."
+      },
+      "perseverance": {
+        "title": "Perseverance",
+        "desc": "Progress is not linear. Every obstacle overcome builds lasting resilience."
+      },
+      "honneur": {
+        "title": "Honour",
+        "desc": "Win with humility, lose with dignity. Honour guides every movement on the mat."
       }
     },
     "about": {

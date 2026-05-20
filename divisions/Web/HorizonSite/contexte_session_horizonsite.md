@@ -1,7 +1,7 @@
 # Contexte Session — HorizonSite (Horizon 91)
 
 > Document de handoff entre sessions. À uploader en début de chaque nouvelle conversation.
-> **Dernière mise à jour : 3 mai 2026 — Base solide, portfolio et divisions à jour.**
+> **Dernière mise à jour : 10 mai 2026 — SITE EN PRODUCTION ✅ next-intl ajouté, routing /fr/... actif.**
 > Auteur : Jonathan Patoine, Horizon 91.
 
 ---
@@ -33,7 +33,7 @@ Site vitrine corporatif d'Horizon 91 — présente l'agence, les divisions, l'é
 | tailwindcss | ^4.2.2 |
 | typescript | ^5 |
 
-Pas de i18n pour l'instant — FR seulement. Pas de Prisma, pas d'auth, pas de Stripe — site vitrine pur.
+**next-intl ajouté** — routing `/fr/...` actif, pages legacy redirigent vers `/fr`. Pas de Prisma, pas d'auth, pas de Stripe — site vitrine pur.
 
 ---
 
@@ -123,7 +123,7 @@ Après chaque sync : `rm -rf .next && npm run dev` si le hot reload ne prend pas
 - [ ] Screenshots réels dans le portfolio quand projets livrés
 - [ ] Logo Horizon 91 — vérifier que `public/LogoHorizon91.svg` est la version finale
 - [ ] Domaine `horizon91.ca` ou `.com` — à réserver
-- [ ] Déploiement (Vercel recommandé pour un site vitrine statique)
+- ✅ **Déployé en production** — mai 2026
 
 ---
 

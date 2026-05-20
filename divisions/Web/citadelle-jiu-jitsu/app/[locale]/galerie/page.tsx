@@ -1,10 +1,12 @@
+// =============================================================================
+// Page Galerie — Citadelle Jiu-Jitsu
+// Photos officielles Pao (shooting mai 2026) + à enrichir au fil du temps
+// =============================================================================
+
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import type { Metadata } from "next";
 import type { Locale } from "@/lib/locales";
 
-// ---------------------------------------------------------------------------
-// SEO — Métadonnées de la page galerie
-// ---------------------------------------------------------------------------
 export async function generateMetadata({
   params,
 }: {
@@ -19,6 +21,67 @@ export async function generateMetadata({
   };
 }
 
+// ---------------------------------------------------------------------------
+// Données photos — shooting officiel Pao, mai 2026
+// Ajouter les nouvelles photos ici au fil des livraisons
+// ---------------------------------------------------------------------------
+const photos = [
+  {
+    src: "/images/JS_Dionne_and_co/_MG_3577 copia.jpg",
+    altFr: "Jean-Sébastien Dionne-Roy et l'équipe Citadelle Jiu-Jitsu",
+    altEn: "Jean-Sébastien Dionne-Roy and the Citadelle Jiu-Jitsu team",
+    wide: true, // tuile large (2 colonnes)
+  },
+  {
+    src: "/images/JS_Dionne_and_co/_MG_3524-Enhanced-NR.jpg",
+    altFr: "Jean-Sébastien Dionne-Roy — Fondateur & Instructeur en chef",
+    altEn: "Jean-Sébastien Dionne-Roy — Founder & Head Instructor",
+    wide: false,
+  },
+  {
+    src: "/images/JS_Dionne_and_co/_MG_3545-Enhanced-NR.jpg",
+    altFr: "JS Dionne-Roy en gi — ceinture noire BJJ",
+    altEn: "JS Dionne-Roy in gi — BJJ black belt",
+    wide: false,
+  },
+  {
+    src: "/images/JS_Dionne_and_co/_MG_3534-Enhanced-NR.jpg",
+    altFr: "JS Dionne-Roy — portrait officiel gi",
+    altEn: "JS Dionne-Roy — official gi portrait",
+    wide: false,
+  },
+  {
+    src: "/images/JS_Dionne_and_co/_MG_3531-Enhanced-NR.jpg",
+    altFr: "Jean-Sébastien Dionne-Roy au dojo Citadelle",
+    altEn: "Jean-Sébastien Dionne-Roy at Citadelle dojo",
+    wide: false,
+  },
+  {
+    src: "/images/JS_Dionne_and_co/_MG_3522.jpg",
+    altFr: "JS Dionne-Roy — fondateur Citadelle Jiu-Jitsu Québec",
+    altEn: "JS Dionne-Roy — founder Citadelle Jiu-Jitsu Québec City",
+    wide: false,
+  },
+  {
+    src: "/images/JS_Dionne_and_co/_MG_3530-Enhanced-NR.jpg",
+    altFr: "JS sur le tatami — Citadelle Jiu-Jitsu",
+    altEn: "JS on the mat — Citadelle Jiu-Jitsu",
+    wide: true,
+  },
+  {
+    src: "/images/dojo-time/ADCC Open Toronto.jpg",
+    altFr: "Podium ADCC Submission Fighting Canada — Toronto",
+    altEn: "ADCC Submission Fighting Canada podium — Toronto",
+    wide: false,
+  },
+  {
+    src: "/images/dojo-time/CoachMAx ibjjf open MTL.jpg",
+    altFr: "Coach Max — Double médaille d'or, IBJJF Montreal International Open 2026",
+    altEn: "Coach Max — Double gold, IBJJF Montreal International Open 2026",
+    wide: false,
+  },
+];
+
 export default async function GalleryPage({
   params,
 }: {
@@ -27,9 +90,6 @@ export default async function GalleryPage({
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "Gallery" });
-
-  // Placeholder : 6 tuiles vides en attendant les vraies photos client
-  const placeholders = Array.from({ length: 6 });
 
   return (
     <section className="section">
@@ -46,41 +106,32 @@ export default async function GalleryPage({
             gap: "1rem",
           }}
         >
-          {placeholders.map((_, i) => (
+          {photos.map((photo) => (
             <div
-              key={i}
-              aria-hidden
+              key={photo.src}
               style={{
-                aspectRatio: "1",
-                background:
-                  "linear-gradient(135deg, var(--color-citadelle-surface), var(--color-citadelle-surface-2))",
+                gridColumn: photo.wide ? "span 2" : "span 1",
+                aspectRatio: photo.wide ? "16 / 7" : "3 / 4",
                 borderRadius: "var(--radius-md)",
+                overflow: "hidden",
                 border: "1px solid var(--color-citadelle-border)",
-                display: "grid",
-                placeItems: "center",
-                color: "var(--color-citadelle-gold)",
-                fontSize: "1.5rem",
-                opacity: 0.6,
               }}
             >
-              ◇
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={photo.src}
+                alt={locale === "fr" ? photo.altFr : photo.altEn}
+                loading="lazy"
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                  objectPosition: "top center",
+                }}
+              />
             </div>
           ))}
         </div>
-
-        <p
-          style={{
-            textAlign: "center",
-            marginTop: "2rem",
-            fontSize: "0.875rem",
-            color: "var(--color-citadelle-text-muted)",
-            fontStyle: "italic",
-          }}
-        >
-          {locale === "fr"
-            ? "Photos officielles à intégrer dès leur réception du client."
-            : "Official photos to be added once provided by the client."}
-        </p>
       </div>
     </section>
   );

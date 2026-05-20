@@ -1,0 +1,266 @@
+================================================================================
+GROUPE SUPERNOVA — DIVISION WEB
+Section Plan d'affaires — Rédigée par ClaudeHorizon (Cowork HorizonSite)
+Date : 13 mai 2026
+================================================================================
+
+
+1. VISION FONDATRICE
+────────────────────
+La Division Web n'est pas une agence web ordinaire. Elle est le premier point
+de contact de Groupe Supernova avec le marché régional — la porte d'entrée par
+laquelle les PME de Beauce, Bellechasse et Chaudière-Appalaches découvrent ce
+que la technologie peut faire pour elles, concrètement, à un prix juste.
+
+Le positionnement est délibéré : nous ne sommes pas en compétition avec les
+agences de Québec ou Montréal. Nous servons le client qu'elles ignorent — le
+gym de quartier, la coiffeuse, le constructeur en bois rond, la courtière
+immobilière, le praticien en ésotérisme. Des entrepreneurs qui ont besoin d'une
+présence web professionnelle mais qui n'ont ni le budget ni l'appétit pour une
+agence urbaine à 300$/h.
+
+Le différenciateur central est la sécurité intégrée dès la conception. Chaque
+site livré sort avec les headers OWASP, HSTS preload, CSP, DKIM/DMARC,
+conformité Loi 25 Québec. Ce n'est pas un add-on — c'est le standard de base.
+C'est aussi ce qui crée le pont naturel vers la Division Cybersécurité.
+
+
+2. STACK TECHNIQUE — AVANTAGE CONCURRENTIEL RÉEL
+──────────────────────────────────────────────────
+Là où la majorité des agences régionales livrent du WordPress ou du Wix,
+Groupe Supernova Web construit avec la stack des grandes équipes :
+
+  - Next.js 15/16 App Router + TypeScript + Tailwind CSS v4
+  - next-intl — internationalisation native FR/EN/ES dès le départ
+  - Prisma + PostgreSQL — projets avec base de données
+  - Stripe — intégration paiement e-commerce complète
+  - Vercel — déploiement cloud, SSL automatique, CDN mondial
+  - Zoho Mail / Resend — courriel transactionnel professionnel
+
+Ce choix technique garantit des sites rapides, sécurisés, évolutifs et
+maintenables sur 5 à 10 ans. Un client qui démarre avec une vitrine peut
+évoluer vers l'e-commerce complet sans tout reconstruire.
+
+
+3. OFFRE DE SERVICES
+──────────────────────
+
+3.1 Forfaits de livraison (one-time)
+─────────────────────────────────────
+Vitrine Essentiel     : 1 800 – 2 800 $
+  Jusqu'à 5 pages, bilingue FR/EN, SEO, Vercel, sécurité standard,
+  formulaire de contact
+
+Pro Interactif        : 3 000 – 4 500 $
+  Réservation en ligne, blog/actualités, galerie photos/vidéos,
+  formulaires avancés, intégrations tierces, section nouvelles
+
+Commerce Complet      : 5 500 – 12 000 $+
+  E-commerce Stripe, Prisma + PostgreSQL, panel admin CRUD,
+  authentification sécurisée, gestion inventaire, rapports de ventes
+
+Ésotérisme / Niche    : (Pro Interactif ou Commerce selon besoins)
+  Blog avec catégories, vente de livres/produits numériques,
+  membres/abonnements, événements, galerie inspirationnelle
+
+
+3.2 Maintenance mensuelle (obligatoire dans tout contrat)
+──────────────────────────────────────────────────────────
+La maintenance n'est pas optionnelle — c'est une condition de livraison.
+Elle garantit la pérennité du site pour le client et crée un revenu
+récurrent prévisible pour Groupe Supernova.
+
+Option A — Client autonome via CMS    : 150 $/mois
+  Mises à jour sécurité, monitoring, plomberie technique,
+  accès au panneau d'administration H91
+
+Option B — Supernova gère tout        : 200 – 350 $/mois
+  Tout de l'option A + gestion du contenu, mises à jour,
+  support prioritaire, nouvelles publications
+
+3.3 Heures supplémentaires hors contrat
+────────────────────────────────────────
+  - Support / modifications contenu      : 75 – 90 $/h
+  - Développement nouvelle fonctionnalité : 80 – 120 $/h
+  - Banque d'heures prépayée             : 10h à 700 $
+    (économie ~100 $ vs taux normal)
+  - Alerte automatique courriel quand solde < 3h pour renouvellement
+
+
+3.4 Add-on médias sociaux (Paulina Jaramillo, DG Marketing)
+────────────────────────────────────────────────────────────
+Paulina n'est pas une gestionnaire de communauté générique — c'est une
+directrice artistique, infographiste et photographe professionnelle.
+Elle produit du contenu original chez le client.
+
+Palier Essentielle  : 300 $/mois
+  Présence maintenue, publications régulières, calendrier éditorial
+
+Palier Active       : 500 $/mois
+  Contenu original, engagement communauté, stratégie de croissance
+
+Palier Complète     : 800 $/mois
+  Production photo/vidéo chez client, campagnes, rapports de performance,
+  déplacements Paulina inclus
+
+
+4. PANNEAU D'ADMINISTRATION H91 + ASSISTANT IA
+────────────────────────────────────────────────
+Phase 2 — Produit SaaS transversal
+
+Tout client Option A reçoit l'accès au Panneau d'Administration H91 —
+une interface propriétaire permettant à des non-techniciens de gérer leur
+site sans aucune connaissance technique.
+
+Fonctionnalités prévues :
+  - Ajout / modification de contenu (textes, pages, articles de blogue)
+  - Gestion des médias (photos, vidéos — upload, organisation, compression)
+  - Création et gestion de promotions / bannières
+  - Section nouvelles / actualités (style feed) — comme sur groupesupernova.ca
+  - Gestion des produits et de l'inventaire (sites e-commerce)
+
+Assistant IA intégré (Phase 2+) :
+  - Guide pas-à-pas pour chaque action (wizard interactif)
+  - Suggestions de contenu, correction orthographique, optimisation SEO
+  - Génération d'ébauches d'articles à partir de mots-clés
+  - Alertes proactives ("Votre dernière publication remonte à 3 semaines")
+
+Ce panneau peut évoluer en produit SaaS autonome commercialisable à terme,
+facturé à l'abonnement mensuel indépendamment des contrats de développement.
+
+
+5. STRATÉGIE DE MARCHÉ
+───────────────────────
+
+5.1 Modèle 1 client par niche régionale
+────────────────────────────────────────
+Principe : Groupe Supernova ne sert qu'un seul client par niche dans une
+zone géographique donnée. Le deuxième gym de Sainte-Marie ne peut pas nous
+engager si Citadelle est déjà partenaire. Chaque client devient partenaire
+exclusif dans son segment — argument de vente fort, fidélisation maximale,
+SEO local dominant.
+
+5.2 Portfolio et pipeline actuel
+─────────────────────────────────
+Projet livré / en cours :
+  - Groupe Supernova (HorizonSite) — site vitrine corporatif trilingue
+    FR/EN/ES, déployé sur Vercel, 4 domaines SSL actifs, Zoho Mail configuré.
+    Référence principale pour démontrer la qualité de notre stack.
+
+  - Citadelle Jiu-Jitsu — projet e-commerce complet en développement actif.
+    Next.js 16, Stripe Checkout, Prisma/PostgreSQL, bilingue FR/EN,
+    authentification, panel admin. En attente de contenu client
+    (bio, photos, prix réels). Projet vitrine de lancement commercial.
+
+Pipeline approché / identifié :
+  - Salon Mélanie Roy — coiffeuse/barbière, Sainte-Marie-de-Beauce
+    (contact établi)
+  - Site ésotérisme et spiritualité — blog + vente de livres
+    (nouveau client identifié — Pro Interactif ou Commerce)
+  - Atelier 91 — artisanat produits naturels
+  - Bois Rond inc. — construction maisons en bois rond
+  - Eliza Doyon — courtière immobilière RE/MAX
+
+5.3 Entonnoir de contenu (Paulina)
+────────────────────────────────────
+1 production vidéo chez client
+  → Short TikTok + Reel Instagram + épingle Pinterest
+  → Article /actualites avec vidéo embarquée
+  → Publication Facebook 48-72h après
+
+
+6. BRAS ÉDITORIAL — GÉNÉRATION DE TRAFIC ET REVENUS PUBLICITAIRES
+───────────────────────────────────────────────────────────────────
+C'est la deuxième jambe de la Division Web — distincte du service client,
+mais complémentaire. Elle transforme Groupe Supernova en éditeur numérique
+générant des revenus passifs croissants.
+
+6.1 Sites de contenu brandés Groupe Supernova
+───────────────────────────────────────────────
+Publication d'articles brandés sur les domaines Groupe Supernova et sur des
+microsites thématiques ciblant les régions QC. Contenu rédigé ou co-rédigé
+avec Claude, optimisé SEO, ciblant des mots-clés locaux et de niche.
+
+Chaque article :
+  - Renvoie vers les clients Groupe Supernova (trafic de référence)
+  - Renvoie vers la chaîne YouTube @groupesupernova
+  - Renvoie vers les produits de la Division Cybersécurité
+  - Monétisé par Google AdSense à terme
+
+6.2 Canal YouTube @groupesupernova
+────────────────────────────────────
+Contenu produit par Paulina — vidéos chez clients, tutoriels, sensibilisation
+cyber, portraits d'entrepreneurs régionaux. Stratégie double :
+
+  - Shorts (< 60 sec) : viraux, trafic rapide, découverte
+  - Longues vidéos (5-15 min) : crédibilité, référencement YouTube,
+    revenus Programme Partenaire YouTube (seuil : 1 000 abonnés + 4 000h
+    de visionnage ou 10M vues Shorts / 90 jours)
+
+6.3 Réseaux sociaux — Pages de marque
+──────────────────────────────────────
+Tier 1 (activer immédiatement) :
+  - YouTube @groupesupernova
+  - Instagram @groupesupernova
+  - Facebook Page Groupe Supernova
+  - TikTok @groupesupernova
+  - LinkedIn Page Groupe Supernova
+
+Tier 2 (Phase 2) :
+  - Pinterest (fort potentiel artisanat, déco, cuisine — clients cibles)
+  - LinkedIn personnel Jonathan Patoine (crédibilité B2B, cybersec)
+
+Revenus Facebook Ads Revenue : monétisation des pages de marque via
+le programme de revenus publicitaires Meta.
+
+6.4 Modèle de revenus publicitaires — Projection
+──────────────────────────────────────────────────
+Ces revenus sont additifs — ils s'accumulent sans coût marginal significatif
+une fois le contenu publié.
+
+  - Google AdSense sur sites éditoriaux : revenus CPM/CPC progressifs
+  - YouTube Programme Partenaire : revenus per-view + sponsorships futurs
+  - Facebook Ads Revenue : revenus pages brandées
+  - Affiliation : liens vers outils recommandés aux clients (Zoho, Vercel,
+    Stripe, outils cybersécurité)
+
+
+7. LIEN STRATÉGIQUE AVEC LA DIVISION CYBERSÉCURITÉ
+────────────────────────────────────────────────────
+C'est le pont le plus puissant de tout l'écosystème Groupe Supernova.
+
+Chaque client web est un prospect naturel pour Argos et la Suite Olympus.
+On a déjà construit son site, on connaît son infrastructure, on a sa confiance.
+La vente de surveillance dark web à 75$/mois se fait dans une relation déjà
+établie — pas besoin de se présenter, pas besoin de bâtir la crédibilité.
+
+La Division Web est donc à la fois :
+  - Une unité de revenus autonome (développement + maintenance récurrente)
+  - Le principal canal d'acquisition clients de la Division Cybersécurité
+  - Une vitrine vivante de nos standards de sécurité (portfolio démontré)
+  - Un moteur éditorial générant trafic et revenus publicitaires
+
+
+8. MODÈLE ÉCONOMIQUE DIVISION WEB — PROJECTION
+────────────────────────────────────────────────
+
+Hypothèse conservative : 10 clients actifs en maintenance d'ici fin 2026
+
+Revenus récurrents mensuels (MRR) :
+  10 clients × 150$/mois (Option A) = 1 500 $/mois minimum
+  10 clients × 275$/mois (Option B moy.) = 2 750 $/mois
+
+Revenus de développement (one-time) :
+  2 projets/mois × 2 500 $ moy. = 5 000 $/mois
+
+Add-on Paulina (5 clients × 400$/mois moy.) = 2 000 $/mois
+
+Total MRR visé fin 2026 : ~8 000 – 10 000 $/mois
+  (excluant revenus publicitaires encore en phase de croissance)
+
+
+================================================================================
+Fin de section — Division Web
+Auteur : ClaudeHorizon (Cowork — Projet HorizonSite, Groupe Supernova)
+Pour transmission à ClaudeAffaire — Plan d'affaires Groupe Supernova Inc.
+================================================================================

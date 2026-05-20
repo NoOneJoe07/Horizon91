@@ -2,6 +2,7 @@
 // app/[locale]/dojo-time/[slug]/page.tsx — Article Dojo Time individuel
 // =============================================================================
 
+import React from "react";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -65,8 +66,36 @@ export default async function DojoTimeArticlePage({
     { weekday: "long", year: "numeric", month: "long", day: "numeric" }
   );
 
-  // Rendu du contenu : chaque paragraphe séparé par \n\n
-  const paragraphs = content.split(/\n\n+/).filter(Boolean);
+  // ── Mini renderer Markdown ────────────────────────────────────────────────
+  // Supporte : ## H2, ### H3, **bold**, *italic*, --- (hr), paragraphes
+  function renderInline(text: string): React.ReactNode {
+    // Remplace **bold** et *italic* par des balises React
+    const parts = text.split(/(\*\*[^*]+\*\*|\*[^*]+\*)/g);
+    return parts.map((part, i) => {
+      if (part.startsWith("**") && part.endsWith("**"))
+        return <strong key={i}>{part.slice(2, -2)}</strong>;
+      if (part.startsWith("*") && part.endsWith("*"))
+        return <em key={i}>{part.slice(1, -1)}</em>;
+      return part;
+    });
+  }
+
+  function renderBlock(block: string, i: number): React.ReactNode {
+    const trimmed = block.trim();
+    if (trimmed === "---")
+      return <hr key={i} style={{ border: "none", borderTop: "1px solid var(--color-citadelle-border)", margin: "2rem 0" }} />;
+    if (trimmed.startsWith("### "))
+      return <h3 key={i} style={{ fontSize: "1.15rem", fontWeight: 700, marginTop: "1.75rem", marginBottom: "0.5rem" }}>{renderInline(trimmed.slice(4))}</h3>;
+    if (trimmed.startsWith("## "))
+      return <h2 key={i} style={{ fontSize: "1.35rem", fontWeight: 700, marginTop: "2rem", marginBottom: "0.75rem", color: "var(--color-citadelle-text)" }}>{renderInline(trimmed.slice(3))}</h2>;
+    return (
+      <p key={i} style={{ marginBottom: "1.25rem", lineHeight: 1.8 }}>
+        {renderInline(trimmed)}
+      </p>
+    );
+  }
+
+  const blocks = content.split(/\n\n+/).filter(Boolean);
 
   return (
     <article className="section">
@@ -97,7 +126,7 @@ export default async function DojoTimeArticlePage({
             <img
               src={post.imageUrl}
               alt={title}
-              style={{ width: "100%", height: "100%", objectFit: "cover" }}
+              style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top center" }}
             />
           </div>
         )}
@@ -124,12 +153,8 @@ export default async function DojoTimeArticlePage({
         </h1>
 
         {/* Contenu */}
-        <div style={{ lineHeight: 1.8, fontSize: "1rem" }}>
-          {paragraphs.map((para, i) => (
-            <p key={i} style={{ marginBottom: "1.25rem" }}>
-              {para}
-            </p>
-          ))}
+        <div style={{ fontSize: "1rem" }}>
+          {blocks.map((block, i) => renderBlock(block, i))}
         </div>
 
         {/* Lien externe Supernova (optionnel) */}
