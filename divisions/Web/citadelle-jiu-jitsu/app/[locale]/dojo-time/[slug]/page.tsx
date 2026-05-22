@@ -126,7 +126,11 @@ export default async function DojoTimeArticlePage({
             <img
               src={post.imageUrl}
               alt={title}
-              style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top center" }}
+              style={{
+                width: "100%", height: "100%", objectFit: "cover",
+                // Ajustement par article : "center" pour Calgary (JS + Max coupés au chest avec "top")
+                objectPosition: slug === "adcc-calgary-open-argent-avril-2026" ? "center" : "top center",
+              }}
             />
           </div>
         )}

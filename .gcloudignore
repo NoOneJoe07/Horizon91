@@ -1,0 +1,23 @@
+# Exclure les fichiers de configuration de l'IA et de Git
+.git/
+.gitignore
+.gcloudignore
+
+# SÉCURITÉ : Ne jamais envoyer les secrets et clés
+.env
+.env.*
+*.pem
+*.key
+certs/
+secrets/
+
+# Éviter de saturer la mémoire avec les dépendances locales
+node_modules/
+vendor/
+.npm/
+__pycache__/
+*.pyc
+
+# Exclure les données d'historique des autres IA
+.claude/
+.copilot/

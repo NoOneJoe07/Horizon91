@@ -7,6 +7,7 @@ import Link from "next/link";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { instructors } from "@/lib/data/instructors";
 import type { Locale } from "@/lib/locales";
+import GalleryLightbox from "@/components/gallery/GalleryLightbox";
 
 // ---------------------------------------------------------------------------
 // JSON-LD — SportsClub / LocalBusiness
@@ -535,43 +536,43 @@ export default async function HomePage({
             </p>
           </div>
 
-          {/* Grille photos dojo */}
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
-              gap: "0.75rem",
-              marginBottom: "2rem",
-            }}
-          >
-            {/* Grande tuile principale — photo de groupe */}
-            <div
-              className="showcase-tile"
-              style={{ gridColumn: "span 2", aspectRatio: "16 / 7", padding: 0, overflow: "hidden" }}
-            >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/images/JS_Dionne_and_co/_MG_3577 copia.jpg"
-                alt="Citadelle Jiu-Jitsu — équipe au dojo"
-                style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top" }}
-              />
-            </div>
-            {/* Petites tuiles — portraits individuels */}
-            {[
-              { src: "/images/JS_Dionne_and_co/_MG_3522.jpg",              alt: "Jean-Sébastien Dionne-Roy — fondateur" },
-              { src: "/images/JS_Dionne_and_co/_MG_3530-Enhanced-NR.jpg",  alt: "JS sur le tatami" },
-              { src: "/images/JS_Dionne_and_co/_MG_3531-Enhanced-NR.jpg",  alt: "JS — portrait dojo" },
-              { src: "/images/JS_Dionne_and_co/_MG_3534-Enhanced-NR.jpg",  alt: "JS — gi ceinture noire" },
-            ].map((photo) => (
-              <div key={photo.src} className="showcase-tile" style={{ padding: 0, overflow: "hidden" }}>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={photo.src}
-                  alt={photo.alt}
-                  style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top center" }}
-                />
-              </div>
-            ))}
+          {/* Grille photos dojo — cliquables (lightbox) */}
+          <div style={{ marginBottom: "2rem" }}>
+            <GalleryLightbox
+              locale={locale}
+              photos={[
+                {
+                  src: "/images/JS_Dionne_and_co/_MG_3577 copia.jpg",
+                  altFr: "Citadelle Jiu-Jitsu — équipe au dojo",
+                  altEn: "Citadelle Jiu-Jitsu — team at the dojo",
+                  wide: true,
+                },
+                {
+                  src: "/images/JS_Dionne_and_co/_MG_3522.jpg",
+                  altFr: "Jean-Sébastien Dionne-Roy — fondateur",
+                  altEn: "Jean-Sébastien Dionne-Roy — founder",
+                  wide: false,
+                },
+                {
+                  src: "/images/JS_Dionne_and_co/_MG_3530-Enhanced-NR.jpg",
+                  altFr: "JS sur le tatami",
+                  altEn: "JS on the mat",
+                  wide: false,
+                },
+                {
+                  src: "/images/JS_Dionne_and_co/_MG_3531-Enhanced-NR.jpg",
+                  altFr: "JS — portrait dojo",
+                  altEn: "JS — dojo portrait",
+                  wide: false,
+                },
+                {
+                  src: "/images/JS_Dionne_and_co/_MG_3534-Enhanced-NR.jpg",
+                  altFr: "JS — gi ceinture noire",
+                  altEn: "JS — gi black belt",
+                  wide: false,
+                },
+              ]}
+            />
           </div>
 
           <div style={{ textAlign: "center" }}>

@@ -48,11 +48,15 @@ async function check(
 ): Promise<RatelimitResult> {
   if (!limiter) return { success: true };
 
-  const { success, reset } = await limiter.limit(identifier);
-  if (success) return { success: true };
-
-  const retryAfter = Math.ceil((reset - Date.now()) / 1000);
-  return { success: false, retryAfter };
+  try {
+    const { success, reset } = await limiter.limit(identifier);
+    if (success) return { success: true };
+    const retryAfter = Math.ceil((reset - Date.now()) / 1000);
+    return { success: false, retryAfter };
+  } catch {
+    // Redis inaccessible (dev sans Upstash configuré) → pas de blocage
+    return { success: true };
+  }
 }
 
 export async function checkLoginRateLimit(ip: string): Promise<RatelimitResult> {

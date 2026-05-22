@@ -1,11 +1,13 @@
 // =============================================================================
 // Page Galerie — Citadelle Jiu-Jitsu
-// Photos officielles Pao (shooting mai 2026) + à enrichir au fil du temps
+// Photos officielles Pao (shooting mai 2026) + compétitions
+// Lightbox : clic sur une photo pour l'afficher en plein écran
 // =============================================================================
 
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import type { Metadata } from "next";
 import type { Locale } from "@/lib/locales";
+import GalleryLightbox from "@/components/gallery/GalleryLightbox";
 
 export async function generateMetadata({
   params,
@@ -22,16 +24,31 @@ export async function generateMetadata({
 }
 
 // ---------------------------------------------------------------------------
-// Données photos — shooting officiel Pao, mai 2026
+// Données photos — shooting officiel Pao + compétitions
 // Ajouter les nouvelles photos ici au fil des livraisons
 // ---------------------------------------------------------------------------
 const photos = [
+  // ── Shooting groupe / équipe ─────────────────────────────────────────────
   {
     src: "/images/JS_Dionne_and_co/_MG_3577 copia.jpg",
     altFr: "Jean-Sébastien Dionne-Roy et l'équipe Citadelle Jiu-Jitsu",
     altEn: "Jean-Sébastien Dionne-Roy and the Citadelle Jiu-Jitsu team",
-    wide: true, // tuile large (2 colonnes)
+    wide: true,
   },
+  {
+    src: "/images/JS_Dionne_and_co/_MG_3580-Enhanced-NR copia.jpg",
+    altFr: "L'équipe Citadelle Jiu-Jitsu au dojo",
+    altEn: "The Citadelle Jiu-Jitsu team at the dojo",
+    wide: true,
+  },
+  {
+    src: "/images/JS_Dionne_and_co/_MG_3593 copia.jpg",
+    altFr: "Séance d'entraînement — Citadelle Jiu-Jitsu",
+    altEn: "Training session — Citadelle Jiu-Jitsu",
+    wide: true,
+  },
+
+  // ── Portraits JS ─────────────────────────────────────────────────────────
   {
     src: "/images/JS_Dionne_and_co/_MG_3524-Enhanced-NR.jpg",
     altFr: "Jean-Sébastien Dionne-Roy — Fondateur & Instructeur en chef",
@@ -68,6 +85,82 @@ const photos = [
     altEn: "JS on the mat — Citadelle Jiu-Jitsu",
     wide: true,
   },
+
+  // ── Nouvelle batch mai 2026 ───────────────────────────────────────────────
+  {
+    src: "/images/JS_Dionne_and_co/_MG_3585-Enhanced-NR.jpg",
+    altFr: "Entraînement au dojo Citadelle Jiu-Jitsu",
+    altEn: "Training at Citadelle Jiu-Jitsu dojo",
+    wide: false,
+  },
+  {
+    src: "/images/JS_Dionne_and_co/_MG_3590-Enhanced-NR.jpg",
+    altFr: "Technique de grappling — Citadelle Jiu-Jitsu",
+    altEn: "Grappling technique — Citadelle Jiu-Jitsu",
+    wide: false,
+  },
+  {
+    src: "/images/JS_Dionne_and_co/_MG_3608-Enhanced-NR.jpg",
+    altFr: "Sur le tatami — Citadelle Jiu-Jitsu Québec",
+    altEn: "On the mat — Citadelle Jiu-Jitsu Québec",
+    wide: false,
+  },
+  {
+    src: "/images/JS_Dionne_and_co/_MG_3618-Enhanced-NR.jpg",
+    altFr: "JS Dionne-Roy — instructeur BJJ Québec",
+    altEn: "JS Dionne-Roy — BJJ instructor Québec City",
+    wide: false,
+  },
+  {
+    src: "/images/JS_Dionne_and_co/_MG_3627-Enhanced-NR.jpg",
+    altFr: "Jiu-Jitsu brésilien — Citadelle, Québec",
+    altEn: "Brazilian Jiu-Jitsu — Citadelle, Québec City",
+    wide: false,
+  },
+  {
+    src: "/images/JS_Dionne_and_co/_MG_3635-Enhanced-NR.jpg",
+    altFr: "Moment fort au dojo — Citadelle Jiu-Jitsu",
+    altEn: "Highlight at the dojo — Citadelle Jiu-Jitsu",
+    wide: false,
+  },
+  {
+    src: "/images/JS_Dionne_and_co/IMG_3647-Enhanced-NR.jpg",
+    altFr: "Citadelle Jiu-Jitsu — action sur le tatami",
+    altEn: "Citadelle Jiu-Jitsu — action on the mat",
+    wide: false,
+  },
+  {
+    src: "/images/JS_Dionne_and_co/IMG_3664-Enhanced-NR.jpg",
+    altFr: "Entraînement BJJ — Citadelle Jiu-Jitsu Québec",
+    altEn: "BJJ training — Citadelle Jiu-Jitsu Québec",
+    wide: false,
+  },
+  {
+    src: "/images/JS_Dionne_and_co/IMG_3690-Enhanced-NR.jpg",
+    altFr: "Sparring au dojo Citadelle",
+    altEn: "Sparring at Citadelle dojo",
+    wide: false,
+  },
+  {
+    src: "/images/JS_Dionne_and_co/IMG_3694-Enhanced-NR.jpg",
+    altFr: "Technique au sol — Citadelle Jiu-Jitsu",
+    altEn: "Ground technique — Citadelle Jiu-Jitsu",
+    wide: false,
+  },
+  {
+    src: "/images/JS_Dionne_and_co/IMG_3700-Enhanced-NR.jpg",
+    altFr: "Jiu-Jitsu en action — Citadelle Québec",
+    altEn: "Jiu-Jitsu in action — Citadelle Québec",
+    wide: false,
+  },
+  {
+    src: "/images/JS_Dionne_and_co/IMG_3705.jpg",
+    altFr: "L'équipe Citadelle Jiu-Jitsu à l'entraînement",
+    altEn: "The Citadelle Jiu-Jitsu team in training",
+    wide: true,
+  },
+
+  // ── Compétitions ─────────────────────────────────────────────────────────
   {
     src: "/images/dojo-time/ADCC Open Toronto.jpg",
     altFr: "Podium ADCC Submission Fighting Canada — Toronto",
@@ -99,39 +192,8 @@ export default async function GalleryPage({
           <p style={{ color: "var(--color-citadelle-text-muted)" }}>{t("subtitle")}</p>
         </header>
 
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
-            gap: "1rem",
-          }}
-        >
-          {photos.map((photo) => (
-            <div
-              key={photo.src}
-              style={{
-                gridColumn: photo.wide ? "span 2" : "span 1",
-                aspectRatio: photo.wide ? "16 / 7" : "3 / 4",
-                borderRadius: "var(--radius-md)",
-                overflow: "hidden",
-                border: "1px solid var(--color-citadelle-border)",
-              }}
-            >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={photo.src}
-                alt={locale === "fr" ? photo.altFr : photo.altEn}
-                loading="lazy"
-                style={{
-                  width: "100%",
-                  height: "100%",
-                  objectFit: "cover",
-                  objectPosition: "top center",
-                }}
-              />
-            </div>
-          ))}
-        </div>
+        {/* GalleryLightbox gère la grille ET le modal plein écran */}
+        <GalleryLightbox photos={photos} locale={locale} />
       </div>
     </section>
   );
