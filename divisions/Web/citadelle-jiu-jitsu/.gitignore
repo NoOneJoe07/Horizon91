@@ -56,3 +56,8 @@ prisma/migrations/migration_lock.toml.bak
 public/images/**/*.mp4
 public/videos/citadelle-highlight.mp4
 public/test_*.jpg
+
+# Vidéos sources — trop lourdes pour GitHub (>100 MB)
+public/images/**/*.mp4
+public/videos/citadelle-highlight.mp4
+public/test_*.jpg
