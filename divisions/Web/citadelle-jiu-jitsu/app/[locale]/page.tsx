@@ -554,7 +554,7 @@ export default async function HomePage({
           </div>
 
           <VideoShowcase
-            src="/videos/citadelle-highlight.mp4"
+            src="/videos/citadelle-highlight-web.mp4"
             label={
               locale === "fr"
                 ? "Vidéo de présentation — Citadelle Jiu-Jitsu Québec"

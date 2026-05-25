@@ -196,7 +196,7 @@ export default async function GalleryPage({
         {/* Vidéo highlight — shooting mai 2026 (Paulina) */}
         <div style={{ marginBottom: "3rem" }}>
           <VideoShowcase
-            src="/videos/citadelle-highlight.mp4"
+            src="/videos/citadelle-highlight-web.mp4"
             label={
               locale === "fr"
                 ? "Vidéo de présentation — Citadelle Jiu-Jitsu Québec"
