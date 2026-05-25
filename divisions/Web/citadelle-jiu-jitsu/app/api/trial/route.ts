@@ -10,8 +10,21 @@ import { prisma } from "@/lib/db";
 import { trialSessionSchema } from "@/lib/validation";
 import { getSession } from "@/lib/auth";
 import { sendEmail } from "@/lib/email";
+import { checkTrialRateLimit } from "@/lib/ratelimit";
 
 export async function POST(req: NextRequest) {
+  // Rate limiting — 3 demandes de séance d'essai / heure par IP
+  const ip = req.headers.get("x-forwarded-for")?.split(",")[0]?.trim()
+    ?? req.headers.get("x-real-ip")
+    ?? "unknown";
+  const rl = await checkTrialRateLimit(ip);
+  if (!rl.success) {
+    return NextResponse.json(
+      { error: `Trop de demandes. Réessaie dans ${Math.ceil(rl.retryAfter / 60)} min.` },
+      { status: 429, headers: { "Retry-After": String(rl.retryAfter) } },
+    );
+  }
+
   const body = await req.json().catch(() => null);
   const parsed = trialSessionSchema.safeParse(body);
 

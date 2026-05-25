@@ -43,11 +43,24 @@ import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/db";
 import { contactSchema } from "@/lib/validation";
 import { sendEmail } from "@/lib/email";
+import { checkContactRateLimit } from "@/lib/ratelimit";
 
 // ---------------------------------------------------------------------------
 // Handler POST
 // ---------------------------------------------------------------------------
 export async function POST(req: NextRequest) {
+
+  // ── 0. Rate limiting — 5 messages / heure par IP ──────────────────────────
+  const ip = req.headers.get("x-forwarded-for")?.split(",")[0]?.trim()
+    ?? req.headers.get("x-real-ip")
+    ?? "unknown";
+  const rl = await checkContactRateLimit(ip);
+  if (!rl.success) {
+    return NextResponse.json(
+      { error: `Trop de messages envoyés. Réessaie dans ${Math.ceil(rl.retryAfter / 60)} min.` },
+      { status: 429, headers: { "Retry-After": String(rl.retryAfter) } },
+    );
+  }
 
   // ── 1. Lecture du body JSON ────────────────────────────────────────────────
   // req.json() parse le body de la requête HTTP comme du JSON.

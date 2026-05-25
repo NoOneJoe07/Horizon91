@@ -8,6 +8,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import type { Metadata } from "next";
 import type { Locale } from "@/lib/locales";
 import GalleryLightbox from "@/components/gallery/GalleryLightbox";
+import VideoShowcase from "@/components/video/VideoShowcase";
 
 export async function generateMetadata({
   params,
@@ -191,6 +192,19 @@ export default async function GalleryPage({
           <h1 style={{ fontSize: "2.5rem", marginBottom: "0.5rem" }}>{t("title")}</h1>
           <p style={{ color: "var(--color-citadelle-text-muted)" }}>{t("subtitle")}</p>
         </header>
+
+        {/* Vidéo highlight — shooting mai 2026 (Paulina) */}
+        <div style={{ marginBottom: "3rem" }}>
+          <VideoShowcase
+            src="/videos/citadelle-highlight.mp4"
+            label={
+              locale === "fr"
+                ? "Vidéo de présentation — Citadelle Jiu-Jitsu Québec"
+                : "Showcase video — Citadelle Jiu-Jitsu Québec City"
+            }
+            maxHeight="65vh"
+          />
+        </div>
 
         {/* GalleryLightbox gère la grille ET le modal plein écran */}
         <GalleryLightbox photos={photos} locale={locale} />

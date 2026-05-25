@@ -7,7 +7,32 @@ import Link from "next/link";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { instructors } from "@/lib/data/instructors";
 import type { Locale } from "@/lib/locales";
+import type { Metadata } from "next";
 import GalleryLightbox from "@/components/gallery/GalleryLightbox";
+import VideoShowcase from "@/components/video/VideoShowcase";
+
+// ---------------------------------------------------------------------------
+// SEO — Métadonnées spécifiques à la page d'accueil
+// Le layout racine fournit un fallback global, mais la homepage mérite ses
+// propres balises title + description optimisées pour la conversion locale.
+// ---------------------------------------------------------------------------
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: Locale }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  return {
+    title:
+      locale === "fr"
+        ? "Citadelle Jiu-Jitsu — École de BJJ à Québec"
+        : "Citadelle Jiu-Jitsu — BJJ School in Québec City",
+    description:
+      locale === "fr"
+        ? "École de jiu-jitsu brésilien à Québec. Cours adultes, enfants, no-gi et compétition. Première séance d'essai gratuite. 964 rue Mainguy, Québec."
+        : "Brazilian jiu-jitsu school in Québec City. Adult, kids, no-gi and competition classes. First trial class free. 964 rue Mainguy, Québec.",
+  };
+}
 
 // ---------------------------------------------------------------------------
 // JSON-LD — SportsClub / LocalBusiness
@@ -502,6 +527,41 @@ export default async function HomePage({
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* ================================================================
+          VIDÉO — Highlight cinématique Paulina (shooting mai 2026)
+      ================================================================ */}
+      <section className="section">
+        <div className="container-citadelle">
+          <div style={{ textAlign: "center", marginBottom: "2rem" }}>
+            <p
+              style={{
+                color: "var(--color-citadelle-gold)",
+                textTransform: "uppercase",
+                letterSpacing: "0.2em",
+                fontSize: "0.78rem",
+                marginBottom: "0.5rem",
+              }}
+            >
+              {locale === "fr" ? "Citadelle en action" : "Citadelle in action"}
+            </p>
+            <h2 style={{ fontSize: "clamp(1.5rem, 3.5vw, 2.25rem)", marginBottom: "0.5rem" }}>
+              {locale === "fr" ? "L'art du jiu-jitsu brésilien" : "The art of Brazilian jiu-jitsu"}
+            </h2>
+            <div className="gold-divider" style={{ margin: "1rem auto 0" }} />
+          </div>
+
+          <VideoShowcase
+            src="/videos/citadelle-highlight.mp4"
+            label={
+              locale === "fr"
+                ? "Vidéo de présentation — Citadelle Jiu-Jitsu Québec"
+                : "Showcase video — Citadelle Jiu-Jitsu Québec City"
+            }
+            maxHeight="75vh"
+          />
         </div>
       </section>
 

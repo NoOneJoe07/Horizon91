@@ -1,12 +1,14 @@
 // =============================================================================
 // lib/ratelimit.ts — Rate limiting via Upstash Redis
 // -----------------------------------------------------------------------------
-// Protège les endpoints sensibles (login, inscription) contre le brute force.
+// Protège les endpoints sensibles contre le brute force et le spam.
 // Utilise @upstash/ratelimit + @upstash/redis pour Vercel Edge.
 //
 // Limites :
-//   login → 5 tentatives / 15 minutes par IP
+//   login    → 5 tentatives / 15 minutes par IP
 //   register → 3 créations / heure par IP
+//   contact  → 5 messages / heure par IP (anti-spam formulaire)
+//   trial    → 3 demandes / heure par IP
 //
 // En développement (sans UPSTASH_REDIS_REST_URL) : rate limiting désactivé
 // silencieusement → toujours { success: true }.
@@ -38,6 +40,12 @@ const loginLimiter = makeRatelimiter(5, 60 * 15);
 // 3 inscriptions / heure par IP
 const registerLimiter = makeRatelimiter(3, 60 * 60);
 
+// 5 messages contact / heure par IP — anti-spam formulaire public
+const contactLimiter = makeRatelimiter(5, 60 * 60);
+
+// 3 demandes de séance d'essai / heure par IP
+const trialLimiter = makeRatelimiter(3, 60 * 60);
+
 export type RatelimitResult =
   | { success: true }
   | { success: false; retryAfter: number };
@@ -65,4 +73,12 @@ export async function checkLoginRateLimit(ip: string): Promise<RatelimitResult> 
 
 export async function checkRegisterRateLimit(ip: string): Promise<RatelimitResult> {
   return check(registerLimiter, `register:${ip}`);
+}
+
+export async function checkContactRateLimit(ip: string): Promise<RatelimitResult> {
+  return check(contactLimiter, `contact:${ip}`);
+}
+
+export async function checkTrialRateLimit(ip: string): Promise<RatelimitResult> {
+  return check(trialLimiter, `trial:${ip}`);
 }
