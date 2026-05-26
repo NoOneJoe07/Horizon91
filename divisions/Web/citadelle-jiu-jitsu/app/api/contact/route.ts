@@ -120,7 +120,7 @@ export async function POST(req: NextRequest) {
         <hr style="border-color:#333"/>
         <p style="white-space:pre-wrap">${parsed.data.message}</p>
         <hr style="border-color:#333"/>
-        <p style="font-size:0.85em;color:#888">Voir dans l'admin : <a href="https://citadellejiujitsu.ca/fr/admin/messages">Panel admin — Messages</a></p>
+        <p style="font-size:0.85em;color:#888">Voir dans l'admin : <a href="https://citadellebjj.com/fr/admin/messages">Panel admin — Messages</a></p>
       `,
     });
 

@@ -78,7 +78,7 @@ export async function POST(req: NextRequest) {
         <p><strong>Date souhaitée :</strong> ${dateStr}</p>
         ${parsed.data.message ? `<p><strong>Message :</strong> ${parsed.data.message}</p>` : ""}
         <hr style="border-color:#333"/>
-        <p style="font-size:0.85em;color:#888">Voir dans l'admin : <a href="https://citadellejiujitsu.ca/fr/admin/inscriptions">Panel admin — Inscriptions</a></p>
+        <p style="font-size:0.85em;color:#888">Voir dans l'admin : <a href="https://citadellebjj.com/fr/admin/inscriptions">Panel admin — Inscriptions</a></p>
       `,
     });
 

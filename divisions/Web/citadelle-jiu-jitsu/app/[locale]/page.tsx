@@ -51,7 +51,7 @@ function JsonLd({ locale }: { locale: Locale }) {
       locale === "fr"
         ? "École de jiu-jitsu brésilien à Québec. Cours adultes, enfants, no-gi et compétition. Première séance d'essai gratuite."
         : "Brazilian jiu-jitsu school in Québec City. Adult, kids, no-gi and competition classes. First trial class free.",
-    url: `https://citadellejiujitsu.ca/${locale}`,
+    url: `https://citadellebjj.com/${locale}`,
     telephone: "+14185641047",
     address: {
       "@type": "PostalAddress",
@@ -72,7 +72,7 @@ function JsonLd({ locale }: { locale: Locale }) {
     ],
     sport: "Brazilian Jiu-Jitsu",
     priceRange: "$$",
-    image: "https://citadellejiujitsu.ca/logo-citadelle.svg",
+    image: "https://citadellebjj.com/logo-citadelle.svg",
   };
 
   return (

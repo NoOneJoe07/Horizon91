@@ -69,17 +69,17 @@ export async function generateMetadata({
     // ── Open Graph (partage sur réseaux sociaux) ────────────────────────────
     // Contrôle l'aperçu quand quelqu'un partage un lien sur Facebook,
     // WhatsApp, iMessage, etc. Sans ça → l'aperçu est générique ou vide.
-    // TODO : remplacer /og-image.jpg par une vraie image 1200×630px (avec Paulina)
+
     openGraph: {
       siteName:    t("siteName"),
       title:       t("title"),
       description: t("description"),
       locale:      locale === "fr" ? "fr_CA" : "en_CA",
       type:        "website",
-      url:         `https://citadellejiujitsu.ca/${locale}`,
+      url:         `https://citadellebjj.com/${locale}`,
       images: [
         {
-          url:    "https://citadellejiujitsu.ca/og-image.jpg",
+          url:    "https://citadellebjj.com/og-image.jpg",
           width:  1200,
           height: 630,
           alt:    "Citadelle Jiu-Jitsu — École de BJJ à Québec",
@@ -92,15 +92,15 @@ export async function generateMetadata({
       card:        "summary_large_image",
       title:       t("title"),
       description: t("description"),
-      images:      ["https://citadellejiujitsu.ca/og-image.jpg"],
+      images:      ["https://citadellebjj.com/og-image.jpg"],
     },
 
     // ── URL canonique ──────────────────────────────────────────────────────
     alternates: {
-      canonical: `https://citadellejiujitsu.ca/${locale}`,
+      canonical: `https://citadellebjj.com/${locale}`,
       languages: {
-        "fr-CA": "https://citadellejiujitsu.ca/fr",
-        "en-CA": "https://citadellejiujitsu.ca/en",
+        "fr-CA": "https://citadellebjj.com/fr",
+        "en-CA": "https://citadellebjj.com/en",
       },
     },
   };

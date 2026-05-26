@@ -159,8 +159,12 @@ export async function Footer({ locale }: FooterProps) {
           </div>
           <div>
             {tFooter("developedBy")}{" "}
-            <a href="https://groupesupernova.ca" target="_blank" rel="noopener noreferrer">
-              Groupe Supernova
+            <a
+              href={locale === "fr" ? "https://etoileboreale.ca" : "https://borealstar.ca"}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {locale === "fr" ? "Groupe Étoile Boréale" : "Boreal Star Group"}
             </a>
           </div>
         </div>

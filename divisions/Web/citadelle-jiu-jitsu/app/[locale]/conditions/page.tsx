@@ -84,8 +84,8 @@ function TermsFR() {
         <h2 style={styles.h2}>3. Comptes membres</h2>
         <p style={styles.p}>
           Pour accéder à certaines fonctionnalités (historique d'achats, gestion d'abonnement), vous devez créer un compte. Vous êtes responsable de la confidentialité de vos identifiants. Tout accès non autorisé à votre compte doit être signalé immédiatement à{" "}
-          <a href="mailto:confidentialite@citadellejiujitsu.ca" style={{ color: "var(--color-citadelle-gold)" }}>
-            confidentialite@citadellejiujitsu.ca
+          <a href="mailto:citadellejiujitsu@gmail.com" style={{ color: "var(--color-citadelle-gold)" }}>
+            citadellejiujitsu@gmail.com
           </a>.
         </p>
       </div>
@@ -177,8 +177,8 @@ function TermsEN() {
         <h2 style={styles.h2}>3. Member Accounts</h2>
         <p style={styles.p}>
           To access certain features, you must create an account. You are responsible for keeping your credentials confidential. Any unauthorized access must be reported immediately to{" "}
-          <a href="mailto:confidentialite@citadellejiujitsu.ca" style={{ color: "var(--color-citadelle-gold)" }}>
-            confidentialite@citadellejiujitsu.ca
+          <a href="mailto:citadellejiujitsu@gmail.com" style={{ color: "var(--color-citadelle-gold)" }}>
+            citadellejiujitsu@gmail.com
           </a>.
         </p>
       </div>

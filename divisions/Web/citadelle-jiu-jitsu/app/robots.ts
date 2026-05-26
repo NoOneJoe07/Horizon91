@@ -25,7 +25,7 @@ export default function robots(): MetadataRoute.Robots {
         ],
       },
     ],
-    sitemap: "https://citadellejiujitsu.ca/sitemap.xml",
-    host: "https://citadellejiujitsu.ca",
+    sitemap: "https://citadellebjj.com/sitemap.xml",
+    host: "https://citadellebjj.com",
   };
 }

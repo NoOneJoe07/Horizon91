@@ -19,7 +19,7 @@ import { prisma } from "@/lib/db";
 //   /admin, /connexion, /inscription, /mon-compte
 // =============================================================================
 
-const BASE_URL = "https://citadellejiujitsu.ca";
+const BASE_URL = "https://citadellebjj.com";
 const locales = ["fr", "en"];
 
 const staticRoutes = [
