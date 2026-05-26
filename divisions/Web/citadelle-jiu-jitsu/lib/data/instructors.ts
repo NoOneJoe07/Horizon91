@@ -55,35 +55,56 @@ const founder: Instructor = {
   titleEn: "Founder & Head Instructor",
   beltFr: "Ceinture noire — Jiu-Jitsu Brésilien",
   beltEn: "Black Belt — Brazilian Jiu-Jitsu",
-  yearsExperience: 15,
+  yearsExperience: 20,
+
+  // ── Bio FR ──────────────────────────────────────────────────────────────────
+  // Mis à jour 25 mai 2026 — contenu fourni directement par JS
+  // Éléments clés : filiation Zahabi, exclusivité région Québec, rôle coach MMA/forces de l'ordre
   bioFr:
-    "Ceinture noire de jiu-jitsu brésilien, Jean-Sébastien Dionne-Roy est l'un des grapplers " +
-    "les plus actifs et les plus dominants au Canada. Avec plus de 129 victoires en compétition — " +
-    "dont 66 % par soumission — il porte la signature d'un vrai finisseur : il ne gagne pas aux points, " +
-    "il soumet. Actuellement #2 au Canada au ADCC Top Men Rankings 2025-2026, " +
-    "avec deux médailles d'or consécutives (Hub Grappling le 9 mai et East Coast Absolute le 17 mai 2026) " +
-    "en attente de comptabilisation — sa progression vers le sommet du classement national est en marche. " +
-    "Il a forgé son art aux côtés de l'élite mondiale, notamment au Tristar Gym de Montréal " +
-    "où il a partagé le tatami avec des légendes du sport, dont Georges St-Pierre. " +
-    "Fondateur de Citadelle Jiu-Jitsu à Québec, il transmet aujourd'hui cette intelligence, " +
-    "cette rigueur et cet esprit compétitif avec bienveillance — " +
-    "que vous soyez débutant curieux, pratiquant assidu ou compétiteur ambitieux.",
+    "Jean-Sébastien Dionne-Roy est ceinture noire de jiu-jitsu brésilien sous Firas Zahabi — " +
+    "l'entraîneur-chef légendaire et propriétaire du Tristar Gym de Montréal, " +
+    "mondialement reconnu pour avoir guidé Georges St-Pierre, Rory MacDonald " +
+    "et de nombreux athlètes vers les plus hautes sphères de l'UFC et des arts martiaux mixtes professionnels. " +
+    "Jean-Sébastien est le seul gradé ceinture noire sous Zahabi dans la région de Québec — " +
+    "une filiation rare qui définit son niveau et la qualité de ce qu'il transmet.\n\n" +
+    "Fort de 20 ans d'expérience en arts martiaux, 12 ans sur le plancher comme instructeur " +
+    "et 15 ans comme compétiteur actif, il fait partie de l'élite canadienne dans sa catégorie. " +
+    "Avec 129+ victoires en compétition — dont 66 % par soumission — et un classement #2 au Canada " +
+    "au ADCC Top Men Rankings 2025-2026, il porte la marque d'un vrai finisseur : " +
+    "il ne gagne pas aux points, il soumet.\n\n" +
+    "Comme entraîneur, il a guidé une clientèle diversifiée vers leur plein potentiel : " +
+    "membres des forces de l'ordre, compétiteurs de tous niveaux évoluant dans différentes " +
+    "organisations de jiu-jitsu sportif, et combattants d'arts martiaux mixtes — " +
+    "de la scène amateur locale jusqu'aux organisations professionnelles internationales, dont l'UFC.\n\n" +
+    "Chez Citadelle Jiu-Jitsu, les élèves bénéficient d'un enseignement de haut niveau, " +
+    "personnalisé aux besoins de chacun — que vous soyez débutant curieux, " +
+    "pratiquant assidu ou compétiteur ambitieux.",
+
+  // ── Bio EN ──────────────────────────────────────────────────────────────────
   bioEn:
-    "A Brazilian jiu-jitsu black belt and one of the most active and dominant grapplers in Canada, " +
-    "Jean-Sébastien Dionne-Roy has recorded over 129 competition victories — 66% by submission. " +
-    "He doesn't win on points. He finishes. " +
-    "Currently ranked #2 in Canada in the ADCC Top Men Rankings 2025-2026, " +
-    "with two consecutive gold medals (Hub Grappling May 9th and East Coast Absolute May 17th, 2026) " +
-    "pending official tabulation — his climb to the top of the national rankings is well underway. " +
-    "He has sharpened his craft alongside the world's elite, including training sessions at Tristar Gym in Montréal " +
-    "where he shared the mat with legends of the sport, including Georges St-Pierre. " +
-    "As founder of Citadelle Jiu-Jitsu in Québec City, he now channels that same intelligence, " +
-    "rigor and competitive fire into every class he teaches — " +
-    "whether you're a curious beginner, a dedicated practitioner, or an ambitious competitor.",
+    "Jean-Sébastien Dionne-Roy holds a Brazilian jiu-jitsu black belt under Firas Zahabi — " +
+    "the legendary head coach and owner of Tristar Gym in Montréal, " +
+    "world-renowned for guiding Georges St-Pierre, Rory MacDonald, " +
+    "and numerous athletes to the highest levels of the UFC and professional mixed martial arts. " +
+    "Jean-Sébastien is the only black belt under Zahabi in the Québec City region — " +
+    "a rare lineage that defines his level and the quality of his teaching.\n\n" +
+    "With 20 years of martial arts experience, 12 years as an instructor, " +
+    "and 15 years as an active competitor, he is part of the Canadian elite in his division. " +
+    "His record speaks for itself: 129+ competition victories — 66% by submission — " +
+    "and a #2 ranking in Canada in the ADCC Top Men Rankings 2025-2026. " +
+    "He doesn't win on points. He finishes.\n\n" +
+    "As a coach, Jean-Sébastien has helped a diverse range of athletes reach their full potential: " +
+    "law enforcement professionals, competitors at every level across multiple jiu-jitsu organizations, " +
+    "and MMA fighters — from the local amateur scene all the way to professional international " +
+    "organizations, including the UFC.\n\n" +
+    "At Citadelle Jiu-Jitsu, students benefit from world-class, personalized instruction " +
+    "tailored to each individual's goals — whether you're a curious beginner, " +
+    "a dedicated practitioner, or an ambitious competitor.",
+
   imageUrl:   "/images/JS_Dionne_and_co/_MG_3524-Enhanced-NR.jpg",
   imageUrlGi: "/images/JS_Dionne_and_co/_MG_3545-Enhanced-NR.jpg",
-  specialtyFr: "BJJ gi & no-gi — Compétition et self-défense",
-  specialtyEn: "BJJ gi & no-gi — Competition and self-defense",
+  specialtyFr: "BJJ gi & no-gi — Compétition, self-défense et MMA",
+  specialtyEn: "BJJ gi & no-gi — Competition, self-defense and MMA",
   isFounder: true,
   philosophyFr:
     "« Le tatami est un miroir. Chaque entraînement révèle qui tu es — et qui tu peux devenir. »",
@@ -91,12 +112,20 @@ const founder: Instructor = {
     "« The mat is a mirror. Every training session reveals who you are — and who you can become. »",
   achievements: [
     {
-      titleFr: "129+ victoires en compétition — 66 % par soumission",
-      titleEn: "129+ competition victories — 66% by submission",
+      titleFr: "🥋 Ceinture noire sous Firas Zahabi — Tristar Gym, Montréal",
+      titleEn: "🥋 Black belt under Firas Zahabi — Tristar Gym, Montréal",
+    },
+    {
+      titleFr: "⭐ Seul gradé CN sous Zahabi dans la région de Québec",
+      titleEn: "⭐ Only Zahabi black belt in the Québec City region",
     },
     {
       titleFr: "🏆 #2 au Canada — ADCC Top Men Rankings 2025-2026",
       titleEn: "🏆 #2 in Canada — ADCC Top Men Rankings 2025-2026",
+    },
+    {
+      titleFr: "129+ victoires en compétition — 66 % par soumission",
+      titleEn: "129+ competition victories — 66% by submission",
     },
     {
       titleFr: "🥇 Médaille d'or — East Coast Absolute, mai 2026",
@@ -111,19 +140,15 @@ const founder: Instructor = {
       titleEn: "🥈 Silver medal — ADCC Canada Calgary Open, April 2026",
     },
     {
-      titleFr: "Formé au Tristar Gym — a roulé avec Georges St-Pierre",
-      titleEn: "Trained at Tristar Gym — rolled with Georges St-Pierre",
-    },
-    {
-      titleFr: "Fondateur de Citadelle Jiu-Jitsu — Québec",
-      titleEn: "Founder of Citadelle Jiu-Jitsu — Québec City",
+      titleFr: "🛡️ Coach — forces de l'ordre, compétiteurs & combattants MMA (amateur + pro/UFC)",
+      titleEn: "🛡️ Coach — law enforcement, competitors & MMA fighters (amateur + pro/UFC)",
     },
   ],
   stats: [
-    { value: "#2",   labelFr: "au Canada — ADCC 2025-2026", labelEn: "in Canada — ADCC 2025-2026" },
-    { value: "129+", labelFr: "victoires en compétition",  labelEn: "competition victories"      },
-    { value: "66%",  labelFr: "par soumission",            labelEn: "by submission"              },
-    { value: "15+",  labelFr: "ans sur le tatami",         labelEn: "years on the mat"           },
+    { value: "#2",   labelFr: "au Canada — ADCC 2025-2026",  labelEn: "in Canada — ADCC 2025-2026" },
+    { value: "129+", labelFr: "victoires en compétition",    labelEn: "competition victories"       },
+    { value: "20",   labelFr: "ans d'expérience en AM",      labelEn: "years of martial arts"       },
+    { value: "12",   labelFr: "ans d'enseignement",          labelEn: "years of coaching"           },
   ],
 };
 
