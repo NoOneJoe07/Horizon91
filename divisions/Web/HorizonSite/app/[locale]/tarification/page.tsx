@@ -1,7 +1,39 @@
-"use client";
-
+import type { Metadata } from "next";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+
+  const titles: Record<string, string> = {
+    fr: "Tarification — Forfaits Web & Cybersécurité Transparents",
+    en: "Pricing — Transparent Web & Cybersecurity Packages",
+    es: "Precios — Paquetes Web y Ciberseguridad Transparentes",
+  };
+  const descriptions: Record<string, string> = {
+    fr: "Prix transparents pour les PME de Beauce : site web dès 1 500 $, maintenance dès 150 $/mois, surveillance Dark Web dès 75 $/mois. L'honnêteté des bâtisseurs d'ici.",
+    en: "Clear pricing for Beauce SMBs: website from $1,500, maintenance from $150/month, dark web monitoring from $75/month. Honest pricing from your local team.",
+    es: "Precios transparentes para pymes de Beauce: sitio web desde 1 500 $, mantenimiento desde 150 $/mes, monitoreo Dark Web desde 75 $/mes.",
+  };
+
+  const baseUrl = locale === "en" ? "https://borealstar.ca" : "https://etoileboreale.ca";
+  const canonical = `${baseUrl}${locale === "fr" ? "" : `/${locale}`}/tarification`;
+
+  return {
+    title: titles[locale] ?? titles.fr,
+    description: descriptions[locale] ?? descriptions.fr,
+    alternates: { canonical },
+    openGraph: {
+      title: titles[locale] ?? titles.fr,
+      description: descriptions[locale] ?? descriptions.fr,
+      url: canonical,
+    },
+  };
+}
 
 interface WebPackage {
   nom: string;

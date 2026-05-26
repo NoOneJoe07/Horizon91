@@ -1,7 +1,7 @@
 @AGENTS.md
 
-# CONTEXTE PROJET — Groupe Supernova / HorizonSite
-Dernière mise à jour : 2026-05-11 — SITE EN PRODUCTION ✅
+# CONTEXTE PROJET — Groupe Étoile Boréale Inc. / HorizonSite
+Dernière mise à jour : 2026-05-26 — SITE EN PRODUCTION ✅ — REBRAND COMPLET ✅
 
 ## Fichiers de contexte global Horizon 91
 - **Master context :** `C:\Users\Pc\OneDrive\Documents\Horizon 91\horizon91_master.md`
@@ -22,100 +22,149 @@ Dernière mise à jour : 2026-05-11 — SITE EN PRODUCTION ✅
 app/
   layout.tsx              ← Root minimal (redirect /fr si accès racine)
   page.tsx                ← Redirect → /fr
-  sitemap.ts              ← Sitemap dynamique (toutes locales)
-  robots.ts               ← robots.txt dynamique
+  sitemap.ts              ← Sitemap dynamique — BASE_URL = etoileboreale.ca
+  robots.ts               ← robots.txt — host = etoileboreale.ca
   globals.css             ← Tokens CSS h91-*, fond cosmique
   accueil/page.tsx        ← Redirect → /fr (résidu)
   contacts/page.tsx       ← Redirect → /fr/contacts (résidu)
   divisions/page.tsx      ← Redirect → /fr/divisions (résidu)
   portfolio/page.tsx      ← Redirect → /fr/portfolio (résidu)
   rejoindre/page.tsx      ← Redirect → /fr/rejoindre (résidu)
+  api/
+    contact/route.ts      ← API contact — nodemailer Zoho SMTP (port 465 SSL)
   [locale]/
     layout.tsx            ← Layout complet + generateMetadata() trilingue + OG tags
-    page.tsx              ← Homepage (hero + JSON-LD LocalBusiness + équipe + histoire)
+    page.tsx              ← Homepage (generateMetadata + JSON-LD LocalBusiness enrichi + hero + équipe + histoire)
     divisions/
-      page.tsx            ← Liste divisions (marks cliquables vers /web et /cyber)
-      web/page.tsx        ← Page Division Web (hero + 6 services + CTA)
-      cyber/page.tsx      ← Page Division Cybersécurité (hero + 6 services + CTA)
-    actualites/page.tsx   ← Section Blog/Actualités (structure vide, phase 2)
-    portfolio/page.tsx    ← "use client" (filtre catégories)
-    contacts/page.tsx
-    rejoindre/page.tsx
+      page.tsx            ← Liste divisions (generateMetadata + marks cliquables)
+      web/page.tsx        ← Division Draveur (generateMetadata + JSON-LD Service + 6 services + CTA)
+      cyber/page.tsx      ← Division Carillon (generateMetadata + JSON-LD Service + Saurel + Suite Carignan)
+    actualites/page.tsx   ← Blogue (generateMetadata — contenu phase 2)
+    portfolio/
+      page.tsx            ← Serveur — generateMetadata + importe PortfolioClient
+      PortfolioClient.tsx ← "use client" — filtre catégories (useState)
+    contacts/page.tsx     ← generateMetadata + liste contacts
+    rejoindre/
+      page.tsx            ← Serveur — generateMetadata + importe RejoindreCl
+      RejoindreCl.tsx     ← "use client" — formulaire contact (useState + useLocale)
+    tarification/page.tsx ← Serveur — generateMetadata + forfaits (PAS "use client")
+    confidentialite/
+      page.tsx            ← Serveur async — generateMetadata + contenu FR/EN/ES inline (PAS "use client")
   components/
-    Header.tsx            ← Sélecteur FR|EN|ES + mark-supernova.svg + nav Actualités
+    Header.tsx            ← Sélecteur FR|EN|ES + mark-etoile.svg + nav
     Footer.tsx            ← Nom de marque adaptatif
 i18n/
   routing.ts              ← locales: [fr, en, es], default: fr
   request.ts
   navigation.ts           ← Link, useRouter, usePathname locale-aware
 messages/
-  fr.json                 ← Maître (tout le contenu FR) — inclut divisionWeb, divisionCyber, actualites
+  fr.json                 ← Maître (tout le contenu FR)
   en.json                 ← Contenu EN (à réviser par Alexandra)
   es.json                 ← Contenu ES (à réviser par Alexandra/Paulina)
 public/
-  LogoGroupeSupernova.svg ← Logo hero principal (ne pas remplacer)
-  mark-supernova.svg      ← Event Horizon — Groupe Supernova (header)
-  mark-web.svg            ← La Flamme — Division Web (violet→orange)
-  mark-cyber.svg          ← Singularité — Cybersécurité (orange)
-  mark-nordik.svg         ← Vortex — Studio Nordik Legion (cyan)
-  og-image.jpg            ← À CRÉER : image Open Graph 1200×630px
-DEPLOIEMENT.md            ← Guide complet Vercel + domaines Namecheap
+  mark-etoile.svg         ← L'ÉTOILE Polaris — Groupe Étoile Boréale (header + hero) ← NOUVEAU
+  mark-web.svg            ← La Flamme — Division Draveur (violet→orange)
+  mark-cyber.svg          ← Singularité — Division Carillon (orange)
+  mark-nordik.svg         ← Vortex — Nordik Legion Studio (cyan)
+  og-image.jpg            ← ⚠️ À REFAIRE avec branding Étoile Boréale (tâche 7 en attente)
+DEPLOIEMENT.md            ← Guide complet Vercel + domaines Namecheap (mis à jour)
 ZOHO-MAIL.md              ← Guide complet Zoho Mail + MX records + comptes + alias
 ```
 
 ## Palette de couleurs (tokens Tailwind)
 ```css
 h91-gravity:    #000000   /* Fond trou noir absolu */
-h91-accretion:  #FF7A1A   /* Orange principal — Groupe Supernova */
+h91-accretion:  #FF7A1A   /* Orange principal — Groupe Étoile Boréale */
 h91-fusion:     #FFD65C   /* Or/jaune — Direction générale */
-h91-ion:        #00F0FF   /* Cyan — Studio Nordik Legion */
-h91-warp:       #6A00FF   /* Violet — Développement Web */
+h91-ion:        #00F0FF   /* Cyan — Nordik Legion Studio */
+h91-warp:       #6A00FF   /* Violet — Division Draveur (Web) */
 h91-stellar:    #F2F7FF   /* Blanc stellaire — texte principal */
 h91-relativistic: #1A8CFF /* Bleu (token réservé, non utilisé en UI) */
 ```
 
 ## Système de marks (logos par division)
-- Concept : 4 marks géométriques partageant le même langage cosmique
-- A — Singularité  → Cybersécurité (mark-cyber.svg) → /divisions/cyber ✓
-- B — Vortex       → Studio Nordik Legion (mark-nordik.svg) → nordiklegion.ca (externe)
-- C — Event Horizon → Groupe Supernova maison mère (mark-supernova.svg)
-- D — La Flamme    → Développement Web (mark-web.svg) → /divisions/web ✓
+- Concept : 4 marks géométriques partageant le même langage cosmique + branding folklorique/historique canadien
+- **L'ÉTOILE Polaris** → Groupe Étoile Boréale maison mère (mark-etoile.svg) ← NOUVEAU
+- **Singularité**     → Division Carillon — Cybersécurité (mark-cyber.svg) → /divisions/cyber ✓
+- **Vortex**          → Nordik Legion Studio (mark-nordik.svg) → nordiklegion.ca (externe)
+- **La Flamme**       → Division Draveur — Développement Web (mark-web.svg) → /divisions/web ✓
 - Marks CLIQUABLES depuis la page /divisions ✓
 
 ## Noms de marque adaptatifs par langue
-- FR : Groupe Supernova (groupesupernova.ca)
-- EN : Supernova Group (supernovagroup.ca)
-- ES : Grupo Supernova (futur : gruposupernova.ca)
+- FR : Groupe Étoile Boréale (etoileboreale.ca) ← REBRAND 2026-05-26
+- EN : Boreal Star Group (borealstar.ca)        ← REBRAND 2026-05-26
+- ES : Grupo Estrella Boreal (futur domaine)     ← REBRAND 2026-05-26
 - Implémenté via clé brand.name dans chaque messages/*.json
 
-## Domaines réservés (Namecheap)
-- groupesupernova.ca → FR par défaut
-- supernovagroup.ca  → EN par défaut
-- Routing par domaine next-intl à activer dans i18n/routing.ts au déploiement (voir DEPLOIEMENT.md)
+## Noms des divisions (branding historique/folklorique québécois)
+- **Division Draveur** — Développement Web (réf. aux draveurs, maîtres des rivières québécoises)
+- **Division Carillon** — Cybersécurité (réf. à la Bataille de Carillon 1758, Montcalm 3 600 vs 15 000)
+- **Nordik Legion Studio** — Jeux vidéo (mythologie nordique + patrimoine canadien)
+
+## Domaines en production (Namecheap + Vercel)
+- etoileboreale.ca → FR par défaut ← REBRAND 2026-05-26
+- borealstar.ca    → EN par défaut ← REBRAND 2026-05-26
+- groupesupernova.ca → 301 → etoileboreale.ca (anciens domaines redirigés)
+- supernovagroup.ca  → 301 → borealstar.ca
+- Routing par domaine next-intl : à activer dans i18n/routing.ts (voir DEPLOIEMENT.md)
 
 ## Équipe
-- Jonathan Patoine — Fondateur & DG (maison mère + Studio Nordik Legion)
+- Jonathan Patoine — Fondateur & DG (maison mère + Nordik Legion Studio)
 - Alexandra Marcela Espin Espinoza — DG Communications (révision EN/ES)
-- Paulina Jaramillo — DG Marketing & Photographie (Division Web + réseaux sociaux)
-- Gabriel Patoine — CISO Division Cybersécurité (en formation, à venir)
+- Paulina Jaramillo — DG Marketing & Photographie (Division Draveur + réseaux sociaux)
+- Gabriel Patoine — CISO Division Carillon (en formation, à venir)
 
 ## Emails (Zoho Mail Lite — voir ZOHO-MAIL.md)
 Plan : Mail Lite, C$1.25/user/mois, 5 users, 10 Go/user, renouvellement mai 2027
-Format adresses : prenom.nom@groupesupernova.ca (future-proof)
-Vrais comptes ✅ :
-  - jonathan.patoine@groupesupernova.ca (Super Admin)
-  - alexandra.espin@groupesupernova.ca
-  - paulina.jaramillo@groupesupernova.ca
-  - gabriel.patoine@groupesupernova.ca
-  - contact@groupesupernova.ca
-Alias → redirect : direction, web, cyber, studio, facturation, noreply (À CRÉER dans Admin Console)
-DNS configuré ✅ : MX zohocloud.ca + SPF + DKIM (propagation DKIM en cours)
+
+⚠️ SMTP AUTH : ZOHO_USER reste contact@groupesupernova.ca (compte réel actif)
+   Ne pas changer sans migrer le compte Zoho vers @etoileboreale.ca d'abord.
+
+Comptes @etoileboreale.ca à créer dans Zoho (migration à planifier) :
+  - jonathan.patoine@etoileboreale.ca
+  - alexandra.espin@etoileboreale.ca
+  - paulina.jaramillo@etoileboreale.ca
+  - gabriel.patoine@etoileboreale.ca
+  - contact@etoileboreale.ca
+
+Alias opérationnels actuels (@etoileboreale.ca) ✅ :
+  - direction@etoileboreale.ca → jonathan.patoine@groupesupernova.ca
+  - studio@etoileboreale.ca   → jonathan.patoine@groupesupernova.ca
+
+Alias à créer (@etoileboreale.ca) :
+  - web@etoileboreale.ca   → paulina.jaramillo@groupesupernova.ca
+  - cyber@etoileboreale.ca → gabriel.patoine@groupesupernova.ca
+
+DNS etoileboreale.ca : MX zohocloud.ca + SPF + DKIM + DMARC ← à vérifier propagation
+Variables ENV Vercel ✅ : ZOHO_USER (= contact@groupesupernova.ca), ZOHO_PASS, CONTACT_TO (= jonathan.patoine@etoileboreale.ca)
 
 ## Architecture de site décidée
-- groupesupernova.ca = site principal maison mère
-- Divisions Web et Cyber = pages profondes (/divisions/web, /divisions/cyber) ✓
-- Studio Nordik Legion = site séparé (nordiklegion.ca) — redirect depuis mark
+- etoileboreale.ca = site principal maison mère
+- Divisions Draveur et Carillon = pages profondes (/divisions/web, /divisions/cyber) ✓
+- Nordik Legion Studio = site séparé (nordiklegion.ca) — redirect depuis mark
 - PAS de domaines séparés par division pour l'instant
+
+## Produits cyber internes — Saurel & Suite Carignan (rebrandés session 2026-05-26)
+- **Saurel** : Dark Web Monitoring SaaS (ex-Argos) — 4 tiers en production sur /divisions/cyber
+  - Sentinelle 75$/mois | Gardien 150$/mois (featured) | Bouclier 200$/mois | Forteresse 350$/mois
+  - Tagline : "Cent yeux qui ne dorment jamais, pendant que vous dormez tranquille."
+  - JSON-LD SoftwareApplication ajouté sur /divisions/cyber
+- **Suite Carignan** : 4 produits en développement (ex-Suite Olympus) — cartes floutées "Zone de travaux"
+  - Sorel (remédiation & réponse aux incidents)
+  - Contrecoeur (simulation phishing & ingénierie sociale)
+  - Berthier (analyseur de légitimité des courriels)
+  - Chambly (IAM — contrôle d'accès & identités)
+- Données hardcodées dans app/[locale]/divisions/cyber/page.tsx (pas i18n pour l'instant)
+
+## SEO — Session 2026-05-26 (complet)
+- generateMetadata() sur TOUTES les pages (homepage, divisions, web, cyber, portfolio, contacts, rejoindre, tarification, actualites, confidentialite)
+- JSON-LD enrichis : LocalBusiness (homepage), Service (web + cyber), SoftwareApplication (Saurel)
+- Descriptions avec branding historique/folklorique :
+  - Draveurs : maîtrisaient les rivières tumultueuses du Québec
+  - Carillon : Montcalm 3 600 vs 15 000 Britanniques (1758)
+  - Étoile Polaire : guide des coureurs des bois et voyageurs
+- Canonical URLs : etoileboreale.ca (FR/ES), borealstar.ca (EN)
+- client components extraits (PortfolioClient.tsx, RejoindreCl.tsx) pour permettre generateMetadata serveur
 
 ## Modèle de tarification — Décisions session 2026-05-06
 
@@ -126,27 +175,29 @@ DNS configuré ✅ : MX zohocloud.ca + SPF + DKIM (propagation DKIM en cours)
 
 ### Maintenance mensuelle (obligatoire, inclus dans tout contrat)
 - Option A (client autonome via CMS) : 150$/mois — plomberie + monitoring
-- Option B (Supernova gère tout)     : 200 – 350$/mois — contenu inclus
+- Option B (Étoile Boréale gère tout) : 200 – 350$/mois — contenu inclus
 
 ### Heures supplémentaires hors contrat
-- Support client / modifs contenu    : 60 – 80$/h
-- Développement (nouvelle fonctionnalité) : 80 – 100$/h
-- Banque d'heures prépayée           : 10h à 700$ (vs 800$ au taux normal)
+- Support client / modifs contenu      : 75 – 90$/h
+- Développement (nouvelle fonctionnalité) : 80 – 120$/h
+- Banque d'heures prépayée             : 10h à 700$ (économie ~100$)
   → Email automatique quand solde < 3h pour renouvellement
 
-### Services complémentaires (phase 2+)
-- Gestion réseaux sociaux (Paulina)  : 300 – 500$/mois add-on
-- Design de pamphlets/imprimés       : facturation horaire (partenariat impression local)
+### Services complémentaires — Gestion réseaux sociaux (Paulina)
+- Présence Essentielle (FB+IG, 2-3 posts/sem) : 399$/mois
+- Présence Active (multi-plateforme + vidéo)  : 699$/mois
+- Présence Complète (écosystème + livre postal) : 1 099$/mois
+- Design de pamphlets/imprimés : facturation horaire (partenariat impression local)
 - Banque d'heures couvre tous les services y compris déplacements Paulina
 
 ## Stratégie médias & contenu — Décisions session 2026-05-06
 
-### Tier 1 — Activer immédiatement (avant lancement)
-- YouTube @groupesupernova
-- Instagram @groupesupernova
-- Facebook Page Groupe Supernova
-- TikTok @groupesupernova
-- LinkedIn Page Groupe Supernova
+### Tier 1 — Activer immédiatement
+- YouTube @etoileboreale
+- Instagram @etoileboreale
+- Facebook Page Groupe Étoile Boréale
+- TikTok @etoileboreale
+- LinkedIn Page Groupe Étoile Boréale
 
 ### Tier 2 — Phase 2 contenu
 - Pinterest (fort potentiel pour artisanat, déco, cuisine — clients cibles)
@@ -154,71 +205,72 @@ DNS configuré ✅ : MX zohocloud.ca + SPF + DKIM (propagation DKIM en cours)
 
 ### Tier 3 — Phase 3+
 - Spotify / Podcast (15-20 min, invités clients, entrepreneurs région)
-- Twitch — UNIQUEMENT pour Studio Nordik Legion (développement Cyber-Mythos)
+- Twitch — UNIQUEMENT pour Nordik Legion Studio (développement)
 
 ### Entonnoir de contenu
 1 production (vidéo Paulina chez client) → Short TikTok + Reel Instagram + épingle Pinterest
 + Article de blogue /actualites avec vidéo embarquée + Publication Facebook 48-72h après
 
 ### Revenus publicitaires visés (long terme)
-- Google AdSense sur site éditorial Groupe Supernova
+- Google AdSense sur site éditorial Groupe Étoile Boréale
 - Facebook Ads Revenue (pages de marque)
 - YouTube Programme Partenaire (1000 abonnés + 4000h ou 10M vues Shorts/90j)
 
-## Positionnement — Décisions session 2026-05-06
+## Positionnement
 - Marché cible : PME et entrepreneurs de Beauce, Bellechasse, Chaudière-Appalaches
 - Différenciateur : proximité locale, compréhension de la réalité régionale
+- Branding : hommage aux héros historiques/folkloriques/mythologiques canadiens
 - PAS en compétition avec les agences urbaines de Québec/MTL
 - Prix justes pour la région : accessible sans être cheap (signal de qualité)
 - Modèle de croissance : 5 clients bien servis + bouche-à-oreille > 50 clients mal suivis
 
+## Phase 2 — Contenu à ajouter (APRÈS revamping actuel)
+- Section historique/lore Division Draveur : histoire des draveurs québécois + ancrage web
+- Section historique/lore Division Carillon : Bataille de Carillon 1758 + ancrage cybersec
+- "Saviez-vous" stats : PME sans site web, coûts cyberattaque, taux conversion local
+- Contexte Suite Carignan (Sorel, Contrecoeur, Berthier, Chambly) avec lore historique
+- Articles Loi 25 sur /actualites
+
 ## À faire — Jonathan (hors code)
-- [ ] Enregistrement légal : NEQ (Registraire entreprises QC) + numéro fédéral ARC
+- [ ] Enregistrement légal : NEQ (Registraire entreprises QC) + numéro fédéral ARC — "Groupe Étoile Boréale Inc."
 - [ ] Numéros de taxes : TPS/TVQ (seuil obligatoire 30 000$/an, recommandé dès maintenant)
-- ✅ Zoho Mail configuré — comptes créés, DNS en place (voir ZOHO-MAIL.md)
-- ✅ Alias Zoho créés (direction, studio, facturation → jonathan / web → paulina / cyber → gabriel / noreply → contact)
-- ✅ DKIM propagé et vérifié
-- ✅ Test courriel envoyé — premier courriel professionnel expédié à Citadelle Jiu-Jitsu
-- ✅ Signature courriel configurée dans Zoho webmail
-- [ ] Réserver handles @groupesupernova sur toutes les plateformes sociales
+- [ ] Migration Zoho : créer comptes @etoileboreale.ca + basculer SMTP_USER
+- [ ] Réserver handles @etoileboreale sur toutes les plateformes sociales
 - [ ] Photos d'équipe (Jonathan, Alexandra, Paulina) — attendues cette semaine
 - [ ] Bios Alexandra et Paulina — à rédiger
 - [ ] Contenu Citadelle Jiu-Jitsu — en attente retour client
+- ✅ Zoho Mail configuré — comptes créés, DNS en place (voir ZOHO-MAIL.md)
+- ✅ DKIM propagé et vérifié (groupesupernova.ca)
+- ✅ Test courriel envoyé — premier courriel professionnel expédié à Citadelle Jiu-Jitsu
+- ✅ Signature courriel configurée dans Zoho webmail
 
-## Prochaines étapes techniques — POST-LANCEMENT (session 2026-05-08)
-1. ✅ Conflits de routing résolus (vieilles pages → redirects)
-2. ✅ SEO : metadata, Open Graph, JSON-LD LocalBusiness, sitemap, robots.txt
-3. ✅ Pages /divisions/web et /divisions/cyber créées
-4. ✅ Marks cliquables depuis page Divisions
-5. ✅ Section /actualites plantée (structure vide phase 2)
-6. ✅ Guide déploiement Vercel (DEPLOIEMENT.md)
-7. ✅ Guide Zoho Mail (ZOHO-MAIL.md)
-8. ✅ Zoho Mail opérationnel — 5 comptes créés, DNS MX + SPF + DKIM configurés
-9. ✅ DNS Namecheap complet — A record + CNAME www + MX + SPF + DKIM + DMARC
-10. ✅ Alias Zoho créés + DKIM propagé + premier courriel envoyé
-11. ✅ Page /tarification créée (trilingue, 5 sections, forfaits web/maintenance/heures/social)
-12. ✅ Page /confidentialite créée (Loi 25 QC + PIPEDA fédéral, trilingue)
-13. ✅ Security headers renforcés (HSTS, CSP, COOP, CORP, Permissions-Policy)
-14. ✅ JSON translations complets — 151 clés FR/EN/ES, aucune manquante
-15. ✅ DÉPLOYÉ SUR VERCEL — groupesupernova.ca + supernovagroup.ca en production
-16. ✅ Domaines configurés : groupesupernova.ca, www (301), supernovagroup.ca, www (301)
-17. ✅ SSL certificates actifs sur les 4 domaines
-18. ✅ Framework Preset Next.js + Root Directory divisions/Web/HorizonSite
-19. [ ] og-image.jpg → remplacer placeholder par version finale (avec Paulina)
-20. [ ] Formulaire de contact → connecter SMTP Zoho (nodemailer, variables ENV Vercel)
-21. [ ] Photos équipe → remplacer placeholders (initiales) par vraies photos
-22. [ ] Google Search Console → soumettre groupesupernova.ca + sitemap
-23. [ ] Google Business Profile → créer fiche locale Sainte-Marie-de-Beauce
-24. [ ] Comptes sociaux → créer + réserver @groupesupernova sur toutes plateformes
-25. [ ] Enregistrement légal (NEQ + ARC fédéral)
-26. [ ] Upgrade Next.js → latest (tester localement d'abord, session dédiée)
-27. [ ] Formation Vercel — Analytics, Speed Insights, Firewall, Storage, fonctionnalités avancées
+## Prochaines étapes techniques — REBRAND 2026-05-26
+1.  ✅ Nouveau logo/mark L'ÉTOILE (mark-etoile.svg)
+2.  ✅ Header + page accueil mis à jour (mark-etoile.svg, 310px hero)
+3.  ✅ messages/fr.json — branding complet Étoile Boréale
+4.  ✅ messages/en.json + es.json — Boreal Star Group / Grupo Estrella Boreal
+5.  ✅ layout.tsx — metadata + OG + canonical nouveaux domaines
+6.  ✅ divisions/page.tsx — Draveur, Carillon, Nordik Legion Studio
+7.  ✅ divisions/web/page.tsx — Division Draveur (alt text, JSON-LD)
+8.  ✅ divisions/cyber/page.tsx — Saurel (ex-Argos), Suite Carignan (ex-Suite Olympus)
+9.  ✅ api/contact/route.ts — noms expéditeurs + domain footer
+10. ✅ robots.ts + sitemap.ts — etoileboreale.ca
+11. ✅ confidentialite/page.tsx — Groupe Étoile Boréale partout
+12. ✅ SEO complet — generateMetadata + JSON-LD Service/SoftwareApp sur toutes les pages
+13. ✅ Client components extraits (PortfolioClient, RejoindreCl) pour SEO serveur
+14. [ ] og-image.jpg — nouvelle image branding Étoile Boréale (tâche 7)
+15. [ ] Sync WSL + git commit + push → Vercel (tâche 17)
+16. [ ] Google Search Console — soumettre etoileboreale.ca + borealstar.ca (tâche 18)
+17. [ ] Google Business Profile — mettre à jour nom "Groupe Étoile Boréale Inc."
+18. [ ] Photos équipe → remplacer placeholders (initiales) par vraies photos
+19. [ ] Upgrade Next.js → latest (tester localement d'abord, session dédiée)
+20. [ ] Formation Vercel — Analytics, Speed Insights, Firewall, Storage
 
 ## Vercel — Notes configuration
 - Projet : horizon91-2zpm (Hobby plan)
-- Root Directory : divisions/Web/HorizonSite
+- Root Directory : divisions/Web/HorizonSite ← CRITIQUE, ne pas changer
 - Framework Preset : Next.js ← CRITIQUE, ne pas changer
 - Node.js : 24.x
 - Build auto sur chaque push git → main
-- Domaines Production : groupesupernova.ca, supernovagroup.ca
+- Domaines Production : etoileboreale.ca, borealstar.ca, groupesupernova.ca (301), supernovagroup.ca (301)
 - ATTENTION : changer Root Directory ou Framework Preset casse le déploiement

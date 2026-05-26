@@ -1,7 +1,38 @@
-"use client";
-
-import { useLocale } from "next-intl";
+import type { Metadata } from "next";
 import Link from "next/link";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+
+  const titles: Record<string, string> = {
+    fr: "Politique de Confidentialité — Loi 25 & PIPEDA",
+    en: "Privacy Policy — Law 25 & PIPEDA",
+    es: "Política de Privacidad — Ley 25 & PIPEDA",
+  };
+  const descriptions: Record<string, string> = {
+    fr: "Politique de confidentialité conforme à la Loi 25 du Québec et au PIPEDA fédéral. Groupe Étoile Boréale Inc., Sainte-Marie-de-Beauce, Québec.",
+    en: "Privacy policy compliant with Quebec Law 25 and federal PIPEDA. Boreal Star Group Inc., Sainte-Marie-de-Beauce, Quebec.",
+    es: "Política de privacidad conforme a la Ley 25 de Quebec y al PIPEDA federal. Grupo Estrella Boreal Inc., Sainte-Marie-de-Beauce, Quebec.",
+  };
+
+  const baseUrl = locale === "en" ? "https://borealstar.ca" : "https://etoileboreale.ca";
+  const canonical = `${baseUrl}${locale === "fr" ? "" : `/${locale}`}/confidentialite`;
+
+  return {
+    title: titles[locale] ?? titles.fr,
+    description: descriptions[locale] ?? descriptions.fr,
+    alternates: { canonical },
+    openGraph: {
+      title: titles[locale] ?? titles.fr,
+      description: descriptions[locale] ?? descriptions.fr,
+      url: canonical,
+    },
+  };
+}
 
 // ─── Contenu FR ───────────────────────────────────────────────────────────────
 
@@ -13,7 +44,7 @@ const FR = () => (
 
     <section className="space-y-4">
       <p className="text-h91-stellar/80 leading-relaxed">
-        La présente Politique de confidentialité explique comment <strong className="text-h91-stellar">Groupe Supernova</strong> (ci-après «&nbsp;nous&nbsp;», «&nbsp;notre&nbsp;», «&nbsp;l'entreprise&nbsp;»), dont le siège est à Sainte-Marie, Chaudière-Appalaches, Québec, Canada, collecte, utilise, conserve et protège vos renseignements personnels.
+        La présente Politique de confidentialité explique comment <strong className="text-h91-stellar">Groupe Étoile Boréale</strong> (ci-après «&nbsp;nous&nbsp;», «&nbsp;notre&nbsp;», «&nbsp;l'entreprise&nbsp;»), dont le siège est à Sainte-Marie, Chaudière-Appalaches, Québec, Canada, collecte, utilise, conserve et protège vos renseignements personnels.
       </p>
       <p className="text-h91-stellar/80 leading-relaxed">
         Elle est conforme à la <strong className="text-h91-accretion">Loi modernisant des dispositions législatives en matière de protection des renseignements personnels (Loi 25)</strong> du Québec ainsi qu'à la <strong className="text-h91-accretion">Loi sur la protection des renseignements personnels et les documents électroniques (LPRPDE)</strong> du gouvernement fédéral canadien.
@@ -26,17 +57,17 @@ const FR = () => (
     <section className="mb-10">
       <h2 className="text-xl font-bold text-h91-accretion mb-4">1. Responsable de la protection des renseignements personnels</h2>
       <p className="text-h91-stellar/80 leading-relaxed">
-        La personne responsable de la protection des renseignements personnels au sein de Groupe Supernova est :
+        La personne responsable de la protection des renseignements personnels au sein de Groupe Étoile Boréale est :
       </p>
       <div className="mt-4 p-5 border border-h91-accretion/30 rounded-xl bg-h91-gravity/50 text-h91-stellar/80 space-y-1">
         <p><strong className="text-h91-stellar">Jonathan Patoine</strong></p>
         <p>Fondateur &amp; Directeur général</p>
-        <p>Groupe Supernova</p>
+        <p>Groupe Étoile Boréale</p>
         <p>Sainte-Marie, Chaudière-Appalaches, Québec, Canada</p>
         <p>
           Courriel :{" "}
-          <a href="mailto:direction@groupesupernova.ca" className="text-h91-accretion hover:underline">
-            direction@groupesupernova.ca
+          <a href="mailto:direction@etoileboreale.ca" className="text-h91-accretion hover:underline">
+            direction@etoileboreale.ca
           </a>
         </p>
       </div>
@@ -139,7 +170,7 @@ const FR = () => (
         <li className="flex items-start gap-2"><span className="text-h91-fusion font-bold mt-0.5 shrink-0">Plainte</span><span className="ml-2">— Déposer une plainte auprès d'une autorité compétente.</span></li>
       </ul>
       <p className="text-h91-stellar/60 text-sm mt-4">
-        Pour exercer l'un de ces droits, contactez notre responsable à <a href="mailto:direction@groupesupernova.ca" className="text-h91-accretion hover:underline">direction@groupesupernova.ca</a>. Nous accuserons réception dans les 5 jours ouvrables et traiterons votre demande dans un délai de 30 jours.
+        Pour exercer l'un de ces droits, contactez notre responsable à <a href="mailto:direction@etoileboreale.ca" className="text-h91-accretion hover:underline">direction@etoileboreale.ca</a>. Nous accuserons réception dans les 5 jours ouvrables et traiterons votre demande dans un délai de 30 jours.
       </p>
     </section>
 
@@ -174,7 +205,7 @@ const FR = () => (
     <section className="mb-10">
       <h2 className="text-xl font-bold text-h91-accretion mb-4">12. Modifications à cette politique</h2>
       <p className="text-h91-stellar/80 leading-relaxed">
-        Nous nous réservons le droit de modifier cette politique en tout temps. La version en vigueur est toujours accessible à l'adresse <strong className="text-h91-stellar">groupesupernova.ca/fr/confidentialite</strong>. En cas de modification substantielle, un avis sera affiché sur le site et, si possible, envoyé aux personnes concernées.
+        Nous nous réservons le droit de modifier cette politique en tout temps. La version en vigueur est toujours accessible à l'adresse <strong className="text-h91-stellar">etoileboreale.ca/fr/confidentialite</strong>. En cas de modification substantielle, un avis sera affiché sur le site et, si possible, envoyé aux personnes concernées.
       </p>
     </section>
   </>
@@ -190,7 +221,7 @@ const EN = () => (
 
     <section className="space-y-4">
       <p className="text-h91-stellar/80 leading-relaxed">
-        This Privacy Policy explains how <strong className="text-h91-stellar">Supernova Group</strong> ("we", "our", "the Company"), headquartered in Sainte-Marie, Chaudière-Appalaches, Québec, Canada, collects, uses, retains, and protects your personal information.
+        This Privacy Policy explains how <strong className="text-h91-stellar">Boreal Star Group</strong> ("we", "our", "the Company"), headquartered in Sainte-Marie, Chaudière-Appalaches, Québec, Canada, collects, uses, retains, and protects your personal information.
       </p>
       <p className="text-h91-stellar/80 leading-relaxed">
         It complies with <strong className="text-h91-accretion">Québec Law 25</strong> (Act to modernize legislative provisions respecting the protection of personal information) and the <strong className="text-h91-accretion">Personal Information Protection and Electronic Documents Act (PIPEDA)</strong> of the federal Government of Canada.
@@ -202,14 +233,14 @@ const EN = () => (
     <section className="mb-10">
       <h2 className="text-xl font-bold text-h91-accretion mb-4">1. Privacy Officer</h2>
       <p className="text-h91-stellar/80 leading-relaxed">
-        The person responsible for the protection of personal information at Supernova Group is:
+        The person responsible for the protection of personal information at Boreal Star Group is:
       </p>
       <div className="mt-4 p-5 border border-h91-accretion/30 rounded-xl bg-h91-gravity/50 text-h91-stellar/80 space-y-1">
         <p><strong className="text-h91-stellar">Jonathan Patoine</strong></p>
         <p>Founder &amp; Chief Executive Officer</p>
-        <p>Supernova Group</p>
+        <p>Boreal Star Group</p>
         <p>Sainte-Marie, Chaudière-Appalaches, Québec, Canada</p>
-        <p>Email: <a href="mailto:direction@groupesupernova.ca" className="text-h91-accretion hover:underline">direction@groupesupernova.ca</a></p>
+        <p>Email: <a href="mailto:direction@etoileboreale.ca" className="text-h91-accretion hover:underline">direction@etoileboreale.ca</a></p>
       </div>
     </section>
 
@@ -299,7 +330,7 @@ const EN = () => (
         <li className="flex items-start gap-2"><span className="text-h91-fusion font-bold mt-0.5 shrink-0">Complaint</span><span className="ml-2">— File a complaint with a competent authority.</span></li>
       </ul>
       <p className="text-h91-stellar/60 text-sm mt-4">
-        To exercise any of these rights, contact our privacy officer at <a href="mailto:direction@groupesupernova.ca" className="text-h91-accretion hover:underline">direction@groupesupernova.ca</a>. We will acknowledge receipt within 5 business days and process your request within 30 days.
+        To exercise any of these rights, contact our privacy officer at <a href="mailto:direction@etoileboreale.ca" className="text-h91-accretion hover:underline">direction@etoileboreale.ca</a>. We will acknowledge receipt within 5 business days and process your request within 30 days.
       </p>
     </section>
 
@@ -331,7 +362,7 @@ const EN = () => (
     <section className="mb-10">
       <h2 className="text-xl font-bold text-h91-accretion mb-4">12. Changes to This Policy</h2>
       <p className="text-h91-stellar/80 leading-relaxed">
-        We reserve the right to modify this policy at any time. The current version is always available at <strong className="text-h91-stellar">supernovagroup.ca/en/confidentialite</strong>. In the event of a material change, notice will be posted on the website and, where possible, sent to affected individuals.
+        We reserve the right to modify this policy at any time. The current version is always available at <strong className="text-h91-stellar">borealstar.ca/en/confidentialite</strong>. In the event of a material change, notice will be posted on the website and, where possible, sent to affected individuals.
       </p>
     </section>
   </>
@@ -347,7 +378,7 @@ const ES = () => (
 
     <section className="space-y-4">
       <p className="text-h91-stellar/80 leading-relaxed">
-        Esta Política de privacidad explica cómo <strong className="text-h91-stellar">Grupo Supernova</strong> («nosotros», «nuestro», «la Empresa»), con sede en Sainte-Marie, Chaudière-Appalaches, Quebec, Canadá, recopila, utiliza, conserva y protege su información personal.
+        Esta Política de privacidad explica cómo <strong className="text-h91-stellar">Grupo Estrella Boreal</strong> («nosotros», «nuestro», «la Empresa»), con sede en Sainte-Marie, Chaudière-Appalaches, Quebec, Canadá, recopila, utiliza, conserva y protege su información personal.
       </p>
       <p className="text-h91-stellar/80 leading-relaxed">
         Cumple con la <strong className="text-h91-accretion">Ley 25 de Quebec</strong> (Ley de modernización de disposiciones legislativas en materia de protección de información personal) y con la <strong className="text-h91-accretion">Ley de Protección de Información Personal y Documentos Electrónicos (PIPEDA)</strong> del Gobierno Federal de Canadá.
@@ -361,9 +392,9 @@ const ES = () => (
       <div className="mt-4 p-5 border border-h91-accretion/30 rounded-xl bg-h91-gravity/50 text-h91-stellar/80 space-y-1">
         <p><strong className="text-h91-stellar">Jonathan Patoine</strong></p>
         <p>Fundador y Director General</p>
-        <p>Grupo Supernova</p>
+        <p>Grupo Estrella Boreal</p>
         <p>Sainte-Marie, Chaudière-Appalaches, Quebec, Canadá</p>
-        <p>Correo: <a href="mailto:direction@groupesupernova.ca" className="text-h91-accretion hover:underline">direction@groupesupernova.ca</a></p>
+        <p>Correo: <a href="mailto:direction@etoileboreale.ca" className="text-h91-accretion hover:underline">direction@etoileboreale.ca</a></p>
       </div>
     </section>
 
@@ -413,7 +444,7 @@ const ES = () => (
         <li className="flex items-start gap-2"><span className="text-h91-fusion font-bold mt-0.5 shrink-0">Queja</span><span className="ml-2">— Presentar una queja ante una autoridad competente.</span></li>
       </ul>
       <p className="text-h91-stellar/60 text-sm mt-4">
-        Para ejercer cualquiera de estos derechos, contáctenos en <a href="mailto:direction@groupesupernova.ca" className="text-h91-accretion hover:underline">direction@groupesupernova.ca</a>.
+        Para ejercer cualquiera de estos derechos, contáctenos en <a href="mailto:direction@etoileboreale.ca" className="text-h91-accretion hover:underline">direction@etoileboreale.ca</a>.
       </p>
     </section>
 
@@ -437,8 +468,12 @@ const ES = () => (
 
 // ─── Page principale ───────────────────────────────────────────────────────────
 
-export default function ConfidentialitePage() {
-  const locale = useLocale();
+export default async function ConfidentialitePage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
 
   const titles: Record<string, string> = {
     fr: "Politique de confidentialité",
@@ -453,7 +488,7 @@ export default function ConfidentialitePage() {
         {titles[locale] ?? titles.fr}
       </h1>
       <p className="text-center text-h91-stellar/40 text-sm mb-16">
-        Groupe Supernova — Sainte-Marie, Québec, Canada
+        Groupe Étoile Boréale — Sainte-Marie, Québec, Canada
       </p>
 
       {/* Contenu selon locale */}

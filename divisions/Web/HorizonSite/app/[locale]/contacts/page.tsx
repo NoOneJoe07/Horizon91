@@ -1,4 +1,38 @@
+import type { Metadata } from "next";
 import { useTranslations } from "next-intl";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+
+  const titles: Record<string, string> = {
+    fr: "Nous Contacter",
+    en: "Contact Us",
+    es: "Contáctenos",
+  };
+  const descriptions: Record<string, string> = {
+    fr: "Contactez la Division Draveur (web), la Division Carillon (cybersécurité) ou la direction générale de Groupe Étoile Boréale. L'équipe de Sainte-Marie-de-Beauce répond rapidement.",
+    en: "Contact Draveur Division (web), Carillon Division (cybersecurity) or executive leadership at Boreal Star Group. The Sainte-Marie-de-Beauce team responds quickly to all inquiries.",
+    es: "Contacte la División Draveur (web), la División Carillon (ciberseguridad) o la dirección general de Grupo Estrella Boreal. El equipo de Sainte-Marie-de-Beauce responde rápidamente.",
+  };
+
+  const baseUrl = locale === "en" ? "https://borealstar.ca" : "https://etoileboreale.ca";
+  const canonical = `${baseUrl}${locale === "fr" ? "" : `/${locale}`}/contacts`;
+
+  return {
+    title: titles[locale] ?? titles.fr,
+    description: descriptions[locale] ?? descriptions.fr,
+    alternates: { canonical },
+    openGraph: {
+      title: titles[locale] ?? titles.fr,
+      description: descriptions[locale] ?? descriptions.fr,
+      url: canonical,
+    },
+  };
+}
 
 export default function ContactsPage() {
   const t = useTranslations("contacts");

@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 
-const BASE_URL = "https://groupesupernova.ca";
+const BASE_URL = "https://etoileboreale.ca";
 
 const routes = [
   { path: "", priority: 1.0, changeFrequency: "weekly" as const },

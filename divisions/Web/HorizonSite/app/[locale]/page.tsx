@@ -1,6 +1,40 @@
+import type { Metadata } from "next";
 import { useTranslations } from "next-intl";
 import { getLocale } from "next-intl/server";
 import Image from "next/image";
+
+// ─────────────────────────────────────────────────────────
+// Metadata SEO — HomePage
+// ─────────────────────────────────────────────────────────
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+
+  const titles: Record<string, string> = {
+    fr: "Groupe Étoile Boréale — Agence Web & Cybersécurité | Sainte-Marie-de-Beauce",
+    en: "Boreal Star Group — Web Agency & Cybersecurity | Sainte-Marie-de-Beauce",
+    es: "Grupo Estrella Boreal — Agencia Web & Ciberseguridad | Beauce, Quebec",
+  };
+  const descriptions: Record<string, string> = {
+    fr: "Comme l'Étoile Polaire guidait les coureurs des bois à travers l'immensité du pays, Groupe Étoile Boréale guide les PME de Beauce dans l'univers numérique. Développement web, cybersécurité, médias sociaux — Chaudière-Appalaches.",
+    en: "Like Polaris guided the coureurs des bois through Canada's wilderness, Boreal Star Group guides Beauce entrepreneurs through the digital landscape. Web development, cybersecurity, social media — Chaudière-Appalaches, Quebec.",
+    es: "Como la Estrella Polar guiaba a los viajeros por el vasto territorio canadiense, Grupo Estrella Boreal guía a las pymes de Beauce en el universo digital. Desarrollo web, ciberseguridad, redes sociales — Chaudière-Appalaches.",
+  };
+
+  const t = titles[locale] ?? titles.fr;
+  const d = descriptions[locale] ?? descriptions.fr;
+  const baseUrl = locale === "en" ? "https://borealstar.ca" : "https://etoileboreale.ca";
+
+  return {
+    title: { absolute: t },
+    description: d,
+    alternates: { canonical: baseUrl },
+    openGraph: { title: t, description: d, url: baseUrl },
+  };
+}
 
 // ─────────────────────────────────────────────────────────
 // JSON-LD — LocalBusiness (SEO structuré)
@@ -8,44 +42,65 @@ import Image from "next/image";
 async function LocalBusinessJsonLd() {
   const locale = await getLocale();
   const name =
-    locale === "en" ? "Supernova Group" : locale === "es" ? "Grupo Supernova" : "Groupe Supernova";
+    locale === "en" ? "Boreal Star Group" : locale === "es" ? "Grupo Estrella Boreal" : "Groupe Étoile Boréale";
   const url =
-    locale === "en" ? "https://supernovagroup.ca" : "https://groupesupernova.ca";
+    locale === "en" ? "https://borealstar.ca" : "https://etoileboreale.ca";
 
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
     name,
     url,
-    logo: `${url}/LogoGroupeSupernova.svg`,
+    logo: `${url}/mark-etoile.svg`,
     image: `${url}/og-image.jpg`,
+    slogan:
+      locale === "en"
+        ? "Like Polaris, we guide entrepreneurs through the digital frontier."
+        : locale === "es"
+        ? "Como la Estrella Polar, guiamos a los emprendedores en el universo digital."
+        : "Comme l'Étoile Polaire, nous guidons les entrepreneurs dans l'univers numérique.",
     description:
       locale === "en"
-        ? "Web agency, cybersecurity and game studio based in Sainte-Marie-de-Beauce, Quebec."
+        ? "Web agency, cybersecurity and game studio based in Sainte-Marie-de-Beauce, Quebec. Named after the North Star that guided Canada's coureurs des bois."
         : locale === "es"
-        ? "Agencia web, ciberseguridad y estudio de videojuegos en Sainte-Marie-de-Beauce, Quebec."
-        : "Agence web, cybersécurité et studio de jeux vidéo à Sainte-Marie-de-Beauce, Québec.",
+        ? "Agencia web, ciberseguridad y estudio de videojuegos en Sainte-Marie-de-Beauce, Quebec. Nombrada tras la Estrella Polar que guiaba a los exploradores canadienses."
+        : "Agence web, cybersécurité et studio de jeux vidéo à Sainte-Marie-de-Beauce, Québec. Nommée en hommage à l'étoile qui guidait les coureurs des bois du pays.",
+    foundingDate: "2024",
+    numberOfEmployees: { "@type": "QuantitativeValue", value: 4 },
+    priceRange: "$$",
     address: {
       "@type": "PostalAddress",
       addressLocality: "Sainte-Marie",
       addressRegion: "QC",
+      postalCode: "G6E",
       addressCountry: "CA",
     },
     areaServed: [
       { "@type": "Place", name: "Beauce" },
       { "@type": "Place", name: "Chaudière-Appalaches" },
       { "@type": "Place", name: "Québec" },
+      { "@type": "Place", name: "Bellechasse" },
     ],
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: locale === "en" ? "Digital Services" : "Services numériques",
+      itemListElement: [
+        { "@type": "Offer", itemOffered: { "@type": "Service", name: locale === "en" ? "Web Development" : "Développement web" } },
+        { "@type": "Offer", itemOffered: { "@type": "Service", name: locale === "en" ? "Cybersecurity" : "Cybersécurité" } },
+        { "@type": "Offer", itemOffered: { "@type": "Service", name: locale === "en" ? "Social Media Management" : "Gestion médias sociaux" } },
+      ],
+    },
     contactPoint: {
       "@type": "ContactPoint",
-      email: "contact@groupesupernova.ca",
+      email: "contact@etoileboreale.ca",
       contactType: "customer service",
+      availableLanguage: ["French", "English", "Spanish"],
     },
     sameAs: [
-      "https://www.facebook.com/groupesupernova",
-      "https://www.instagram.com/groupesupernova",
-      "https://www.linkedin.com/company/groupesupernova",
-      "https://www.youtube.com/@groupesupernova",
+      "https://www.facebook.com/etoileboreale",
+      "https://www.instagram.com/etoileboreale",
+      "https://www.linkedin.com/company/etoileboreale",
+      "https://www.youtube.com/@etoileboreale",
     ],
   };
 
@@ -100,36 +155,52 @@ export default function HomePage() {
       ================================================================ */}
       <main
         id="hero"
-        className="flex flex-col items-center justify-center min-h-screen text-center px-6 pt-0"
+        className="flex flex-col items-center min-h-screen text-center px-6 pt-28"
       >
-        <h1 className="text-6xl md:text-8xl font-bold h91-title-gradient-animated mb-6">
+        <h1 className="text-6xl md:text-8xl font-bold h91-title-gradient-animated mb-14">
           {tBrand("name")}
         </h1>
 
         {/* LOGO + ORBITAL EFFECT */}
-        <div className="relative flex items-center justify-center mb-6">
+        <div className="relative flex items-center justify-center mb-10">
           <div className="blue-halo"></div>
           <div className="orbital-core"></div>
           <Image
-            src="/LogoGroupeSupernova.svg"
-            alt="Logo Groupe Supernova"
-            width={800}
-            height={800}
+            src="/mark-etoile.svg"
+            alt="Logo Groupe Étoile Boréale"
+            width={310}
+            height={310}
             priority
-            style={{ width: "100%", height: "auto", maxWidth: "800px", aspectRatio: "1/1" }}
-            className="relative z-10 drop-shadow-2xl"
+            style={{ width: "310px", height: "310px" }}
+            className="relative z-10"
           />
         </div>
 
-        <p className="mt-0 text-lg md:text-xl text-h91-stellar/80 max-w-2xl">
+        <p className="text-lg md:text-xl text-h91-stellar/80 max-w-2xl mb-10">
           {t("tagline")}
         </p>
+
+        {/* SCROLL INDICATOR */}
+        <a
+          href="#equipe"
+          className="flex flex-col items-center gap-2 text-h91-stellar/40 hover:text-h91-accretion transition group"
+          aria-label="Défiler vers le bas"
+        >
+          <span className="text-xs font-semibold tracking-widest uppercase">Défiler</span>
+          <svg
+            width="24" height="24" viewBox="0 0 24 24" fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            className="animate-bounce"
+          >
+            <path d="M6 9L12 15L18 9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+        </a>
       </main>
 
       {/* ================================================================
           L'ÉQUIPE
       ================================================================ */}
-      <section id="equipe" className="py-24 px-6 max-w-6xl mx-auto">
+      <section id="equipe" className="py-12 px-6 max-w-6xl mx-auto">
         <h2 className="text-4xl md:text-5xl font-bold text-h91-stellar text-center mb-4">
           {t("team.title")}
         </h2>

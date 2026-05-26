@@ -3,9 +3,9 @@ import nodemailer from "nodemailer";
 
 /* ─────────────────────────────────────────────────────────
    Variables d'environnement requises dans Vercel :
-   ZOHO_USER    = noreply@groupesupernova.ca
-   ZOHO_PASS    = mot de passe du compte Zoho noreply
-   CONTACT_TO   = contact@groupesupernova.ca (destinataire)
+   ZOHO_USER    = contact@groupesupernova.ca (auth SMTP — ne pas changer)
+   ZOHO_PASS    = mot de passe du compte Zoho
+   CONTACT_TO   = jonathan.patoine@etoileboreale.ca (destinataire)
 ───────────────────────────────────────────────────────────── */
 
 const transporter = nodemailer.createTransport({
@@ -42,15 +42,15 @@ export async function POST(req: NextRequest) {
     const labelMap: Record<string, { subject: string; from: string }> = {
       fr: {
         subject: `Nouveau message — ${nom}`,
-        from: `"Groupe Supernova" <${process.env.ZOHO_USER}>`,
+        from: `"Groupe Étoile Boréale" <${process.env.ZOHO_USER}>`,
       },
       en: {
         subject: `New message — ${nom}`,
-        from: `"Supernova Group" <${process.env.ZOHO_USER}>`,
+        from: `"Boreal Star Group" <${process.env.ZOHO_USER}>`,
       },
       es: {
         subject: `Nuevo mensaje — ${nom}`,
-        from: `"Grupo Supernova" <${process.env.ZOHO_USER}>`,
+        from: `"Grupo Estrella Boreal" <${process.env.ZOHO_USER}>`,
       },
     };
 
@@ -58,14 +58,14 @@ export async function POST(req: NextRequest) {
 
     await transporter.sendMail({
       from: labels.from,
-      to: process.env.CONTACT_TO ?? "contact@groupesupernova.ca",
+      to: process.env.CONTACT_TO ?? "contact@etoileboreale.ca",
       replyTo: courriel,
       subject: labels.subject,
       html: `
         <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;background:#0a0a0a;color:#F2F7FF;padding:32px;border-radius:12px;border:1px solid #FF7A1A33;">
           <div style="text-align:center;margin-bottom:24px;">
             <span style="font-size:12px;font-weight:bold;letter-spacing:0.15em;text-transform:uppercase;color:#FF7A1A;">
-              groupesupernova.ca — Formulaire de contact
+              etoileboreale.ca — Formulaire de contact
             </span>
           </div>
           <h2 style="color:#F2F7FF;font-size:22px;margin:0 0 20px;">Nouveau message</h2>

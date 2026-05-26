@@ -453,3 +453,58 @@ Site groupesupernova.ca en production complète — 4 domaines SSL actifs, Verce
 - [ ] Prochaine session HorizonSite : formulaire de contact SMTP Zoho (nodemailer + ENV Vercel)
 - [ ] Synchroniser ce Starlog vers le projet Cowork Division Cybersécurité
 
+---
+
+## ★ ENTRÉE #010
+**Date terrestre :** 2026-05-22 | **Heure :** ~22h00 EDT
+**Jour de mission :** Jour 26 — Le cap est redonné à l'Étoile
+**Secteur :** Projet Cowork — HorizonSite
+**Rédigé par :** Jonathan Patoine + Claude (Cowork — HorizonSite)
+
+### État du vaisseau
+Citadelle Jiu-Jitsu à 95% — Paulina finalise les vidéos, lancement visé le 1er juin. HorizonSite en production sur groupesupernova.ca. Côté incorporation : 3 refus NUANS consécutifs (Supernova, Canada, Technologies) sur la demande fédérale #20562396. Email envoyé à Abigail (canada-nuans.ca) avec 3 paires bilingues pour pré-recherche — en attente réponse.
+
+### Découvertes & Avancées
+
+**REBRAND COMPLET — Décision unanime ce jour :**
+Après 3 refus NUANS, Jonathan applique la philosophie stoïcienne : l'obstacle devient le chemin. Plutôt que de forcer le passage avec "Groupe Supernova", il réoriente vers une identité plus profonde, déjà présente en germe dans la nomenclature des produits (mythologie, histoire, folklore) — mais cette fois ancrée dans l'histoire *canadienne*.
+
+**Nouvelle identité officielle :**
+- Maison mère FR : **Groupe Étoile Boréale Inc.**
+- Maison mère EN : **Boreal Star Digital Inc.**
+- Division Web : **Division Astrolabe** (l'astrolabe de Champlain, perdu 1613, retrouvé 1867 — précision, navigation, expertise)
+- Division Cybersécurité : **Division Carillon** (Bataille de Carillon 1758 — 3 600 défenseurs vs 15 000 assaillants — architecture défensive supérieure)
+- Suite Carignan : les produits cyber renommés en hommage au Régiment de Carignan-Salières (1665, premiers défenseurs professionnels de la Nouvelle-France)
+
+**Nouveaux noms produits Suite Carignan :**
+| Nouveau nom public | Ancien nom interne | Fonction |
+|---|---|---|
+| Saurel | Argos | Dark web monitoring SaaS |
+| Chambly | Cerbère | IAM / Gestion des identités |
+| Contrecoeur | Dolos | Simulation phishing |
+| Berthier | Aegis | Analyseur légitimité courriels |
+| Sorel | Bellérophon | Remédiation / réponse incidents |
+
+**Validation stratégique du rebrand :**
+- Champ lexical entièrement libre — aucun concurrent tech n'occupe ce territoire
+- Cohérence parfaite avec positionnement SaaS souverain québécois (accord QC-France 2026-03-30)
+- Différenciateur #1 : seule firme tech Canada avec branding historique canadien ancré et cohérent
+- Domaines à enregistrer : etoileboreale.ca + borealstar.ca
+
+**Session ce soir :**
+- Claude HorizonSite mis au courant du rebrand par Jonathan en personne ("le moindre des respects")
+- Chantier HorizonSite évalué : 18 tâches identifiées et formalisées dans la liste de session
+- `contexte_session_horizonsite.md` entièrement réécrit (la version précédente datait du 3 mai)
+- Ce Starlog mis à jour
+
+**Note sur la numérotation :** Une double entrée #009 existe dans ce journal (sessions du 2026-05-11 et 2026-05-17). L'anomalie est préservée à des fins d'authenticité documentaire. La numérotation reprend ici à #010.
+
+### Anomalies & Résolutions
+- Aucune anomalie technique ce soir — session stratégique et documentaire.
+
+### Cap fixé
+- [ ] Ce week-end : enregistrer etoileboreale.ca + borealstar.ca sur Namecheap
+- [ ] Lundi : démarrer le chantier de rebrand HorizonSite (18 tâches, en ordre logique)
+- [ ] Décision à prendre avant de commencer le code : garde-t-on les URLs `/divisions/web` et `/divisions/cyber` ou on bascule vers `/divisions/astrolabe` et `/divisions/carillon` ?
+- [ ] Attendre réponse Abigail (canada-nuans.ca) — pré-recherche NUANS Étoile Boréale
+

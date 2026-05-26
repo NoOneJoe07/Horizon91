@@ -1,13 +1,112 @@
+import type { Metadata } from "next";
 import { useTranslations } from "next-intl";
+import { getLocale } from "next-intl/server";
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+
+  const titles: Record<string, string> = {
+    fr: "Division Carillon — Cybersécurité & Surveillance Dark Web",
+    en: "Carillon Division — Cybersecurity & Dark Web Monitoring",
+    es: "División Carillon — Ciberseguridad & Monitoreo Dark Web",
+  };
+  const descriptions: Record<string, string> = {
+    fr: "En 1758, Montcalm défendit Carillon contre l'impossible. La Division Carillon défend votre entreprise avec la même ténacité. Saurel (surveillance Dark Web), audit sécurité, conformité Loi 25 — PME québécoises.",
+    en: "In 1758, Montcalm held Fort Carillon against impossible odds. Carillon Division defends your business with the same tenacity. Saurel dark web monitoring, security audits, Law 25 compliance.",
+    es: "En 1758, Montcalm defendió Carillon contra lo imposible. La División Carillon defiende su empresa con la misma tenacidad. Saurel (monitoreo Dark Web), auditoría de seguridad.",
+  };
+
+  const baseUrl = locale === "en" ? "https://borealstar.ca" : "https://etoileboreale.ca";
+  const canonical = `${baseUrl}${locale === "fr" ? "" : `/${locale}`}/divisions/cyber`;
+
+  return {
+    title: titles[locale] ?? titles.fr,
+    description: descriptions[locale] ?? descriptions.fr,
+    alternates: { canonical },
+    openGraph: {
+      title: titles[locale] ?? titles.fr,
+      description: descriptions[locale] ?? descriptions.fr,
+      url: canonical,
+    },
+  };
+}
+
+// ─────────────────────────────────────────────────────────
+// JSON-LD — Service Cybersécurité + SoftwareApplication Saurel
+// ─────────────────────────────────────────────────────────
+async function CyberServiceJsonLd() {
+  const locale = await getLocale();
+  const baseUrl = locale === "en" ? "https://borealstar.ca" : "https://etoileboreale.ca";
+  const org = locale === "en" ? "Boreal Star Group" : locale === "es" ? "Grupo Estrella Boreal" : "Groupe Étoile Boréale";
+  const pageUrl = `${baseUrl}${locale === "fr" ? "" : `/${locale}`}/divisions/cyber`;
+
+  const jsonLd = [
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      name:
+        locale === "en" ? "Carillon Division — Cybersecurity"
+        : locale === "es" ? "División Carillon — Ciberseguridad"
+        : "Division Carillon — Cybersécurité",
+      serviceType: "Cybersecurity",
+      description:
+        locale === "en"
+          ? "Cybersecurity consulting and dark web monitoring for Quebec SMBs. Named after the Battle of Carillon (1758), where Montcalm's 3,600 men repelled 15,000 British troops — defending the outnumbered with intelligence and strategy."
+          : locale === "es"
+          ? "Consultoría en ciberseguridad y monitoreo del dark web para pymes de Quebec. Nombrada en honor a la Batalla de Carillon (1758), donde Montcalm repelió a 15,000 soldados con solo 3,600 hombres."
+          : "Conseil en cybersécurité et surveillance du Dark Web pour les PME québécoises. Nommée en hommage à la Bataille de Carillon (1758), où Montcalm repoussa 15 000 soldats britanniques avec seulement 3 600 hommes.",
+      provider: { "@type": "Organization", name: org, url: baseUrl },
+      areaServed: [
+        { "@type": "Place", name: "Beauce" },
+        { "@type": "Place", name: "Chaudière-Appalaches" },
+        { "@type": "Place", name: "Québec" },
+      ],
+      url: pageUrl,
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      name: "Saurel",
+      applicationCategory: "SecurityApplication",
+      operatingSystem: "Web",
+      description:
+        locale === "en"
+          ? "Saurel is a dark web monitoring SaaS that continuously scans clandestine markets, forums and data leaks to alert businesses before damage is done."
+          : locale === "es"
+          ? "Saurel es un SaaS de monitoreo del dark web que escanea mercados clandestinos y filtraciones de datos para alertar a las empresas antes de que ocurra el daño."
+          : "Saurel est un SaaS de surveillance du Dark Web qui scanne en continu les marchés clandestins, forums et fuites de données pour alerter les entreprises avant que les dommages soient faits.",
+      offers: [
+        { "@type": "Offer", name: "Sentinelle", price: "75", priceCurrency: "CAD" },
+        { "@type": "Offer", name: "Gardien", price: "150", priceCurrency: "CAD" },
+        { "@type": "Offer", name: "Bouclier", price: "200", priceCurrency: "CAD" },
+        { "@type": "Offer", name: "Forteresse", price: "350", priceCurrency: "CAD" },
+      ],
+      provider: { "@type": "Organization", name: org, url: baseUrl },
+      url: pageUrl,
+    },
+  ];
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+    />
+  );
+}
 
 type Service = { titre: string; desc: string };
 
 /* ─────────────────────────────────────────────────────────────
-   ARGOS — tiers tarifaires (données statiques, même en FR/EN/ES)
+   SAUREL — tiers tarifaires (données statiques, même en FR/EN/ES)
+   Saurel = Dark Web Monitoring SaaS (ex-Argos)
 ───────────────────────────────────────────────────────────────── */
-const ARGOS_TIERS = [
+const SAUREL_TIERS = [
   {
     nom: "Sentinelle",
     prix: "75 $",
@@ -70,13 +169,13 @@ const ARGOS_TIERS = [
 ];
 
 /* ─────────────────────────────────────────────────────────────
-   SUITE OLYMPUS — produits à venir (blurred / zone de travaux)
+   SUITE CARIGNAN — produits à venir (blurred / zone de travaux)
 ───────────────────────────────────────────────────────────────── */
-const SUITE_OLYMPUS = [
-  { nom: "Bellérophon", categorie: "Détection & neutralisation de menaces avancées" },
-  { nom: "Dolos", categorie: "Anti-phishing & ingénierie sociale" },
-  { nom: "Aegis", categorie: "Protection d'infrastructure & pare-feu adaptatif" },
-  { nom: "Cerbère", categorie: "Contrôle d'accès & gestion des identités" },
+const SUITE_CARIGNAN = [
+  { nom: "Sorel",        categorie: "Remédiation & réponse aux incidents" },
+  { nom: "Contrecoeur", categorie: "Simulation phishing & ingénierie sociale" },
+  { nom: "Berthier",    categorie: "Analyseur de légitimité des courriels" },
+  { nom: "Chambly",     categorie: "IAM — Contrôle d'accès & identités" },
 ];
 
 export default function DivisionCyberPage() {
@@ -86,6 +185,7 @@ export default function DivisionCyberPage() {
 
   return (
     <>
+      <CyberServiceJsonLd />
       {/* ═══════════════════════════════════════════════════
           HERO
       ═══════════════════════════════════════════════════ */}
@@ -97,7 +197,7 @@ export default function DivisionCyberPage() {
         <div className="mb-6 flex items-center justify-center">
           <Image
             src="/mark-cyber.svg"
-            alt="Singularité — Division Cybersécurité"
+            alt="Singularité — Division Carillon — Cybersécurité"
             width={80}
             height={80}
             className="drop-shadow-lg"
@@ -174,13 +274,13 @@ export default function DivisionCyberPage() {
               Produit phare — SaaS
             </span>
             <h2 className="text-6xl md:text-7xl font-bold text-h91-stellar mb-5 tracking-tight">
-              ARGOS
+              SAUREL
             </h2>
             <p className="text-h91-accretion font-semibold text-lg md:text-xl italic max-w-2xl mx-auto mb-5">
               &quot;Cent yeux qui ne dorment jamais, pendant que vous dormez tranquille.&quot;
             </p>
             <p className="text-h91-stellar/55 text-base max-w-2xl mx-auto leading-relaxed">
-              Surveillance du Dark Web en temps réel. Argos scanne en continu les marchés
+              Surveillance du Dark Web en temps réel. Saurel scanne en continu les marchés
               clandestins, forums et fuites de données pour vous alerter dès que vos
               informations apparaissent — avant que les dommages soient faits.
             </p>
@@ -188,7 +288,7 @@ export default function DivisionCyberPage() {
 
           {/* Tiers */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
-            {ARGOS_TIERS.map((tier, i) => (
+            {SAUREL_TIERS.map((tier, i) => (
               <div
                 key={i}
                 className={`relative p-6 rounded-xl flex flex-col gap-4 transition ${
@@ -274,20 +374,20 @@ export default function DivisionCyberPage() {
           {/* En-tête */}
           <div className="text-center mb-14">
             <span className="inline-block text-xs font-bold px-3 py-1.5 rounded-full bg-h91-stellar/5 text-h91-stellar/30 border border-h91-stellar/15 mb-6 uppercase tracking-widest">
-              Suite Olympus
+              Suite Carignan
             </span>
             <h2 className="text-4xl font-bold text-h91-stellar/25 mb-3">
               L&apos;arsenal complet arrive.
             </h2>
             <p className="text-h91-stellar/25 text-base max-w-xl mx-auto leading-relaxed">
-              D&apos;autres outils de la Suite Olympus sont en développement actif.
+              D&apos;autres outils de la Suite Carignan sont en développement actif.
               Accès restreint — zone de travaux.
             </p>
           </div>
 
           {/* Cartes blurrées */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
-            {SUITE_OLYMPUS.map((outil, i) => (
+            {SUITE_CARIGNAN.map((outil, i) => (
               <div
                 key={i}
                 className="relative rounded-xl overflow-hidden border border-h91-stellar/10 bg-h91-gravity/30"

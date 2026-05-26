@@ -1,6 +1,6 @@
 {
   "brand": {
-    "name": "Groupe Supernova",
+    "name": "Groupe Étoile Boréale",
     "tagline_footer": "Agence Créative & Technologique"
   },
   "nav": {
@@ -37,7 +37,7 @@
         "gabriel": {
           "nom": "Gabriel Patoine",
           "titre": "CISO — Division Cybersécurité",
-          "bio": "Gabriel rejoindra officiellement Groupe Supernova à titre de responsable de la sécurité des systèmes d'information. Sa formation spécialisée et son réseau en cybersécurité seront des atouts majeurs pour la protection des infrastructures de nos clients."
+          "bio": "Gabriel rejoindra officiellement Groupe Étoile Boréale à titre de responsable de la sécurité des systèmes d'information. Sa formation spécialisée et son réseau en cybersécurité seront des atouts majeurs pour la protection des infrastructures de nos clients."
         }
       }
     },
@@ -48,8 +48,8 @@
       "p3": "En décembre 2022, son entreprise ferme sur décision gouvernementale. Il repart à zéro avec son frère, ouvre une franchise, se bat. Ça ne suffit pas. Puis un CISO — responsable de la cybersécurité d'un CISSS régional — leur ouvre une porte inattendue. Jonathan s'inscrit en AEC au Collège Cumberland. Il apprend les protocoles, les réseaux, les vulnérabilités. En apprenant comment les systèmes tombent, il comprend enfin comment ils fonctionnent.",
       "p4": "C'est dans cette période qu'il commence à travailler avec l'intelligence artificielle — pas comme un outil, mais comme un partenaire. Il réalise quelque chose de fondamental : il n'est plus bloqué derrière le mur des connaissances à acquérir avant de pouvoir créer. L'imagination peut précéder la maîtrise. Il commence à bâtir son studio de jeux. Il commence à rêver plus grand.",
       "p5": "Début 2026, son contrat éditorial à Montréal prend fin. C'est la supernova. L'explosion qui précède la renaissance.",
-      "p6": "En mars 2026, Groupe Supernova naît officiellement — avec une mission précise : commencer local. Aider les entrepreneurs et artisans de la région à construire leur présence numérique et à vivre de ce qu'ils aiment vraiment faire. Le premier projet pilote : un dojo de jiu-jitsu brésilien en Beauce. Un prof passionné qui peine à rejoindre sa clientèle. Exactement le genre de personne pour qui tout ça a été bâti.",
-      "quote": "Une supernova n'est pas une fin. C'est l'explosion qui disperse dans l'univers les éléments nécessaires à la création de nouvelles étoiles.",
+      "p6": "En mars 2026, le groupe naît officiellement — avec une mission précise : commencer local. Aider les entrepreneurs et artisans de la région à construire leur présence numérique et à vivre de ce qu'ils aiment vraiment faire. Le premier projet pilote : un dojo de jiu-jitsu brésilien en Beauce. Un prof passionné qui peine à rejoindre sa clientèle. Exactement le genre de personne pour qui tout ça a été bâti. En mai 2026, le groupe adopte son nom définitif : Groupe Étoile Boréale Inc.",
+      "quote": "Une supernova n'est pas une fin. C'est l'explosion qui disperse dans l'univers les éléments nécessaires à la création de nouvelles étoiles. Nous sommes cette étoile.",
       "cta": "Explorer nos divisions"
     }
   },
@@ -57,7 +57,7 @@
     "title": "Nos Divisions",
     "subtitle": "Trois pôles d'expertise. Une seule vision.",
     "divisionWeb": {
-      "hero_titre": "Division Web",
+      "hero_titre": "Division Draveur — Développement Web",
       "hero_tagline": "La Flamme",
       "hero_description": "On conçoit des présences numériques qui travaillent pour toi — même quand tu dors. Sites rapides, beaux, référencés et maintenus par une équipe locale qui comprend la réalité des entrepreneurs d'ici.",
       "services_titre": "Ce qu'on fait",
@@ -76,7 +76,7 @@
       "cta_portfolio": "Voir nos réalisations"
     },
     "divisionCyber": {
-      "hero_titre": "Division Cybersécurité",
+      "hero_titre": "Division Carillon — Cybersécurité",
       "hero_tagline": "Singularité",
       "hero_description": "Tes données, ton infrastructure et la confiance de tes clients méritent une protection sérieuse. On analyse, on sécurise, on forme — pour que tu puisses croître sans vulnérabilité cachée.",
       "services_titre": "Ce qu'on fait",
@@ -96,19 +96,19 @@
       "cta_portfolio": "Retour aux divisions"
     },
     "web": {
-      "nom": "Développement Web",
+      "nom": "Division Draveur — Développement Web",
       "description": "Sites web modernes, boutiques en ligne, systèmes de réservation et solutions numériques sur mesure pour entrepreneurs locaux et PME. Conception graphique, identité visuelle et stratégie de contenu incluses.",
       "services": ["Sites vitrines & e-commerce", "SEO & référencement local", "Identité visuelle & infographie", "Maintenance & rétention mensuelle"],
       "cta": "Voir nos réalisations →"
     },
     "cyber": {
-      "nom": "Cybersécurité",
+      "nom": "Division Carillon — Cybersécurité",
       "description": "Analyse de vulnérabilités, sécurisation d'infrastructures, formation et sensibilisation aux bonnes pratiques de sécurité informatique pour les entreprises.",
       "services": ["Audit de sécurité", "Protection des données", "Formation équipes", "Conformité & bonnes pratiques"],
       "cta": "Accéder au département →"
     },
     "studio": {
-      "nom": "Studio Jeux — Nordik Legion",
+      "nom": "Nordik Legion Studio",
       "description": "Développement de jeux vidéo indépendants, expériences interactives et univers narratifs immersifs. Projet phare : Cyber-Mythos Labyrinthe.",
       "services": ["Jeux indépendants", "Expériences interactives", "Design narratif", "Univers & lore"],
       "cta": "Visiter le studio →"
@@ -180,7 +180,7 @@
       },
       {
         "nom": "Argos — Surveillance Dark Web",
-        "client": "Groupe Supernova — Produit interne",
+        "client": "Groupe Étoile Boréale — Produit interne",
         "categorie": "Cybersécurité",
         "description": "SaaS de surveillance du Dark Web en temps réel. Argos scanne en continu les marchés clandestins, forums et fuites de données pour alerter les entreprises dès que leurs informations apparaissent.",
         "resultats": ["Scan Dark Web continu", "Alertes temps réel", "4 tiers tarifaires", "Données au Québec"],
@@ -197,7 +197,7 @@
       {
         "titre": "Direction générale",
         "couleur": "text-h91-fusion",
-        "courriel": "direction@groupesupernova.ca",
+        "courriel": "direction@etoileboreale.ca",
         "note": "Partenariats, vision stratégique, collaborations."
       },
       {
@@ -215,7 +215,7 @@
       {
         "titre": "Studio Nordik Legion",
         "couleur": "text-h91-ion",
-        "courriel": "studio@groupesupernova.ca",
+        "courriel": "studio@etoileboreale.ca",
         "note": "Jeux vidéo, expériences interactives."
       }
     ]
@@ -227,7 +227,7 @@
     "email_label": "Courriel",
     "address_label": "Adresse",
     "phone": "(418) 000‑0000",
-    "email": "contact@groupesupernova.ca",
+    "email": "contact@etoileboreale.ca",
     "address": "Sainte‑Marie, Chaudière‑Appalaches, Québec",
     "label_nom": "Votre nom",
     "label_courriel": "Votre courriel",
@@ -318,7 +318,7 @@
         "desc": "Mises à jour sécurité, monitoring, sauvegardes. Tu gères ton contenu via ton panneau admin."
       },
       {
-        "nom": "Option B — Supernova gère tout",
+        "nom": "Option B — Étoile Boréale gère tout",
         "prix": "200 $ — 350 $ / mois",
         "desc": "Contenu, textes, photos, mises à jour — on s'en occupe pendant que tu travailles."
       }
@@ -365,7 +365,7 @@
           "Tout de l'Active",
           "Fréquence accrue + événements",
           "Inclusion book mensuel distribué",
-          "Co-promotion écosystème Supernova"
+          "Co-promotion écosystème Étoile Boréale"
         ],
         "featured": false
       }

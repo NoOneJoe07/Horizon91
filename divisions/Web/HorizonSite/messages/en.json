@@ -1,6 +1,6 @@
 {
   "brand": {
-    "name": "Supernova Group",
+    "name": "Boreal Star Group",
     "tagline_footer": "Creative & Technology Agency"
   },
   "nav": {
@@ -37,7 +37,7 @@
         "gabriel": {
           "nom": "Gabriel Patoine",
           "titre": "CISO — Cybersecurity Division",
-          "bio": "Gabriel will officially join Groupe Supernova as Chief Information Security Officer. His specialized training and network in the cybersecurity field will be key assets in protecting our clients' infrastructure."
+          "bio": "Gabriel will officially join Boreal Star Group as Chief Information Security Officer. His specialized training and network in the cybersecurity field will be key assets in protecting our clients' infrastructure."
         }
       }
     },
@@ -48,8 +48,8 @@
       "p3": "In December 2022, his business closes by government decision. He starts over with his brother, opens a franchise, fights hard. It's not enough. Then a CISO — head of cybersecurity for a regional health authority — opens an unexpected door. Jonathan enrols in an AEC program at Collège Cumberland. He learns protocols, networks, vulnerabilities. By learning how systems fall, he finally understands how they work.",
       "p4": "It's during this period that he begins working with artificial intelligence — not as a tool, but as a partner. He realizes something fundamental: he's no longer blocked behind the wall of knowledge he'd need to acquire before creating. Imagination can precede mastery. He begins building his game studio. He begins dreaming bigger.",
       "p5": "In early 2026, his editorial contract in Montréal ends. That's the supernova. The explosion that precedes the rebirth.",
-      "p6": "In March 2026, Groupe Supernova is officially born — with a precise mission: start local. Help entrepreneurs and artisans in the region build their digital presence and truly live from what they love doing. The first pilot project: a Brazilian jiu-jitsu dojo in Beauce. A passionate instructor struggling to reach enough clients. Exactly the kind of person this was built for.",
-      "quote": "A supernova is not an end. It is the explosion that scatters across the universe the elements needed to create new stars.",
+      "p6": "In March 2026, the group is officially founded — with a precise mission: start local. Help entrepreneurs and artisans in the region build their digital presence and truly live from what they love doing. The first pilot project: a Brazilian jiu-jitsu dojo in Beauce. A passionate instructor struggling to reach enough clients. Exactly the kind of person this was built for. In May 2026, the group adopts its definitive name: Boreal Star Group Inc.",
+      "quote": "A supernova is not an end. It is the explosion that scatters across the universe the elements needed to create new stars. We are that star.",
       "cta": "Explore our divisions"
     }
   },
@@ -57,7 +57,7 @@
     "title": "Our Divisions",
     "subtitle": "Three areas of expertise. One vision.",
     "divisionWeb": {
-      "hero_titre": "Web Division",
+      "hero_titre": "Draveur Division — Web Development",
       "hero_tagline": "La Flamme",
       "hero_description": "We build digital presences that work for you — even while you sleep. Fast, beautiful, SEO-optimized websites maintained by a local team that understands what entrepreneurs here actually need.",
       "services_titre": "What we do",
@@ -76,7 +76,7 @@
       "cta_portfolio": "See our work"
     },
     "divisionCyber": {
-      "hero_titre": "Cybersecurity Division",
+      "hero_titre": "Carillon Division — Cybersecurity",
       "hero_tagline": "Singularité",
       "hero_description": "Your data, your infrastructure, and your clients' trust deserve serious protection. We analyze, secure, and train — so you can grow without hidden vulnerabilities.",
       "services_titre": "What we do",
@@ -96,19 +96,19 @@
       "cta_portfolio": "Back to divisions"
     },
     "web": {
-      "nom": "Web Development",
+      "nom": "Draveur Division — Web Development",
       "description": "Modern websites, online stores, booking systems and custom digital solutions for local entrepreneurs and SMBs. Graphic design, visual identity and content strategy included.",
       "services": ["Showcase sites & e-commerce", "SEO & local search", "Visual identity & graphic design", "Monthly maintenance & retention"],
       "cta": "See our work →"
     },
     "cyber": {
-      "nom": "Cybersecurity",
+      "nom": "Carillon Division — Cybersecurity",
       "description": "Vulnerability analysis, infrastructure hardening, training and awareness programs on cybersecurity best practices for businesses.",
       "services": ["Security audits", "Data protection", "Team training", "Compliance & best practices"],
       "cta": "Access the department →"
     },
     "studio": {
-      "nom": "Game Studio — Nordik Legion",
+      "nom": "Nordik Legion Studio",
       "description": "Development of independent video games, interactive experiences and immersive narrative universes. Flagship project: Cyber-Mythos Labyrinth.",
       "services": ["Independent games", "Interactive experiences", "Narrative design", "Lore & worldbuilding"],
       "cta": "Visit the studio →"
@@ -180,7 +180,7 @@
       },
       {
         "nom": "Argos — Dark Web Monitoring",
-        "client": "Supernova Group — Internal Product",
+        "client": "Boreal Star Group — Internal Product",
         "categorie": "Cybersécurité",
         "description": "Real-time Dark Web surveillance SaaS. Argos continuously scans underground markets, forums and data leaks to alert businesses the moment their information appears.",
         "resultats": ["Continuous Dark Web scan", "Real-time alerts", "4 pricing tiers", "Quebec-hosted data"],
@@ -197,7 +197,7 @@
       {
         "titre": "General Management",
         "couleur": "text-h91-fusion",
-        "courriel": "direction@groupesupernova.ca",
+        "courriel": "direction@etoileboreale.ca",
         "note": "Partnerships, strategic vision, collaborations."
       },
       {
@@ -215,7 +215,7 @@
       {
         "titre": "Nordik Legion Studio",
         "couleur": "text-h91-ion",
-        "courriel": "studio@groupesupernova.ca",
+        "courriel": "studio@etoileboreale.ca",
         "note": "Video games, interactive experiences."
       }
     ]
@@ -227,7 +227,7 @@
     "email_label": "Email",
     "address_label": "Address",
     "phone": "(418) 000‑0000",
-    "email": "contact@groupesupernova.ca",
+    "email": "contact@etoileboreale.ca",
     "address": "Sainte‑Marie, Chaudière‑Appalaches, Québec",
     "label_nom": "Your name",
     "label_courriel": "Your email",
@@ -260,7 +260,7 @@
     "maintenance_title": "Monthly maintenance — required with every package",
     "maintenance": [
       { "nom": "Option A — Self-managed", "prix": "$150 / month", "desc": "Security updates, monitoring, backups. You manage your content through your admin panel." },
-      { "nom": "Option B — Supernova manages everything", "prix": "$200 — $350 / month", "desc": "Content, text, photos, updates — we handle it while you focus on your business." }
+      { "nom": "Option B — Boreal Star manages everything", "prix": "$200 — $350 / month", "desc": "Content, text, photos, updates — we handle it while you focus on your business." }
     ],
     "heures_title": "Extra hours outside your package",
     "heures": [
@@ -272,7 +272,7 @@
     "social_packages": [
       { "nom": "Essential Presence", "cible": "Facebook + Instagram", "prix_min": "$399 / month", "prix_max": "", "features": ["2–3 posts / week", "Comment responses", "Monthly report"], "featured": false },
       { "nom": "Active Presence", "cible": "Multi-platform + video", "prix_min": "$699 / month", "prix_max": "", "features": ["Everything in Essential", "1 filmed visit / month", "Instagram Reel + TikTok Short", "YouTube upload + site article"], "featured": true },
-      { "nom": "Full Presence", "cible": "Ecosystem + monthly postal book", "prix_min": "$1,099 / month", "prix_max": "", "features": ["Everything in Active", "Higher frequency + events", "Inclusion in monthly mailed book", "Co-promotion in Supernova ecosystem"], "featured": false }
+      { "nom": "Full Presence", "cible": "Ecosystem + monthly postal book", "prix_min": "$1,099 / month", "prix_max": "", "features": ["Everything in Active", "Higher frequency + events", "Inclusion in monthly mailed book", "Co-promotion in Boreal Star ecosystem"], "featured": false }
     ],
     "recommended_badge": "Recommended",
     "cta_title": "Ready to get started?",

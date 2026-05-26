@@ -1,6 +1,40 @@
+import type { Metadata } from "next";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+
+  const titles: Record<string, string> = {
+    fr: "Nos Divisions — Draveur, Carillon & Nordik Legion",
+    en: "Our Divisions — Draveur, Carillon & Nordik Legion",
+    es: "Nuestras Divisiones — Draveur, Carillon & Nordik Legion",
+  };
+  const descriptions: Record<string, string> = {
+    fr: "Trois divisions taillées dans l'héritage québécois : Division Draveur (développement web), Division Carillon (cybersécurité), Nordik Legion Studio (jeux vidéo). Beauce, Chaudière-Appalaches.",
+    en: "Three divisions forged from Quebec heritage: Draveur Division (web development), Carillon Division (cybersecurity), Nordik Legion Studio (game development). Beauce, Chaudière-Appalaches.",
+    es: "Tres divisiones forjadas en el patrimonio quebequense: División Draveur (desarrollo web), División Carillon (ciberseguridad), Nordik Legion Studio (videojuegos). Beauce, Quebec.",
+  };
+
+  const baseUrl = locale === "en" ? "https://borealstar.ca" : "https://etoileboreale.ca";
+  const canonical = `${baseUrl}${locale === "fr" ? "" : `/${locale}`}/divisions`;
+
+  return {
+    title: titles[locale] ?? titles.fr,
+    description: descriptions[locale] ?? descriptions.fr,
+    alternates: { canonical },
+    openGraph: {
+      title: titles[locale] ?? titles.fr,
+      description: descriptions[locale] ?? descriptions.fr,
+      url: canonical,
+    },
+  };
+}
 
 const divisionsMeta = [
   {

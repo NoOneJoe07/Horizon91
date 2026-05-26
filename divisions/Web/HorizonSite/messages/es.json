@@ -1,6 +1,6 @@
 {
   "brand": {
-    "name": "Grupo Supernova",
+    "name": "Grupo Estrella Boreal",
     "tagline_footer": "Agencia Creativa & Tecnológica"
   },
   "nav": {
@@ -37,7 +37,7 @@
         "gabriel": {
           "nom": "Gabriel Patoine",
           "titre": "CISO — División Ciberseguridad",
-          "bio": "Gabriel se unirá oficialmente a Groupe Supernova como responsable de la seguridad de los sistemas de información. Su formación especializada y su red en ciberseguridad serán activos clave para proteger la infraestructura de nuestros clientes."
+          "bio": "Gabriel se unirá oficialmente a Grupo Estrella Boreal como responsable de la seguridad de los sistemas de información. Su formación especializada y su red en ciberseguridad serán activos clave para proteger la infraestructura de nuestros clientes."
         }
       }
     },
@@ -48,8 +48,8 @@
       "p3": "En diciembre de 2022, su empresa cierra por decisión gubernamental. Vuelve a empezar con su hermano, abre una franquicia, lucha. No es suficiente. Luego un CISO — responsable de la ciberseguridad de una autoridad sanitaria regional — les abre una puerta inesperada. Jonathan se inscribe en un programa AEC en el Collège Cumberland. Aprende protocolos, redes, vulnerabilidades. Al aprender cómo caen los sistemas, finalmente entiende cómo funcionan.",
       "p4": "Es durante este período que comienza a trabajar con inteligencia artificial — no como una herramienta, sino como un socio. Se da cuenta de algo fundamental: ya no está bloqueado detrás del muro de conocimientos que necesitaría adquirir antes de poder crear. La imaginación puede preceder a la maestría. Comienza a construir su estudio de videojuegos. Comienza a soñar más grande.",
       "p5": "A principios de 2026, su contrato editorial en Montreal termina. Esa es la supernova. La explosión que precede al renacimiento.",
-      "p6": "En marzo de 2026, Groupe Supernova nace oficialmente — con una misión precisa: empezar local. Ayudar a los emprendedores y artesanos de la región a construir su presencia digital y a vivir genuinamente de lo que aman hacer. El primer proyecto piloto: un dojo de jiu-jitsu brasileño en Beauce. Un profesor apasionado que tiene dificultades para llegar a suficientes clientes. Exactamente el tipo de persona para quien todo esto fue construido.",
-      "quote": "Una supernova no es un final. Es la explosión que dispersa por el universo los elementos necesarios para crear nuevas estrellas.",
+      "p6": "En marzo de 2026, el grupo nace oficialmente — con una misión precisa: empezar local. Ayudar a los emprendedores y artesanos de la región a construir su presencia digital y a vivir genuinamente de lo que aman hacer. El primer proyecto piloto: un dojo de jiu-jitsu brasileño en Beauce. Un profesor apasionado que tiene dificultades para llegar a suficientes clientes. Exactamente el tipo de persona para quien todo esto fue construido. En mayo de 2026, el grupo adopta su nombre definitivo: Grupo Estrella Boreal Inc.",
+      "quote": "Una supernova no es un final. Es la explosión que dispersa por el universo los elementos necesarios para crear nuevas estrellas. Nosotros somos esa estrella.",
       "cta": "Explorar nuestras divisiones"
     }
   },
@@ -108,7 +108,7 @@
       "cta": "Acceder al departamento →"
     },
     "studio": {
-      "nom": "Estudio de Juegos — Nordik Legion",
+      "nom": "Nordik Legion Studio",
       "description": "Desarrollo de videojuegos independientes, experiencias interactivas y universos narrativos inmersivos. Proyecto insignia: Cyber-Mythos Labyrinth.",
       "services": ["Juegos independientes", "Experiencias interactivas", "Diseño narrativo", "Lore & construcción de mundos"],
       "cta": "Visitar el estudio →"
@@ -180,7 +180,7 @@
       },
       {
         "nom": "Argos — Vigilancia Dark Web",
-        "client": "Grupo Supernova — Producto interno",
+        "client": "Grupo Estrella Boreal — Producto interno",
         "categorie": "Cybersécurité",
         "description": "SaaS de vigilancia del Dark Web en tiempo real. Argos escanea continuamente mercados clandestinos, foros y filtraciones de datos para alertar a las empresas cuando su información aparece.",
         "resultats": ["Escaneo Dark Web continuo", "Alertas en tiempo real", "4 niveles de precios", "Datos alojados en Quebec"],
@@ -197,7 +197,7 @@
       {
         "titre": "Dirección General",
         "couleur": "text-h91-fusion",
-        "courriel": "direction@groupesupernova.ca",
+        "courriel": "direction@etoileboreale.ca",
         "note": "Alianzas, visión estratégica, colaboraciones."
       },
       {
@@ -215,7 +215,7 @@
       {
         "titre": "Estudio Nordik Legion",
         "couleur": "text-h91-ion",
-        "courriel": "studio@groupesupernova.ca",
+        "courriel": "studio@etoileboreale.ca",
         "note": "Videojuegos, experiencias interactivas."
       }
     ]
@@ -227,7 +227,7 @@
     "email_label": "Correo electrónico",
     "address_label": "Dirección",
     "phone": "(418) 000‑0000",
-    "email": "contact@groupesupernova.ca",
+    "email": "contact@etoileboreale.ca",
     "address": "Sainte‑Marie, Chaudière‑Appalaches, Québec",
     "label_nom": "Tu nombre",
     "label_courriel": "Tu correo electrónico",
@@ -260,7 +260,7 @@
     "maintenance_title": "Mantenimiento mensual — obligatorio con todo paquete",
     "maintenance": [
       { "nom": "Opción A — Cliente autónomo", "prix": "$150 / mes", "desc": "Actualizaciones de seguridad, monitoreo, copias de seguridad. Tú gestionas tu contenido a través de tu panel admin." },
-      { "nom": "Opción B — Supernova gestiona todo", "prix": "$200 — $350 / mes", "desc": "Contenido, textos, fotos, actualizaciones — nos encargamos mientras tú trabajas." }
+      { "nom": "Opción B — Estrella Boreal gestiona todo", "prix": "$200 — $350 / mes", "desc": "Contenido, textos, fotos, actualizaciones — nos encargamos mientras tú trabajas." }
     ],
     "heures_title": "Horas adicionales fuera del paquete",
     "heures": [
@@ -272,7 +272,7 @@
     "social_packages": [
       { "nom": "Presencia Esencial", "cible": "Facebook + Instagram", "prix_min": "$399 / mes", "prix_max": "", "features": ["2–3 publicaciones / semana", "Respuesta a comentarios", "Informe mensual"], "featured": false },
       { "nom": "Presencia Activa", "cible": "Multi-plataforma + video", "prix_min": "$699 / mes", "prix_max": "", "features": ["Todo del Esencial", "1 visita filmada / mes", "Reel Instagram + Short TikTok", "Publicación YouTube + artículo sitio"], "featured": true },
-      { "nom": "Presencia Completa", "cible": "Ecosistema + book mensual postal", "prix_min": "$1,099 / mes", "prix_max": "", "features": ["Todo del Activa", "Mayor frecuencia + eventos", "Inclusión en book mensual distribuido", "Co-promoción ecosistema Supernova"], "featured": false }
+      { "nom": "Presencia Completa", "cible": "Ecosistema + book mensual postal", "prix_min": "$1,099 / mes", "prix_max": "", "features": ["Todo del Activa", "Mayor frecuencia + eventos", "Inclusión en book mensual distribuido", "Co-promoción ecosistema Estrella Boreal"], "featured": false }
     ],
     "recommended_badge": "Recomendado",
     "cta_title": "¿Listo para empezar?",

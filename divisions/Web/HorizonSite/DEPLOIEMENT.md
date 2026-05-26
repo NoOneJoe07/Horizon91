@@ -1,5 +1,13 @@
-# Guide de déploiement — Groupe Supernova
-Dernière mise à jour : 2026-05-06
+# Guide de déploiement — Groupe Étoile Boréale Inc.
+Dernière mise à jour : 2026-05-26
+
+## Commande rsync OneDrive → WSL (à faire avant chaque push)
+
+```bash
+rsync -av --exclude='.next' --exclude='node_modules' \
+  '/mnt/c/Users/Pc/OneDrive/Documents/Horizon 91/Web/HorizonSite/' \
+  ~/Horizon91/divisions/Web/HorizonSite/
+```
 
 ## Étape 1 — Pousser le code sur GitHub
 
@@ -11,87 +19,93 @@ git commit -m "feat: [description du changement]"
 git push origin main
 ```
 
-## Étape 2 — Créer le projet sur Vercel
-
-1. Aller sur https://vercel.com et se connecter avec GitHub
-2. Cliquer **Add New → Project**
-3. Sélectionner le repo **HorizonSite**
-4. Framework preset : **Next.js** (détecté automatiquement)
-5. Root directory : laisser à la racine
-6. Cliquer **Deploy**
-
 Vercel déploie automatiquement à chaque `git push` sur `main`.
 
-## Étape 3 — Configurer les domaines
+## Étape 2 — Configuration Vercel (déjà en place)
 
-### groupesupernova.ca (FR — domaine principal)
+- Projet : **horizon91-2zpm** (Hobby plan)
+- Framework Preset : **Next.js** ← NE PAS CHANGER
+- Root Directory : **divisions/Web/HorizonSite** ← NE PAS CHANGER
+- Node.js : 24.x
+- Build auto sur push → main ✅
 
-Dans Vercel → Settings → Domains → Add :
-- Ajouter `groupesupernova.ca`
-- Ajouter `www.groupesupernova.ca` (redirect vers apex)
+### Variables d'environnement Vercel ✅
+```
+ZOHO_USER   = contact@groupesupernova.ca   ← SMTP auth (ne pas changer sans migrer Zoho)
+ZOHO_PASS   = [mot de passe Zoho]
+CONTACT_TO  = jonathan.patoine@etoileboreale.ca
+```
 
-Dans Namecheap → DNS pour groupesupernova.ca :
+## Étape 3 — Domaines configurés (Namecheap + Vercel)
+
+### etoileboreale.ca (FR — domaine principal) ✅
+Dans Vercel → Settings → Domains :
+- `etoileboreale.ca` ✅
+- `www.etoileboreale.ca` → redirect 301 vers apex ✅
+
+Dans Namecheap → DNS pour etoileboreale.ca :
+```
+Type    Host    Value                   TTL
+A       @       76.76.21.21             Auto
+CNAME   www     cname.vercel-dns.com    Auto
+```
+DNS Mail : MX zohocloud.ca + SPF + DKIM + DMARC ✅
+
+### borealstar.ca (EN — domaine secondaire) ✅
+Dans Vercel → Settings → Domains :
+- `borealstar.ca` ✅
+- `www.borealstar.ca` → redirect 301 ✅
+
+Dans Namecheap → DNS pour borealstar.ca :
 ```
 Type    Host    Value                   TTL
 A       @       76.76.21.21             Auto
 CNAME   www     cname.vercel-dns.com    Auto
 ```
 
-### supernovagroup.ca (EN — domaine secondaire)
+### Anciens domaines — redirects 301 ✅
+- groupesupernova.ca → 301 → etoileboreale.ca
+- www.groupesupernova.ca → 301
+- supernovagroup.ca → 301 → borealstar.ca
+- www.supernovagroup.ca → 301
 
-Dans Vercel → Settings → Domains → Add :
-- Ajouter `supernovagroup.ca`
-
-Dans Namecheap → DNS pour supernovagroup.ca :
-```
-Type    Host    Value                   TTL
-A       @       76.76.21.21             Auto
-CNAME   www     cname.vercel-dns.com    Auto
-```
-
-### Routing par domaine (next-intl)
-
-Ajouter dans i18n/routing.ts une fois les domaines actifs :
+### Routing par domaine (next-intl — à activer)
+Ajouter dans `i18n/routing.ts` une fois les domaines entièrement stables :
 ```ts
 export const routing = defineRouting({
   locales: ["fr", "en", "es"],
   defaultLocale: "fr",
   domains: [
-    { domain: "groupesupernova.ca", defaultLocale: "fr" },
-    { domain: "supernovagroup.ca", defaultLocale: "en" },
+    { domain: "etoileboreale.ca", defaultLocale: "fr" },
+    { domain: "borealstar.ca",    defaultLocale: "en" },
   ],
 });
 ```
 
-## Étape 4 — Variables d'environnement
+## Étape 4 — Vérifications post-déploiement
 
-Dans Vercel → Settings → Environment Variables :
-```
-NEXT_PUBLIC_SITE_URL=https://groupesupernova.ca
-```
-(Ajouter d'autres variables ici quand Stripe/Supabase seront intégrés)
-
-## Étape 5 — Vérifications post-déploiement
-
-- [ ] https://groupesupernova.ca charge en FR
-- [ ] https://supernovagroup.ca charge en EN
-- [ ] /fr/divisions/web fonctionne
-- [ ] /fr/divisions/cyber fonctionne
-- [ ] /fr/actualites fonctionne
+- [ ] https://etoileboreale.ca charge en FR
+- [ ] https://borealstar.ca charge en EN
+- [ ] https://groupesupernova.ca redirige vers etoileboreale.ca
+- [ ] /fr/divisions/web fonctionne (Division Draveur)
+- [ ] /fr/divisions/cyber fonctionne (Division Carillon + Saurel)
+- [ ] /fr/tarification fonctionne
 - [ ] Sélecteur de langue opérationnel
-- [ ] Sitemap accessible : https://groupesupernova.ca/sitemap.xml
-- [ ] Robots.txt : https://groupesupernova.ca/robots.txt
-- [ ] Formulaire de contact envoie vers contact@groupesupernova.ca
+- [ ] Sitemap : https://etoileboreale.ca/sitemap.xml
+- [ ] Robots.txt : https://etoileboreale.ca/robots.txt
+- [ ] Formulaire de contact envoie courriel à jonathan.patoine@etoileboreale.ca
+- [ ] JSON-LD valide sur Google Rich Results Test
 
 ## Rollback
 
-En cas de problème : Vercel → Deployments → choisir le déploiement précédent → Promote to Production
+En cas de problème : Vercel → Deployments → choisir le déploiement précédent → **Promote to Production**
 
 ---
 
 ## À faire après déploiement
 
-1. Soumettre sitemap dans Google Search Console
-2. Créer fiche Google Business Profile
-3. Créer comptes sociaux : YouTube, Instagram, Facebook, TikTok, LinkedIn, Pinterest
-4. Réserver handles @groupesupernova sur toutes les plateformes
+1. Soumettre sitemap dans Google Search Console (etoileboreale.ca + borealstar.ca)
+2. Mettre à jour/créer fiche Google Business Profile — "Groupe Étoile Boréale Inc."
+3. Créer comptes sociaux : YouTube, Instagram, Facebook, TikTok, LinkedIn, Pinterest — @etoileboreale
+4. Vérifier DMARC pour etoileboreale.ca (24-48h propagation)
+5. Nouvelle og-image.jpg avec branding Étoile Boréale

@@ -23,22 +23,22 @@ const geistMono = Geist_Mono({
 // ─────────────────────────────────────────────────────────
 const metaByLocale: Record<string, { title: string; description: string; siteName: string }> = {
   fr: {
-    title: "Groupe Supernova — Agence créative & technologique | Beauce, Québec",
+    title: "Groupe Étoile Boréale — Agence créative & technologique | Beauce, Québec",
     description:
       "Agence web, cybersécurité et studio de jeux vidéo à Sainte-Marie-de-Beauce. Sites web professionnels, SEO local, identité visuelle pour PME et entrepreneurs de la Chaudière-Appalaches.",
-    siteName: "Groupe Supernova",
+    siteName: "Groupe Étoile Boréale",
   },
   en: {
-    title: "Supernova Group — Creative & Technology Agency | Beauce, Quebec",
+    title: "Boreal Star Group — Creative & Technology Agency | Beauce, Quebec",
     description:
       "Web agency, cybersecurity and game studio based in Sainte-Marie-de-Beauce. Professional websites, local SEO, visual identity for SMBs and entrepreneurs in Chaudière-Appalaches.",
-    siteName: "Supernova Group",
+    siteName: "Boreal Star Group",
   },
   es: {
-    title: "Grupo Supernova — Agencia Creativa & Tecnológica | Beauce, Quebec",
+    title: "Grupo Estrella Boreal — Agencia Creativa & Tecnológica | Beauce, Quebec",
     description:
       "Agencia web, ciberseguridad y estudio de videojuegos en Sainte-Marie-de-Beauce. Sitios web profesionales, SEO local e identidad visual para pymes y emprendedores.",
-    siteName: "Grupo Supernova",
+    siteName: "Grupo Estrella Boreal",
   },
 };
 
@@ -51,10 +51,10 @@ export async function generateMetadata({
   const meta = metaByLocale[locale] ?? metaByLocale.fr;
   const url =
     locale === "en"
-      ? "https://supernovagroup.ca"
+      ? "https://borealstar.ca"
       : locale === "es"
-      ? "https://groupesupernova.ca/es"
-      : "https://groupesupernova.ca";
+      ? "https://etoileboreale.ca/es"
+      : "https://etoileboreale.ca";
 
   return {
     title: {
@@ -62,12 +62,12 @@ export async function generateMetadata({
       template: `%s | ${meta.siteName}`,
     },
     description: meta.description,
-    metadataBase: new URL("https://groupesupernova.ca"),
+    metadataBase: new URL("https://etoileboreale.ca"),
     alternates: {
       canonical: url,
       languages: {
-        fr: "https://groupesupernova.ca",
-        en: "https://supernovagroup.ca",
+        fr: "https://etoileboreale.ca",
+        en: "https://borealstar.ca",
       },
     },
     openGraph: {

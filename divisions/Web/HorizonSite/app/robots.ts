@@ -9,7 +9,7 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ["/api/", "/_next/"],
       },
     ],
-    sitemap: "https://groupesupernova.ca/sitemap.xml",
-    host: "https://groupesupernova.ca",
+    sitemap: "https://etoileboreale.ca/sitemap.xml",
+    host: "https://etoileboreale.ca",
   };
 }

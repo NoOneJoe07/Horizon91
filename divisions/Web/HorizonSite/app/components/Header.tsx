@@ -30,27 +30,27 @@ export default function Header() {
 
   return (
     <header className="fixed top-0 left-0 w-full z-50 bg-transparent backdrop-blur-md border-b border-h91-accretion/30">
-      <div className="max-w-6xl mx-auto flex items-center px-6 py-4">
+      <div className="max-w-7xl mx-auto flex items-center px-8 py-4">
 
         {/* ZONE GAUCHE — MARK + NOM */}
-        <div className="flex-1 flex items-center">
+        <div className="flex items-center" style={{ flex: "0 0 300px" }}>
           <Link href="/" className="flex items-center gap-3">
             <Image
-              src="/mark-supernova.svg"
-              alt="Mark Groupe Supernova"
-              width={42}
-              height={42}
-              style={{ width: "42px", height: "42px" }}
+              src="/mark-etoile.svg"
+              alt="Mark Groupe Étoile Boréale"
+              width={38}
+              height={38}
+              style={{ width: "38px", height: "38px" }}
               className="drop-shadow-lg"
             />
-            <span className="text-xl font-bold text-h91-accretion">
+            <span className="text-lg font-bold text-h91-accretion whitespace-nowrap">
               {tBrand("name")}
             </span>
           </Link>
         </div>
 
         {/* ZONE CENTRALE — MENU */}
-        <nav className="hidden md:flex flex-1 justify-center items-center gap-8 text-h91-stellar">
+        <nav className="hidden md:flex flex-1 justify-center items-center gap-6 text-h91-stellar">
           <Link href="/">{t("home")}</Link>
           <Link href="/divisions">{t("divisions")}</Link>
           <Link href="/portfolio">{t("portfolio")}</Link>
@@ -60,7 +60,7 @@ export default function Header() {
         </nav>
 
         {/* ZONE DROITE — SÉLECTEUR LANGUE + BOUTON */}
-        <div className="hidden md:flex flex-1 justify-end items-center gap-4">
+        <div className="hidden md:flex justify-end items-center gap-4" style={{ flex: "0 0 300px" }}>
           {/* Sélecteur de langue */}
           <div className="flex items-center gap-1">
             {locales.map((loc, i) => (
@@ -85,7 +85,7 @@ export default function Header() {
 
           <Link
             href="/rejoindre"
-            className="px-4 py-2 rounded-lg bg-h91-accretion text-h91-gravity font-semibold hover:bg-h91-fusion transition"
+            className="px-4 py-2 rounded-lg bg-h91-accretion text-h91-gravity font-semibold hover:bg-h91-fusion transition whitespace-nowrap"
           >
             {t("join")}
           </Link>
