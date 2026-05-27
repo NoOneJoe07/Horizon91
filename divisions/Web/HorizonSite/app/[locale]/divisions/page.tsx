@@ -76,11 +76,12 @@ export default function DivisionsPage() {
       </p>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-        {divisionsMeta.map((div) => {
+        {divisionsMeta.map((div, idx) => {
           const services = t.raw(`${div.key}.services`) as string[];
+          const stagger = `stagger-${idx + 1}`;
           const card = (
             <div
-              className={`p-6 border ${div.borderColor} rounded-xl bg-h91-gravity/50 flex flex-col gap-4 transition h-full`}
+              className={`p-6 border ${div.borderColor} rounded-xl bg-h91-gravity/50 flex flex-col gap-4 h-full card-lift animate-fade-in-up ${stagger}`}
             >
               <Image
                 src={div.mark}

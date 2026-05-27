@@ -148,6 +148,59 @@
 }
 
 /* ---------------------------------------------------------
+   MICRO-ANIMATIONS — hover élévation + fade-in
+--------------------------------------------------------- */
+
+/* --- Hover élévation — cartes divisions & équipe --- */
+.card-lift {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.card-lift:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 48px rgba(255, 122, 26, 0.20);
+}
+
+/* --- Fade-in entrée de section --- */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.65s ease both;
+}
+
+/* Délais échelonnés pour grilles de cartes */
+.stagger-1 { animation-delay: 0.08s; }
+.stagger-2 { animation-delay: 0.18s; }
+.stagger-3 { animation-delay: 0.28s; }
+.stagger-4 { animation-delay: 0.38s; }
+.stagger-5 { animation-delay: 0.48s; }
+.stagger-6 { animation-delay: 0.58s; }
+
+/* --- Scroll-driven fade-in (navigateurs modernes) --- */
+@supports (animation-timeline: view()) {
+  .scroll-fade {
+    animation: fadeInUp linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 35%;
+  }
+}
+
+/* --- Transitions globales fluides --- */
+a, button {
+  transition-property: color, background-color, border-color, opacity, transform, box-shadow;
+  transition-duration: 0.2s;
+  transition-timing-function: ease;
+}
+
+/* ---------------------------------------------------------
    STYLE GLOBAL DU BODY
 --------------------------------------------------------- */
 body {

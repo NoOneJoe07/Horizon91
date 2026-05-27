@@ -48,8 +48,8 @@
       "p3": "En décembre 2022, son entreprise ferme sur décision gouvernementale. Il repart à zéro avec son frère, ouvre une franchise, se bat. Ça ne suffit pas. Puis un CISO — responsable de la cybersécurité d'un CISSS régional — leur ouvre une porte inattendue. Jonathan s'inscrit en AEC au Collège Cumberland. Il apprend les protocoles, les réseaux, les vulnérabilités. En apprenant comment les systèmes tombent, il comprend enfin comment ils fonctionnent.",
       "p4": "C'est dans cette période qu'il commence à travailler avec l'intelligence artificielle — pas comme un outil, mais comme un partenaire. Il réalise quelque chose de fondamental : il n'est plus bloqué derrière le mur des connaissances à acquérir avant de pouvoir créer. L'imagination peut précéder la maîtrise. Il commence à bâtir son studio de jeux. Il commence à rêver plus grand.",
       "p5": "Début 2026, son contrat éditorial à Montréal prend fin. C'est la supernova. L'explosion qui précède la renaissance.",
-      "p6": "En mars 2026, le groupe naît officiellement — avec une mission précise : commencer local. Aider les entrepreneurs et artisans de la région à construire leur présence numérique et à vivre de ce qu'ils aiment vraiment faire. Le premier projet pilote : un dojo de jiu-jitsu brésilien en Beauce. Un prof passionné qui peine à rejoindre sa clientèle. Exactement le genre de personne pour qui tout ça a été bâti. En mai 2026, le groupe adopte son nom définitif : Groupe Étoile Boréale Inc.",
-      "quote": "Une supernova n'est pas une fin. C'est l'explosion qui disperse dans l'univers les éléments nécessaires à la création de nouvelles étoiles. Nous sommes cette étoile.",
+      "p6": "En mars 2026, le groupe naît officiellement — avec une mission précise : commencer local. Aider les entrepreneurs et artisans de la région à construire leur présence numérique et à vivre de ce qu'ils aiment vraiment faire. Comme les draveurs mariaient la rigueur physique à la connaissance des rivières, Groupe Étoile Boréale marie la rigueur de nos bâtisseurs historiques à la puissance des technologies de demain. Le premier projet pilote : un dojo de jiu-jitsu brésilien en Beauce. Un prof passionné qui peine à rejoindre sa clientèle. Exactement le genre de personne pour qui tout ça a été bâti. En mai 2026, le groupe adopte son nom définitif : Groupe Étoile Boréale Inc.",
+      "quote": "L'Étoile Polaire a guidé les coureurs des bois à travers les nuits les plus noires. Aujourd'hui, elle guide les entrepreneurs de la région à travers le flux numérique. Nous sommes cette étoile.",
       "cta": "Explorer nos divisions"
     }
   },
@@ -59,18 +59,18 @@
     "divisionWeb": {
       "hero_titre": "Division Draveur — Développement Web",
       "hero_tagline": "La Flamme",
-      "hero_description": "On conçoit des présences numériques qui travaillent pour toi — même quand tu dors. Sites rapides, beaux, référencés et maintenus par une équipe locale qui comprend la réalité des entrepreneurs d'ici.",
+      "hero_description": "Comme les draveurs maîtrisaient le flux des rivières sauvages du Québec, la Division Draveur maîtrise le flux numérique de votre entreprise. On conçoit des portails web robustes qui optimisent l'achalandage web et travaillent pour toi — même quand tu dors. Sites rapides, beaux, référencés et maintenus par une équipe locale qui comprend la réalité des entrepreneurs d'ici.",
       "services_titre": "Ce qu'on fait",
       "services": [
-        { "titre": "Site vitrine professionnel", "desc": "Design sur mesure, mobile-first, chargement ultra-rapide. Ton image en ligne à la hauteur de ton travail." },
+        { "titre": "Site vitrine professionnel", "desc": "Conception de portail web robuste sur mesure, mobile-first, chargement ultra-rapide. Ton image en ligne à la hauteur de ton travail — optimisée pour convertir les visiteurs en clients." },
         { "titre": "Boutique en ligne & e-commerce", "desc": "Vends tes produits 24h/24. Gestion de stock, paiement Stripe, tableau de bord pour toi." },
         { "titre": "Système de réservation", "desc": "Prises de rendez-vous en ligne, gestion des plages horaires, rappels automatiques." },
-        { "titre": "SEO & référencement local", "desc": "Sors en premier quand tes clients cherchent ce que tu offres dans ta région." },
+        { "titre": "SEO & référencement local", "desc": "Optimisation de l'achalandage web organique pour ta région. Sors en premier quand tes clients cherchent ce que tu offres — et garde cette position dans les résultats Google." },
         { "titre": "Identité visuelle & infographie", "desc": "Logo, palette, typographie — une marque cohérente qui se démarque." },
         { "titre": "Maintenance & support mensuel", "desc": "Mises à jour, sécurité, contenu — on garde ton site en santé pendant que tu te concentres sur ton métier." }
       ],
       "approche_titre": "Notre approche",
-      "approche_texte": "On ne livre pas des sites web à la chaîne. Chaque projet commence par comprendre ton entreprise, ta clientèle et tes objectifs. Le résultat : un outil numérique qui génère de vraies retombées, pas juste une belle vitrine.",
+      "approche_texte": "On ne livre pas des sites web à la chaîne. Chaque projet commence par comprendre ton entreprise, ta clientèle et tes objectifs. Notre maîtrise du flux numérique transforme ta présence en ligne en véritable moteur d'achalandage web — un outil qui génère de vraies retombées, pas juste une belle vitrine.",
       "cta_titre": "Prêt à bâtir ta présence en ligne ?",
       "cta_bouton": "Parlons de ton projet",
       "cta_portfolio": "Voir nos réalisations"
@@ -97,7 +97,7 @@
     },
     "web": {
       "nom": "Division Draveur — Développement Web",
-      "description": "Sites web modernes, boutiques en ligne, systèmes de réservation et solutions numériques sur mesure pour entrepreneurs locaux et PME. Conception graphique, identité visuelle et stratégie de contenu incluses.",
+      "description": "Conception de portails web robustes, boutiques en ligne et systèmes de réservation. Maîtres du flux numérique et de l'optimisation de l'achalandage web pour entrepreneurs locaux et PME de Chaudière-Appalaches. Identité visuelle et stratégie de contenu incluses.",
       "services": ["Sites vitrines & e-commerce", "SEO & référencement local", "Identité visuelle & infographie", "Maintenance & rétention mensuelle"],
       "cta": "Voir nos réalisations →"
     },

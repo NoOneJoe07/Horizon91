@@ -150,7 +150,7 @@ export default function DivisionWebPage() {
           {services.map((service, i) => (
             <div
               key={i}
-              className="p-6 border border-h91-warp/30 rounded-xl bg-h91-gravity/50 hover:border-h91-warp/70 hover:bg-h91-gravity/80 transition"
+              className={`p-6 border border-h91-warp/30 rounded-xl bg-h91-gravity/50 hover:border-h91-warp/70 hover:bg-h91-gravity/80 card-lift animate-fade-in-up stagger-${Math.min(i + 1, 6)}`}
             >
               <div className="w-8 h-0.5 bg-h91-warp mb-4" />
               <h3 className="text-h91-stellar font-bold text-lg mb-2">{service.titre}</h3>

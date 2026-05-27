@@ -209,10 +209,10 @@ export default function HomePage() {
         </p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {membresMeta.map((meta) => (
+          {membresMeta.map((meta, idx) => (
             <div
               key={meta.key}
-              className={`relative p-6 border-2 ${meta.couleurBordure} rounded-xl bg-h91-gravity/50 flex flex-col items-center gap-4 text-center hover:bg-h91-gravity/80 transition`}
+              className={`relative p-6 border-2 ${meta.couleurBordure} rounded-xl bg-h91-gravity/50 flex flex-col items-center gap-4 text-center card-lift animate-fade-in-up stagger-${idx + 1}`}
             >
               {meta.badge && (
                 <span className="absolute top-4 right-4 text-xs font-bold px-2 py-1 rounded-full bg-h91-ion/20 text-h91-ion">
@@ -255,14 +255,14 @@ export default function HomePage() {
         </h2>
 
         <div className="space-y-6 text-h91-stellar/80 text-lg leading-relaxed">
-          <p>{t("histoire.p1")}</p>
-          <p>{t("histoire.p2")}</p>
-          <p>{t("histoire.p3")}</p>
-          <p>{t("histoire.p4")}</p>
-          <p>{t("histoire.p5")}</p>
-          <p>{t("histoire.p6")}</p>
+          <p className="scroll-fade">{t("histoire.p1")}</p>
+          <p className="scroll-fade">{t("histoire.p2")}</p>
+          <p className="scroll-fade">{t("histoire.p3")}</p>
+          <p className="scroll-fade">{t("histoire.p4")}</p>
+          <p className="scroll-fade">{t("histoire.p5")}</p>
+          <p className="scroll-fade">{t("histoire.p6")}</p>
 
-          <blockquote className="border-l-4 border-h91-accretion pl-6 mt-8 text-h91-stellar/60 italic text-base">
+          <blockquote className="scroll-fade border-l-4 border-h91-accretion pl-6 mt-8 text-h91-stellar/60 italic text-base">
             {t("histoire.quote")}
           </blockquote>
         </div>

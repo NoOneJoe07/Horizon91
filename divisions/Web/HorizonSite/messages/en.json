@@ -48,8 +48,8 @@
       "p3": "In December 2022, his business closes by government decision. He starts over with his brother, opens a franchise, fights hard. It's not enough. Then a CISO — head of cybersecurity for a regional health authority — opens an unexpected door. Jonathan enrols in an AEC program at Collège Cumberland. He learns protocols, networks, vulnerabilities. By learning how systems fall, he finally understands how they work.",
       "p4": "It's during this period that he begins working with artificial intelligence — not as a tool, but as a partner. He realizes something fundamental: he's no longer blocked behind the wall of knowledge he'd need to acquire before creating. Imagination can precede mastery. He begins building his game studio. He begins dreaming bigger.",
       "p5": "In early 2026, his editorial contract in Montréal ends. That's the supernova. The explosion that precedes the rebirth.",
-      "p6": "In March 2026, the group is officially founded — with a precise mission: start local. Help entrepreneurs and artisans in the region build their digital presence and truly live from what they love doing. The first pilot project: a Brazilian jiu-jitsu dojo in Beauce. A passionate instructor struggling to reach enough clients. Exactly the kind of person this was built for. In May 2026, the group adopts its definitive name: Boreal Star Group Inc.",
-      "quote": "A supernova is not an end. It is the explosion that scatters across the universe the elements needed to create new stars. We are that star.",
+      "p6": "In March 2026, the group is officially founded — with a precise mission: start local. Help entrepreneurs and artisans in the region build their digital presence and truly live from what they love doing. Like the log drivers who married physical rigour with mastery of the rivers, Boreal Star Group marries the rigour of our historical builders with the power of tomorrow's technologies. The first pilot project: a Brazilian jiu-jitsu dojo in Beauce. A passionate instructor struggling to reach enough clients. Exactly the kind of person this was built for. In May 2026, the group adopts its definitive name: Boreal Star Group Inc.",
+      "quote": "Polaris guided the coureurs des bois through the darkest nights. Today, it guides regional entrepreneurs through the digital flow. We are that star.",
       "cta": "Explore our divisions"
     }
   },
@@ -59,18 +59,18 @@
     "divisionWeb": {
       "hero_titre": "Draveur Division — Web Development",
       "hero_tagline": "La Flamme",
-      "hero_description": "We build digital presences that work for you — even while you sleep. Fast, beautiful, SEO-optimized websites maintained by a local team that understands what entrepreneurs here actually need.",
+      "hero_description": "Just as the log drivers mastered the wild rivers of Québec, the Draveur Division masters the digital flow of your business. We build robust web portals that optimize your web traffic and work for you — even while you sleep. Fast, beautiful, SEO-optimized and maintained by a local team that understands what entrepreneurs here actually need.",
       "services_titre": "What we do",
       "services": [
-        { "titre": "Professional showcase website", "desc": "Custom design, mobile-first, ultra-fast loading. Your online image at the level of your work." },
+        { "titre": "Professional showcase website", "desc": "Robust web portal design, custom, mobile-first, ultra-fast loading. Your online image at the level of your work — optimized to convert visitors into clients." },
         { "titre": "Online store & e-commerce", "desc": "Sell your products 24/7. Inventory management, Stripe payments, your own dashboard." },
         { "titre": "Booking system", "desc": "Online appointment scheduling, time slot management, automatic reminders." },
-        { "titre": "SEO & local search", "desc": "Show up first when your customers search for what you offer in your area." },
+        { "titre": "SEO & local search", "desc": "Organic web traffic optimization for your region. Show up first when your customers search for what you offer — and maintain that position in Google results." },
         { "titre": "Visual identity & graphic design", "desc": "Logo, color palette, typography — a consistent brand that stands out." },
         { "titre": "Monthly maintenance & support", "desc": "Updates, security, content — we keep your site healthy while you focus on your business." }
       ],
       "approche_titre": "Our approach",
-      "approche_texte": "We don't churn out websites. Every project starts with understanding your business, your customers, and your goals. The result: a digital tool that generates real results, not just a pretty storefront.",
+      "approche_texte": "We don't churn out websites. Every project starts with understanding your business, your customers, and your goals. Our mastery of the digital flow transforms your online presence into a true web traffic engine — a digital tool that generates real results, not just a pretty storefront.",
       "cta_titre": "Ready to build your online presence?",
       "cta_bouton": "Let's talk about your project",
       "cta_portfolio": "See our work"
@@ -97,7 +97,7 @@
     },
     "web": {
       "nom": "Draveur Division — Web Development",
-      "description": "Modern websites, online stores, booking systems and custom digital solutions for local entrepreneurs and SMBs. Graphic design, visual identity and content strategy included.",
+      "description": "Robust web portal design, online stores and booking systems. Masters of digital flow and web traffic optimization for local entrepreneurs and SMBs in Chaudière-Appalaches. Visual identity and content strategy included.",
       "services": ["Showcase sites & e-commerce", "SEO & local search", "Visual identity & graphic design", "Monthly maintenance & retention"],
       "cta": "See our work →"
     },
