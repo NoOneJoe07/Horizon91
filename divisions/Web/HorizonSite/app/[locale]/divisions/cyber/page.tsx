@@ -263,6 +263,69 @@ export default function DivisionCyberPage() {
       </section>
 
       {/* ═══════════════════════════════════════════════════
+          HÉRITAGE DE CARILLON + SAVIEZ-VOUS QUE ?
+      ═══════════════════════════════════════════════════ */}
+      <section className="py-20 px-6 border-t border-h91-accretion/20">
+        <div className="max-w-4xl mx-auto">
+
+          {/* Narratif historique */}
+          <div className="mb-14">
+            <span className="inline-block text-xs font-bold px-3 py-1.5 rounded-full bg-h91-accretion/10 text-h91-accretion border border-h91-accretion/30 mb-6 uppercase tracking-widest">
+              L&apos;héritage
+            </span>
+            <h2 className="text-3xl md:text-4xl font-bold text-h91-stellar mb-6">
+              L&apos;architecture défensive de votre empire numérique
+            </h2>
+            <div className="space-y-5 text-h91-stellar/70 text-lg leading-relaxed">
+              <p>
+                En 1758, lors de la célèbre bataille du Fort Carillon, une armée de 3 600 soldats
+                et miliciens d&apos;ici a repoussé avec succès une force d&apos;invasion de 15 000 hommes.
+                Comment ? Grâce à une architecture défensive géniale — des abatis de bois
+                stratégiquement positionnés — et une discipline de fer. Carillon est le symbole
+                historique de la résistance intelligente face à un adversaire disproportionné.
+              </p>
+              <p>
+                Dans le monde numérique, votre entreprise est attaquée chaque jour par des menaces
+                automatisées invisibles. La Division Carillon érige les murailles fortifiées autour
+                de vos données, de vos serveurs et de vos applications. Nous concevons une
+                architecture cyber sur mesure pour que votre entreprise reste un fort imprenable
+                — peu importe la taille de la menace.
+              </p>
+            </div>
+          </div>
+
+          {/* Saviez-vous que ? */}
+          <div className="border border-h91-accretion/20 rounded-2xl bg-h91-gravity/50 p-8">
+            <h3 className="text-h91-accretion font-bold text-sm uppercase tracking-widest mb-8 flex items-center gap-3">
+              <span className="text-xl">💡</span> Saviez-vous que ?
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="p-5 rounded-xl bg-h91-accretion/5 border border-h91-accretion/20">
+                <p className="text-h91-accretion font-bold text-4xl mb-2">40 %</p>
+                <p className="text-h91-stellar font-semibold text-sm mb-3">Des cyberattaques visent les PME</p>
+                <p className="text-h91-stellar/60 text-sm leading-relaxed">
+                  Contrairement aux idées reçues, Statistique Canada rapporte que près de 40 % des
+                  cyberattaques visent directement les petites et moyennes entreprises. Vous n&apos;êtes
+                  pas trop petit pour être piraté — vous êtes simplement moins protégé.
+                </p>
+              </div>
+              <div className="p-5 rounded-xl bg-h91-accretion/5 border border-h91-accretion/20">
+                <p className="text-h91-accretion font-bold text-4xl mb-2">25 000 $+</p>
+                <p className="text-h91-stellar font-semibold text-sm mb-3">Le coût moyen d&apos;un incident</p>
+                <p className="text-h91-stellar/60 text-sm leading-relaxed">
+                  L&apos;impact financier moyen d&apos;un incident de cybersécurité pour une PME canadienne
+                  dépasse les 25 000 $ en frais de récupération — sans compter la perte de confiance
+                  irréparable de vos clients. On ne vend pas de la peur, on coule votre sécurité
+                  dans le béton.
+                </p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════════════
           ARGOS — PRODUIT PHARE
       ═══════════════════════════════════════════════════ */}
       <section className="py-24 px-6 border-t border-h91-accretion/20">

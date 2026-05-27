@@ -169,6 +169,70 @@ export default function DivisionWebPage() {
       </section>
 
       {/* ═══════════════════════════════════════════════════
+          HÉRITAGE DES DRAVEURS + SAVIEZ-VOUS QUE ?
+      ═══════════════════════════════════════════════════ */}
+      <section className="py-20 px-6 border-t border-h91-warp/20">
+        <div className="max-w-4xl mx-auto">
+
+          {/* Narratif historique */}
+          <div className="mb-14">
+            <span className="inline-block text-xs font-bold px-3 py-1.5 rounded-full bg-h91-warp/10 text-h91-warp border border-h91-warp/30 mb-6 uppercase tracking-widest">
+              L&apos;héritage
+            </span>
+            <h2 className="text-3xl md:text-4xl font-bold text-h91-stellar mb-6">
+              Maîtriser le flux, propulser votre achalandage
+            </h2>
+            <div className="space-y-5 text-h91-stellar/70 text-lg leading-relaxed">
+              <p>
+                Au XIXe siècle, les draveurs du Québec sautaient courageusement sur les rivières
+                tumultueuses pour guider des milliers de billots de bois vers les moulins. C&apos;était
+                un travail d&apos;agilité pure, de synchronisation et de contrôle du flux. Un seul billot
+                mal positionné, et c&apos;était l&apos;embâcle — le blocage qui paralysait toute l&apos;économie
+                de la région.
+              </p>
+              <p>
+                Aujourd&apos;hui, la rivière, c&apos;est le Web. Les flux de données, de trafic et
+                d&apos;utilisateurs déferlent chaque seconde. La Division Draveur conçoit des portails
+                web robustes pour s&apos;assurer que vos clients naviguent de manière fluide jusqu&apos;à vous,
+                sans aucun embâcle technique. Nous éliminons les bugs, optimisons votre SEO et guidons
+                l&apos;achalandage directement vers vos objectifs de conversion.
+              </p>
+            </div>
+          </div>
+
+          {/* Saviez-vous que ? */}
+          <div className="border border-h91-warp/20 rounded-2xl bg-h91-gravity/50 p-8">
+            <h3 className="text-h91-warp font-bold text-sm uppercase tracking-widest mb-8 flex items-center gap-3">
+              <span className="text-xl">💡</span> Saviez-vous que ?
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="p-5 rounded-xl bg-h91-warp/5 border border-h91-warp/20">
+                <p className="text-h91-warp font-bold text-4xl mb-2">+22 %</p>
+                <p className="text-h91-stellar font-semibold text-sm mb-3">Croissance des revenus</p>
+                <p className="text-h91-stellar/60 text-sm leading-relaxed">
+                  Selon la Banque de développement du Canada (BDC), les PME qui investissent
+                  activement dans leur présence numérique affichent une croissance de leurs revenus
+                  jusqu&apos;à 22 % supérieure à celles qui négligent le web. C&apos;est le levier de
+                  visibilité le plus puissant de l&apos;ère moderne.
+                </p>
+              </div>
+              <div className="p-5 rounded-xl bg-h91-warp/5 border border-h91-warp/20">
+                <p className="text-h91-warp font-bold text-4xl mb-2">3 k$ — 10 k$</p>
+                <p className="text-h91-stellar font-semibold text-sm mb-3">Le prix du marché canadien</p>
+                <p className="text-h91-stellar/60 text-sm leading-relaxed">
+                  En moyenne, la conception d&apos;un site web professionnel sur mesure par une agence
+                  canadienne varie entre 3 000 $ et 10 000 $ — et grimpe bien plus haut pour les
+                  plateformes complexes. L&apos;avantage Étoile Boréale : service régional humain,
+                  ultra-réactif, sans les frais gonflés des grandes agences métropolitaines.
+                </p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════════════
           CTA FINAL
       ═══════════════════════════════════════════════════ */}
       <section className="py-20 px-6 text-center border-t border-h91-warp/20">
