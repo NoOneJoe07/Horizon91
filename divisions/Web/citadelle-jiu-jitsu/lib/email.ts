@@ -3,13 +3,13 @@
 // -----------------------------------------------------------------------------
 // RÔLE :
 //   Fournit une fonction utilitaire sendEmail() utilisée par les routes API
-//   pour notifier le propriétaire (citadellejiujitsu@gmail.com) lors des
+//   pour notifier le propriétaire (citadellejj@gmail.com) lors des
 //   événements suivants :
 //     - Nouveau message de contact (/api/contact)
 //     - Nouvelle demande de séance d'essai (/api/trial)
 //
 // CONFIGURATION GMAIL (prérequis) :
-//   1. Se connecter au compte citadellejiujitsu@gmail.com
+//   1. Se connecter au compte citadellejj@gmail.com
 //   2. Activer l'authentification à 2 facteurs (obligatoire pour App Password)
 //   3. Aller dans Gérer le compte Google → Sécurité → Mots de passe d'application
 //   4. Créer un mot de passe pour "Autre application" → nommer "Citadelle Site"
@@ -18,9 +18,9 @@
 // VARIABLES D'ENVIRONNEMENT REQUISES (dans .env) :
 //   SMTP_HOST=smtp.gmail.com
 //   SMTP_PORT=587
-//   SMTP_USER=citadellejiujitsu@gmail.com
+//   SMTP_USER=citadellejj@gmail.com
 //   SMTP_PASS=xxxx xxxx xxxx xxxx  (App Password Google — sans espaces)
-//   OWNER_EMAIL=citadellejiujitsu@gmail.com
+//   OWNER_EMAIL=citadellejj@gmail.com
 //
 // COMPORTEMENT GRACIEUX :
 //   Si les variables SMTP ne sont pas configurées (env de développement),

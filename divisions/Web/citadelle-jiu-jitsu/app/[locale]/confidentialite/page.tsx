@@ -131,8 +131,8 @@ function PrivacyFR() {
           Citadelle Jiu-Jitsu<br />
           964 Rue Mainguy, Québec, QC G1V 3S4<br />
           Téléphone : 418-564-1047<br />
-          Courriel : <a href="mailto:citadellejiujitsu@gmail.com" style={{ color: "var(--color-citadelle-gold)" }}>
-            citadellejiujitsu@gmail.com
+          Courriel : <a href="mailto:citadellejj@gmail.com" style={{ color: "var(--color-citadelle-gold)" }}>
+            citadellejj@gmail.com
           </a>
         </p>
       </div>
@@ -214,8 +214,8 @@ function PrivacyFR() {
         </ul>
         <p style={styles.p}>
           Pour exercer ces droits, contactez-nous à{" "}
-          <a href="mailto:citadellejiujitsu@gmail.com" style={{ color: "var(--color-citadelle-gold)" }}>
-            citadellejiujitsu@gmail.com
+          <a href="mailto:citadellejj@gmail.com" style={{ color: "var(--color-citadelle-gold)" }}>
+            citadellejj@gmail.com
           </a>.
           Nous répondrons dans un délai de 30 jours conformément à la loi.
         </p>
@@ -331,8 +331,8 @@ function PrivacyEN() {
           Citadelle Jiu-Jitsu<br />
           964 Rue Mainguy, Québec, QC G1V 3S4<br />
           Phone: 418-564-1047<br />
-          Email: <a href="mailto:citadellejiujitsu@gmail.com" style={{ color: "var(--color-citadelle-gold)" }}>
-            citadellejiujitsu@gmail.com
+          Email: <a href="mailto:citadellejj@gmail.com" style={{ color: "var(--color-citadelle-gold)" }}>
+            citadellejj@gmail.com
           </a>
         </p>
       </div>
@@ -400,8 +400,8 @@ function PrivacyEN() {
         </ul>
         <p style={styles.p}>
           To exercise these rights, contact us at{" "}
-          <a href="mailto:citadellejiujitsu@gmail.com" style={{ color: "var(--color-citadelle-gold)" }}>
-            citadellejiujitsu@gmail.com
+          <a href="mailto:citadellejj@gmail.com" style={{ color: "var(--color-citadelle-gold)" }}>
+            citadellejj@gmail.com
           </a>.
           We will respond within 30 days as required by law.
         </p>

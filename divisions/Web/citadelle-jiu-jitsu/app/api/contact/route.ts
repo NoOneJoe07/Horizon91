@@ -111,7 +111,7 @@ export async function POST(req: NextRequest) {
     // sendEmail() est gracieux : loggue un warning si SMTP non configuré,
     // ne crashe pas l'API. Message déjà sauvegardé en BD à ce point.
     await sendEmail({
-      to:      process.env.OWNER_EMAIL ?? "citadellejiujitsu@gmail.com",
+      to:      process.env.OWNER_EMAIL ?? "citadellejj@gmail.com",
       subject: `[Citadelle] Nouveau message : ${parsed.data.subject}`,
       html: `
         <h2 style="color:#c9a227">Nouveau message de contact</h2>

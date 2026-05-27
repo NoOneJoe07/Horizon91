@@ -92,8 +92,8 @@ export async function Footer({ locale }: FooterProps) {
                 </a>
               </li>
               <li>
-                <a href="mailto:citadellejiujitsu@gmail.com" style={{ color: "inherit", fontSize: "0.875rem" }}>
-                  citadellejiujitsu@gmail.com
+                <a href="mailto:citadellejj@gmail.com" style={{ color: "inherit", fontSize: "0.875rem" }}>
+                  citadellejj@gmail.com
                 </a>
               </li>
               <li style={{ color: "var(--color-citadelle-text-muted)" }}>

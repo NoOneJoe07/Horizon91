@@ -66,7 +66,7 @@ export async function POST(req: NextRequest) {
       : "Non précisée";
 
     await sendEmail({
-      to:      process.env.OWNER_EMAIL ?? "citadellejiujitsu@gmail.com",
+      to:      process.env.OWNER_EMAIL ?? "citadellejj@gmail.com",
       subject: `[Citadelle] Nouvelle séance d'essai — ${parsed.data.firstName} ${parsed.data.lastName}`,
       html: `
         <h2 style="color:#c9a227">Nouvelle demande de séance d'essai</h2>
