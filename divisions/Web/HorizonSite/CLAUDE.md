@@ -144,11 +144,14 @@ Variables ENV Vercel ✅ : ZOHO_USER (= contact@groupesupernova.ca), ZOHO_PASS, 
 - Nordik Legion Studio = site séparé (nordiklegion.ca) — redirect depuis mark
 - PAS de domaines séparés par division pour l'instant
 
-## Produits cyber internes — Saurel & Suite Carignan (rebrandés session 2026-05-26)
-- **Saurel** : Dark Web Monitoring SaaS (ex-Argos) — 4 tiers en production sur /divisions/cyber
+## Produits cyber internes — Fort Saurel & Suite Carignan
+- **Fort Saurel** : Dark Web Monitoring SaaS (ex-Argos → ex-Saurel) — 4 tiers en production sur /divisions/cyber
   - Sentinelle 75$/mois | Gardien 150$/mois (featured) | Bouclier 200$/mois | Forteresse 350$/mois
-  - Tagline : "Cent yeux qui ne dorment jamais, pendant que vous dormez tranquille."
-  - JSON-LD SoftwareApplication ajouté sur /divisions/cyber
+  - Tagline : "La vigie numérique des PME."
+  - Sentinelles = agents automatisés internes du logiciel (scripts, alertes, traqueurs) — ≠ tier tarifaire
+  - Contexte historique : Pierre de Saurel, Fort Saurel 1665, verrou rivière Richelieu, régiment Carignan-Salières
+  - Parallèle produit : fort surveille l'autoroute fluviale → SaaS surveille les flux de données / Dark Web
+  - JSON-LD SoftwareApplication sur /divisions/cyber (name: "Fort Saurel")
 - **Suite Carignan** : 4 produits en développement (ex-Suite Olympus) — cartes floutées "Zone de travaux"
   - Sorel (remédiation & réponse aux incidents)
   - Contrecoeur (simulation phishing & ingénierie sociale)

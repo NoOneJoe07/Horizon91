@@ -197,6 +197,17 @@ export default function DivisionWebPage() {
                 sans aucun embâcle technique. Nous éliminons les bugs, optimisons votre SEO et guidons
                 l&apos;achalandage directement vers vos objectifs de conversion.
               </p>
+              <div className="mt-2 p-6 rounded-xl border border-h91-warp/30 bg-h91-warp/5">
+                <p className="text-h91-warp font-bold text-sm uppercase tracking-widest mb-3">
+                  L&apos;avantage Étoile Boréale
+                </p>
+                <p>
+                  La Division Draveur ne recule devant aucun courant, aussi complexe soit votre
+                  chantier web. En éliminant la structure lourde et le flafla des grandes firmes,
+                  on vous livre des plateformes d&apos;élite à un prix 20 % à 40 % plus bas — avec un
+                  cœur à l&apos;ouvrage et une fierté locale que l&apos;argent ne peut pas acheter.
+                </p>
+              </div>
             </div>
           </div>
 

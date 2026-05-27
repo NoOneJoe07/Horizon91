@@ -72,15 +72,15 @@ async function CyberServiceJsonLd() {
     {
       "@context": "https://schema.org",
       "@type": "SoftwareApplication",
-      name: "Saurel",
+      name: "Fort Saurel",
       applicationCategory: "SecurityApplication",
       operatingSystem: "Web",
       description:
         locale === "en"
-          ? "Saurel is a dark web monitoring SaaS that continuously scans clandestine markets, forums and data leaks to alert businesses before damage is done."
+          ? "Fort Saurel is a dark web monitoring SaaS. Like the historic Fort Saurel that guarded the Richelieu River, it acts as the strategic lock of your business — scanning clandestine markets, forums and data leaks to alert you before damage is done."
           : locale === "es"
-          ? "Saurel es un SaaS de monitoreo del dark web que escanea mercados clandestinos y filtraciones de datos para alertar a las empresas antes de que ocurra el daño."
-          : "Saurel est un SaaS de surveillance du Dark Web qui scanne en continu les marchés clandestins, forums et fuites de données pour alerter les entreprises avant que les dommages soient faits.",
+          ? "Fort Saurel es un SaaS de monitoreo del dark web. Como el histórico Fuerte Saurel que vigilaba el río Richelieu, actúa como el candado estratégico de su empresa — escaneando mercados clandestinos y filtraciones de datos antes de que ocurra el daño."
+          : "Fort Saurel est un SaaS de surveillance du Dark Web. Comme le fort historique qui verrouillait la rivière Richelieu, il agit comme le verrou stratégique de votre entreprise — scannant marchés clandestins, forums et fuites de données avant que les dommages soient faits.",
       offers: [
         { "@type": "Offer", name: "Sentinelle", price: "75", priceCurrency: "CAD" },
         { "@type": "Offer", name: "Gardien", price: "150", priceCurrency: "CAD" },
@@ -291,6 +291,17 @@ export default function DivisionCyberPage() {
                 architecture cyber sur mesure pour que votre entreprise reste un fort imprenable
                 — peu importe la taille de la menace.
               </p>
+              <div className="mt-2 p-6 rounded-xl border border-h91-accretion/30 bg-h91-accretion/5">
+                <p className="text-h91-accretion font-bold text-sm uppercase tracking-widest mb-3">
+                  L&apos;avantage Étoile Boréale
+                </p>
+                <p>
+                  La Division Carillon ne fait pas que surveiller vos serveurs — elle documente
+                  et structure votre gouvernance de données. Conformité Loi 25, politiques de
+                  confidentialité, registres d&apos;accès : en cas de contrôle, vous avez la preuve
+                  écrite que votre fort était défendu selon les règles de l&apos;art.
+                </p>
+              </div>
             </div>
           </div>
 
@@ -337,13 +348,13 @@ export default function DivisionCyberPage() {
               Produit phare — SaaS
             </span>
             <h2 className="text-6xl md:text-7xl font-bold text-h91-stellar mb-5 tracking-tight">
-              SAUREL
+              FORT SAUREL
             </h2>
             <p className="text-h91-accretion font-semibold text-lg md:text-xl italic max-w-2xl mx-auto mb-5">
-              &quot;Cent yeux qui ne dorment jamais, pendant que vous dormez tranquille.&quot;
+              La vigie numérique des PME.
             </p>
             <p className="text-h91-stellar/55 text-base max-w-2xl mx-auto leading-relaxed">
-              Surveillance du Dark Web en temps réel. Saurel scanne en continu les marchés
+              Surveillance du Dark Web en temps réel. Fort Saurel scanne en continu les marchés
               clandestins, forums et fuites de données pour vous alerter dès que vos
               informations apparaissent — avant que les dommages soient faits.
             </p>
@@ -425,6 +436,78 @@ export default function DivisionCyberPage() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════════════
+          FORT SAUREL — CONTEXTE HISTORIQUE & SENTINELLES
+      ═══════════════════════════════════════════════════ */}
+      <section className="py-20 px-6 border-t border-h91-accretion/20">
+        <div className="max-w-4xl mx-auto">
+
+          {/* Contexte historique */}
+          <div className="mb-10">
+            <span className="inline-block text-xs font-bold px-3 py-1.5 rounded-full bg-h91-accretion/10 text-h91-accretion border border-h91-accretion/30 mb-6 uppercase tracking-widest">
+              Le contexte historique
+            </span>
+            <h3 className="text-2xl md:text-3xl font-bold text-h91-stellar mb-6">
+              Le Verrou du Richelieu
+            </h3>
+            <div className="space-y-5 text-h91-stellar/70 text-lg leading-relaxed">
+              <p>
+                En 1665, Pierre de Saurel, capitaine au régiment de Carignan-Salières, érige le
+                Fort Saurel à l&apos;embouchure de la rivière Richelieu. À cette époque, cette rivière
+                est l&apos;autoroute des invasions. Le mandat du fort est crucial : agir comme une
+                sentinelle avancée, bloquer les incursions surprises et verrouiller l&apos;accès au
+                fleuve Saint-Laurent pour protéger les colonies naissantes. Les soldats qui y
+                montaient la garde devaient déceler la moindre anomalie sur l&apos;eau ou dans les bois
+                avant qu&apos;elle ne devienne une menace fatale.
+              </p>
+              <p>
+                Tout comme le fort historique surveillait l&apos;autoroute fluviale pour protéger la
+                Nouvelle-France, le SaaS Fort Saurel agit comme le verrou stratégique de votre
+                entreprise. C&apos;est une plateforme de monitoring intelligente qui surveille les flux
+                de données, les performances et les angles morts opérationnels des PME. Il élimine
+                l&apos;effet de surprise : avant qu&apos;une faille, un bug ou une baisse de performance ne
+                vienne couler votre modèle d&apos;affaires, Fort Saurel a déjà sonné l&apos;alarme.
+              </p>
+            </div>
+          </div>
+
+          {/* Les Sentinelles */}
+          <div className="mb-10 p-7 rounded-2xl border border-h91-accretion/20 bg-h91-gravity/50">
+            <h3 className="text-xl font-bold text-h91-stellar mb-4">
+              Que font les Sentinelles de Fort Saurel ?
+            </h3>
+            <div className="space-y-4 text-h91-stellar/70 text-base leading-relaxed">
+              <p>
+                Dans le logiciel, les Sentinelles sont vos agents automatisés — vos scripts de
+                surveillance, vos alertes de serveurs, vos traqueurs de bases de données. Les
+                Sentinelles ne dorment jamais. Elles veillent au grain 24h/24 sur la santé
+                numérique de votre PME.
+              </p>
+              <p>
+                Elles scannent l&apos;horizon, détectent les anomalies de performance, valident
+                l&apos;intégrité des données et s&apos;assurent que la forteresse business roule à pleine
+                capacité. Si une Sentinelle repère un comportement anormal, elle isole la menace
+                et vous transmet un rapport clair pour que vous puissiez agir avant l&apos;impact.
+              </p>
+            </div>
+          </div>
+
+          {/* Avantage Boréale */}
+          <div className="p-6 rounded-xl border border-h91-accretion/30 bg-h91-accretion/5">
+            <p className="text-h91-accretion font-bold text-sm uppercase tracking-widest mb-3">
+              L&apos;avantage Étoile Boréale
+            </p>
+            <p className="text-h91-stellar/70 text-lg leading-relaxed">
+              Avec Fort Saurel, vous n&apos;attendez pas que la crise frappe pour colmater les
+              brèches. Nos Sentinelles numériques surveillent vos arrières en continu,
+              transformant le chaos imprévisible du web en une trajectoire stable, sécurisée
+              et entièrement sous contrôle.
+            </p>
+          </div>
+
         </div>
       </section>
 
