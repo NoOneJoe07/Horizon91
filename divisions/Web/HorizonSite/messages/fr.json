@@ -13,7 +13,7 @@
     "join": "Nous joindre"
   },
   "home": {
-    "tagline": "Agence créative & technologique basée à Sainte-Marie-de-Beauce, Québec. On prend ta passion, on la numérise, on la fait briller.",
+    "tagline": "Agence créative & technologique basée à Sainte-Marie-de-Beauce, Québec. On prend votre passion, on la numérise, on la fait briller.",
     "team": {
       "title": "L'équipe",
       "subtitle": "Des gens passionnés derrière chaque projet.",
@@ -59,39 +59,39 @@
     "divisionWeb": {
       "hero_titre": "Division Draveur — Développement Web",
       "hero_tagline": "La Flamme",
-      "hero_description": "Comme les draveurs maîtrisaient le flux des rivières sauvages du Québec, la Division Draveur maîtrise le flux numérique de votre entreprise. On conçoit des portails web robustes qui optimisent l'achalandage web et travaillent pour toi — même quand tu dors. Sites rapides, beaux, référencés et maintenus par une équipe locale qui comprend la réalité des entrepreneurs d'ici.",
+      "hero_description": "Comme les draveurs maîtrisaient le flux des rivières sauvages du Québec, la Division Draveur maîtrise le flux numérique de votre entreprise. On conçoit des portails web robustes qui optimisent l'achalandage web et travaillent pour vous — même quand vous dormez. Sites rapides, beaux, référencés et maintenus par une équipe locale qui comprend la réalité des entrepreneurs d'ici.",
       "services_titre": "Ce qu'on fait",
       "services": [
-        { "titre": "Site vitrine professionnel", "desc": "Conception de portail web robuste sur mesure, mobile-first, chargement ultra-rapide. Ton image en ligne à la hauteur de ton travail — optimisée pour convertir les visiteurs en clients." },
-        { "titre": "Boutique en ligne & e-commerce", "desc": "Vends tes produits 24h/24. Gestion de stock, paiement Stripe, tableau de bord pour toi." },
+        { "titre": "Site vitrine professionnel", "desc": "Conception de portail web robuste sur mesure, mobile-first, chargement ultra-rapide. Votre image en ligne à la hauteur de votre travail — optimisée pour convertir les visiteurs en clients." },
+        { "titre": "Boutique en ligne & e-commerce", "desc": "Vendez vos produits 24h/24. Gestion de stock, paiement Stripe, tableau de bord pour vous." },
         { "titre": "Système de réservation", "desc": "Prises de rendez-vous en ligne, gestion des plages horaires, rappels automatiques." },
-        { "titre": "SEO & référencement local", "desc": "Optimisation de l'achalandage web organique pour ta région. Sors en premier quand tes clients cherchent ce que tu offres — et garde cette position dans les résultats Google." },
+        { "titre": "SEO & référencement local", "desc": "Optimisation de l'achalandage web organique pour votre région. Sortez en premier quand vos clients cherchent ce que vous offrez — et gardez cette position dans les résultats Google." },
         { "titre": "Identité visuelle & infographie", "desc": "Logo, palette, typographie — une marque cohérente qui se démarque." },
-        { "titre": "Maintenance & support mensuel", "desc": "Mises à jour, sécurité, contenu — on garde ton site en santé pendant que tu te concentres sur ton métier." }
+        { "titre": "Maintenance & support mensuel", "desc": "Mises à jour, sécurité, contenu — on garde votre site en santé pendant que vous vous concentrez sur votre métier." }
       ],
       "approche_titre": "Notre approche",
-      "approche_texte": "On ne livre pas des sites web à la chaîne. Chaque projet commence par comprendre ton entreprise, ta clientèle et tes objectifs. Notre maîtrise du flux numérique transforme ta présence en ligne en véritable moteur d'achalandage web — un outil qui génère de vraies retombées, pas juste une belle vitrine.",
-      "cta_titre": "Prêt à bâtir ta présence en ligne ?",
-      "cta_bouton": "Parlons de ton projet",
+      "approche_texte": "On ne livre pas des sites web à la chaîne. Chaque projet commence par comprendre votre entreprise, votre clientèle et vos objectifs. Notre maîtrise du flux numérique transforme votre présence en ligne en véritable moteur d'achalandage web — un outil qui génère de vraies retombées, pas juste une belle vitrine.",
+      "cta_titre": "Prêt à bâtir votre présence en ligne ?",
+      "cta_bouton": "Parlons de votre projet",
       "cta_portfolio": "Voir nos réalisations"
     },
     "divisionCyber": {
       "hero_titre": "Division Carillon — Cybersécurité",
       "hero_tagline": "Singularité",
-      "hero_description": "Tes données, ton infrastructure et la confiance de tes clients méritent une protection sérieuse. On analyse, on sécurise, on forme — pour que tu puisses croître sans vulnérabilité cachée.",
+      "hero_description": "Vos données, votre infrastructure et la confiance de vos clients méritent une protection sérieuse. On analyse, on sécurise, on forme — pour que vous puissiez croître sans vulnérabilité cachée.",
       "services_titre": "Ce qu'on fait",
       "services": [
-        { "titre": "Audit de sécurité", "desc": "Analyse complète de tes systèmes pour identifier les vulnérabilités avant que quelqu'un d'autre ne le fasse." },
-        { "titre": "Sécurisation d'infrastructure", "desc": "Renforcement de tes réseaux, serveurs et postes de travail selon les meilleures pratiques du domaine." },
+        { "titre": "Audit de sécurité", "desc": "Analyse complète de vos systèmes pour identifier les vulnérabilités avant que quelqu'un d'autre ne le fasse." },
+        { "titre": "Sécurisation d'infrastructure", "desc": "Renforcement de vos réseaux, serveurs et postes de travail selon les meilleures pratiques du domaine." },
         { "titre": "Protection des données", "desc": "Conformité Loi 25 (Québec), politiques de confidentialité, gestion des accès et chiffrement." },
-        { "titre": "Formation des équipes", "desc": "Tes employés sont ta première ligne de défense. On les sensibilise aux menaces réelles : hameçonnage, mots de passe, comportements à risque." },
+        { "titre": "Formation des équipes", "desc": "Vos employés sont votre première ligne de défense. On les sensibilise aux menaces réelles : hameçonnage, mots de passe, comportements à risque." },
         { "titre": "Réponse aux incidents", "desc": "Plan de réponse en cas de compromission — minimiser les dommages, reprendre le contrôle rapidement." },
-        { "titre": "Veille & bonnes pratiques", "desc": "Le paysage des menaces évolue. On reste à jour pour que tu n'aies pas à t'en préoccuper." }
+        { "titre": "Veille & bonnes pratiques", "desc": "Le paysage des menaces évolue. On reste à jour pour que vous n'ayez pas à vous en préoccuper." }
       ],
       "approche_titre": "Sécurité sans jargon",
-      "approche_texte": "La cybersécurité n'est pas réservée aux grandes entreprises. Une PME compromise, c'est des données clients volées, une réputation atteinte et des coûts de récupération importants. On rend la protection accessible, compréhensible et proportionnelle à ta réalité.",
+      "approche_texte": "La cybersécurité n'est pas réservée aux grandes entreprises. Une PME compromise, c'est des données clients volées, une réputation atteinte et des coûts de récupération importants. On rend la protection accessible, compréhensible et proportionnelle à votre réalité.",
       "badge": "Division en développement actif",
-      "cta_titre": "Tu veux évaluer ta posture de sécurité ?",
+      "cta_titre": "Vous souhaitez évaluer votre posture de sécurité ?",
       "cta_bouton": "Parler à notre équipe",
       "cta_portfolio": "Retour aux divisions"
     },
@@ -179,10 +179,10 @@
         "couleur": "border-h91-warp"
       },
       {
-        "nom": "Argos — Surveillance Dark Web",
+        "nom": "Fort Saurel — Surveillance Dark Web",
         "client": "Groupe Étoile Boréale — Produit interne",
         "categorie": "Cybersécurité",
-        "description": "SaaS de surveillance du Dark Web en temps réel. Argos scanne en continu les marchés clandestins, forums et fuites de données pour alerter les entreprises dès que leurs informations apparaissent.",
+        "description": "SaaS de surveillance du Dark Web en temps réel. Fort Saurel scanne en continu les marchés clandestins, forums et fuites de données pour alerter les entreprises dès que leurs informations apparaissent.",
         "resultats": ["Scan Dark Web continu", "Alertes temps réel", "4 tiers tarifaires", "Données au Québec"],
         "statut": "En cours",
         "couleur": "border-h91-accretion"
@@ -203,13 +203,13 @@
       {
         "titre": "Développement Web",
         "couleur": "text-h91-warp",
-        "courriel": "web@groupesupernova.ca",
+        "courriel": "web@etoileboreale.ca",
         "note": "Sites web, e-commerce, SEO, identité visuelle."
       },
       {
         "titre": "Cybersécurité",
         "couleur": "text-h91-accretion",
-        "courriel": "cyber@groupesupernova.ca",
+        "courriel": "cyber@etoileboreale.ca",
         "note": "Audits, sécurisation, formation."
       },
       {
@@ -315,12 +315,12 @@
       {
         "nom": "Option A — Client autonome",
         "prix": "150 $ / mois",
-        "desc": "Mises à jour sécurité, monitoring, sauvegardes. Tu gères ton contenu via ton panneau admin."
+        "desc": "Mises à jour sécurité, monitoring, sauvegardes. Vous gérez votre contenu via votre panneau admin."
       },
       {
         "nom": "Option B — Étoile Boréale gère tout",
         "prix": "200 $ — 350 $ / mois",
-        "desc": "Contenu, textes, photos, mises à jour — on s'en occupe pendant que tu travailles."
+        "desc": "Contenu, textes, photos, mises à jour — on s'en occupe pendant que vous travaillez."
       }
     ],
     "heures_title": "Heures supplémentaires hors forfait",

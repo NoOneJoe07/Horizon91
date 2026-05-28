@@ -161,13 +161,37 @@ Variables ENV Vercel ✅ : ZOHO_USER (= contact@groupesupernova.ca), ZOHO_PASS, 
 
 ## SEO — Session 2026-05-26 (complet)
 - generateMetadata() sur TOUTES les pages (homepage, divisions, web, cyber, portfolio, contacts, rejoindre, tarification, actualites, confidentialite)
-- JSON-LD enrichis : LocalBusiness (homepage), Service (web + cyber), SoftwareApplication (Saurel)
+- JSON-LD enrichis : LocalBusiness (homepage), Service (web + cyber), SoftwareApplication (Fort Saurel)
 - Descriptions avec branding historique/folklorique :
   - Draveurs : maîtrisaient les rivières tumultueuses du Québec
   - Carillon : Montcalm 3 600 vs 15 000 Britanniques (1758)
   - Étoile Polaire : guide des coureurs des bois et voyageurs
 - Canonical URLs : etoileboreale.ca (FR/ES), borealstar.ca (EN)
-- client components extraits (PortfolioClient.tsx, RejoindreCl.tsx) pour permettre generateMetadata serveur
+- Client components extraits (PortfolioClient.tsx, RejoindreCl.tsx) pour permettre generateMetadata serveur
+- Google Search Console : etoileboreale.ca + borealstar.ca vérifiés ✅, sitemaps soumis ✅, indexation demandée ✅
+
+## Enrichissement contenu — Session 2026-05-26 (soir)
+### SEO sémantique Division Draveur (FR + EN + ES)
+- Vocabulaire sémantique injecté dans messages/*.json :
+  - "maîtrise du flux numérique", "portails web robustes", "optimisation de l'achalandage web"
+  - Analogie draveurs → rivières → flux numérique dans hero_description, approche_texte, card /divisions
+- Quote homepage remplacée : Étoile Polaire / coureurs des bois / flux numérique (FR + EN + ES)
+- p6 histoire enrichi : "marier la rigueur de nos bâtisseurs historiques à la puissance des technologies de demain"
+
+### Sections narratives hardcodées dans les pages TSX
+- **divisions/web/page.tsx** : section "Maîtriser le flux" (récit draveurs + embâcle) + encadré "L'avantage Étoile Boréale" (20-40% moins cher que les grandes firmes) + bloc "Saviez-vous que ?" (+22% BDC / 3k$–10k$ marché canadien)
+- **divisions/cyber/page.tsx** : section "Architecture défensive" (Bataille de Carillon 1758 + abatis) + encadré "L'avantage Étoile Boréale" (gouvernance données + Loi 25 + preuve documentée) + bloc "Saviez-vous que ?" (40% PME ciblées / 25 000$+ coût incident) + section "Fort Saurel — Le Verrou du Richelieu" (Pierre de Saurel 1665 + Sentinelles + avantage Boréale)
+
+### Fort Saurel (rebrand final)
+- Renommé de "Saurel" → "Fort Saurel" (H2, tagline, JSON-LD)
+- Nouvelle tagline : "La vigie numérique des PME."
+- Sentinelles = agents automatisés internes (scripts, alertes, traqueurs) — terme fonctionnel, pas tier tarifaire
+
+### Micro-animations — globals.css
+- `.card-lift` : hover élévation (translateY -5px + lueur orange) sur cartes divisions, équipe, services
+- `.animate-fade-in-up` + `.stagger-1` à `.stagger-6` : entrée échelonnée des grilles de cartes
+- `.scroll-fade` : CSS scroll-driven animations (animation-timeline: view()) sur paragraphes histoire
+- Transitions globales fluides sur a et button
 
 ## Modèle de tarification — Décisions session 2026-05-06
 
@@ -228,11 +252,15 @@ Variables ENV Vercel ✅ : ZOHO_USER (= contact@groupesupernova.ca), ZOHO_PASS, 
 - Modèle de croissance : 5 clients bien servis + bouche-à-oreille > 50 clients mal suivis
 
 ## Phase 2 — Contenu à ajouter (APRÈS revamping actuel)
-- Section historique/lore Division Draveur : histoire des draveurs québécois + ancrage web
-- Section historique/lore Division Carillon : Bataille de Carillon 1758 + ancrage cybersec
-- "Saviez-vous" stats : PME sans site web, coûts cyberattaque, taux conversion local
-- Contexte Suite Carignan (Sorel, Contrecoeur, Berthier, Chambly) avec lore historique
-- Articles Loi 25 sur /actualites
+- ✅ Section historique/lore Division Draveur : histoire des draveurs québécois + ancrage web
+- ✅ Section historique/lore Division Carillon : Bataille de Carillon 1758 + ancrage cybersec
+- ✅ "Saviez-vous que ?" stats : BDC +22%, marché 3k-10k$ (Draveur) / 40% PME, 25k$ incident (Carillon)
+- ✅ Contexte Fort Saurel : Pierre de Saurel 1665, Richelieu, Sentinelles, avantage Boréale
+- [ ] Contexte Suite Carignan (Sorel, Contrecoeur, Berthier, Chambly) avec lore historique
+- [ ] Articles Loi 25 sur /actualites
+- [ ] og-image.jpg avec branding Étoile Boréale
+- [ ] Photos équipe (Jonathan, Alexandra, Paulina) → remplacer initiales
+- [ ] Bios Alexandra et Paulina
 
 ## À faire — Jonathan (hors code)
 - [ ] Enregistrement légal : NEQ (Registraire entreprises QC) + numéro fédéral ARC — "Groupe Étoile Boréale Inc."
@@ -250,24 +278,27 @@ Variables ENV Vercel ✅ : ZOHO_USER (= contact@groupesupernova.ca), ZOHO_PASS, 
 ## Prochaines étapes techniques — REBRAND 2026-05-26
 1.  ✅ Nouveau logo/mark L'ÉTOILE (mark-etoile.svg)
 2.  ✅ Header + page accueil mis à jour (mark-etoile.svg, 310px hero)
-3.  ✅ messages/fr.json — branding complet Étoile Boréale
-4.  ✅ messages/en.json + es.json — Boreal Star Group / Grupo Estrella Boreal
+3.  ✅ messages/fr.json — branding complet + SEO sémantique Draveur + Story enrichie
+4.  ✅ messages/en.json + es.json — Boreal Star Group / Grupo Estrella Boreal + SEO sémantique
 5.  ✅ layout.tsx — metadata + OG + canonical nouveaux domaines
-6.  ✅ divisions/page.tsx — Draveur, Carillon, Nordik Legion Studio
-7.  ✅ divisions/web/page.tsx — Division Draveur (alt text, JSON-LD)
-8.  ✅ divisions/cyber/page.tsx — Saurel (ex-Argos), Suite Carignan (ex-Suite Olympus)
+6.  ✅ divisions/page.tsx — Draveur, Carillon, Nordik Legion Studio (card-lift animations)
+7.  ✅ divisions/web/page.tsx — héritage draveurs + avantage Boréale + Saviez-vous que + animations
+8.  ✅ divisions/cyber/page.tsx — Fort Saurel (rebrand) + héritage Carillon + Saviez-vous que + section Fort Saurel complète
 9.  ✅ api/contact/route.ts — noms expéditeurs + domain footer
 10. ✅ robots.ts + sitemap.ts — etoileboreale.ca
 11. ✅ confidentialite/page.tsx — Groupe Étoile Boréale partout
 12. ✅ SEO complet — generateMetadata + JSON-LD Service/SoftwareApp sur toutes les pages
 13. ✅ Client components extraits (PortfolioClient, RejoindreCl) pour SEO serveur
-14. [ ] og-image.jpg — nouvelle image branding Étoile Boréale (tâche 7)
-15. [ ] Sync WSL + git commit + push → Vercel (tâche 17)
-16. [ ] Google Search Console — soumettre etoileboreale.ca + borealstar.ca (tâche 18)
+14. ✅ Google Search Console — etoileboreale.ca + borealstar.ca vérifiés + sitemaps + indexation
+15. ✅ Micro-animations — globals.css (card-lift, animate-fade-in-up, stagger, scroll-fade)
+16. [ ] og-image.jpg — nouvelle image branding Étoile Boréale
 17. [ ] Google Business Profile — mettre à jour nom "Groupe Étoile Boréale Inc."
 18. [ ] Photos équipe → remplacer placeholders (initiales) par vraies photos
-19. [ ] Upgrade Next.js → latest (tester localement d'abord, session dédiée)
-20. [ ] Formation Vercel — Analytics, Speed Insights, Firewall, Storage
+19. [ ] Bios Alexandra et Paulina
+20. [ ] Suite Carignan — section lore historique (Sorel, Contrecoeur, Berthier, Chambly)
+21. [ ] Articles Loi 25 sur /actualites
+22. [ ] Upgrade Next.js → latest (tester localement d'abord, session dédiée)
+23. [ ] Formation Vercel — Analytics, Speed Insights, Firewall, Storage
 
 ## Vercel — Notes configuration
 - Projet : horizon91-2zpm (Hobby plan)
