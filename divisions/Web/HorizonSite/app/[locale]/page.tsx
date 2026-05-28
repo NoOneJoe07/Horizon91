@@ -116,29 +116,29 @@ const membresMeta = [
   {
     key: "jonathan",
     initiales: "JP",
-    couleurBordure: "border-h91-accretion",
-    couleurInitiales: "text-h91-accretion",
+    couleurBordure: "border-h91-glacier",  /* Bleu-gris glacé — Direction générale */
+    couleurInitiales: "text-h91-glacier",
     badge: false,
   },
   {
     key: "alexandra",
     initiales: "AE",
-    couleurBordure: "border-h91-fusion",
-    couleurInitiales: "text-h91-fusion",
+    couleurBordure: "border-h91-ion",      /* Cyan/turquoise — couleur préférée d'Alexandra */
+    couleurInitiales: "text-h91-ion",
     badge: false,
   },
   {
     key: "paulina",
     initiales: "PJ",
-    couleurBordure: "border-h91-warp",
+    couleurBordure: "border-h91-warp",     /* Violet — Division Draveur */
     couleurInitiales: "text-h91-warp",
     badge: false,
   },
   {
     key: "gabriel",
     initiales: "GP",
-    couleurBordure: "border-h91-ion",
-    couleurInitiales: "text-h91-ion",
+    couleurBordure: "border-h91-accretion", /* Orange — Division Carillon / cybersécurité */
+    couleurInitiales: "text-h91-accretion",
     badge: true,
   },
 ] as const;
@@ -155,7 +155,7 @@ export default function HomePage() {
       ================================================================ */}
       <main
         id="hero"
-        className="flex flex-col items-center min-h-screen text-center px-6 pt-28"
+        className="relative flex flex-col items-center min-h-screen text-center px-6 pt-28 overflow-hidden"
       >
         <h1 className="text-6xl md:text-8xl font-bold h91-title-gradient-animated mb-14">
           {tBrand("name")}
@@ -195,6 +195,7 @@ export default function HomePage() {
             <path d="M6 9L12 15L18 9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
         </a>
+
       </main>
 
       {/* ================================================================
@@ -204,7 +205,7 @@ export default function HomePage() {
         <h2 className="text-4xl md:text-5xl font-bold text-h91-stellar text-center mb-4">
           {t("team.title")}
         </h2>
-        <p className="text-center text-h91-stellar/60 mb-14 text-lg">
+        <p className="text-center text-h91-stellar/60 mb-14 text-lg max-w-3xl mx-auto">
           {t("team.subtitle")}
         </p>
 
@@ -241,6 +242,16 @@ export default function HomePage() {
               <p className="text-h91-stellar/70 text-sm leading-relaxed">
                 {t(`team.members.${meta.key}.bio`)}
               </p>
+
+              {/* Bouton "En savoir plus" sur la carte JP uniquement */}
+              {meta.key === "jonathan" && (
+                <a
+                  href="#histoire"
+                  className="mt-2 text-xs font-semibold text-h91-glacier hover:text-h91-ion transition underline underline-offset-4"
+                >
+                  {t("team.cta_histoire")}
+                </a>
+              )}
             </div>
           ))}
         </div>
@@ -262,7 +273,7 @@ export default function HomePage() {
           <p className="scroll-fade">{t("histoire.p5")}</p>
           <p className="scroll-fade">{t("histoire.p6")}</p>
 
-          <blockquote className="scroll-fade border-l-4 border-h91-accretion pl-6 mt-8 text-h91-stellar/60 italic text-base">
+          <blockquote className="scroll-fade border-l-4 border-h91-ion pl-6 mt-8 text-h91-stellar/60 italic text-base">
             {t("histoire.quote")}
           </blockquote>
         </div>
@@ -270,7 +281,7 @@ export default function HomePage() {
         <div className="mt-14 text-center">
           <a
             href={`divisions`}
-            className="inline-block bg-h91-accretion text-h91-gravity font-bold px-8 py-4 rounded-lg text-xl hover:bg-h91-fusion transition"
+            className="inline-block bg-h91-ion text-h91-gravity font-bold px-8 py-4 rounded-lg text-xl hover:bg-h91-ion/80 transition"
           >
             {t("histoire.cta")}
           </a>

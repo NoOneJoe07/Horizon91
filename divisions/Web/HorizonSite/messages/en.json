@@ -13,16 +13,17 @@
     "join": "Contact Us"
   },
   "home": {
-    "tagline": "Creative & technology agency based in Sainte-Marie-de-Beauce, Québec. We take your passion, digitize it, and make it shine.",
+    "tagline": "Your anchor in digital complexity. Cutting-edge cybersecurity, web infrastructure and media innovation — Boreal Star Group guides regional businesses toward growth.",
     "team": {
-      "title": "The Team",
-      "subtitle": "Passionate people behind every project.",
+      "title": "Our Stars",
+      "subtitle": "The builders behind your digital trajectory. Polaris guided the coureurs des bois through the darkest nights — our team merges the rigour of our historical builders with the power of tomorrow's technologies to guide regional entrepreneurs.",
       "badge_soon": "Coming Soon",
+      "cta_histoire": "Learn more about my journey →",
       "members": {
         "jonathan": {
           "nom": "Jonathan Patoine",
-          "titre": "Founder & CEO",
-          "bio": "Police officer. Entrepreneur. Student. Gamer. Father. Jonathan combines an unconventional career in public protection and entrepreneurship with an enduring passion for video games and digital creation. Currently studying cybersecurity at Collège Cumberland, he leads the group's strategic vision and drives the development of Studio Nordik Legion."
+          "titre": "Founder & CEO — The North Star",
+          "bio": "Tree planter, police officer, soldier, editor — Jonathan found his compass in the raw power of code and AI. Specializing in cybersecurity, he founded Boreal Star Group in 2026 to translate technological complexity into concrete solutions for regional businesses."
         },
         "alexandra": {
           "nom": "Alexandra Marcela Espin Espinoza",
@@ -48,7 +49,7 @@
       "p3": "In December 2022, his business closes by government decision. He starts over with his brother, opens a franchise, fights hard. It's not enough. Then a CISO — head of cybersecurity for a regional health authority — opens an unexpected door. Jonathan enrols in an AEC program at Collège Cumberland. He learns protocols, networks, vulnerabilities. By learning how systems fall, he finally understands how they work.",
       "p4": "It's during this period that he begins working with artificial intelligence — not as a tool, but as a partner. He realizes something fundamental: he's no longer blocked behind the wall of knowledge he'd need to acquire before creating. Imagination can precede mastery. He begins building his game studio. He begins dreaming bigger.",
       "p5": "In early 2026, his editorial contract in Montréal ends. That's the supernova. The explosion that precedes the rebirth.",
-      "p6": "In March 2026, the group is officially founded — with a precise mission: start local. Help entrepreneurs and artisans in the region build their digital presence and truly live from what they love doing. Like the log drivers who married physical rigour with mastery of the rivers, Boreal Star Group marries the rigour of our historical builders with the power of tomorrow's technologies. The first pilot project: a Brazilian jiu-jitsu dojo in Beauce. A passionate instructor struggling to reach enough clients. Exactly the kind of person this was built for. In May 2026, the group adopts its definitive name: Boreal Star Group Inc.",
+      "p6": "In March 2026, the group is officially founded — with a precise mission: start local. Help entrepreneurs and artisans in the region build their digital presence and truly live from what they love doing. Like the log drivers who married physical rigour with mastery of the rivers, Boreal Star Group marries the rigour of our historical builders with the power of tomorrow's technologies. The first pilot project: a Brazilian jiu-jitsu dojo in Québec City. A passionate instructor struggling to reach enough clients. Exactly the kind of person this was built for — no matter where they're from. Our roots are regional, but our doors are open to anyone who asks. In May 2026, the group adopts its definitive name: Boreal Star Group Inc.",
       "quote": "Polaris guided the coureurs des bois through the darkest nights. Today, it guides regional entrepreneurs through the digital flow. We are that star.",
       "cta": "Explore our divisions"
     }
@@ -149,7 +150,7 @@
         "description": "Online shop for handmade soaps, candles, ceramics and concrete surfaces. Product gallery, shopping cart, local order fulfillment.",
         "resultats": ["E-commerce store", "Visual gallery", "Local orders"],
         "statut": "À venir",
-        "couleur": "border-h91-fusion"
+        "couleur": "border-h91-glacier"
       },
       {
         "nom": "Salon Mélanie Roy",
@@ -158,7 +159,7 @@
         "description": "Premium website for a hair salon and barbershop. Online booking, natural products boutique, local SEO to stand out from the competition.",
         "resultats": ["Online booking", "Product boutique", "Local SEO"],
         "statut": "À venir",
-        "couleur": "border-h91-accretion"
+        "couleur": "border-h91-glacier"
       },
       {
         "nom": "Construction Bois Rond",
@@ -167,7 +168,7 @@
         "description": "Portfolio and lead generation site for a log home builder. Project gallery, quote request form, regional SEO.",
         "resultats": ["Project portfolio", "Lead generation", "Chaudière-Appalaches SEO"],
         "statut": "À venir",
-        "couleur": "border-h91-accretion"
+        "couleur": "border-h91-glacier"
       },
       {
         "nom": "Eliza Doyon — REMAX Agent",
@@ -185,7 +186,7 @@
         "description": "Real-time Dark Web surveillance SaaS. Argos continuously scans underground markets, forums and data leaks to alert businesses the moment their information appears.",
         "resultats": ["Continuous Dark Web scan", "Real-time alerts", "4 pricing tiers", "Quebec-hosted data"],
         "statut": "En cours",
-        "couleur": "border-h91-accretion"
+        "couleur": "border-h91-glacier"
       }
     ]
   },
@@ -196,7 +197,7 @@
     "membres": [
       {
         "titre": "General Management",
-        "couleur": "text-h91-fusion",
+        "couleur": "text-h91-glacier",
         "courriel": "direction@etoileboreale.ca",
         "note": "Partnerships, strategic vision, collaborations."
       },

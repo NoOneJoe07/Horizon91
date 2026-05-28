@@ -17,7 +17,7 @@ export default function Footer() {
       : "Tous droits réservés.";
 
   return (
-    <footer className="mt-20 border-t border-h91-accretion/20 py-10 bg-h91-gravity">
+    <footer className="mt-20 border-t border-h91-ion/20 py-10 bg-h91-gravity">
       <div className="max-w-6xl mx-auto px-6 text-center text-h91-stellar/70">
         <p className="font-semibold text-h91-stellar">
           {t("name")} — {t("tagline_footer")}
@@ -26,7 +26,7 @@ export default function Footer() {
           © {new Date().getFullYear()} {t("name")}. {rightsLabel}
         </p>
         <div className="mt-4 flex justify-center gap-6 text-xs text-h91-stellar/40">
-          <Link href="/confidentialite" className="hover:text-h91-accretion transition">
+          <Link href="/confidentialite" className="hover:text-h91-ion transition">
             {privacyLabel}
           </Link>
         </div>

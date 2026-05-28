@@ -125,7 +125,7 @@ export default function DivisionWebPage() {
         <div className="mt-10 flex flex-wrap gap-4 justify-center">
           <Link
             href="/rejoindre"
-            className="px-8 py-4 rounded-lg bg-h91-warp text-h91-stellar font-bold text-lg hover:bg-h91-accretion transition"
+            className="px-8 py-4 rounded-lg bg-h91-warp text-h91-stellar font-bold text-lg hover:bg-h91-warp/80 transition"
           >
             {t("cta_bouton")}
           </Link>
@@ -182,6 +182,64 @@ export default function DivisionWebPage() {
             <h2 className="text-3xl md:text-4xl font-bold text-h91-stellar mb-6">
               Maîtriser le flux, propulser votre achalandage
             </h2>
+
+            {/* Photos d'archives — groupe pleine largeur + 4 en grille */}
+            {/* Rangée 1 — illustration draveur centrée au format naturel */}
+            <div className="flex justify-center mb-3">
+              <div className="relative overflow-hidden rounded-xl" style={{ maxHeight: "420px" }}>
+                <Image
+                  src="/photos_images/Draveur_HR.jpg"
+                  alt="Draveur québécois — illustration historique"
+                  width={560}
+                  height={420}
+                  className="h-auto max-h-[420px] w-auto grayscale opacity-70 hover:opacity-90 transition duration-500"
+                />
+                <div className="absolute inset-0 bg-h91-warp/25 pointer-events-none" />
+              </div>
+            </div>
+            {/* Rangée 2 — 4 photos égales */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-8">
+              <div className="relative aspect-[4/3] overflow-hidden rounded-lg">
+                <Image
+                  src="/photos_images/Botte_draveur.jpg"
+                  alt="Bottes à crampons des draveurs — outil emblématique de la drave"
+                  fill
+                  className="object-cover object-center grayscale opacity-70 hover:opacity-90 hover:scale-105 transition duration-500"
+                />
+                <div className="absolute inset-0 bg-h91-warp/20" />
+              </div>
+              <div className="relative aspect-[4/3] overflow-hidden rounded-lg">
+                <Image
+                  src="/photos_images/draveur_1.avif"
+                  alt="Draveur en action sur les billots — rivière du Québec"
+                  fill
+                  className="object-cover object-top grayscale opacity-70 hover:opacity-90 hover:scale-105 transition duration-500"
+                />
+                <div className="absolute inset-0 bg-h91-warp/20" />
+              </div>
+              <div className="relative aspect-[4/3] overflow-hidden rounded-lg">
+                <Image
+                  src="/photos_images/Draveur_2.jpg"
+                  alt="Draveurs guidant les billots — maîtrise du flux"
+                  fill
+                  className="object-cover object-center grayscale opacity-70 hover:opacity-90 hover:scale-105 transition duration-500"
+                />
+                <div className="absolute inset-0 bg-h91-warp/20" />
+              </div>
+              <div className="relative aspect-[4/3] overflow-hidden rounded-lg">
+                <Image
+                  src="/photos_images/Draveur_3.avif"
+                  alt="La drave — héritage québécois du contrôle du flux"
+                  fill
+                  className="object-cover object-center grayscale opacity-70 hover:opacity-90 hover:scale-105 transition duration-500"
+                />
+                <div className="absolute inset-0 bg-h91-warp/20" />
+              </div>
+            </div>
+            <p className="text-h91-stellar/30 text-xs text-center mb-8 italic">
+              Archives historiques — draveurs du Québec, fin XIXe – début XXe siècle
+            </p>
+
             <div className="space-y-5 text-h91-stellar/70 text-lg leading-relaxed">
               <p>
                 Au XIXe siècle, les draveurs du Québec sautaient courageusement sur les rivières
@@ -244,6 +302,92 @@ export default function DivisionWebPage() {
       </section>
 
       {/* ═══════════════════════════════════════════════════
+          TARIFICATION — RÉSUMÉ
+      ═══════════════════════════════════════════════════ */}
+      <section className="py-20 px-6 border-t border-h91-warp/20">
+        <div className="max-w-5xl mx-auto">
+          <span className="inline-block text-xs font-bold px-3 py-1.5 rounded-full bg-h91-warp/10 text-h91-warp border border-h91-warp/30 mb-6 uppercase tracking-widest">
+            Investissement
+          </span>
+          <h2 className="text-3xl md:text-4xl font-bold text-h91-stellar mb-4">
+            Des forfaits clairs pour chaque ambition
+          </h2>
+          <p className="text-h91-stellar/60 text-lg mb-12 max-w-2xl">
+            Livraison unique, sans surprise. La maintenance mensuelle assure la santé
+            de votre site sur le long terme.
+          </p>
+
+          {/* Forfaits */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+
+            {/* Vitrine Essentiel */}
+            <div className="p-6 rounded-xl border border-h91-warp/30 bg-h91-gravity/50 flex flex-col gap-3 card-lift">
+              <h3 className="text-h91-stellar font-bold text-lg">Vitrine Essentiel</h3>
+              <p className="text-h91-warp font-bold text-3xl">1 500 – 2 200 $</p>
+              <p className="text-h91-stellar/50 text-xs uppercase tracking-widest">Livraison unique</p>
+              <ul className="text-h91-stellar/70 text-sm space-y-1.5 mt-2 flex-1">
+                <li>✓ Site vitrine sur mesure</li>
+                <li>✓ Mobile-first & ultra-rapide</li>
+                <li>✓ SEO de base inclus</li>
+                <li>✓ Jusqu&apos;à 5 pages</li>
+              </ul>
+            </div>
+
+            {/* Pro Interactif — Featured */}
+            <div className="p-6 rounded-xl border-2 border-h91-warp bg-h91-warp/8 flex flex-col gap-3 card-lift relative">
+              <span className="absolute -top-3 left-1/2 -translate-x-1/2 text-xs font-bold px-3 py-1 rounded-full bg-h91-warp text-h91-stellar whitespace-nowrap">
+                Le plus populaire
+              </span>
+              <h3 className="text-h91-stellar font-bold text-lg">Pro Interactif</h3>
+              <p className="text-h91-warp font-bold text-3xl">3 000 – 4 500 $</p>
+              <p className="text-h91-stellar/50 text-xs uppercase tracking-widest">Livraison unique</p>
+              <ul className="text-h91-stellar/70 text-sm space-y-1.5 mt-2 flex-1">
+                <li>✓ Réservation / blog / galerie</li>
+                <li>✓ Formulaires avancés</li>
+                <li>✓ SEO local renforcé</li>
+                <li>✓ Intégrations tierces</li>
+              </ul>
+            </div>
+
+            {/* Commerce Complet */}
+            <div className="p-6 rounded-xl border border-h91-warp/30 bg-h91-gravity/50 flex flex-col gap-3 card-lift">
+              <h3 className="text-h91-stellar font-bold text-lg">Commerce Complet</h3>
+              <p className="text-h91-warp font-bold text-3xl">5 500 – 8 000 $+</p>
+              <p className="text-h91-stellar/50 text-xs uppercase tracking-widest">Livraison unique</p>
+              <ul className="text-h91-stellar/70 text-sm space-y-1.5 mt-2 flex-1">
+                <li>✓ E-commerce & paiement Stripe</li>
+                <li>✓ Panel admin sur mesure</li>
+                <li>✓ Gestion de stock</li>
+                <li>✓ Architecture évolutive</li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Maintenance */}
+          <div className="p-5 rounded-xl border border-h91-warp/20 bg-h91-warp/5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-8">
+            <div>
+              <p className="text-h91-stellar font-bold text-sm mb-1">+ Maintenance mensuelle</p>
+              <p className="text-h91-stellar/60 text-sm">
+                Incluse dans tout contrat — à partir de <span className="text-h91-warp font-bold">150 $/mois</span>.
+                Mises à jour, sécurité, monitoring et support continu.
+              </p>
+            </div>
+            <p className="text-h91-warp font-bold text-2xl whitespace-nowrap">150 – 350 $/mois</p>
+          </div>
+
+          {/* CTA vers tarification */}
+          <div className="text-center">
+            <Link
+              href="/tarification"
+              className="inline-block px-8 py-3 rounded-lg border border-h91-warp text-h91-warp font-bold hover:bg-h91-warp/10 transition"
+            >
+              Voir tous les détails & options →
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════════════
           CTA FINAL
       ═══════════════════════════════════════════════════ */}
       <section className="py-20 px-6 text-center border-t border-h91-warp/20">
@@ -252,7 +396,7 @@ export default function DivisionWebPage() {
         </h2>
         <Link
           href="/rejoindre"
-          className="inline-block px-10 py-5 rounded-lg bg-h91-accretion text-h91-gravity font-bold text-xl hover:bg-h91-fusion transition"
+          className="inline-block px-10 py-5 rounded-lg bg-h91-warp text-h91-stellar font-bold text-xl hover:bg-h91-warp/80 transition"
         >
           {t("cta_bouton")}
         </Link>

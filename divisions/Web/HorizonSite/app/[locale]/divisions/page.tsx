@@ -44,6 +44,8 @@ const divisionsMeta = [
     borderColor: "border-h91-warp/30 hover:border-h91-warp/70",
     href: "/divisions/web",
     externe: false,
+    ctaBg: "bg-h91-warp hover:bg-h91-warp/80",
+    ctaText: "text-h91-stellar",
   },
   {
     key: "cyber",
@@ -52,6 +54,8 @@ const divisionsMeta = [
     borderColor: "border-h91-accretion/30 hover:border-h91-accretion/70",
     href: "/divisions/cyber",
     externe: false,
+    ctaBg: "bg-h91-accretion hover:bg-h91-fusion",
+    ctaText: "text-h91-gravity",
   },
   {
     key: "studio",
@@ -60,6 +64,8 @@ const divisionsMeta = [
     borderColor: "border-h91-ion/30 hover:border-h91-ion/70",
     href: "/divisions",
     externe: false,
+    ctaBg: "bg-h91-ion hover:bg-h91-ion/80",
+    ctaText: "text-h91-gravity",
   },
 ] as const;
 
@@ -109,7 +115,7 @@ export default function DivisionsPage() {
                 ))}
               </ul>
 
-              <span className={`mt-2 inline-block px-5 py-2 bg-h91-accretion text-h91-gravity font-semibold rounded-lg text-sm hover:bg-h91-fusion transition text-center`}>
+              <span className={`mt-2 inline-block px-5 py-2 ${div.ctaBg} ${div.ctaText} font-semibold rounded-lg text-sm transition text-center`}>
                 {t(`${div.key}.cta`)}
               </span>
             </div>

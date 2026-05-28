@@ -29,7 +29,7 @@ export default function Header() {
   };
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50 bg-transparent backdrop-blur-md border-b border-h91-accretion/30">
+    <header className="fixed top-0 left-0 w-full z-50 bg-transparent backdrop-blur-md border-b border-h91-ion/30">
       <div className="max-w-7xl mx-auto flex items-center px-8 py-4">
 
         {/* ZONE GAUCHE — MARK + NOM */}
@@ -43,7 +43,7 @@ export default function Header() {
               style={{ width: "38px", height: "38px" }}
               className="drop-shadow-lg"
             />
-            <span className="text-lg font-bold text-h91-accretion whitespace-nowrap">
+            <span className="text-lg font-bold text-h91-ion whitespace-nowrap">
               {tBrand("name")}
             </span>
           </Link>
@@ -70,7 +70,7 @@ export default function Header() {
                   disabled={!mounted}
                   className={`text-xs font-bold px-1 transition ${
                     locale === loc.code
-                      ? "text-h91-accretion"
+                      ? "text-h91-ion"
                       : "text-h91-stellar/40 hover:text-h91-stellar/70"
                   }`}
                 >
@@ -85,7 +85,7 @@ export default function Header() {
 
           <Link
             href="/rejoindre"
-            className="px-4 py-2 rounded-lg bg-h91-accretion text-h91-gravity font-semibold hover:bg-h91-fusion transition whitespace-nowrap"
+            className="px-4 py-2 rounded-lg bg-h91-ion text-h91-gravity font-semibold hover:bg-h91-fusion transition whitespace-nowrap"
           >
             {t("join")}
           </Link>
@@ -105,7 +105,7 @@ export default function Header() {
 
       {/* MENU MOBILE */}
       {open && (
-        <div className="md:hidden bg-h91-gravity border-t border-h91-accretion/30 px-6 py-4 flex flex-col gap-4 text-h91-stellar">
+        <div className="md:hidden bg-h91-gravity border-t border-h91-ion/30 px-6 py-4 flex flex-col gap-4 text-h91-stellar">
           <Link href="/" onClick={() => setOpen(false)}>{t("home")}</Link>
           <Link href="/divisions" onClick={() => setOpen(false)}>{t("divisions")}</Link>
           <Link href="/portfolio" onClick={() => setOpen(false)}>{t("portfolio")}</Link>
@@ -114,7 +114,7 @@ export default function Header() {
           <Link href="/contacts" onClick={() => setOpen(false)}>{t("contacts")}</Link>
 
           {/* Sélecteur langue mobile */}
-          <div className="flex items-center gap-3 pt-2 border-t border-h91-accretion/20">
+          <div className="flex items-center gap-3 pt-2 border-t border-h91-ion/20">
             {locales.map((loc) => (
               <button
                 key={loc.code}
@@ -122,7 +122,7 @@ export default function Header() {
                 disabled={!mounted}
                 className={`text-sm font-bold transition ${
                   locale === loc.code
-                    ? "text-h91-accretion"
+                    ? "text-h91-ion"
                     : "text-h91-stellar/40 hover:text-h91-stellar/70"
                 }`}
               >
@@ -133,7 +133,7 @@ export default function Header() {
 
           <Link
             href="/rejoindre"
-            className="px-4 py-2 rounded-lg bg-h91-accretion text-h91-gravity font-semibold hover:bg-h91-fusion transition text-center"
+            className="px-4 py-2 rounded-lg bg-h91-ion text-h91-gravity font-semibold hover:bg-h91-fusion transition text-center"
             onClick={() => setOpen(false)}
           >
             {t("join")}

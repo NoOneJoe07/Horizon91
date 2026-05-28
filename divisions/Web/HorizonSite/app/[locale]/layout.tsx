@@ -6,6 +6,7 @@ import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import Header from "@/app/components/Header";
 import Footer from "@/app/components/Footer";
+import StarField from "@/app/components/StarField";
 import "../globals.css";
 
 const geistSans = Geist({
@@ -133,6 +134,7 @@ export default async function LocaleLayout({
           <div className="night-sky"></div>
           <div className="aurora-band"></div>
           <div className="accretion-ring"></div>
+          <StarField />
 
           {/* Header */}
           <Header />

@@ -62,8 +62,8 @@ export default function PortfolioClient() {
             onClick={() => setActif(cat)}
             className={`px-5 py-2 rounded-full text-sm font-semibold transition border ${
               actif === cat
-                ? "bg-h91-accretion text-h91-gravity border-h91-accretion"
-                : "bg-transparent text-h91-stellar/70 border-h91-accretion/30 hover:border-h91-accretion/70"
+                ? "bg-h91-glacier text-h91-gravity border-h91-glacier"
+                : "bg-transparent text-h91-stellar/70 border-h91-glacier/30 hover:border-h91-glacier/70"
             }`}
           >
             {categories[cat]}

@@ -13,16 +13,17 @@
     "join": "Contáctanos"
   },
   "home": {
-    "tagline": "Agencia creativa y tecnológica con sede en Sainte-Marie-de-Beauce, Quebec. Tomamos tu pasión, la digitalizamos y la hacemos brillar.",
+    "tagline": "Su referencia en la complejidad digital. Ciberseguridad avanzada, infraestructuras web e innovación en medios — Grupo Estrella Boreal guía el crecimiento de las empresas regionales.",
     "team": {
-      "title": "El equipo",
-      "subtitle": "Personas apasionadas detrás de cada proyecto.",
+      "title": "Nuestras estrellas",
+      "subtitle": "Los constructores detrás de su trayectoria digital. La Estrella Polar guió a los coureurs des bois en las noches más oscuras — nuestro equipo fusiona el rigor de nuestros constructores históricos con el poder de las tecnologías del mañana para guiar a los emprendedores regionales.",
       "badge_soon": "Próximamente",
+      "cta_histoire": "Conocer más sobre mi trayectoria →",
       "members": {
         "jonathan": {
           "nom": "Jonathan Patoine",
-          "titre": "Fundador y Director General",
-          "bio": "Policía. Emprendedor. Estudiante. Gamer. Padre. Jonathan combina una carrera atípica en seguridad pública y emprendimiento con una pasión inquebrantable por los videojuegos y la creación digital. Actualmente estudia ciberseguridad en el Collège Cumberland, lidera la visión estratégica del grupo y dirige el desarrollo de Studio Nordik Legion."
+          "titre": "Fundador y CEO — La Estrella Polar",
+          "bio": "Reforestador, policía, militar, editor — Jonathan encontró su brújula en el poder del código y la IA. Especializado en ciberseguridad, fundó Grupo Estrella Boreal en 2026 para traducir la complejidad tecnológica en soluciones concretas para las empresas de la región."
         },
         "alexandra": {
           "nom": "Alexandra Marcela Espin Espinoza",
@@ -48,7 +49,7 @@
       "p3": "En diciembre de 2022, su empresa cierra por decisión gubernamental. Vuelve a empezar con su hermano, abre una franquicia, lucha. No es suficiente. Luego un CISO — responsable de la ciberseguridad de una autoridad sanitaria regional — les abre una puerta inesperada. Jonathan se inscribe en un programa AEC en el Collège Cumberland. Aprende protocolos, redes, vulnerabilidades. Al aprender cómo caen los sistemas, finalmente entiende cómo funcionan.",
       "p4": "Es durante este período que comienza a trabajar con inteligencia artificial — no como una herramienta, sino como un socio. Se da cuenta de algo fundamental: ya no está bloqueado detrás del muro de conocimientos que necesitaría adquirir antes de poder crear. La imaginación puede preceder a la maestría. Comienza a construir su estudio de videojuegos. Comienza a soñar más grande.",
       "p5": "A principios de 2026, su contrato editorial en Montreal termina. Esa es la supernova. La explosión que precede al renacimiento.",
-      "p6": "En marzo de 2026, el grupo nace oficialmente — con una misión precisa: empezar local. Ayudar a los emprendedores y artesanos de la región a construir su presencia digital y a vivir genuinamente de lo que aman hacer. Como los draveurs casaban el rigor físico con el dominio de los ríos, Grupo Estrella Boreal casa el rigor de nuestros constructores históricos con el poder de las tecnologías del mañana. El primer proyecto piloto: un dojo de jiu-jitsu brasileño en Beauce. Un profesor apasionado que tiene dificultades para llegar a suficientes clientes. Exactamente el tipo de persona para quien todo esto fue construido. En mayo de 2026, el grupo adopta su nombre definitivo: Grupo Estrella Boreal Inc.",
+      "p6": "En marzo de 2026, el grupo nace oficialmente — con una misión precisa: empezar local. Ayudar a los emprendedores y artesanos de la región a construir su presencia digital y a vivir genuinamente de lo que aman hacer. Como los draveurs casaban el rigor físico con el dominio de los ríos, Grupo Estrella Boreal casa el rigor de nuestros constructores históricos con el poder de las tecnologías del mañana. El primer proyecto piloto: un dojo de jiu-jitsu brasileño en la ciudad de Quebec. Un profesor apasionado que tiene dificultades para llegar a suficientes clientes. Exactamente el tipo de persona para quien todo esto fue construido — sin importar de dónde vengan. Nuestras raíces son regionales, pero nuestras puertas están abiertas a todos los que nos lo pidan. En mayo de 2026, el grupo adopta su nombre definitivo: Grupo Estrella Boreal Inc.",
       "quote": "La Estrella Polar guió a los coureurs des bois a través de las noches más oscuras. Hoy guía a los emprendedores de la región a través del flujo digital. Nosotros somos esa estrella.",
       "cta": "Explorar nuestras divisiones"
     }
@@ -149,7 +150,7 @@
         "description": "Tienda en línea para jabones artesanales, velas, cerámica y superficies de concreto. Galería de productos, carrito de compras, pedidos locales.",
         "resultats": ["Tienda e-commerce", "Galería visual", "Pedidos locales"],
         "statut": "À venir",
-        "couleur": "border-h91-fusion"
+        "couleur": "border-h91-glacier"
       },
       {
         "nom": "Salon Mélanie Roy",
@@ -158,7 +159,7 @@
         "description": "Sitio web premium para salón de peluquería y barbería. Reservas en línea, boutique de productos naturales, SEO local para destacar frente a la competencia.",
         "resultats": ["Reservas en línea", "Boutique de productos", "SEO local"],
         "statut": "À venir",
-        "couleur": "border-h91-accretion"
+        "couleur": "border-h91-glacier"
       },
       {
         "nom": "Construction Bois Rond",
@@ -167,7 +168,7 @@
         "description": "Portafolio de proyectos y generación de leads para un constructor de casas de troncos. Galería, formulario de cotización, SEO regional.",
         "resultats": ["Portafolio de proyectos", "Generación de leads", "SEO Chaudière-Appalaches"],
         "statut": "À venir",
-        "couleur": "border-h91-accretion"
+        "couleur": "border-h91-glacier"
       },
       {
         "nom": "Eliza Doyon — Agente REMAX",
@@ -185,7 +186,7 @@
         "description": "SaaS de vigilancia del Dark Web en tiempo real. Argos escanea continuamente mercados clandestinos, foros y filtraciones de datos para alertar a las empresas cuando su información aparece.",
         "resultats": ["Escaneo Dark Web continuo", "Alertas en tiempo real", "4 niveles de precios", "Datos alojados en Quebec"],
         "statut": "En cours",
-        "couleur": "border-h91-accretion"
+        "couleur": "border-h91-glacier"
       }
     ]
   },
@@ -196,7 +197,7 @@
     "membres": [
       {
         "titre": "Dirección General",
-        "couleur": "text-h91-fusion",
+        "couleur": "text-h91-glacier",
         "courriel": "direction@etoileboreale.ca",
         "note": "Alianzas, visión estratégica, colaboraciones."
       },

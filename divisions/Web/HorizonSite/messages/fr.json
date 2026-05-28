@@ -13,16 +13,17 @@
     "join": "Nous joindre"
   },
   "home": {
-    "tagline": "Agence créative & technologique basée à Sainte-Marie-de-Beauce, Québec. Nous prenons votre passion, nous la numérisons, nous la faisons briller.",
+    "tagline": "Votre repère dans la complexité numérique. Cybersécurité de pointe, infrastructures web et innovation média — le Groupe Étoile Boréale guide la croissance des entreprises régionales.",
     "team": {
-      "title": "L'équipe",
-      "subtitle": "Des gens passionnés derrière chaque projet.",
+      "title": "Nos étoiles",
+      "subtitle": "Les bâtisseurs derrière votre trajectoire numérique. L'Étoile Polaire a guidé les coureurs des bois à travers les nuits les plus noires — notre équipe fusionne la rigueur de nos bâtisseurs historiques à la puissance des technologies de demain pour guider les entrepreneurs de la région.",
       "badge_soon": "Bientôt",
+      "cta_histoire": "En savoir plus sur mon parcours →",
       "members": {
         "jonathan": {
           "nom": "Jonathan Patoine",
-          "titre": "Fondateur & Directeur général",
-          "bio": "Policier. Entrepreneur. Étudiant. Gamer. Père. Jonathan combine une carrière atypique en protection publique et en entrepreneuriat avec une passion intacte pour les jeux vidéo et la création numérique. Étudiant en cybersécurité au Collège Cumberland, il dirige la vision stratégique du groupe et pilote le développement du Studio Nordik Legion."
+          "titre": "Fondateur & PDG — L'Étoile Polaire",
+          "bio": "Reboiseur, policier, militaire, éditeur — Jonathan a trouvé sa boussole dans la puissance du code et de l'IA. Spécialisé en cybersécurité, il a fondé le Groupe Étoile Boréale en 2026 pour traduire la complexité technologique en solutions concrètes pour les entreprises d'ici."
         },
         "alexandra": {
           "nom": "Alexandra Marcela Espin Espinoza",
@@ -48,7 +49,7 @@
       "p3": "En décembre 2022, son entreprise ferme sur décision gouvernementale. Il repart à zéro avec son frère, ouvre une franchise, se bat. Ça ne suffit pas. Puis un CISO — responsable de la cybersécurité d'un CISSS régional — leur ouvre une porte inattendue. Jonathan s'inscrit en AEC au Collège Cumberland. Il apprend les protocoles, les réseaux, les vulnérabilités. En apprenant comment les systèmes tombent, il comprend enfin comment ils fonctionnent.",
       "p4": "C'est dans cette période qu'il commence à travailler avec l'intelligence artificielle — pas comme un outil, mais comme un partenaire. Il réalise quelque chose de fondamental : il n'est plus bloqué derrière le mur des connaissances à acquérir avant de pouvoir créer. L'imagination peut précéder la maîtrise. Il commence à bâtir son studio de jeux. Il commence à rêver plus grand.",
       "p5": "Début 2026, son contrat éditorial à Montréal prend fin. C'est la supernova. L'explosion qui précède la renaissance.",
-      "p6": "En mars 2026, le groupe naît officiellement — avec une mission précise : commencer local. Aider les entrepreneurs et artisans de la région à construire leur présence numérique et à vivre de ce qu'ils aiment vraiment faire. Comme les draveurs mariaient la rigueur physique à la connaissance des rivières, Groupe Étoile Boréale marie la rigueur de nos bâtisseurs historiques à la puissance des technologies de demain. Le premier projet pilote : un dojo de jiu-jitsu brésilien en Beauce. Un prof passionné qui peine à rejoindre sa clientèle. Exactement le genre de personne pour qui tout ça a été bâti. En mai 2026, le groupe adopte son nom définitif : Groupe Étoile Boréale Inc.",
+      "p6": "En mars 2026, le groupe naît officiellement — avec une mission précise : commencer local. Aider les entrepreneurs et artisans de la région à construire leur présence numérique et à vivre de ce qu'ils aiment vraiment faire. Comme les draveurs mariaient la rigueur physique à la connaissance des rivières, Groupe Étoile Boréale marie la rigueur de nos bâtisseurs historiques à la puissance des technologies de demain. Le premier projet pilote : un dojo de jiu-jitsu brésilien à Québec. Un prof passionné qui peine à rejoindre sa clientèle. Exactement le genre de personne pour qui tout ça a été bâti — peu importe d'où ils viennent. Notre ancrage est régional, mais nos portes sont ouvertes à tous ceux qui nous le demandent. En mai 2026, le groupe adopte son nom définitif : Groupe Étoile Boréale Inc.",
       "quote": "L'Étoile Polaire a guidé les coureurs des bois à travers les nuits les plus noires. Aujourd'hui, elle guide les entrepreneurs de la région à travers le flux numérique. Nous sommes cette étoile.",
       "cta": "Explorer nos divisions"
     }
@@ -149,7 +150,7 @@
         "description": "Boutique en ligne pour savons artisanaux, chandelles, céramique et surfaces en béton. Galerie produits, panier d'achat, commandes locales.",
         "resultats": ["Boutique e-commerce", "Galerie visuelle", "Commandes locales"],
         "statut": "À venir",
-        "couleur": "border-h91-fusion"
+        "couleur": "border-h91-glacier"
       },
       {
         "nom": "Salon Mélanie Roy",
@@ -158,7 +159,7 @@
         "description": "Site premium pour salon de coiffure et barbier. Réservation en ligne, boutique de produits naturels, SEO local pour sortir du lot face aux concurrents.",
         "resultats": ["Réservation en ligne", "Boutique produits", "SEO local"],
         "statut": "À venir",
-        "couleur": "border-h91-accretion"
+        "couleur": "border-h91-glacier"
       },
       {
         "nom": "Construction Bois Rond",
@@ -167,7 +168,7 @@
         "description": "Portfolio de réalisations et génération de leads pour un constructeur de maisons en bois rond. Galerie projets, formulaire de soumission, SEO régional.",
         "resultats": ["Portfolio réalisations", "Génération de leads", "SEO Chaudière-Appalaches"],
         "statut": "À venir",
-        "couleur": "border-h91-accretion"
+        "couleur": "border-h91-glacier"
       },
       {
         "nom": "Eliza Doyon — Courtière REMAX",
@@ -185,7 +186,7 @@
         "description": "SaaS de surveillance du Dark Web en temps réel. Fort Saurel scanne en continu les marchés clandestins, forums et fuites de données pour alerter les entreprises dès que leurs informations apparaissent.",
         "resultats": ["Scan Dark Web continu", "Alertes temps réel", "4 tiers tarifaires", "Données au Québec"],
         "statut": "En cours",
-        "couleur": "border-h91-accretion"
+        "couleur": "border-h91-glacier"
       }
     ]
   },
@@ -196,7 +197,7 @@
     "membres": [
       {
         "titre": "Direction générale",
-        "couleur": "text-h91-fusion",
+        "couleur": "text-h91-glacier",
         "courriel": "direction@etoileboreale.ca",
         "note": "Partenariats, vision stratégique, collaborations."
       },

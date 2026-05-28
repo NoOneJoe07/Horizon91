@@ -273,9 +273,67 @@ export default function DivisionCyberPage() {
             <span className="inline-block text-xs font-bold px-3 py-1.5 rounded-full bg-h91-accretion/10 text-h91-accretion border border-h91-accretion/30 mb-6 uppercase tracking-widest">
               L&apos;héritage
             </span>
-            <h2 className="text-3xl md:text-4xl font-bold text-h91-stellar mb-6">
+            <h2 className="text-2xl md:text-3xl font-bold text-h91-stellar mb-6 whitespace-nowrap text-center">
               L&apos;architecture défensive de votre empire numérique
             </h2>
+
+            {/* Photos d'archives — Bataille de Carillon */}
+            {/* Rangée 1 — peinture principale centrée */}
+            <div className="flex justify-center mb-3">
+              <div className="relative overflow-hidden rounded-xl">
+                <Image
+                  src="/photos_images/The_Victory_of_Montcalms_Troops_at_Carillon_by_Henry_Alexander_OgdenAAA.jpg"
+                  alt="La victoire des troupes de Montcalm à Carillon — Henry Alexander Ogden (domaine public)"
+                  width={800}
+                  height={500}
+                  className="h-auto max-h-[420px] w-auto grayscale opacity-70 hover:opacity-90 transition duration-500"
+                />
+                <div className="absolute inset-0 bg-h91-accretion/20 pointer-events-none" />
+              </div>
+            </div>
+            {/* Rangée 2 — 4 photos égales */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-8">
+              <div className="relative aspect-[4/3] overflow-hidden rounded-lg">
+                <Image
+                  src="/photos_images/British at Carillon.webp"
+                  alt="Troupes britanniques à Carillon — Bataille de 1758"
+                  fill
+                  className="object-cover object-center grayscale opacity-70 hover:opacity-90 hover:scale-105 transition duration-500"
+                />
+                <div className="absolute inset-0 bg-h91-accretion/20" />
+              </div>
+              <div className="relative aspect-[4/3] overflow-hidden rounded-lg">
+                <Image
+                  src="/photos_images/Carillon_map.jpg"
+                  alt="Carte stratégique du Fort Carillon — positionnement défensif 1758"
+                  fill
+                  className="object-cover object-center grayscale opacity-70 hover:opacity-90 hover:scale-105 transition duration-500"
+                />
+                <div className="absolute inset-0 bg-h91-accretion/20" />
+              </div>
+              <div className="relative aspect-[4/3] overflow-hidden rounded-lg">
+                <Image
+                  src="/photos_images/Fort_Carillon_1.jpg"
+                  alt="Fort Carillon — forteresse française sur le lac Champlain"
+                  fill
+                  className="object-cover object-center grayscale opacity-70 hover:opacity-90 hover:scale-105 transition duration-500"
+                />
+                <div className="absolute inset-0 bg-h91-accretion/20" />
+              </div>
+              <div className="relative aspect-[4/3] overflow-hidden rounded-lg">
+                <Image
+                  src="/photos_images/Fort_ticonderoga_place_d_arms.jpg"
+                  alt="Fort Ticonderoga — place d'armes, ancien Fort Carillon"
+                  fill
+                  className="object-cover object-center grayscale opacity-70 hover:opacity-90 hover:scale-105 transition duration-500"
+                />
+                <div className="absolute inset-0 bg-h91-accretion/20" />
+              </div>
+            </div>
+            <p className="text-h91-stellar/30 text-xs text-center mb-8 italic">
+              Archives historiques — Fort Carillon (Fort Ticonderoga), Bataille de 1758
+            </p>
+
             <div className="space-y-5 text-h91-stellar/70 text-lg leading-relaxed">
               <p>
                 En 1758, lors de la célèbre bataille du Fort Carillon, une armée de 3 600 soldats

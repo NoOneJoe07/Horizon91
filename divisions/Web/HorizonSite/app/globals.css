@@ -1,96 +1,120 @@
 @import "tailwindcss";
 
 /* ---------------------------------------------------------
-   PALETTE GROUPE SUPERNOVA — TROU NOIR ABSOLU
+   PALETTE GROUPE ÉTOILE BORÉALE — CIEL BORÉAL
 --------------------------------------------------------- */
 @theme inline {
-  --color-h91-gravity: #000000;        /* Vide absolu */
+  --color-h91-gravity: #000000;        /* Fond trou noir absolu */
   --color-h91-relativistic: #1A8CFF;   /* Bleu relativiste */
   --color-h91-ion: #00F0FF;            /* Cyan ionisé */
-  --color-h91-accretion: #FF7A1A;      /* Orange accrétion */
-  --color-h91-fusion: #FFD65C;         /* Jaune fusion */
-  --color-h91-warp: #6A00FF;           /* Violet gravitationnel */
-  --color-h91-stellar: #F2F7FF;        /* Blanc stellaire */
+  --color-h91-accretion: #FF7A1A;      /* Orange — Singularité / Division Carillon */
+  --color-h91-fusion: #FFD65C;         /* Or/jaune — fusion stellaire */
+  --color-h91-glacier: #3AABCF;        /* Bleu glacier vif — Direction générale / JP */
+  --color-h91-warp: #6A00FF;           /* Violet — Division Draveur */
+  --color-h91-stellar: #F2F7FF;        /* Blanc stellaire — texte */
 
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
 /* ---------------------------------------------------------
-   BACKGROUND — TROU NOIR ABSOLU
-   Le vide total. Seul le gaz en orbite émet de la lumière.
+   BACKGROUND — CIEL BORÉAL
+   Nuit profonde du Nord. L’aurore danse, les étoiles guident.
 --------------------------------------------------------- */
 
-/* --- VIDE SPATIAL TOTAL --- */
+/* --- CIEL BORÉAL PROFOND --- */
 .night-sky {
   position: fixed;
   inset: 0;
   z-index: -3;
-  background: #000000;
+  background: linear-gradient(
+    180deg,
+    #020810 0%,
+    #061428 28%,
+    #091E3A 58%,
+    #060E22 85%,
+    #030812 100%
+  );
   pointer-events: none;
 }
 
-/* --- AURORA DÉSACTIVÉE — le vide n’a pas d’aurora --- */
+/* Étoiles gérées par StarField.tsx (canvas React) — pas de CSS ici */
+
+/* --- AURORE BORÉALE — bande qui serpente (inspiré Nordik Legion) --- */
 .aurora-band {
-  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background:
+    conic-gradient(
+      from 200deg,
+      rgba(56, 189, 248, 0.00)  0deg,
+      rgba(56, 189, 248, 0.22) 40deg,
+      rgba(52, 211, 153, 0.28) 90deg,
+      rgba(129, 140, 248, 0.24) 140deg,
+      rgba(56, 189, 248, 0.00) 200deg
+    );
+  mix-blend-mode: screen;
+  filter: blur(42px);
+  transform-origin: center;
+  animation: aurora-serpent 26s ease-in-out infinite alternate;
+  pointer-events: none;
 }
 
-/* --- DISQUE D’ACCRÉTION — seule lumière ambiante, gaz ionisé en chute --- */
+@keyframes aurora-serpent {
+  0%   { transform: translate3d(-10%,  5%, 0) rotate(-8deg) scale(1.10); }
+  50%  { transform: translate3d(  5%, -5%, 0) rotate( 4deg) scale(1.20); }
+  100% { transform: translate3d( 12%,  8%, 0) rotate(-3deg) scale(1.15); }
+}
+
+/* --- ATMOSPHÈRE AMBIANTE BORÉALE --- */
 .accretion-ring {
   position: fixed;
   inset: 0;
   z-index: -1;
   background:
-    radial-gradient(circle at 50% 110%, rgba(255, 180, 60, 0.55), transparent 45%),
-    radial-gradient(circle at 50% 125%, rgba(255, 100, 20, 0.45), transparent 50%),
-    radial-gradient(circle at 50% 145%, rgba(200, 50, 0, 0.30), transparent 55%);
-  filter: blur(80px);
-  animation: accretionPulse 14s ease-in-out infinite alternate;
+    radial-gradient(circle at 50% 98%, rgba(106, 0, 255, 0.10), transparent 38%),
+    radial-gradient(circle at 50% 112%, rgba(0, 180, 160, 0.07), transparent 42%);
+  filter: blur(65px);
+  animation: ambiantBreath 20s ease-in-out infinite alternate;
   pointer-events: none;
 }
 
-/* --- ANIMATION AURORA --- */
-@keyframes auroraMove {
-  0% { transform: translateY(0px) translateX(0px); }
-  100% { transform: translateY(-40px) translateX(20px); }
-}
-
-/* --- ANIMATION ACCRÉTION --- */
-@keyframes accretionPulse {
-  0% { opacity: 0.55; transform: scale(1); }
-  100% { opacity: 0.85; transform: scale(1.12); }
+@keyframes ambiantBreath {
+  0%   { opacity: 0.55; }
+  100% { opacity: 1.00; }
 }
 
 /* ---------------------------------------------------------
-   NOYAU ORBITAL AUTOUR DU LOGO (EFFET DE ROTATION)
+   ÉTOILE POLARIS — HALO ET NOYAU AUTOUR DU LOGO
 --------------------------------------------------------- */
 
-/* --- NOYAU ORBITAL CHAUD --- */
+/* --- NOYAU STELLAIRE — souffle doux de l’Étoile Polaire --- */
 .orbital-core {
   position: absolute;
   width: 320px;
   height: 320px;
   border-radius: 50%;
-  background: conic-gradient(
-    from 0deg,
-    rgba(255, 30, 0, 0.80),
-    rgba(255, 140, 20, 0.85),
-    rgba(255, 230, 80, 0.80),
-    rgba(255, 140, 20, 0.85),
-    rgba(255, 30, 0, 0.80)
+  background: radial-gradient(
+    circle,
+    rgba(255, 210, 90,  0.52) 0%,
+    rgba(255, 130, 40,  0.32) 28%,
+    rgba(106,   0, 255, 0.20) 58%,
+    rgba(  0, 200, 190, 0.10) 78%,
+    transparent 92%
   );
-  filter: blur(14px);
-  opacity: 0.82;
-  animation: coreSpin 18s linear infinite;
+  filter: blur(18px);
+  opacity: 0.85;
+  animation: stellarBreath 9s ease-in-out infinite alternate;
   z-index: -1;
 }
 
-@keyframes coreSpin {
-  from { transform: rotate(0deg); }
-  to   { transform: rotate(360deg); }
+@keyframes stellarBreath {
+  from { opacity: 0.62; transform: scale(0.93); }
+  to   { opacity: 0.92; transform: scale(1.08); }
 }
 
-/* --- CORONA DE GAZ — lueur du gaz ionisé autour de l'étoile --- */
+/* --- CORONA BORÉALE — halo d’aurore autour de l’étoile --- */
 .blue-halo {
   position: absolute;
   width: 480px;
@@ -98,42 +122,43 @@
   border-radius: 50%;
   background: radial-gradient(
     circle,
-    rgba(255, 180, 60, 0.30) 0%,
-    rgba(255, 80, 10, 0.18) 45%,
-    rgba(0, 0, 0, 0) 72%
+    rgba(  0, 220, 200, 0.18) 0%,
+    rgba(106,   0, 255, 0.12) 45%,
+    transparent 72%
   );
-  filter: blur(22px);
-  opacity: 0.70;
+  filter: blur(28px);
+  opacity: 0.75;
   z-index: -2;
 }
+
 /* ---------------------------------------------------------
-   GRADIENT GAZ BRÛLANT — TITRE GROUPE SUPERNOVA
+   GRADIENT STELLAIRE — TITRE GROUPE ÉTOILE BORÉALE
 --------------------------------------------------------- */
 .h91-title-gradient {
   background: linear-gradient(
     90deg,
-    var(--color-h91-accretion),
-    var(--color-h91-fusion),
+    var(--color-h91-ion),
+    #A8F6FF,
     #FFFFFF,
-    var(--color-h91-fusion)
+    #A8F6FF
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 /* ---------------------------------------------------------
-   GRADIENT ANIMÉ — GAZ EN ORBITE (CHAUD → BLANC → CHAUD)
+   GRADIENT ANIMÉ — ÉTOILE POLAIRE (CYAN → BLANC → CYAN)
 --------------------------------------------------------- */
 .h91-title-gradient-animated {
   background: linear-gradient(
     90deg,
-    var(--color-h91-accretion),
-    var(--color-h91-fusion),
+    var(--color-h91-ion),
+    #A8F6FF,
     #FFFFFF,
-    var(--color-h91-fusion),
-    var(--color-h91-accretion),
-    var(--color-h91-fusion),
-    var(--color-h91-accretion)
+    #A8F6FF,
+    var(--color-h91-ion),
+    #FFFFFF,
+    var(--color-h91-ion)
   );
   background-size: 400% 400%;
   animation: h91GradientFlow 12s ease-in-out infinite;
@@ -150,6 +175,14 @@
 /* ---------------------------------------------------------
    MICRO-ANIMATIONS — hover élévation + fade-in
 --------------------------------------------------------- */
+
+/* --- Surbrillance forfait populaire / recommandé --- */
+.card-featured-glow {
+  box-shadow:
+    0 0 0 1px rgba(0, 240, 255, 0.45),
+    0 0 32px rgba(0, 240, 255, 0.18),
+    0 0 64px rgba(0, 240, 255, 0.08);
+}
 
 /* --- Hover élévation — cartes divisions & équipe --- */
 .card-lift {

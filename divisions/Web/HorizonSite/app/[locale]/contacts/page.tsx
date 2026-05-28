@@ -73,7 +73,7 @@ export default function ContactsPage() {
       <div className="mt-14 text-center">
         <a
           href="rejoindre"
-          className="inline-block px-8 py-4 bg-h91-accretion text-h91-gravity font-bold rounded-lg text-lg hover:bg-h91-fusion transition"
+          className="inline-block px-8 py-4 bg-h91-ion text-h91-gravity font-bold rounded-lg text-lg hover:bg-h91-ion/80 transition"
         >
           {t("cta")}
         </a>

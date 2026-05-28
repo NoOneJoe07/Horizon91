@@ -94,17 +94,17 @@ export default function TarificationPage() {
           LIVRABLES INCLUS
       ══════════════════════════════════════════════════ */}
       <section className="mb-20">
-        <h2 className="text-2xl font-bold text-h91-accretion text-center mb-8 uppercase tracking-wider">
+        <h2 className="text-2xl font-bold text-h91-stellar text-center mb-8 uppercase tracking-wider">
           {t("livrables_title")}
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {livrables.map((l, i) => (
             <div
               key={i}
-              className="p-6 border border-h91-accretion/30 rounded-xl bg-h91-gravity/50 flex flex-col gap-3"
+              className="p-6 border border-h91-glacier/30 rounded-xl bg-h91-gravity/50 flex flex-col gap-3"
             >
               <div className="flex items-center gap-3">
-                <span className="text-h91-accretion text-2xl font-bold">0{i + 1}</span>
+                <span className="text-h91-stellar text-2xl font-bold">0{i + 1}</span>
                 <h3 className="text-h91-stellar font-bold text-base leading-tight">
                   {l.titre}
                 </h3>
@@ -128,23 +128,19 @@ export default function TarificationPage() {
               key={i}
               className={`relative p-7 rounded-xl flex flex-col gap-4 transition ${
                 pkg.featured
-                  ? "border-2 border-h91-accretion bg-h91-accretion/10"
-                  : "border border-h91-stellar/20 bg-h91-gravity/50"
+                  ? "border-2 border-h91-ion bg-h91-ion/8 card-featured-glow"
+                  : "border border-h91-glacier/25 bg-h91-gravity/50"
               }`}
             >
               {pkg.featured && (
-                <span className="absolute -top-4 left-1/2 -translate-x-1/2 bg-h91-accretion text-h91-gravity text-xs font-bold px-4 py-1 rounded-full uppercase tracking-widest whitespace-nowrap">
+                <span className="absolute -top-4 left-1/2 -translate-x-1/2 bg-h91-ion text-h91-gravity text-xs font-bold px-4 py-1 rounded-full uppercase tracking-widest whitespace-nowrap">
                   {t("popular_badge")}
                 </span>
               )}
 
               {/* Nom + cible */}
               <div>
-                <h3
-                  className={`text-xl font-bold ${
-                    pkg.featured ? "text-h91-accretion" : "text-h91-stellar"
-                  }`}
-                >
+                <h3 className="text-xl font-bold text-h91-stellar">
                   {pkg.nom}
                 </h3>
                 <p className="text-h91-stellar/40 text-xs mt-1">{pkg.cible}</p>
@@ -152,11 +148,7 @@ export default function TarificationPage() {
 
               {/* Prix */}
               <div className="flex items-baseline gap-2">
-                <span
-                  className={`text-3xl font-extrabold ${
-                    pkg.featured ? "text-h91-accretion" : "text-h91-stellar"
-                  }`}
-                >
+                <span className="text-3xl font-extrabold text-h91-stellar">
                   {pkg.prix_min}
                 </span>
                 <span className="text-h91-stellar/40 text-sm">→ {pkg.prix_max}</span>
@@ -177,8 +169,8 @@ export default function TarificationPage() {
                 href="/rejoindre"
                 className={`mt-2 block text-center py-3 rounded-lg font-bold text-sm transition ${
                   pkg.featured
-                    ? "bg-h91-accretion text-h91-gravity hover:bg-h91-fusion"
-                    : "border border-h91-accretion/50 text-h91-accretion hover:border-h91-accretion hover:bg-h91-accretion/10"
+                    ? "bg-h91-ion text-h91-gravity hover:bg-h91-ion/80"
+                    : "border border-h91-glacier/50 text-h91-glacier hover:border-h91-glacier hover:bg-h91-glacier/10"
                 }`}
               >
                 {t("cta_bouton")}
@@ -203,7 +195,7 @@ export default function TarificationPage() {
             >
               <div className="flex items-start justify-between gap-4">
                 <h3 className="text-h91-stellar font-bold text-base leading-tight">{m.nom}</h3>
-                <span className="text-h91-warp font-extrabold text-sm whitespace-nowrap">{m.prix}</span>
+                <span className="text-h91-stellar font-extrabold text-2xl whitespace-nowrap">{m.prix}</span>
               </div>
               <p className="text-h91-stellar/60 text-sm leading-relaxed">{m.desc}</p>
             </div>
@@ -230,7 +222,7 @@ export default function TarificationPage() {
                   <span className="text-h91-ion text-xs mt-0.5">{h.note}</span>
                 )}
               </div>
-              <span className="text-h91-fusion font-bold text-sm whitespace-nowrap ml-4">
+              <span className="text-h91-stellar font-extrabold text-xl whitespace-nowrap ml-4">
                 {h.prix}
               </span>
             </div>
@@ -251,33 +243,25 @@ export default function TarificationPage() {
               key={i}
               className={`relative p-7 rounded-xl flex flex-col gap-4 transition ${
                 pkg.featured
-                  ? "border-2 border-h91-fusion bg-h91-fusion/10"
-                  : "border border-h91-stellar/20 bg-h91-gravity/50"
+                  ? "border-2 border-h91-ion bg-h91-ion/8 card-featured-glow"
+                  : "border border-h91-glacier/25 bg-h91-gravity/50"
               }`}
             >
               {pkg.featured && (
-                <span className="absolute -top-4 left-1/2 -translate-x-1/2 bg-h91-fusion text-h91-gravity text-xs font-bold px-4 py-1 rounded-full uppercase tracking-widest whitespace-nowrap">
+                <span className="absolute -top-4 left-1/2 -translate-x-1/2 bg-h91-ion text-h91-gravity text-xs font-bold px-4 py-1 rounded-full uppercase tracking-widest whitespace-nowrap">
                   {t("recommended_badge")}
                 </span>
               )}
 
               <div>
-                <h3
-                  className={`text-xl font-bold ${
-                    pkg.featured ? "text-h91-fusion" : "text-h91-stellar"
-                  }`}
-                >
+                <h3 className="text-xl font-bold text-h91-stellar">
                   {pkg.nom}
                 </h3>
                 <p className="text-h91-stellar/40 text-xs mt-1">{pkg.cible}</p>
               </div>
 
               <div className="flex items-baseline gap-2">
-                <span
-                  className={`text-3xl font-extrabold ${
-                    pkg.featured ? "text-h91-fusion" : "text-h91-stellar"
-                  }`}
-                >
+                <span className="text-3xl font-extrabold text-h91-stellar">
                   {pkg.prix_min}
                 </span>
                 {pkg.prix_max && (
@@ -298,8 +282,8 @@ export default function TarificationPage() {
                 href="/rejoindre"
                 className={`mt-2 block text-center py-3 rounded-lg font-bold text-sm transition ${
                   pkg.featured
-                    ? "bg-h91-fusion text-h91-gravity hover:bg-h91-accretion"
-                    : "border border-h91-fusion/50 text-h91-fusion hover:border-h91-fusion hover:bg-h91-fusion/10"
+                    ? "bg-h91-ion text-h91-gravity hover:bg-h91-ion/80"
+                    : "border border-h91-glacier/50 text-h91-glacier hover:border-h91-glacier hover:bg-h91-glacier/10"
                 }`}
               >
                 {t("cta_bouton")}
@@ -310,14 +294,86 @@ export default function TarificationPage() {
       </section>
 
       {/* ══════════════════════════════════════════════════
+          CYBERSÉCURITÉ — DIVISION CARILLON
+      ══════════════════════════════════════════════════ */}
+      <section className="mb-20">
+        <div className="border border-h91-accretion/30 rounded-2xl bg-h91-accretion/5 p-10">
+
+          {/* En-tête */}
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-10">
+            <div>
+              <span className="inline-block text-xs font-bold px-3 py-1.5 rounded-full bg-h91-accretion/15 text-h91-accretion border border-h91-accretion/30 mb-4 uppercase tracking-widest">
+                Division Carillon — Cybersécurité
+              </span>
+              <h2 className="text-2xl font-bold text-h91-stellar mb-2">
+                Des solutions de cybersécurité adaptées à votre réalité
+              </h2>
+              <p className="text-h91-stellar/60 text-sm max-w-xl leading-relaxed">
+                De la surveillance automatisée des fuites de données à la gouvernance
+                complète de votre infrastructure, nous calibrons la protection
+                à la taille et au budget de votre entreprise.
+              </p>
+            </div>
+          </div>
+
+          {/* Deux lignes produits */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+
+            {/* Fort Saurel */}
+            <div className="p-6 rounded-xl border border-h91-accretion/30 bg-h91-gravity/60 flex flex-col gap-3">
+              <div>
+                <p className="text-h91-accretion font-bold text-xs uppercase tracking-widest mb-1">Fort Saurel — SaaS</p>
+                <h3 className="text-h91-stellar font-bold text-lg">Surveillance & Vigie numérique</h3>
+              </div>
+              <p className="text-h91-stellar/60 text-sm leading-relaxed flex-1">
+                Monitoring Dark Web continu, alertes en temps réel, rapports de conformité.
+                La vigie numérique automatisée des PME — 4 niveaux de protection disponibles.
+              </p>
+              <div className="flex items-baseline gap-2 mt-1">
+                <span className="text-h91-accretion font-extrabold text-3xl">dès 75 $</span>
+                <span className="text-h91-stellar/40 text-sm">/mois</span>
+              </div>
+            </div>
+
+            {/* Suite Carignan */}
+            <div className="p-6 rounded-xl border border-h91-accretion/20 bg-h91-gravity/60 flex flex-col gap-3">
+              <div>
+                <p className="text-h91-accretion font-bold text-xs uppercase tracking-widest mb-1">Suite Carignan — Gouvernance</p>
+                <h3 className="text-h91-stellar font-bold text-lg">Architecture défensive sur mesure</h3>
+              </div>
+              <p className="text-h91-stellar/60 text-sm leading-relaxed flex-1">
+                Remédiation, simulation de phishing, analyse de courriels, gestion des
+                accès et des identités. Une suite complète calibrée à votre posture de
+                sécurité et à votre conformité Loi 25.
+              </p>
+              <div className="flex items-baseline gap-2 mt-1">
+                <span className="text-h91-accretion font-extrabold text-xl">Sur devis</span>
+                <span className="text-h91-stellar/40 text-sm">— évaluation gratuite</span>
+              </div>
+            </div>
+          </div>
+
+          {/* CTA vers Division Carillon */}
+          <div className="text-center">
+            <Link
+              href="/divisions/cyber"
+              className="inline-block px-8 py-3 rounded-lg border border-h91-accretion text-h91-accretion font-bold hover:bg-h91-accretion/10 transition"
+            >
+              Voir les forfaits Fort Saurel en détail →
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════════════════
           CTA FINAL
       ══════════════════════════════════════════════════ */}
-      <section className="text-center border border-h91-accretion/30 rounded-2xl p-12 bg-h91-accretion/5">
+      <section className="text-center border border-h91-glacier/30 rounded-2xl p-12 bg-h91-glacier/5">
         <h2 className="text-3xl font-bold text-h91-stellar mb-4">{t("cta_title")}</h2>
         <p className="text-h91-stellar/60 mb-8 max-w-xl mx-auto">{t("cta_desc")}</p>
         <Link
           href="/rejoindre"
-          className="inline-block bg-h91-accretion text-h91-gravity font-bold px-8 py-4 rounded-lg text-lg hover:bg-h91-fusion transition"
+          className="inline-block bg-h91-ion text-h91-gravity font-bold px-8 py-4 rounded-lg text-lg hover:bg-h91-ion/80 transition"
         >
           {t("cta_bouton")}
         </Link>
