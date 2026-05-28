@@ -13,7 +13,7 @@
     "join": "Nous joindre"
   },
   "home": {
-    "tagline": "Agence créative & technologique basée à Sainte-Marie-de-Beauce, Québec. On prend votre passion, on la numérise, on la fait briller.",
+    "tagline": "Agence créative & technologique basée à Sainte-Marie-de-Beauce, Québec. Nous prenons votre passion, nous la numérisons, nous la faisons briller.",
     "team": {
       "title": "L'équipe",
       "subtitle": "Des gens passionnés derrière chaque projet.",
@@ -59,18 +59,18 @@
     "divisionWeb": {
       "hero_titre": "Division Draveur — Développement Web",
       "hero_tagline": "La Flamme",
-      "hero_description": "Comme les draveurs maîtrisaient le flux des rivières sauvages du Québec, la Division Draveur maîtrise le flux numérique de votre entreprise. On conçoit des portails web robustes qui optimisent l'achalandage web et travaillent pour vous — même quand vous dormez. Sites rapides, beaux, référencés et maintenus par une équipe locale qui comprend la réalité des entrepreneurs d'ici.",
-      "services_titre": "Ce qu'on fait",
+      "hero_description": "Comme les draveurs maîtrisaient le flux des rivières sauvages du Québec, la Division Draveur maîtrise le flux numérique de votre entreprise. Nous concevons des portails web robustes qui optimisent l'achalandage web et travaillent pour vous — même quand vous dormez. Sites rapides, beaux, référencés et maintenus par une équipe locale qui comprend la réalité des entrepreneurs d'ici.",
+      "services_titre": "Ce que nous faisons",
       "services": [
         { "titre": "Site vitrine professionnel", "desc": "Conception de portail web robuste sur mesure, mobile-first, chargement ultra-rapide. Votre image en ligne à la hauteur de votre travail — optimisée pour convertir les visiteurs en clients." },
         { "titre": "Boutique en ligne & e-commerce", "desc": "Vendez vos produits 24h/24. Gestion de stock, paiement Stripe, tableau de bord pour vous." },
         { "titre": "Système de réservation", "desc": "Prises de rendez-vous en ligne, gestion des plages horaires, rappels automatiques." },
         { "titre": "SEO & référencement local", "desc": "Optimisation de l'achalandage web organique pour votre région. Sortez en premier quand vos clients cherchent ce que vous offrez — et gardez cette position dans les résultats Google." },
         { "titre": "Identité visuelle & infographie", "desc": "Logo, palette, typographie — une marque cohérente qui se démarque." },
-        { "titre": "Maintenance & support mensuel", "desc": "Mises à jour, sécurité, contenu — on garde votre site en santé pendant que vous vous concentrez sur votre métier." }
+        { "titre": "Maintenance & support mensuel", "desc": "Mises à jour, sécurité, contenu — nous gardons votre site en santé pendant que vous vous concentrez sur votre métier." }
       ],
       "approche_titre": "Notre approche",
-      "approche_texte": "On ne livre pas des sites web à la chaîne. Chaque projet commence par comprendre votre entreprise, votre clientèle et vos objectifs. Notre maîtrise du flux numérique transforme votre présence en ligne en véritable moteur d'achalandage web — un outil qui génère de vraies retombées, pas juste une belle vitrine.",
+      "approche_texte": "Nous ne livrons pas des sites web à la chaîne. Chaque projet commence par comprendre votre entreprise, votre clientèle et vos objectifs. Notre maîtrise du flux numérique transforme votre présence en ligne en véritable moteur d'achalandage web — un outil qui génère de vraies retombées, pas juste une belle vitrine.",
       "cta_titre": "Prêt à bâtir votre présence en ligne ?",
       "cta_bouton": "Parlons de votre projet",
       "cta_portfolio": "Voir nos réalisations"
@@ -78,8 +78,8 @@
     "divisionCyber": {
       "hero_titre": "Division Carillon — Cybersécurité",
       "hero_tagline": "Singularité",
-      "hero_description": "Vos données, votre infrastructure et la confiance de vos clients méritent une protection sérieuse. On analyse, on sécurise, on forme — pour que vous puissiez croître sans vulnérabilité cachée.",
-      "services_titre": "Ce qu'on fait",
+      "hero_description": "Vos données, votre infrastructure et la confiance de vos clients méritent une protection sérieuse. Nous analysons, sécurisons et formons — pour que vous puissiez croître sans vulnérabilité cachée.",
+      "services_titre": "Ce que nous faisons",
       "services": [
         { "titre": "Audit de sécurité", "desc": "Analyse complète de vos systèmes pour identifier les vulnérabilités avant que quelqu'un d'autre ne le fasse." },
         { "titre": "Sécurisation d'infrastructure", "desc": "Renforcement de vos réseaux, serveurs et postes de travail selon les meilleures pratiques du domaine." },
@@ -89,7 +89,7 @@
         { "titre": "Veille & bonnes pratiques", "desc": "Le paysage des menaces évolue. On reste à jour pour que vous n'ayez pas à vous en préoccuper." }
       ],
       "approche_titre": "Sécurité sans jargon",
-      "approche_texte": "La cybersécurité n'est pas réservée aux grandes entreprises. Une PME compromise, c'est des données clients volées, une réputation atteinte et des coûts de récupération importants. On rend la protection accessible, compréhensible et proportionnelle à votre réalité.",
+      "approche_texte": "La cybersécurité n'est pas réservée aux grandes entreprises. Une PME compromise, c'est des données clients volées, une réputation atteinte et des coûts de récupération importants. Nous rendons la protection accessible, compréhensible et proportionnelle à votre réalité.",
       "badge": "Division en développement actif",
       "cta_titre": "Vous souhaitez évaluer votre posture de sécurité ?",
       "cta_bouton": "Parler à notre équipe",
@@ -238,7 +238,7 @@
     "cta": "Envoyer le message",
     "sending": "Envoi en cours...",
     "success_title": "Message envoyé !",
-    "success_desc": "On vous répond dans les 24-48 heures.",
+    "success_desc": "Nous vous répondons dans les 24-48 heures.",
     "error_generic": "Une erreur est survenue. Réessayez ou écrivez-nous directement."
   },
   "tarification": {
@@ -320,7 +320,7 @@
       {
         "nom": "Option B — Étoile Boréale gère tout",
         "prix": "200 $ — 350 $ / mois",
-        "desc": "Contenu, textes, photos, mises à jour — on s'en occupe pendant que vous travaillez."
+        "desc": "Contenu, textes, photos, mises à jour — nous nous en occupons pendant que vous travaillez."
       }
     ],
     "heures_title": "Heures supplémentaires hors forfait",
@@ -372,14 +372,14 @@
     ],
     "recommended_badge": "Recommandé",
     "cta_title": "Prêt à démarrer ?",
-    "cta_desc": "Chaque projet commence par une conversation. On analyse vos besoins et on vous propose le forfait qui vous correspond vraiment.",
+    "cta_desc": "Chaque projet commence par une conversation. Nous analysons vos besoins et vous proposons le forfait qui vous correspond vraiment.",
     "cta_bouton": "Parlons de votre projet"
   },
   "actualites": {
     "title": "Actualités",
     "subtitle": "Articles, coulisses et ressources pour les entrepreneurs d'ici.",
     "coming_soon": "Contenu en préparation",
-    "coming_desc": "On documente nos projets, on partage nos apprentissages et on prépare des ressources utiles pour les entrepreneurs locaux. Revenez bientôt.",
+    "coming_desc": "Nous documentons nos projets, partageons nos apprentissages et préparons des ressources utiles pour les entrepreneurs locaux. Revenez bientôt.",
     "back_home": "Retour à l'accueil"
   }
 }

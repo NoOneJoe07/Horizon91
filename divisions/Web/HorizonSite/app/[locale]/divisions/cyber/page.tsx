@@ -326,8 +326,8 @@ export default function DivisionCyberPage() {
                 <p className="text-h91-stellar/60 text-sm leading-relaxed">
                   L&apos;impact financier moyen d&apos;un incident de cybersécurité pour une PME canadienne
                   dépasse les 25 000 $ en frais de récupération — sans compter la perte de confiance
-                  irréparable de vos clients. On ne vend pas de la peur, on coule votre sécurité
-                  dans le béton.
+                  irréparable de vos clients. Nous ne vendons pas de la peur, nous coulons votre
+                  sécurité dans le béton.
                 </p>
               </div>
             </div>

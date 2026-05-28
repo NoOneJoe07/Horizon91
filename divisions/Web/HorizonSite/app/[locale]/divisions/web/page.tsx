@@ -204,7 +204,7 @@ export default function DivisionWebPage() {
                 <p>
                   La Division Draveur ne recule devant aucun courant, aussi complexe soit votre
                   chantier web. En éliminant la structure lourde et le flafla des grandes firmes,
-                  on vous livre des plateformes d&apos;élite à un prix 20 % à 40 % plus bas — avec un
+                  nous vous livrons des plateformes d&apos;élite à un prix 20 % à 40 % plus bas — avec un
                   cœur à l&apos;ouvrage et une fierté locale que l&apos;argent ne peut pas acheter.
                 </p>
               </div>
