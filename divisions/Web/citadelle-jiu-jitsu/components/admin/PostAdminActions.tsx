@@ -46,7 +46,7 @@ export function PostAdminActions({ locale, mode, post }: Props) {
   function handleToggle() {
     if (!post) return;
     const next = post.status === "PUBLISHED" ? "DRAFT" : "PUBLISHED";
-    startTransition(() => togglePostStatus(post.id, next));
+    startTransition(async () => { await togglePostStatus(post.id, next); });
   }
 
   function handleDelete() {
@@ -56,7 +56,7 @@ export function PostAdminActions({ locale, mode, post }: Props) {
         ? `Supprimer « ${post.titleFr} » ? Cette action est irréversible.`
         : `Delete "${post.titleEn}"? This cannot be undone.`;
     if (!window.confirm(msg)) return;
-    startTransition(() => deletePost(post.id));
+    startTransition(async () => { await deletePost(post.id); });
   }
 
   return (

@@ -22,6 +22,8 @@ import { prisma } from "@/lib/db";
 import { getSession } from "@/lib/auth";
 import { ProductCategory, TrialStatus, OrderStatus } from "@prisma/client";
 
+type ActionResult = { success: true } | { error: string };
+
 // ---------------------------------------------------------------------------
 // Garde ADMIN — appelée en tête de chaque action
 // ---------------------------------------------------------------------------
@@ -53,7 +55,7 @@ const ProductSchema = z.object({
   imageUrl:      z.string().url().optional().or(z.literal("")),
 });
 
-export async function createProduct(formData: FormData) {
+export async function createProduct(formData: FormData): Promise<ActionResult> {
   try {
     await requireAdmin();
 
@@ -93,7 +95,7 @@ export async function createProduct(formData: FormData) {
   }
 }
 
-export async function updateProduct(id: string, formData: FormData) {
+export async function updateProduct(id: string, formData: FormData): Promise<ActionResult> {
   try {
     await requireAdmin();
 
@@ -126,7 +128,7 @@ export async function updateProduct(id: string, formData: FormData) {
   }
 }
 
-export async function toggleProductActive(id: string, active: boolean) {
+export async function toggleProductActive(id: string, active: boolean): Promise<ActionResult> {
   try {
     await requireAdmin();
     await prisma.product.update({ where: { id }, data: { active } });
@@ -140,7 +142,7 @@ export async function toggleProductActive(id: string, active: boolean) {
   }
 }
 
-export async function deleteProduct(id: string) {
+export async function deleteProduct(id: string): Promise<ActionResult> {
   try {
     await requireAdmin();
     await prisma.product.delete({ where: { id } });
@@ -158,7 +160,7 @@ export async function deleteProduct(id: string) {
 // ABONNEMENTS — toggle uniquement (modifs Stripe = session dédiée)
 // =============================================================================
 
-export async function togglePlanActive(id: string, active: boolean) {
+export async function togglePlanActive(id: string, active: boolean): Promise<ActionResult> {
   try {
     await requireAdmin();
     await prisma.subscriptionPlan.update({ where: { id }, data: { active } });
@@ -176,7 +178,7 @@ export async function togglePlanActive(id: string, active: boolean) {
 // SÉANCES D'ESSAI
 // =============================================================================
 
-export async function updateTrialStatus(id: string, status: TrialStatus) {
+export async function updateTrialStatus(id: string, status: TrialStatus): Promise<ActionResult> {
   try {
     await requireAdmin();
     await prisma.trialSession.update({ where: { id }, data: { status } });
@@ -192,7 +194,7 @@ export async function updateTrialStatus(id: string, status: TrialStatus) {
 // COMMANDES
 // =============================================================================
 
-export async function updateOrderStatus(id: string, status: OrderStatus) {
+export async function updateOrderStatus(id: string, status: OrderStatus): Promise<ActionResult> {
   try {
     await requireAdmin();
     await prisma.order.update({ where: { id }, data: { status } });
@@ -208,7 +210,7 @@ export async function updateOrderStatus(id: string, status: OrderStatus) {
 // MESSAGES CONTACT
 // =============================================================================
 
-export async function markContactRead(id: string, read: boolean) {
+export async function markContactRead(id: string, read: boolean): Promise<ActionResult> {
   try {
     await requireAdmin();
     await prisma.contactMessage.update({ where: { id }, data: { read } });
@@ -220,7 +222,7 @@ export async function markContactRead(id: string, read: boolean) {
   }
 }
 
-export async function deleteContactMessage(id: string) {
+export async function deleteContactMessage(id: string): Promise<ActionResult> {
   try {
     await requireAdmin();
     await prisma.contactMessage.delete({ where: { id } });
@@ -259,7 +261,7 @@ function generateSlug(title: string): string {
     + "-" + Date.now().toString(36);
 }
 
-export async function createPost(formData: FormData) {
+export async function createPost(formData: FormData): Promise<ActionResult> {
   try {
     await requireAdmin();
 
@@ -307,7 +309,7 @@ export async function createPost(formData: FormData) {
   }
 }
 
-export async function updatePost(id: string, formData: FormData) {
+export async function updatePost(id: string, formData: FormData): Promise<ActionResult> {
   try {
     await requireAdmin();
 
@@ -354,7 +356,7 @@ export async function updatePost(id: string, formData: FormData) {
   }
 }
 
-export async function togglePostStatus(id: string, status: "DRAFT" | "PUBLISHED") {
+export async function togglePostStatus(id: string, status: "DRAFT" | "PUBLISHED"): Promise<ActionResult> {
   try {
     await requireAdmin();
     await prisma.post.update({ where: { id }, data: { status } });
@@ -368,7 +370,7 @@ export async function togglePostStatus(id: string, status: "DRAFT" | "PUBLISHED"
   }
 }
 
-export async function deletePost(id: string) {
+export async function deletePost(id: string): Promise<ActionResult> {
   try {
     await requireAdmin();
     await prisma.post.delete({ where: { id } });
