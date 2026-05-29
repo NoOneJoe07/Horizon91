@@ -17,7 +17,7 @@ export async function generateMetadata({
 }: {
   params: Promise<{ locale: Locale }>;
 }): Promise<Metadata> {
-  const locale = ((await params).locale) as Locale;
+  const { locale } = await params;
   return {
     title: "Dojo Time",
     description:
@@ -40,7 +40,7 @@ export default async function DojoTimePage({
 }: {
   params: Promise<{ locale: Locale }>;
 }) {
-  const locale = ((await params).locale) as Locale;
+  const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "DojoTime" });
 
@@ -113,7 +113,7 @@ export default async function DojoTimePage({
                         <img
                           src={post.imageUrl}
                           alt={title}
-                          style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top center" }}
+                          style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }}
                         />
                       </div>
                     )}
