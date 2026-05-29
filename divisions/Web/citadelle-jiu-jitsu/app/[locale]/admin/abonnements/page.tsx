@@ -12,7 +12,7 @@ export default async function AdminSubscriptionsPage({
 }: {
   params: Promise<{ locale: Locale }>;
 }) {
-  const locale = ((await params).locale) as Locale;
+  const { locale } = await params;
   setRequestLocale(locale);
 
   let plans: Awaited<ReturnType<typeof prisma.subscriptionPlan.findMany>> = [];

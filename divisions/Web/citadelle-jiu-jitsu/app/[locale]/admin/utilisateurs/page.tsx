@@ -21,7 +21,7 @@ export default async function AdminUsersPage({
 }: {
   params: Promise<{ locale: Locale }>;
 }) {
-  const locale = ((await params).locale) as Locale;
+  const { locale } = await params;
   setRequestLocale(locale);
 
   let users: UserRow[] = [];

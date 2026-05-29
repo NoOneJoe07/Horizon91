@@ -12,7 +12,7 @@ export default async function AdminOrdersPage({
 }: {
   params: Promise<{ locale: Locale }>;
 }) {
-  const locale = ((await params).locale) as Locale;
+  const { locale } = await params;
   setRequestLocale(locale);
 
   let orders: Awaited<ReturnType<typeof prisma.order.findMany>> = [];

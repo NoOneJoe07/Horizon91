@@ -35,7 +35,7 @@ export async function generateMetadata({
 }: {
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
-  const locale = ((await params).locale) as Locale;
+  const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "Meta" });
 
   return {
@@ -113,7 +113,7 @@ export default async function LocaleLayout({
   children: React.ReactNode;
   params: Promise<{ locale: string }>;
 }) {
-  const locale = ((await params).locale) as Locale;
+  const { locale } = await params;
 
   if (!locales.includes(locale as Locale)) {
     notFound();

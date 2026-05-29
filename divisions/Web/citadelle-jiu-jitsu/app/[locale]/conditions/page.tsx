@@ -15,7 +15,7 @@ export async function generateMetadata({
 }: {
   params: Promise<{ locale: Locale }>;
 }): Promise<Metadata> {
-  const locale = ((await params).locale) as Locale;
+  const { locale } = await params;
   return {
     title:       locale === "fr" ? "Conditions d'utilisation" : "Terms of Use",
     description: locale === "fr"
@@ -247,7 +247,7 @@ export default async function ConditionsPage({
 }: {
   params: Promise<{ locale: Locale }>;
 }) {
-  const locale = ((await params).locale) as Locale;
+  const { locale } = await params;
   setRequestLocale(locale);
 
   return (

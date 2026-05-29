@@ -43,7 +43,7 @@ export async function generateMetadata({
 }: {
   params: Promise<{ locale: Locale }>;
 }): Promise<Metadata> {
-  const locale = ((await params).locale) as Locale;
+  const { locale } = await params;
   return {
     title:       locale === "fr" ? "Politique de confidentialité" : "Privacy Policy",
     description: locale === "fr"
@@ -480,7 +480,7 @@ export default async function PrivacyPage({
 }: {
   params: Promise<{ locale: Locale }>;
 }) {
-  const locale = ((await params).locale) as Locale;
+  const { locale } = await params;
   setRequestLocale(locale);
 
   return (

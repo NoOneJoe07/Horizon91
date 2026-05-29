@@ -12,7 +12,7 @@ export default async function AdminMessagesPage({
 }: {
   params: Promise<{ locale: Locale }>;
 }) {
-  const locale = ((await params).locale) as Locale;
+  const { locale } = await params;
   setRequestLocale(locale);
 
   let messages: Awaited<ReturnType<typeof prisma.contactMessage.findMany>> = [];

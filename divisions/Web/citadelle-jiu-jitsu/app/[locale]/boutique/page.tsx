@@ -22,7 +22,7 @@ export default async function ShopPage({
 }: {
   params: Promise<{ locale: Locale }>;
 }) {
-  const locale = ((await params).locale) as Locale;
+  const { locale } = await params;
   // Redirection temporaire vers /abonnements tant que la boutique n'est pas active
   redirect(`/${locale}/abonnements`);
 }

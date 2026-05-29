@@ -19,7 +19,7 @@ export async function generateMetadata({
 }: {
   params: Promise<{ locale: Locale }>;
 }): Promise<Metadata> {
-  const locale = ((await params).locale) as Locale;
+  const { locale } = await params;
   return {
     title: locale === "fr" ? "Décharge de responsabilité" : "Liability Waiver",
     robots: { index: false }, // page privée — ne pas indexer
@@ -31,7 +31,7 @@ export default async function WaiverPage({
 }: {
   params: Promise<{ locale: Locale }>;
 }) {
-  const locale = ((await params).locale) as Locale;
+  const { locale } = await params;
   setRequestLocale(locale);
 
   // ── Auth — membres connectés seulement ──────────────────────────────────

@@ -33,7 +33,7 @@ export async function generateMetadata({
 }: {
   params: Promise<{ locale: Locale }>;
 }): Promise<Metadata> {
-  const locale = ((await params).locale) as Locale;
+  const { locale } = await params;
   return {
     title:       locale === "fr" ? "Nous contacter"    : "Contact us",
     description: locale === "fr"
@@ -50,7 +50,7 @@ export default async function ContactPage({
 }: {
   params: Promise<{ locale: Locale }>;
 }) {
-  const locale = ((await params).locale) as Locale;
+  const { locale } = await params;
   setRequestLocale(locale);
 
   // Charge les traductions du namespace "Contact"

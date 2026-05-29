@@ -12,7 +12,7 @@ export default async function AdminTrialsPage({
 }: {
   params: Promise<{ locale: Locale }>;
 }) {
-  const locale = ((await params).locale) as Locale;
+  const { locale } = await params;
   setRequestLocale(locale);
 
   let trials: Awaited<ReturnType<typeof prisma.trialSession.findMany>> = [];

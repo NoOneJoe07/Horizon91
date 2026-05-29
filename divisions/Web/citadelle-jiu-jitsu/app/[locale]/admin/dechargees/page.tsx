@@ -11,7 +11,7 @@ export default async function AdminWaiversPage({
 }: {
   params: Promise<{ locale: Locale }>;
 }) {
-  const locale = ((await params).locale) as Locale;
+  const { locale } = await params;
   setRequestLocale(locale);
 
   let waivers: Array<{
