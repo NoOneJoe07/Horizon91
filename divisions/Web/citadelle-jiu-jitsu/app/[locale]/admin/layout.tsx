@@ -48,6 +48,7 @@ export default async function AdminLayout({
     { href: `/${locale}/admin/messages`,      label: locale === "fr" ? "Messages" : "Messages" },
     { href: `/${locale}/admin/utilisateurs`,  label: t("sections.users") },
     { href: `/${locale}/admin/dojo-time`,     label: "Dojo Time" },
+    { href: `/${locale}/admin/dechargees`,   label: locale === "fr" ? "Décharges" : "Waivers" },
   ];
 
   return (

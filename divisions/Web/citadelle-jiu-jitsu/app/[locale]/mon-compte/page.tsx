@@ -87,6 +87,11 @@ export default async function MonComptePage({
           },
         },
       },
+      waivers: {
+        orderBy: { signedAt: "desc" },
+        take: 1,
+        select: { signedAt: true },
+      },
     },
   });
 
@@ -232,6 +237,47 @@ export default async function MonComptePage({
                 ? "Pour modifier tes informations ou ton mot de passe, contacte-nous."
                 : "To update your information or password, contact us."}
             </p>
+          </div>
+
+          {/* ── Décharge de responsabilité ──────────────────────────────── */}
+          <div className="card">
+            <p style={sectionTitle}>{fr ? "Décharge de responsabilité" : "Liability Waiver"}</p>
+            {user.waivers.length > 0 ? (
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "1rem" }}>
+                <div style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
+                  <span style={{ fontSize: "1.4rem" }}>✅</span>
+                  <div>
+                    <p style={{ fontWeight: 600, fontSize: "0.9rem" }}>
+                      {fr ? "Décharge signée" : "Waiver signed"}
+                    </p>
+                    <p style={{ fontSize: "0.8rem", color: "var(--color-citadelle-text-muted)" }}>
+                      {user.waivers[0].signedAt.toLocaleDateString(fr ? "fr-CA" : "en-CA", {
+                        year: "numeric", month: "long", day: "numeric",
+                      })}
+                    </p>
+                  </div>
+                </div>
+                <Link href={`/${locale}/decharge`} style={{ fontSize: "0.8rem", color: "var(--color-citadelle-gold)" }}>
+                  {fr ? "Voir la décharge" : "View waiver"}
+                </Link>
+              </div>
+            ) : (
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "1rem" }}>
+                <div>
+                  <p style={{ color: "#f59e0b", fontWeight: 600, fontSize: "0.9rem", marginBottom: "0.2rem" }}>
+                    ⚠️ {fr ? "Décharge non signée" : "Waiver not signed"}
+                  </p>
+                  <p style={{ color: "var(--color-citadelle-text-muted)", fontSize: "0.85rem" }}>
+                    {fr
+                      ? "Requis pour participer aux cours."
+                      : "Required to participate in classes."}
+                  </p>
+                </div>
+                <Link href={`/${locale}/decharge`} className="btn-primary" style={{ fontSize: "0.85rem" }}>
+                  {fr ? "Signer la décharge" : "Sign the waiver"}
+                </Link>
+              </div>
+            )}
           </div>
 
         </div>

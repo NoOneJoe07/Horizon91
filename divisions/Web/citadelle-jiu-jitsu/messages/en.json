@@ -233,6 +233,42 @@
     "empty": "No posts yet — check back soon.",
     "share": "Share"
   },
+  "Waiver": {
+    "title": "Liability Waiver",
+    "subtitle": "Please read carefully and complete this form before participating in classes.",
+    "downloadPdf": "Download PDF version",
+    "alreadySigned": "You have already signed the liability waiver.",
+    "signedOn": "Signed on",
+    "fields": {
+      "participantName": "Participant's full name",
+      "birthDate": "Date of birth",
+      "address": "Full address",
+      "isMinor": "The participant is a minor (under 18)",
+      "guardianName": "Parent / legal guardian's name",
+      "photoConsentLabel": "Photo/video consent",
+      "photoConsentYes": "I authorize the school to use photos or videos taken during activities for promotional purposes.",
+      "photoConsentNo": "I decline.",
+      "signatureName": "Signature (type your full name)",
+      "signatureHint": "By entering your name, you confirm that you have read and agreed to the entire document."
+    },
+    "sections": {
+      "risks": "1. Assumption of Risk",
+      "risksText": "I acknowledge that the practice of martial arts involves risks, including muscular, joint or bone injuries, strikes, shocks or falls, and the aggravation of pre-existing medical conditions. I understand that despite safety measures in place, it is impossible to entirely eliminate the risks associated with martial arts practice.",
+      "health": "2. Health Status",
+      "healthText": "I declare that I am in good physical condition and have no medical condition that prevents me from participating in activities. If applicable, I take responsibility for informing the school and providing a medical certificate as needed.",
+      "liability": "3. Release of Liability",
+      "liabilityText": "By signing this document, I release Citadelle Jiu-Jitsu, its instructors, employees, volunteers and representatives from any liability for injuries, bodily harm, loss or death that may occur during my participation in classes, training sessions, demonstrations or competitions.",
+      "liabilityNote": "This release does not apply in cases of gross negligence or intentional misconduct on the part of the school or its representatives, in accordance with the laws in force in Québec.",
+      "commitment": "4. Personal Commitment",
+      "commitmentText": "I commit to respecting the school's safety and hygiene rules, adopting a respectful attitude toward instructors and other students, and reporting any injury or discomfort during activities.",
+      "minor": "5. Authorization for Minors (if applicable)",
+      "minorText": "As the parent/legal guardian of the child named above, I consent to their participation in the school's activities and accept the risks and release of liability described above."
+    },
+    "submit": "Sign the waiver",
+    "submitting": "Submitting…",
+    "success": "Waiver signed successfully. Thank you!",
+    "error": "An error occurred. Please try again."
+  },
   "Errors": {
     "notFound": {
       "title": "Page not found",

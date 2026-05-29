@@ -38,6 +38,7 @@ model User {
   subscriptions UserSubscription[]
   orders        Order[]
   trialSessions TrialSession[]
+  waivers       Waiver[]
 
   @@index([email])
 }
@@ -219,6 +220,29 @@ model TrialSession {
 
   @@index([status])
   @@index([preferredDate])
+}
+
+// -----------------------------------------------------------------------------
+// DÉCHARGE DE RESPONSABILITÉ
+// -----------------------------------------------------------------------------
+
+model Waiver {
+  id              String   @id @default(cuid())
+  userId          String
+  participantName String
+  birthDate       String   // format YYYY-MM-DD
+  address         String
+  isMinor         Boolean  @default(false)
+  guardianName    String?  // nom du parent/tuteur si mineur
+  photoConsent    Boolean  // true = autorise, false = refuse
+  signatureName   String   // nom tapé = signature légale au Québec
+  ipAddress       String?  // pour preuve légale
+  signedAt        DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([signedAt])
 }
 
 // -----------------------------------------------------------------------------

@@ -233,6 +233,42 @@
     "empty": "Aucun article pour l'instant — revenez bientôt.",
     "share": "Partager"
   },
+  "Waiver": {
+    "title": "Décharge de responsabilité",
+    "subtitle": "Veuillez lire attentivement et remplir ce formulaire avant de participer aux cours.",
+    "downloadPdf": "Télécharger la version PDF",
+    "alreadySigned": "Vous avez déjà signé la décharge de responsabilité.",
+    "signedOn": "Signée le",
+    "fields": {
+      "participantName": "Nom complet du participant",
+      "birthDate": "Date de naissance",
+      "address": "Adresse complète",
+      "isMinor": "Le participant est mineur (moins de 18 ans)",
+      "guardianName": "Nom du parent / tuteur légal",
+      "photoConsentLabel": "Consentement pour photos/vidéos",
+      "photoConsentYes": "J'autorise l'école à utiliser des photos ou vidéos prises lors des activités à des fins promotionnelles.",
+      "photoConsentNo": "Je refuse.",
+      "signatureName": "Signature (tapez votre nom complet)",
+      "signatureHint": "En inscrivant votre nom, vous confirmez avoir lu et accepté l'ensemble du document."
+    },
+    "sections": {
+      "risks": "1. Reconnaissance des risques",
+      "risksText": "Je reconnais que la pratique des arts martiaux comporte des risques, notamment des blessures musculaires, articulaires ou osseuses, des coups, chocs ou chutes, et l'aggravation de conditions médicales préexistantes. Je comprends que, malgré les mesures de sécurité mises en place, il est impossible d'éliminer entièrement ces risques.",
+      "health": "2. État de santé",
+      "healthText": "Je déclare être en bonne condition physique et n'avoir aucune condition médicale qui m'empêche de participer aux activités. Le cas échéant, j'assume la responsabilité d'en aviser l'école et de fournir un certificat médical au besoin.",
+      "liability": "3. Décharge de responsabilité",
+      "liabilityText": "En signant ce document, je dégage Citadelle Jiu-Jitsu, ses instructeurs, employés, bénévoles et représentants de toute responsabilité pour les blessures, dommages corporels, pertes ou décès pouvant survenir lors de ma participation aux cours, entraînements, démonstrations ou compétitions.",
+      "liabilityNote": "Cette décharge ne s'applique pas en cas de négligence grave ou de faute intentionnelle de la part de l'école ou de ses représentants, conformément aux lois en vigueur au Québec.",
+      "commitment": "4. Engagement personnel",
+      "commitmentText": "Je m'engage à respecter les règles de sécurité et d'hygiène de l'école, à adopter une attitude respectueuse envers les instructeurs et les autres élèves, et à signaler toute blessure ou malaise pendant les activités.",
+      "minor": "5. Autorisation pour mineurs (si applicable)",
+      "minorText": "En tant que parent/tuteur légal de l'enfant nommé ci-dessus, je consens à sa participation aux activités de l'école et j'accepte les risques et la décharge de responsabilité décrits ci-dessus."
+    },
+    "submit": "Signer la décharge",
+    "submitting": "Envoi en cours…",
+    "success": "Décharge signée avec succès. Merci !",
+    "error": "Une erreur est survenue. Veuillez réessayer."
+  },
   "Errors": {
     "notFound": {
       "title": "Page introuvable",
