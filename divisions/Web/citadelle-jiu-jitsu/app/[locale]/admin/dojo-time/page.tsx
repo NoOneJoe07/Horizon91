@@ -10,9 +10,9 @@ import { PostAdminActions } from "@/components/admin/PostAdminActions";
 export default async function AdminDojoTimePage({
   params,
 }: {
-  params: Promise<{ locale: string }>;
+  params: Promise<{ locale: Locale }>;
 }) {
-  const { locale } = await params;
+  const locale = ((await params).locale) as Locale;
   setRequestLocale(locale);
 
   let posts: Awaited<ReturnType<typeof prisma.post.findMany>> = [];

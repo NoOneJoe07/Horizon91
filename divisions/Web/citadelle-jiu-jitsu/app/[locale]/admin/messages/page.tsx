@@ -10,9 +10,9 @@ import { ContactMessageActions } from "@/components/admin/ContactMessageActions"
 export default async function AdminMessagesPage({
   params,
 }: {
-  params: Promise<{ locale: string }>;
+  params: Promise<{ locale: Locale }>;
 }) {
-  const { locale } = await params;
+  const locale = ((await params).locale) as Locale;
   setRequestLocale(locale);
 
   let messages: Awaited<ReturnType<typeof prisma.contactMessage.findMany>> = [];

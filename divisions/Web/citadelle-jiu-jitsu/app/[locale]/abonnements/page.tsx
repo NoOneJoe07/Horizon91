@@ -32,9 +32,9 @@ import type { Locale } from "@/lib/locales";
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ locale: string }>;
+  params: Promise<{ locale: Locale }>;
 }): Promise<Metadata> {
-  const { locale } = await params;
+  const locale = ((await params).locale) as Locale;
   return {
     title: locale === "fr" ? "Forfaits & Tarifs" : "Plans & Pricing",
     description:
@@ -63,9 +63,9 @@ function formatPrice(cents: number): string {
 export default async function SubscriptionsPage({
   params,
 }: {
-  params: Promise<{ locale: string }>;
+  params: Promise<{ locale: Locale }>;
 }) {
-  const { locale } = await params;
+  const locale = ((await params).locale) as Locale;
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "Subscriptions" });
 

@@ -10,9 +10,9 @@ import { OrderActions } from "@/components/admin/OrderActions";
 export default async function AdminOrdersPage({
   params,
 }: {
-  params: Promise<{ locale: string }>;
+  params: Promise<{ locale: Locale }>;
 }) {
-  const { locale } = await params;
+  const locale = ((await params).locale) as Locale;
   setRequestLocale(locale);
 
   let orders: Awaited<ReturnType<typeof prisma.order.findMany>> = [];

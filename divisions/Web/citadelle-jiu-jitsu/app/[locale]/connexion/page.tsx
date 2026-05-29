@@ -7,10 +7,10 @@ export default async function LoginPage({
   params,
   searchParams,
 }: {
-  params: Promise<{ locale: string }>;
+  params: Promise<{ locale: Locale }>;
   searchParams: Promise<{ bye?: string; redirect?: string }>;
 }) {
-  const { locale } = await params;
+  const locale = ((await params).locale) as Locale;
   const { bye } = await searchParams;
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "Auth.login" });

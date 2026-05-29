@@ -10,9 +10,9 @@ import { TrialActions } from "@/components/admin/TrialActions";
 export default async function AdminTrialsPage({
   params,
 }: {
-  params: Promise<{ locale: string }>;
+  params: Promise<{ locale: Locale }>;
 }) {
-  const { locale } = await params;
+  const locale = ((await params).locale) as Locale;
   setRequestLocale(locale);
 
   let trials: Awaited<ReturnType<typeof prisma.trialSession.findMany>> = [];

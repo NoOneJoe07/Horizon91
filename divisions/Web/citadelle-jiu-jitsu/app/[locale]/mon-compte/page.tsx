@@ -16,9 +16,9 @@ import type { Metadata } from "next";
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ locale: string }>;
+  params: Promise<{ locale: Locale }>;
 }): Promise<Metadata> {
-  const { locale } = await params;
+  const locale = ((await params).locale) as Locale;
   return {
     title: locale === "fr" ? "Mon compte" : "My Account",
   };
@@ -56,9 +56,9 @@ function StatusBadge({ status, locale }: { status: string; locale: string }) {
 export default async function MonComptePage({
   params,
 }: {
-  params: Promise<{ locale: string }>;
+  params: Promise<{ locale: Locale }>;
 }) {
-  const { locale } = await params;
+  const locale = ((await params).locale) as Locale;
   setRequestLocale(locale);
 
   const session = await getSession();

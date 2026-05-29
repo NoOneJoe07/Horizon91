@@ -19,9 +19,9 @@ type UserRow = {
 export default async function AdminUsersPage({
   params,
 }: {
-  params: Promise<{ locale: string }>;
+  params: Promise<{ locale: Locale }>;
 }) {
-  const { locale } = await params;
+  const locale = ((await params).locale) as Locale;
   setRequestLocale(locale);
 
   let users: UserRow[] = [];

@@ -16,9 +16,9 @@ import { ProductActions } from "@/components/admin/ProductActions";
 export default async function AdminProductsPage({
   params,
 }: {
-  params: Promise<{ locale: string }>;
+  params: Promise<{ locale: Locale }>;
 }) {
-  const { locale } = await params;
+  const locale = ((await params).locale) as Locale;
   setRequestLocale(locale);
 
   let products: Awaited<ReturnType<typeof prisma.product.findMany>> = [];

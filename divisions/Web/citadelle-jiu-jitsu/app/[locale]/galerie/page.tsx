@@ -13,9 +13,9 @@ import VideoShowcase from "@/components/video/VideoShowcase";
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ locale: string }>;
+  params: Promise<{ locale: Locale }>;
 }): Promise<Metadata> {
-  const { locale } = await params;
+  const locale = ((await params).locale) as Locale;
   return {
     title:       locale === "fr" ? "Galerie"           : "Gallery",
     description: locale === "fr"
@@ -179,9 +179,9 @@ const photos = [
 export default async function GalleryPage({
   params,
 }: {
-  params: Promise<{ locale: string }>;
+  params: Promise<{ locale: Locale }>;
 }) {
-  const { locale } = await params;
+  const locale = ((await params).locale) as Locale;
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "Gallery" });
 

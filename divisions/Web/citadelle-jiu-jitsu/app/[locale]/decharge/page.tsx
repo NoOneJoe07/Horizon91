@@ -17,9 +17,9 @@ import WaiverForm from "@/components/WaiverForm";
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ locale: string }>;
+  params: Promise<{ locale: Locale }>;
 }): Promise<Metadata> {
-  const { locale } = await params;
+  const locale = ((await params).locale) as Locale;
   return {
     title: locale === "fr" ? "Décharge de responsabilité" : "Liability Waiver",
     robots: { index: false }, // page privée — ne pas indexer
@@ -29,9 +29,9 @@ export async function generateMetadata({
 export default async function WaiverPage({
   params,
 }: {
-  params: Promise<{ locale: string }>;
+  params: Promise<{ locale: Locale }>;
 }) {
-  const { locale } = await params;
+  const locale = ((await params).locale) as Locale;
   setRequestLocale(locale);
 
   // ── Auth — membres connectés seulement ──────────────────────────────────

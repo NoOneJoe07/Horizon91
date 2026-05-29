@@ -9,9 +9,9 @@ import type { Locale } from "@/lib/locales";
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ locale: string }>;
+  params: Promise<{ locale: Locale }>;
 }): Promise<Metadata> {
-  const { locale } = await params;
+  const locale = ((await params).locale) as Locale;
   return {
     title:       locale === "fr" ? "Horaires des cours"  : "Class Schedule",
     description: locale === "fr"
@@ -33,9 +33,9 @@ const DAYS: DayKey[] = [
 export default async function SchedulePage({
   params,
 }: {
-  params: Promise<{ locale: string }>;
+  params: Promise<{ locale: Locale }>;
 }) {
-  const { locale } = await params;
+  const locale = ((await params).locale) as Locale;
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "Schedule" });
 

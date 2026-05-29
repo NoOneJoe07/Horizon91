@@ -10,9 +10,9 @@ import { PlanToggle } from "@/components/admin/PlanToggle";
 export default async function AdminSubscriptionsPage({
   params,
 }: {
-  params: Promise<{ locale: string }>;
+  params: Promise<{ locale: Locale }>;
 }) {
-  const { locale } = await params;
+  const locale = ((await params).locale) as Locale;
   setRequestLocale(locale);
 
   let plans: Awaited<ReturnType<typeof prisma.subscriptionPlan.findMany>> = [];

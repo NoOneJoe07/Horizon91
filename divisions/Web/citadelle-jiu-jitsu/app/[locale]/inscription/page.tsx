@@ -6,9 +6,9 @@ import type { Locale } from "@/lib/locales";
 export default async function RegisterPage({
   params,
 }: {
-  params: Promise<{ locale: string }>;
+  params: Promise<{ locale: Locale }>;
 }) {
-  const { locale } = await params;
+  const locale = ((await params).locale) as Locale;
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "Auth.register" });
 

@@ -17,9 +17,9 @@ import type { Locale } from "@/lib/locales";
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ locale: string }>;
+  params: Promise<{ locale: Locale }>;
 }): Promise<Metadata> {
-  const { locale } = await params;
+  const locale = ((await params).locale) as Locale;
   return {
     title:       locale === "fr" ? "Nos instructeurs"  : "Our instructors",
     description: locale === "fr"
@@ -31,9 +31,9 @@ export async function generateMetadata({
 export default async function InstructorsPage({
   params,
 }: {
-  params: Promise<{ locale: string }>;
+  params: Promise<{ locale: Locale }>;
 }) {
-  const { locale } = await params;
+  const locale = ((await params).locale) as Locale;
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "Instructors" });
 

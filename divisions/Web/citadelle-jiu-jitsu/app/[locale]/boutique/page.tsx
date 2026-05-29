@@ -20,9 +20,9 @@ import type { Locale } from "@/lib/locales";
 export default async function ShopPage({
   params,
 }: {
-  params: Promise<{ locale: string }>;
+  params: Promise<{ locale: Locale }>;
 }) {
-  const { locale } = await params;
+  const locale = ((await params).locale) as Locale;
   // Redirection temporaire vers /abonnements tant que la boutique n'est pas active
   redirect(`/${locale}/abonnements`);
 }

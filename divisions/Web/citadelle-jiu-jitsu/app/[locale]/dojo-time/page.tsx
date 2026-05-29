@@ -15,9 +15,9 @@ import type { PostCategory } from "@prisma/client";
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ locale: string }>;
+  params: Promise<{ locale: Locale }>;
 }): Promise<Metadata> {
-  const { locale } = await params;
+  const locale = ((await params).locale) as Locale;
   return {
     title: "Dojo Time",
     description:
@@ -38,9 +38,9 @@ const CATEGORY_COLORS: Record<PostCategory, string> = {
 export default async function DojoTimePage({
   params,
 }: {
-  params: Promise<{ locale: string }>;
+  params: Promise<{ locale: Locale }>;
 }) {
-  const { locale } = await params;
+  const locale = ((await params).locale) as Locale;
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "DojoTime" });
 

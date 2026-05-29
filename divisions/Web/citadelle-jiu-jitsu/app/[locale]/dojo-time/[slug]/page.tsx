@@ -21,7 +21,7 @@ const CATEGORY_COLORS: Record<PostCategory, string> = {
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ locale: string; slug: string }>;
+  params: Promise<{ locale: Locale; slug: string }>;
 }): Promise<Metadata> {
   const { locale, slug } = await params;
   try {
@@ -40,7 +40,7 @@ export async function generateMetadata({
 export default async function DojoTimeArticlePage({
   params,
 }: {
-  params: Promise<{ locale: string; slug: string }>;
+  params: Promise<{ locale: Locale; slug: string }>;
 }) {
   const { locale, slug } = await params;
   setRequestLocale(locale);

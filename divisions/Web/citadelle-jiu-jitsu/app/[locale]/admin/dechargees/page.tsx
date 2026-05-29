@@ -9,9 +9,9 @@ import type { Locale } from "@/lib/locales";
 export default async function AdminWaiversPage({
   params,
 }: {
-  params: Promise<{ locale: string }>;
+  params: Promise<{ locale: Locale }>;
 }) {
-  const { locale } = await params;
+  const locale = ((await params).locale) as Locale;
   setRequestLocale(locale);
 
   let waivers: Array<{
