@@ -52,7 +52,7 @@ const ProductSchema = z.object({
   priceCents:    z.coerce.number().int().min(100),   // min 1 $
   category:      z.nativeEnum(ProductCategory),
   stockQuantity: z.coerce.number().int().min(0),
-  imageUrl:      z.string().url().optional().or(z.literal("")),
+  imageUrl:      z.string().optional(),
 });
 
 export async function createProduct(formData: FormData): Promise<ActionResult> {
@@ -246,7 +246,7 @@ const PostSchema = z.object({
   contentFr:   z.string().min(10),
   contentEn:   z.string().min(10),
   category:    z.enum(["COMPETITION", "BELTS", "ANNOUNCEMENT", "COMMUNITY"]),
-  imageUrl:    z.string().url().optional().or(z.literal("")),
+  imageUrl:    z.string().optional(),
   externalUrl:   z.string().url().optional().or(z.literal("")),
   imagePosition: z.string().optional(),
   publishedAt:   z.string().optional(),

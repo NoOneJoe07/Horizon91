@@ -131,7 +131,7 @@ export function PostModal({ post, onClose, locale }: Props) {
 
           {/* Image + lien externe */}
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0.75rem" }}>
-            <Field label="URL image (optionnel)" name="imageUrl" defaultValue={post?.imageUrl ?? ""} type="url" />
+            <Field label="URL image (optionnel)" name="imageUrl" defaultValue={post?.imageUrl ?? ""} type="text" />
             <Field label="Lien Supernova (optionnel)" name="externalUrl" defaultValue={post?.externalUrl ?? ""} type="url" />
           </div>
 
