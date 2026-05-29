@@ -55,7 +55,7 @@ export function PostModal({ post, onClose, locale }: Props) {
       const result = isEdit
         ? await updatePost(post.id, formData)
         : await createPost(formData);
-      if (result.error) setError(result.error);
+      if ('error' in result) setError(result.error);
       else onClose();
     });
   }

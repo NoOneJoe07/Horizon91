@@ -39,7 +39,7 @@ export function ProductModal({ product, onClose, locale }: Props) {
         ? await updateProduct(product.id, formData)
         : await createProduct(formData);
 
-      if (result.error) {
+      if ('error' in result) {
         setError(result.error);
       } else {
         onClose();
