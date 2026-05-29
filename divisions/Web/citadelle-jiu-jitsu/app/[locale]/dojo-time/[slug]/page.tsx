@@ -129,7 +129,10 @@ export default async function DojoTimeArticlePage({
               style={{
                 width: "100%", height: "100%", objectFit: "cover",
                 // Ajustement par article : "center" pour Calgary (JS + Max coupés au chest avec "top")
-                objectPosition: "center",
+                objectPosition:
+                  slug === "ibjjf-open-montreal-mai-2026" ? "top center" :
+                  slug === "adcc-open-toronto-fevrier-2026" ? "top center" :
+                  "center",
               }}
             />
           </div>
