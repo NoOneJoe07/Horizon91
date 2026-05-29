@@ -288,7 +288,8 @@ model Post {
   excerptEn   String
   contentFr   String       @db.Text  // texte complet de l'article
   contentEn   String       @db.Text
-  imageUrl    String?      // URL photo principale (podium, ceinture, etc.)
+  imageUrl      String?    // URL photo principale (podium, ceinture, etc.)
+  imagePosition String     @default("center") // CSS object-position : "center" | "top center" | "center 70%" …
   category    PostCategory
   status      PostStatus   @default(DRAFT)
   externalUrl String?      // lien optionnel → futur site martial arts Supernova

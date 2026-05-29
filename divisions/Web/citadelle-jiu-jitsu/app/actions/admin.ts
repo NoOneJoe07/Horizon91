@@ -247,9 +247,10 @@ const PostSchema = z.object({
   contentEn:   z.string().min(10),
   category:    z.enum(["COMPETITION", "BELTS", "ANNOUNCEMENT", "COMMUNITY"]),
   imageUrl:    z.string().url().optional().or(z.literal("")),
-  externalUrl: z.string().url().optional().or(z.literal("")),
-  publishedAt: z.string().optional(),
-  status:      z.enum(["DRAFT", "PUBLISHED"]),
+  externalUrl:   z.string().url().optional().or(z.literal("")),
+  imagePosition: z.string().optional(),
+  publishedAt:   z.string().optional(),
+  status:        z.enum(["DRAFT", "PUBLISHED"]),
 });
 
 function generateSlug(title: string): string {
@@ -273,10 +274,11 @@ export async function createPost(formData: FormData): Promise<ActionResult> {
       contentFr:   formData.get("contentFr"),
       contentEn:   formData.get("contentEn"),
       category:    formData.get("category"),
-      imageUrl:    formData.get("imageUrl") || undefined,
-      externalUrl: formData.get("externalUrl") || undefined,
-      publishedAt: formData.get("publishedAt") || undefined,
-      status:      formData.get("status"),
+      imageUrl:      formData.get("imageUrl") || undefined,
+      externalUrl:   formData.get("externalUrl") || undefined,
+      imagePosition: (formData.get("imagePosition") as string) || undefined,
+      publishedAt:   formData.get("publishedAt") || undefined,
+      status:        formData.get("status"),
     };
 
     const data = PostSchema.parse(raw);
@@ -293,9 +295,10 @@ export async function createPost(formData: FormData): Promise<ActionResult> {
         contentEn:   data.contentEn,
         category:    data.category,
         status:      data.status,
-        imageUrl:    data.imageUrl    || null,
-        externalUrl: data.externalUrl || null,
-        publishedAt: data.publishedAt ? new Date(data.publishedAt) : new Date(),
+        imageUrl:      data.imageUrl      || null,
+        externalUrl:   data.externalUrl   || null,
+        imagePosition: data.imagePosition || "center",
+        publishedAt:   data.publishedAt ? new Date(data.publishedAt) : new Date(),
       },
     });
 
@@ -321,10 +324,11 @@ export async function updatePost(id: string, formData: FormData): Promise<Action
       contentFr:   formData.get("contentFr"),
       contentEn:   formData.get("contentEn"),
       category:    formData.get("category"),
-      imageUrl:    formData.get("imageUrl") || undefined,
-      externalUrl: formData.get("externalUrl") || undefined,
-      publishedAt: formData.get("publishedAt") || undefined,
-      status:      formData.get("status"),
+      imageUrl:      formData.get("imageUrl") || undefined,
+      externalUrl:   formData.get("externalUrl") || undefined,
+      imagePosition: (formData.get("imagePosition") as string) || undefined,
+      publishedAt:   formData.get("publishedAt") || undefined,
+      status:        formData.get("status"),
     };
 
     const data = PostSchema.parse(raw);
@@ -340,9 +344,10 @@ export async function updatePost(id: string, formData: FormData): Promise<Action
         contentEn:   data.contentEn,
         category:    data.category,
         status:      data.status,
-        imageUrl:    data.imageUrl    || null,
-        externalUrl: data.externalUrl || null,
-        publishedAt: data.publishedAt ? new Date(data.publishedAt) : undefined,
+        imageUrl:      data.imageUrl      || null,
+        externalUrl:   data.externalUrl   || null,
+        imagePosition: data.imagePosition || "center",
+        publishedAt:   data.publishedAt ? new Date(data.publishedAt) : undefined,
       },
     });
 
