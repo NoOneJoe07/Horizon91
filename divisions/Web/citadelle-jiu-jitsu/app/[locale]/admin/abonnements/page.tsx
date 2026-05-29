@@ -10,7 +10,7 @@ import { PlanToggle } from "@/components/admin/PlanToggle";
 export default async function AdminSubscriptionsPage({
   params,
 }: {
-  params: Promise<{ locale: Locale }>;
+  params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
   setRequestLocale(locale);

@@ -10,7 +10,7 @@ import { TrialActions } from "@/components/admin/TrialActions";
 export default async function AdminTrialsPage({
   params,
 }: {
-  params: Promise<{ locale: Locale }>;
+  params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
   setRequestLocale(locale);

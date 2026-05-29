@@ -10,7 +10,7 @@ import { OrderActions } from "@/components/admin/OrderActions";
 export default async function AdminOrdersPage({
   params,
 }: {
-  params: Promise<{ locale: Locale }>;
+  params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
   setRequestLocale(locale);

@@ -10,7 +10,7 @@ import { PostAdminActions } from "@/components/admin/PostAdminActions";
 export default async function AdminDojoTimePage({
   params,
 }: {
-  params: Promise<{ locale: Locale }>;
+  params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
   setRequestLocale(locale);

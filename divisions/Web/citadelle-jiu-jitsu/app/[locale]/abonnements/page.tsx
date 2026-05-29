@@ -32,7 +32,7 @@ import type { Locale } from "@/lib/locales";
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ locale: Locale }>;
+  params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
   return {
@@ -63,7 +63,7 @@ function formatPrice(cents: number): string {
 export default async function SubscriptionsPage({
   params,
 }: {
-  params: Promise<{ locale: Locale }>;
+  params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
   setRequestLocale(locale);

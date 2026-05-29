@@ -16,7 +16,7 @@ import { ProductActions } from "@/components/admin/ProductActions";
 export default async function AdminProductsPage({
   params,
 }: {
-  params: Promise<{ locale: Locale }>;
+  params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
   setRequestLocale(locale);

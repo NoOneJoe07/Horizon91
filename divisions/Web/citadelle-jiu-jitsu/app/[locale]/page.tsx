@@ -19,7 +19,7 @@ import VideoShowcase from "@/components/video/VideoShowcase";
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ locale: Locale }>;
+  params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
   return {
@@ -86,7 +86,7 @@ function JsonLd({ locale }: { locale: Locale }) {
 export default async function HomePage({
   params,
 }: {
-  params: Promise<{ locale: Locale }>;
+  params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
   setRequestLocale(locale);

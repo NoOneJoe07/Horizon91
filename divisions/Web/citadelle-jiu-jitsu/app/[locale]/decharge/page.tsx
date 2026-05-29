@@ -17,7 +17,7 @@ import WaiverForm from "@/components/WaiverForm";
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ locale: Locale }>;
+  params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
   return {
@@ -29,7 +29,7 @@ export async function generateMetadata({
 export default async function WaiverPage({
   params,
 }: {
-  params: Promise<{ locale: Locale }>;
+  params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
   setRequestLocale(locale);

@@ -5,23 +5,32 @@
 import { prisma } from "@/lib/db";
 import { setRequestLocale } from "next-intl/server";
 import type { Locale } from "@/lib/locales";
+import type { Role } from "@prisma/client";
+
+type UserRow = {
+  id: string;
+  email: string;
+  firstName: string;
+  lastName: string;
+  role: Role;
+  createdAt: Date;
+};
 
 export default async function AdminUsersPage({
   params,
 }: {
-  params: Promise<{ locale: Locale }>;
+  params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
   setRequestLocale(locale);
 
-  let users: Awaited<ReturnType<typeof prisma.user.findMany>> = [];
+  let users: UserRow[] = [];
   try {
     users = await prisma.user.findMany({
       orderBy: { createdAt: "desc" },
       select: {
         id: true, email: true, firstName: true, lastName: true,
         role: true, createdAt: true,
-        passwordHash: false,
       },
     });
   } catch {
