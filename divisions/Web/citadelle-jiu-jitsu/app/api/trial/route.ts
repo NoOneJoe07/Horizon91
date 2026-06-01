@@ -36,7 +36,7 @@ export async function POST(req: NextRequest) {
   }
 
   // Honeypot : si "website" est rempli, on ignore silencieusement
-  if (parsed.data.website && parsed.data.website.length > 0) {
+  if (parsed.data.website?.includes("http")) {
     return NextResponse.json({ ok: true }, { status: 200 });
   }
 
