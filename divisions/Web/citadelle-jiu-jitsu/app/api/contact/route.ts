@@ -75,6 +75,8 @@ export async function POST(req: NextRequest) {
   const parsed = contactSchema.safeParse(body);
 
   if (!parsed.success) {
+    console.error("[/api/contact] Validation échouée — body reçu:", JSON.stringify(body));
+    console.error("[/api/contact] Erreurs Zod:", JSON.stringify(parsed.error.flatten()));
     // Zod fournit un rapport d'erreurs détaillé via .flatten()
     // Ex: { fieldErrors: { email: ["Courriel invalide"] } }
     // On le retourne en 400 Bad Request pour que le client puisse diagnostiquer.
