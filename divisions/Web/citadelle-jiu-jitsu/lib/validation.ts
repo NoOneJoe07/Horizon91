@@ -58,7 +58,7 @@ export const trialSessionSchema = z.object({
   }),
   message: z.string().max(1000).optional(),
   // Honeypot anti-spam (champ caché — doit rester vide)
-  website: z.string().max(0, "Spam détecté").optional(),
+  website: z.string().optional(),
 });
 
 export type TrialSessionInput = z.infer<typeof trialSessionSchema>;
