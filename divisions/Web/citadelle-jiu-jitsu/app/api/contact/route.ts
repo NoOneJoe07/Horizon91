@@ -92,7 +92,7 @@ export async function POST(req: NextRequest) {
   // Un robot remplit tous les champs → "website" contiendra quelque chose.
   // Stratégie silencieuse : on retourne 200 OK sans rien faire.
   // Le bot croit avoir réussi et ne réessaie pas → moins de bruit dans les logs.
-  if (parsed.data.website && parsed.data.website.length > 0) {
+  if (parsed.data.website?.includes("http")) {
     return NextResponse.json({ ok: true }, { status: 200 });
   }
 

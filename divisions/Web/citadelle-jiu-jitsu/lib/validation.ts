@@ -72,7 +72,7 @@ export const contactSchema = z.object({
   email: z.string().email().max(254),
   subject: z.string().min(1).max(200),
   message: z.string().min(10, "Message trop court").max(5000),
-  website: z.string().max(0).optional(), // honeypot
+  website: z.string().optional(), // honeypot
 });
 
 export type ContactInput = z.infer<typeof contactSchema>;
