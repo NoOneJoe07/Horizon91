@@ -119,13 +119,5 @@ export const weeklySchedule: Record<DayKey, ClassSlot[]> = {
       level: "TOUS",
     },
   ],
-  sunday: [
-    {
-      startTime: "11:00",
-      endTime: "12:30",
-      titleFr: "Cours du weekend — Tous niveaux",
-      titleEn: "Weekend class — All levels",
-      level: "TOUS",
-    },
-  ],
+  sunday: [],
 };

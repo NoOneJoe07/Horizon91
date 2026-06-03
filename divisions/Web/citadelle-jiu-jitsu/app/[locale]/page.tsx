@@ -373,23 +373,6 @@ export default async function HomePage({
                 {t("coach.cta")} →
               </Link>
 
-              <a
-                href="https://smoothcomp.com/en/profile/77192"
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{
-                  alignSelf: "flex-start",
-                  fontSize: "0.82rem",
-                  color: "var(--color-citadelle-text-muted)",
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "0.4rem",
-                }}
-              >
-                🏆 {locale === "fr"
-                  ? "Voir son profil compétiteur — Smoothcomp ↗"
-                  : "View competitor profile — Smoothcomp ↗"}
-              </a>
             </div>
 
             {/* Photo placeholder */}

@@ -23,8 +23,8 @@ export async function generateMetadata({
   return {
     title:       locale === "fr" ? "Nos instructeurs"  : "Our instructors",
     description: locale === "fr"
-      ? "Rencontrez les instructeurs ceinture noire de Citadelle Jiu-Jitsu à Québec. Top 5 Canada, compétiteur international."
-      : "Meet the black belt instructors at Citadelle Jiu-Jitsu in Québec City. Top 5 Canada, international competitor.",
+      ? "Rencontrez Jean-Sébastien Dionne-Roy, ceinture noire sous Firas Zahabi et fondateur de Citadelle Jiu-Jitsu à Québec."
+      : "Meet Jean-Sébastien Dionne-Roy, black belt under Firas Zahabi and founder of Citadelle Jiu-Jitsu in Québec City.",
   };
 }
 
@@ -346,32 +346,6 @@ export default async function InstructorsPage({
                   </div>
                 </div>
               )}
-
-              {/* Profil compétiteur Smoothcomp */}
-              <div style={{
-                display: "flex",
-                alignItems: "center",
-                gap: "0.75rem",
-                padding: "0.85rem 1.1rem",
-                background: "var(--color-citadelle-surface-2)",
-                borderRadius: "var(--radius-md)",
-                border: "1px solid var(--color-citadelle-border)",
-              }}>
-                <span style={{ fontSize: "1.1rem" }}>🏆</span>
-                <div>
-                  <p style={{ fontSize: "0.72rem", textTransform: "uppercase", letterSpacing: "0.1em", color: "var(--color-citadelle-text-muted)", marginBottom: "0.2rem" }}>
-                    {locale === "fr" ? "Profil compétiteur officiel" : "Official competitor profile"}
-                  </p>
-                  <a
-                    href="https://smoothcomp.com/en/profile/77192"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style={{ fontSize: "0.9rem", fontWeight: 600, color: "var(--color-citadelle-gold)" }}
-                  >
-                    Smoothcomp — Jean-Sébastien Dionne-Roy ↗
-                  </a>
-                </div>
-              </div>
 
               {/* Philosophie */}
               {(founder.philosophyFr || founder.philosophyEn) && (
