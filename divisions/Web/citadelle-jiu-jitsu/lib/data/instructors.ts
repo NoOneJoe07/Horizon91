@@ -67,7 +67,7 @@ const founder: Instructor = {
     "vers les plus hautes sphères de leur discipline. " +
     "Jean-Sébastien est le seul gradé ceinture noire sous Zahabi dans la région de Québec — " +
     "une filiation rare qui définit la qualité et l'authenticité de l'enseignement offert chez Citadelle Jiu-Jitsu.\n\n" +
-    "Fort de 20 ans d'expérience en arts martiaux, il enseigne depuis 12 ans " +
+    "Fort de 20 ans d'expérience en arts martiaux, il enseigne depuis 10 ans " +
     "et évolue comme compétiteur actif depuis environ 15 ans. " +
     "Avec un palmarès construit sur les scènes provinciale, nationale et internationale, " +
     "il fait partie de l'élite canadienne dans sa catégorie.\n\n" +
@@ -87,7 +87,7 @@ const founder: Instructor = {
     "and numerous fighters to the highest levels of the UFC and professional mixed martial arts. " +
     "Jean-Sébastien is the only black belt under Zahabi in the Québec City region — " +
     "a rare lineage that defines the quality and authenticity of the instruction offered at Citadelle Jiu-Jitsu.\n\n" +
-    "With 20 years of martial arts experience, 12 years of coaching, " +
+    "With 20 years of martial arts experience, 10 years of coaching, " +
     "and approximately 15 years as an active competitor, " +
     "he is part of the Canadian elite in his division, " +
     "having competed and won events at the provincial, national and international level.\n\n" +
@@ -122,7 +122,7 @@ const founder: Instructor = {
     { value: "🥋",  labelFr: "Ceinture noire sous Firas Zahabi",              labelEn: "Black belt under Firas Zahabi"              },
     { value: "12",  labelFr: "ans d'expérience en compétition internationale", labelEn: "years of international competition"          },
     { value: "20",  labelFr: "ans d'expérience en arts martiaux",              labelEn: "years of martial arts experience"            },
-    { value: "12",  labelFr: "ans d'enseignement",                             labelEn: "years of coaching"                          },
+    { value: "10",  labelFr: "ans d'enseignement",                             labelEn: "years of coaching"                          },
   ],
 };
 
