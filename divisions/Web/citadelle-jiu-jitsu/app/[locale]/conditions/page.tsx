@@ -72,7 +72,7 @@ function TermsFR() {
         <p style={styles.p}>Citadelle Jiu-Jitsu offre les services suivants via ce site :</p>
         <ul style={styles.ul}>
           <li>Inscription et gestion de compte membre</li>
-          <li>Abonnements aux cours de jiu-jitsu brésilien (adulte, enfant, famille)</li>
+          <li>Abonnements aux cours de jiu-jitsu brésilien (adulte, compétiteur)</li>
           <li>Réservation de séances d'essai gratuites</li>
           <li>Achat de marchandise et équipement (boutique en ligne)</li>
           <li>Consultation des horaires de cours</li>

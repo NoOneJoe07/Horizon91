@@ -15,8 +15,8 @@ export async function generateMetadata({
   return {
     title:       locale === "fr" ? "Horaires des cours"  : "Class Schedule",
     description: locale === "fr"
-      ? "Horaires des cours de jiu-jitsu brésilien à Québec : adultes, enfants, no-gi. Dojo Citadelle, 964 Rue Mainguy."
-      : "Brazilian jiu-jitsu class schedule in Québec City: adults, kids, no-gi. Citadelle dojo, 964 Rue Mainguy.",
+      ? "Horaires des cours de jiu-jitsu brésilien à Québec : adultes, no-gi et compétition. Dojo Citadelle, 964 Rue Mainguy."
+      : "Brazilian jiu-jitsu class schedule in Québec City: adults, no-gi and competition. Citadelle dojo, 964 Rue Mainguy.",
   };
 }
 

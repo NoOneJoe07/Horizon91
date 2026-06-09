@@ -17,8 +17,8 @@ export async function generateMetadata({
   return {
     title:       locale === "fr" ? "Séance d'essai gratuite"    : "Free Trial Class",
     description: locale === "fr"
-      ? "Réserve ta séance d'essai gratuite au dojo Citadelle Jiu-Jitsu à Québec. Aucun engagement. Pour adultes et enfants."
-      : "Book your free trial class at Citadelle Jiu-Jitsu dojo in Québec City. No commitment. For adults and kids.",
+      ? "Réserve ta séance d'essai gratuite au dojo Citadelle Jiu-Jitsu à Québec. Aucun engagement. Pour adultes et compétiteurs."
+      : "Book your free trial class at Citadelle Jiu-Jitsu dojo in Québec City. No commitment. For adults and competitors.",
   };
 }
 

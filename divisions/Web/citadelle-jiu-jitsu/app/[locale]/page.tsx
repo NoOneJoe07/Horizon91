@@ -29,8 +29,8 @@ export async function generateMetadata({
         : "Citadelle Jiu-Jitsu — BJJ School in Québec City",
     description:
       locale === "fr"
-        ? "École de jiu-jitsu brésilien à Québec. Cours adultes, enfants, no-gi et compétition. Première séance d'essai gratuite. 964 rue Mainguy, Québec."
-        : "Brazilian jiu-jitsu school in Québec City. Adult, kids, no-gi and competition classes. First trial class free. 964 rue Mainguy, Québec.",
+        ? "École de jiu-jitsu brésilien à Québec. Cours adultes, no-gi et compétition. Première séance d'essai gratuite. 964 rue Mainguy, Québec."
+        : "Brazilian jiu-jitsu school in Québec City. Adult, no-gi and competition classes. First trial class free. 964 rue Mainguy, Québec.",
   };
 }
 
@@ -49,8 +49,8 @@ function JsonLd({ locale }: { locale: Locale }) {
     name: "Citadelle Jiu-Jitsu",
     description:
       locale === "fr"
-        ? "École de jiu-jitsu brésilien à Québec. Cours adultes, enfants, no-gi et compétition. Première séance d'essai gratuite."
-        : "Brazilian jiu-jitsu school in Québec City. Adult, kids, no-gi and competition classes. First trial class free.",
+        ? "École de jiu-jitsu brésilien à Québec. Cours adultes, no-gi et compétition. Première séance d'essai gratuite."
+        : "Brazilian jiu-jitsu school in Québec City. Adult, no-gi and competition classes. First trial class free.",
     url: `https://citadellebjj.com/${locale}`,
     telephone: "+14185641047",
     address: {
