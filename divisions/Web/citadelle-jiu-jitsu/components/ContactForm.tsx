@@ -93,7 +93,16 @@ export function ContactForm({ locale }: ContactFormProps) {
       if (!res.ok) {
         // L'API a répondu avec un statut HTTP d'erreur (400, 500...)
         const body = await res.json().catch(() => ({}));
-        throw new Error(body.error ?? "Erreur serveur");
+        // Si Zod a rejeté un champ précis (ex: "Message trop court"), on
+        // affiche CE message plutôt que le générique "Données invalides" —
+        // beaucoup plus utile pour comprendre quoi corriger.
+        const fieldErrors = body.details?.fieldErrors as
+          | Record<string, string[]>
+          | undefined;
+        const firstFieldError = fieldErrors
+          ? Object.values(fieldErrors).flat()[0]
+          : undefined;
+        throw new Error(firstFieldError ?? body.error ?? "Erreur serveur");
       }
 
       // Succès : réinitialiser le formulaire et afficher la confirmation
@@ -152,7 +161,12 @@ export function ContactForm({ locale }: ContactFormProps) {
         name="website"
         tabIndex={-1}
         autoComplete="off"
-        style={{ position: "absolute", left: "-9999px" }}
+        // display:none (plutôt qu'un positionnement hors-écran) : un champ
+        // réellement absent du rendu est beaucoup moins susceptible d'être
+        // ciblé par l'autofill du navigateur ou un gestionnaire de mots de
+        // passe, qui peuvent autrement injecter une valeur dans un champ
+        // simplement déplacé hors-écran et faire échouer un vrai visiteur.
+        style={{ display: "none" }}
         aria-hidden
       />
 

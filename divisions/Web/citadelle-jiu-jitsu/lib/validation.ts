@@ -68,8 +68,15 @@ export const trialSessionSchema = z.object({
     message: "La date doit être aujourd'hui ou dans le futur",
   }),
   message: z.string().max(1000).optional(),
-  // Honeypot anti-spam (champ caché — doit rester vide)
-  website: z.string().max(0, "Spam détecté").optional(),
+  // Honeypot anti-spam (champ caché — doit normalement rester vide).
+  // BUG CORRIGÉ (24 juin 2026) : la contrainte .max(0) faisait échouer TOUT
+  // le formulaire avec "Données invalides" dès que le navigateur (autofill
+  // Chrome, gestionnaire de mots de passe, etc.) injectait une valeur dans
+  // ce champ invisible — pénalisant de vrais visiteurs, pas seulement les
+  // robots. La détection de spam se fait maintenant uniquement après le
+  // parsing (voir route.ts), qui ignore silencieusement la soumission sans
+  // bloquer les humains avec une erreur visible.
+  website: z.string().optional(),
 });
 
 export type TrialSessionInput = z.infer<typeof trialSessionSchema>;
@@ -83,7 +90,10 @@ export const contactSchema = z.object({
   email: z.string().email().max(254),
   subject: z.string().min(1).max(200),
   message: z.string().min(10, "Message trop court").max(5000),
-  website: z.string().max(0).optional(), // honeypot
+  // Honeypot anti-spam — voir note détaillée dans trialSessionSchema ci-dessus.
+  // Plus de contrainte .max(0) ici : un vrai visiteur dont le navigateur a
+  // auto-rempli ce champ invisible ne doit pas recevoir "Données invalides".
+  website: z.string().optional(), // honeypot
 });
 
 export type ContactInput = z.infer<typeof contactSchema>;

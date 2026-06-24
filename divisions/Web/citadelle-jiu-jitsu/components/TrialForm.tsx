@@ -33,7 +33,16 @@ export function TrialForm({ locale }: TrialFormProps) {
 
       if (!res.ok) {
         const body = await res.json().catch(() => ({}));
-        throw new Error(body.error ?? "Request failed");
+        // Si Zod a rejeté un champ précis, on affiche ce message plutôt que
+        // le générique "Données invalides" — beaucoup plus utile pour
+        // comprendre quoi corriger.
+        const fieldErrors = body.details?.fieldErrors as
+          | Record<string, string[]>
+          | undefined;
+        const firstFieldError = fieldErrors
+          ? Object.values(fieldErrors).flat()[0]
+          : undefined;
+        throw new Error(firstFieldError ?? body.error ?? "Request failed");
       }
 
       setStatus("success");
@@ -61,13 +70,14 @@ export function TrialForm({ locale }: TrialFormProps) {
       className="card"
       style={{ display: "grid", gap: "1rem", padding: "2rem" }}
     >
-      {/* Honeypot anti-spam (caché en CSS) */}
+      {/* Honeypot anti-spam — display:none (moins ciblé par l'autofill
+          qu'un champ simplement déplacé hors-écran) */}
       <input
         type="text"
         name="website"
         tabIndex={-1}
         autoComplete="off"
-        style={{ position: "absolute", left: "-9999px" }}
+        style={{ display: "none" }}
         aria-hidden
       />
 
