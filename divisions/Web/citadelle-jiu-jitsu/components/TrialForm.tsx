@@ -110,7 +110,14 @@ export function TrialForm({ locale }: TrialFormProps) {
 
       <div>
         <label className="label" htmlFor="preferredDate">{t("preferredDate")}</label>
-        <input id="preferredDate" name="preferredDate" type="date" required className="input" />
+        <input
+          id="preferredDate"
+          name="preferredDate"
+          type="date"
+          min={new Date().toISOString().slice(0, 10)}
+          required
+          className="input"
+        />
       </div>
 
       <div>

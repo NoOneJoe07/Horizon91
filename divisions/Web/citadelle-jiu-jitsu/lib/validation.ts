@@ -53,12 +53,23 @@ export const trialSessionSchema = z.object({
     .regex(/^[\d\s\-+().]+$/, "Caractères invalides"),
   age: z.coerce.number().int().min(4, "Âge minimum: 4 ans").max(99),
   experience: z.enum(["NONE", "SOME", "YEARS"]),
-  preferredDate: z.coerce.date().refine((d) => d > new Date(), {
-    message: "La date doit être dans le futur",
+  // BUG CORRIGÉ (24 juin 2026) : l'ancienne version comparait la date choisie
+  // (parsée comme minuit UTC par z.coerce.date()) à l'instant exact "now".
+  // Résultat : choisir "aujourd'hui" échouait TOUJOURS, 100% du temps, et
+  // "demain" pouvait aussi échouer en soirée selon le fuseau horaire — peu
+  // importe la connexion de l'utilisateur. On compare maintenant uniquement
+  // les dates calendaires (minuit UTC vs minuit UTC) pour autoriser
+  // "aujourd'hui" et toute date future.
+  preferredDate: z.coerce.date().refine((d) => {
+    const now = new Date();
+    const todayUTC = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate()));
+    return d >= todayUTC;
+  }, {
+    message: "La date doit être aujourd'hui ou dans le futur",
   }),
   message: z.string().max(1000).optional(),
   // Honeypot anti-spam (champ caché — doit rester vide)
-  website: z.string().optional(),
+  website: z.string().max(0, "Spam détecté").optional(),
 });
 
 export type TrialSessionInput = z.infer<typeof trialSessionSchema>;
@@ -72,7 +83,7 @@ export const contactSchema = z.object({
   email: z.string().email().max(254),
   subject: z.string().min(1).max(200),
   message: z.string().min(10, "Message trop court").max(5000),
-  website: z.string().optional(), // honeypot
+  website: z.string().max(0).optional(), // honeypot
 });
 
 export type ContactInput = z.infer<typeof contactSchema>;
