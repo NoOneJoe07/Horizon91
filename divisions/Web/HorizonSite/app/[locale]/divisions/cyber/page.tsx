@@ -186,6 +186,8 @@ export default function DivisionCyberPage() {
   return (
     <>
       <CyberServiceJsonLd />
+      {/* Fond Space Black pour toute la page — cohérence dark mode division */}
+      <div style={{ backgroundColor: "#1D1D1B", color: "#F4F4F0", minHeight: "100vh" }}>
       {/* ═══════════════════════════════════════════════════
           HERO
       ═══════════════════════════════════════════════════ */}
@@ -636,11 +638,12 @@ export default function DivisionCyberPage() {
         </h2>
         <Link
           href="/rejoindre"
-          className="inline-block px-10 py-5 rounded-lg bg-h91-accretion text-h91-gravity font-bold text-xl hover:bg-h91-fusion transition"
+          className="inline-block px-10 py-5 rounded-lg bg-h91-accretion text-h91-stellar font-bold text-xl hover:bg-h91-accretion/80 transition"
         >
           {t("cta_bouton")}
         </Link>
       </section>
+      </div>{/* /fond Space Black */}
     </>
   );
 }

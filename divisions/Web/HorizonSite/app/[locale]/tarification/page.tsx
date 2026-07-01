@@ -297,12 +297,12 @@ export default function TarificationPage() {
           CYBERSÉCURITÉ — DIVISION CARILLON
       ══════════════════════════════════════════════════ */}
       <section className="mb-20">
-        <div className="border border-h91-accretion/30 rounded-2xl bg-h91-accretion/5 p-10">
+        <div className="border border-h91-ion/30 rounded-2xl bg-h91-ion/5 p-10">
 
           {/* En-tête */}
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-10">
             <div>
-              <span className="inline-block text-xs font-bold px-3 py-1.5 rounded-full bg-h91-accretion/15 text-h91-accretion border border-h91-accretion/30 mb-4 uppercase tracking-widest">
+              <span className="inline-block text-xs font-bold px-3 py-1.5 rounded-full bg-h91-ion/15 text-h91-ion border border-h91-ion/30 mb-4 uppercase tracking-widest">
                 Division Carillon — Cybersécurité
               </span>
               <h2 className="text-2xl font-bold text-h91-stellar mb-2">
@@ -320,9 +320,9 @@ export default function TarificationPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
 
             {/* Fort Saurel */}
-            <div className="p-6 rounded-xl border border-h91-accretion/30 bg-h91-gravity/60 flex flex-col gap-3">
+            <div className="p-6 rounded-xl border border-h91-ion/30 bg-h91-gravity/60 flex flex-col gap-3">
               <div>
-                <p className="text-h91-accretion font-bold text-xs uppercase tracking-widest mb-1">Fort Saurel — SaaS</p>
+                <p className="text-h91-ion font-bold text-xs uppercase tracking-widest mb-1">Fort Saurel — SaaS</p>
                 <h3 className="text-h91-stellar font-bold text-lg">Surveillance & Vigie numérique</h3>
               </div>
               <p className="text-h91-stellar/60 text-sm leading-relaxed flex-1">
@@ -330,15 +330,15 @@ export default function TarificationPage() {
                 La vigie numérique automatisée des PME — 4 niveaux de protection disponibles.
               </p>
               <div className="flex items-baseline gap-2 mt-1">
-                <span className="text-h91-accretion font-extrabold text-3xl">dès 75 $</span>
+                <span className="text-h91-ion font-extrabold text-3xl">dès 75 $</span>
                 <span className="text-h91-stellar/40 text-sm">/mois</span>
               </div>
             </div>
 
             {/* Suite Carignan */}
-            <div className="p-6 rounded-xl border border-h91-accretion/20 bg-h91-gravity/60 flex flex-col gap-3">
+            <div className="p-6 rounded-xl border border-h91-ion/20 bg-h91-gravity/60 flex flex-col gap-3">
               <div>
-                <p className="text-h91-accretion font-bold text-xs uppercase tracking-widest mb-1">Suite Carignan — Gouvernance</p>
+                <p className="text-h91-ion font-bold text-xs uppercase tracking-widest mb-1">Suite Carignan — Gouvernance</p>
                 <h3 className="text-h91-stellar font-bold text-lg">Architecture défensive sur mesure</h3>
               </div>
               <p className="text-h91-stellar/60 text-sm leading-relaxed flex-1">
@@ -347,7 +347,7 @@ export default function TarificationPage() {
                 sécurité et à votre conformité Loi 25.
               </p>
               <div className="flex items-baseline gap-2 mt-1">
-                <span className="text-h91-accretion font-extrabold text-xl">Sur devis</span>
+                <span className="text-h91-ion font-extrabold text-xl">Sur devis</span>
                 <span className="text-h91-stellar/40 text-sm">— évaluation gratuite</span>
               </div>
             </div>
@@ -357,7 +357,7 @@ export default function TarificationPage() {
           <div className="text-center">
             <Link
               href="/divisions/cyber"
-              className="inline-block px-8 py-3 rounded-lg border border-h91-accretion text-h91-accretion font-bold hover:bg-h91-accretion/10 transition"
+              className="inline-block px-8 py-3 rounded-lg border border-h91-ion text-h91-ion font-bold hover:bg-h91-ion/10 transition"
             >
               Voir les forfaits Fort Saurel en détail →
             </Link>

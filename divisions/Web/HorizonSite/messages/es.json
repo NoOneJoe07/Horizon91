@@ -13,7 +13,14 @@
     "join": "Contáctanos"
   },
   "home": {
-    "tagline": "Su referencia en la complejidad digital. Ciberseguridad avanzada, infraestructuras web e innovación en medios — Grupo Estrella Boreal guía el crecimiento de las empresas regionales.",
+    "triptyque": "Guiar · Construir · Proteger",
+    "tagline": "Desde la primera idea de marca hasta la seguridad de su infraestructura — Grupo Estrella Boreal acompaña a los emprendedores en cada etapa de su presencia digital.",
+    "cta_divisions": "Explorar nuestras divisiones",
+    "cta_contact": "Hablar con el equipo",
+    "piliers": {
+      "title": "Tres pilares. Una sola visión.",
+      "subtitle": "Cada pilar tallado en el patrimonio quebequense, cada servicio diseñado para la realidad de los emprendedores locales."
+    },
     "team": {
       "title": "Nuestras estrellas",
       "subtitle": "Los constructores detrás de su trayectoria digital. La Estrella Polar guió a los coureurs des bois en las noches más oscuras — nuestro equipo fusiona el rigor de nuestros constructores históricos con el poder de las tecnologías del mañana para guiar a los emprendedores regionales.",
@@ -57,6 +64,14 @@
   "divisions": {
     "title": "Nuestras Divisiones",
     "subtitle": "Tres áreas de expertise. Una sola visión.",
+    "triptyque": "Guiar · Construir · Proteger",
+    "ecosysteme_label": "Ecosistema",
+    "arpenteur": {
+      "nom": "División Arpenteur — Diseño de Marca & Fotografía",
+      "description": "Como Samuel Holland cartografió América del Norte con precisión astronómica, la División Arpenteur traza su identidad de marca. Diseño gráfico, libro de marca, fotografía profesional.",
+      "services": ["Libro de marca & identidad visual", "Fotografía profesional", "Estrategia de redes sociales", "Impresos & papelería"],
+      "cta": "Ver la división →"
+    },
     "divisionWeb": {
       "hero_titre": "División Web",
       "hero_tagline": "La Flamme",

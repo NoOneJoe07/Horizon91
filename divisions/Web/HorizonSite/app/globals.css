@@ -1,187 +1,111 @@
 @import "tailwindcss";
 
 /* ---------------------------------------------------------
-   PALETTE GROUPE ÉTOILE BORÉALE — CIEL BORÉAL
+   PALETTE GROUPE ÉTOILE BORÉALE — BRAND BOOK 2026
+   Design : Paulina Jaramillo, DG Marketing & Photographie
+   Triptyque : Arpenteur · Draveur · Carillon
+   Guider · Bâtir · Protéger
 --------------------------------------------------------- */
 @theme inline {
-  --color-h91-gravity: #000000;        /* Fond trou noir absolu */
-  --color-h91-relativistic: #1A8CFF;   /* Bleu relativiste */
-  --color-h91-ion: #00F0FF;            /* Cyan ionisé */
-  --color-h91-accretion: #FF7A1A;      /* Orange — Singularité / Division Carillon */
-  --color-h91-fusion: #FFD65C;         /* Or/jaune — fusion stellaire */
-  --color-h91-glacier: #3AABCF;        /* Bleu glacier vif — Direction générale / JP */
-  --color-h91-warp: #6A00FF;           /* Violet — Division Draveur */
-  --color-h91-stellar: #F2F7FF;        /* Blanc stellaire — texte */
+  /* ── Couleurs principales ── */
+  --color-h91-space:      #1D1D1B;   /* Noir de l'Espace — hero, header, footer */
+  --color-h91-white:      #F4F4F0;   /* Blanc Polaire — fond principal, sections claires */
+  --color-h91-blue:       #0099D1;   /* Bleu Polaire — Division Draveur (web) */
+  --color-h91-violet:     #5762A2;   /* Violette Boréale — Division Arpenteur (graphisme) */
+  --color-h91-night:      #203478;   /* Bleu Nuit Boréal — Division Carillon (cyber) + header */
+  --color-h91-gold:       #C9A84C;   /* Or Boréal — accent chaud, CTA sur fond clair */
 
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* ── Aliases rétro-compat — permettent de garder le code existant sans tout réécrire ── */
+  --color-h91-gravity:    #1D1D1B;   /* ≡ h91-space */
+  --color-h91-stellar:    #F4F4F0;   /* ≡ h91-white */
+  --color-h91-ion:        #0099D1;   /* ≡ h91-blue   (était cyan #00F0FF) */
+  --color-h91-warp:       #5762A2;   /* ≡ h91-violet (était violet foncé #6A00FF) */
+  --color-h91-accretion:  #203478;   /* ≡ h91-night  (était orange #FF7A1A) */
+  --color-h91-fusion:     #C9A84C;   /* ≡ h91-gold   (était jaune #FFD65C) */
+  --color-h91-glacier:    #0099D1;   /* ≡ h91-blue   (retiré — alias) */
+  --color-h91-relativistic: #203478; /* ≡ h91-night  (retiré — alias) */
+
+  /* ── Typographie ── */
+  --font-display: 'Gotham', 'Montserrat', ui-sans-serif, system-ui, sans-serif;
+  --font-sans:    var(--font-inter), 'Inter', ui-sans-serif, system-ui, sans-serif;
 }
 
 /* ---------------------------------------------------------
-   BACKGROUND — CIEL BORÉAL
-   Nuit profonde du Nord. L’aurore danse, les étoiles guident.
+   FOND DE PAGE — Space Black par défaut (pages existantes dark-themed)
+   Les nouvelles sections définissent leur propre fond via style={} inline.
+   Homepage et nouvelles pages : fond blanc/clair via sections explicites.
 --------------------------------------------------------- */
-
-/* --- CIEL BORÉAL PROFOND --- */
-.night-sky {
-  position: fixed;
-  inset: 0;
-  z-index: -3;
-  background: linear-gradient(
-    180deg,
-    #020810 0%,
-    #061428 28%,
-    #091E3A 58%,
-    #060E22 85%,
-    #030812 100%
-  );
-  pointer-events: none;
-}
-
-/* Étoiles gérées par StarField.tsx (canvas React) — pas de CSS ici */
-
-/* --- AURORE BORÉALE — bande qui serpente (inspiré Nordik Legion) --- */
-.aurora-band {
-  position: fixed;
-  inset: 0;
-  z-index: -2;
-  background:
-    conic-gradient(
-      from 200deg,
-      rgba(56, 189, 248, 0.00)  0deg,
-      rgba(56, 189, 248, 0.22) 40deg,
-      rgba(52, 211, 153, 0.28) 90deg,
-      rgba(129, 140, 248, 0.24) 140deg,
-      rgba(56, 189, 248, 0.00) 200deg
-    );
-  mix-blend-mode: screen;
-  filter: blur(42px);
-  transform-origin: center;
-  animation: aurora-serpent 26s ease-in-out infinite alternate;
-  pointer-events: none;
-}
-
-@keyframes aurora-serpent {
-  0%   { transform: translate3d(-10%,  5%, 0) rotate(-8deg) scale(1.10); }
-  50%  { transform: translate3d(  5%, -5%, 0) rotate( 4deg) scale(1.20); }
-  100% { transform: translate3d( 12%,  8%, 0) rotate(-3deg) scale(1.15); }
-}
-
-/* --- ATMOSPHÈRE AMBIANTE BORÉALE --- */
-.accretion-ring {
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  background:
-    radial-gradient(circle at 50% 98%, rgba(106, 0, 255, 0.10), transparent 38%),
-    radial-gradient(circle at 50% 112%, rgba(0, 180, 160, 0.07), transparent 42%);
-  filter: blur(65px);
-  animation: ambiantBreath 20s ease-in-out infinite alternate;
-  pointer-events: none;
-}
-
-@keyframes ambiantBreath {
-  0%   { opacity: 0.55; }
-  100% { opacity: 1.00; }
+body {
+  background-color: #1D1D1B;   /* Space Black — ne pas changer sans mettre à jour toutes les pages */
+  color: #F4F4F0;               /* Blanc Polaire — texte par défaut */
+  font-family: var(--font-sans, 'Inter', system-ui, sans-serif);
 }
 
 /* ---------------------------------------------------------
-   ÉTOILE POLARIS — HALO ET NOYAU AUTOUR DU LOGO
+   TYPOGRAPHIE — titres en Gotham (licence commerciale requise)
+   En prod : remplacer par fichier @font-face Gotham licencié
 --------------------------------------------------------- */
-
-/* --- NOYAU STELLAIRE — souffle doux de l’Étoile Polaire --- */
-.orbital-core {
-  position: absolute;
-  width: 320px;
-  height: 320px;
-  border-radius: 50%;
-  background: radial-gradient(
-    circle,
-    rgba(255, 210, 90,  0.52) 0%,
-    rgba(255, 130, 40,  0.32) 28%,
-    rgba(106,   0, 255, 0.20) 58%,
-    rgba(  0, 200, 190, 0.10) 78%,
-    transparent 92%
-  );
-  filter: blur(18px);
-  opacity: 0.85;
-  animation: stellarBreath 9s ease-in-out infinite alternate;
-  z-index: -1;
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display, 'Gotham', 'Montserrat', system-ui, sans-serif);
 }
 
-@keyframes stellarBreath {
-  from { opacity: 0.62; transform: scale(0.93); }
-  to   { opacity: 0.92; transform: scale(1.08); }
-}
-
-/* --- CORONA BORÉALE — halo d’aurore autour de l’étoile --- */
-.blue-halo {
-  position: absolute;
-  width: 480px;
-  height: 480px;
-  border-radius: 50%;
-  background: radial-gradient(
-    circle,
-    rgba(  0, 220, 200, 0.18) 0%,
-    rgba(106,   0, 255, 0.12) 45%,
-    transparent 72%
-  );
-  filter: blur(28px);
-  opacity: 0.75;
-  z-index: -2;
+/* Classe utilitaire pour forcer Gotham sur un élément */
+.font-display {
+  font-family: var(--font-display, 'Gotham', 'Montserrat', system-ui, sans-serif);
 }
 
 /* ---------------------------------------------------------
-   GRADIENT STELLAIRE — TITRE GROUPE ÉTOILE BORÉALE
+   GRADIENTS DE TITRE — adaptatifs au thème de section
 --------------------------------------------------------- */
+
+/* Titre sur fond sombre (hero) — blanc polaire à bleu polaire */
 .h91-title-gradient {
   background: linear-gradient(
     90deg,
-    var(--color-h91-ion),
-    #A8F6FF,
     #FFFFFF,
-    #A8F6FF
+    #F4F4F0,
+    #B8E8F7,
+    #F4F4F0
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-/* ---------------------------------------------------------
-   GRADIENT ANIMÉ — ÉTOILE POLAIRE (CYAN → BLANC → CYAN)
---------------------------------------------------------- */
+/* Titre animé sur fond sombre */
 .h91-title-gradient-animated {
   background: linear-gradient(
     90deg,
-    var(--color-h91-ion),
-    #A8F6FF,
     #FFFFFF,
-    #A8F6FF,
-    var(--color-h91-ion),
+    #B8E8F7,
+    #0099D1,
+    #B8E8F7,
     #FFFFFF,
-    var(--color-h91-ion)
+    #B8E8F7,
+    #FFFFFF
   );
   background-size: 400% 400%;
-  animation: h91GradientFlow 12s ease-in-out infinite;
+  animation: h91GradientFlow 14s ease-in-out infinite;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 @keyframes h91GradientFlow {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
 
 /* ---------------------------------------------------------
    MICRO-ANIMATIONS — hover élévation + fade-in
+   (conservées de la version précédente, couleurs mises à jour)
 --------------------------------------------------------- */
 
 /* --- Surbrillance forfait populaire / recommandé --- */
 .card-featured-glow {
   box-shadow:
-    0 0 0 1px rgba(0, 240, 255, 0.45),
-    0 0 32px rgba(0, 240, 255, 0.18),
-    0 0 64px rgba(0, 240, 255, 0.08);
+    0 0 0 1px rgba(0, 153, 209, 0.50),
+    0 0 32px rgba(0, 153, 209, 0.20),
+    0 0 64px rgba(0, 153, 209, 0.10);
 }
 
 /* --- Hover élévation — cartes divisions & équipe --- */
@@ -190,7 +114,7 @@
 }
 .card-lift:hover {
   transform: translateY(-5px);
-  box-shadow: 0 16px 48px rgba(255, 122, 26, 0.20);
+  box-shadow: 0 16px 48px rgba(32, 52, 120, 0.18);
 }
 
 /* --- Fade-in entrée de section --- */
@@ -234,10 +158,118 @@ a, button {
 }
 
 /* ---------------------------------------------------------
-   STYLE GLOBAL DU BODY
+   AURORE BORÉALE — animation hero homepage
+   Couleurs : Bleu Polaire #0099D1 + Violette Boréale #5762A2
+   (remplace l'ancien cyan #00F0FF / vert)
 --------------------------------------------------------- */
-body {
-  @apply bg-h91-gravity text-h91-stellar;
+@keyframes auroraFloat1 {
+  0%   { transform: translateX(-8%) scaleY(1);    opacity: 0.18; }
+  50%  { transform: translateX(6%)  scaleY(1.15); opacity: 0.30; }
+  100% { transform: translateX(-8%) scaleY(1);    opacity: 0.18; }
+}
+@keyframes auroraFloat2 {
+  0%   { transform: translateX(10%) scaleY(1.05); opacity: 0.12; }
+  50%  { transform: translateX(-5%) scaleY(0.90); opacity: 0.22; }
+  100% { transform: translateX(10%) scaleY(1.05); opacity: 0.12; }
+}
+@keyframes auroraFloat3 {
+  0%   { transform: translateX(-4%) scaleY(0.95); opacity: 0.10; }
+  60%  { transform: translateX(8%)  scaleY(1.10); opacity: 0.18; }
+  100% { transform: translateX(-4%) scaleY(0.95); opacity: 0.10; }
 }
 
+.aurora-band {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
 
+/* Bande 1 — Bleu Polaire dominant */
+.aurora-band-1 {
+  top: 18%;
+  height: 180px;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(0, 153, 209, 0.20) 25%,
+    rgba(87, 98, 162, 0.28) 55%,
+    rgba(0, 153, 209, 0.20) 75%,
+    transparent 100%
+  );
+  filter: blur(28px);
+  animation: auroraFloat1 14s ease-in-out infinite;
+}
+
+/* Bande 2 — Violette Boréale dominant */
+.aurora-band-2 {
+  top: 40%;
+  height: 150px;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(87, 98, 162, 0.18) 20%,
+    rgba(0, 153, 209, 0.24) 55%,
+    rgba(87, 98, 162, 0.18) 80%,
+    transparent 100%
+  );
+  filter: blur(36px);
+  animation: auroraFloat2 18s ease-in-out infinite;
+}
+
+/* Bande 3 — accent doux */
+.aurora-band-3 {
+  top: 60%;
+  height: 120px;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(0, 153, 209, 0.10) 30%,
+    rgba(87, 98, 162, 0.16) 60%,
+    transparent 100%
+  );
+  filter: blur(42px);
+  animation: auroraFloat3 22s ease-in-out infinite;
+}
+
+/* ---------------------------------------------------------
+   HERO SECTION — fond sombre avec motif subtil d'étoiles
+   Classe à appliquer sur la section hero uniquement
+--------------------------------------------------------- */
+.hero-dark {
+  background-color: #1D1D1B;
+  color: #F4F4F0;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Motif étoile subtil en arrière-plan (CSS pur, pas d'animation) */
+.hero-dark::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle, rgba(244,244,240,0.12) 1px, transparent 1px),
+    radial-gradient(circle, rgba(244,244,240,0.08) 1px, transparent 1px),
+    radial-gradient(circle, rgba(244,244,240,0.06) 1px, transparent 1px);
+  background-size: 80px 80px, 130px 130px, 200px 200px;
+  background-position: 0 0, 40px 40px, 80px 20px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ---------------------------------------------------------
+   SECTION PILIERS — rectangles colorés sur fond blanc
+   Correspond au concept "fond blanc + formes rectangulaires
+   aux 3 couleurs des piliers" de Paulina
+--------------------------------------------------------- */
+.pilier-arpenteur {
+  border-left: 4px solid #5762A2;
+}
+.pilier-draveur {
+  border-left: 4px solid #0099D1;
+}
+.pilier-carillon {
+  border-left: 4px solid #203478;
+}

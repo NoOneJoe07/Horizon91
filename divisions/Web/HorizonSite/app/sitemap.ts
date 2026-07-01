@@ -5,11 +5,13 @@ const BASE_URL = "https://etoileboreale.ca";
 const routes = [
   { path: "", priority: 1.0, changeFrequency: "weekly" as const },
   { path: "/divisions", priority: 0.9, changeFrequency: "monthly" as const },
-  { path: "/divisions/web", priority: 0.8, changeFrequency: "monthly" as const },
-  { path: "/divisions/cyber", priority: 0.8, changeFrequency: "monthly" as const },
+  { path: "/divisions/arpenteur", priority: 0.85, changeFrequency: "monthly" as const },
+  { path: "/divisions/web", priority: 0.85, changeFrequency: "monthly" as const },
+  { path: "/divisions/cyber", priority: 0.85, changeFrequency: "monthly" as const },
   { path: "/portfolio", priority: 0.8, changeFrequency: "weekly" as const },
   { path: "/contacts", priority: 0.7, changeFrequency: "monthly" as const },
   { path: "/rejoindre", priority: 0.6, changeFrequency: "monthly" as const },
+  { path: "/le-crieur", priority: 0.4, changeFrequency: "monthly" as const },
 ];
 
 const locales = ["fr", "en", "es"];

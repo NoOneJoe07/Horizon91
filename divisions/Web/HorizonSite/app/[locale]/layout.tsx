@@ -1,22 +1,23 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import Header from "@/app/components/Header";
 import Footer from "@/app/components/Footer";
-import StarField from "@/app/components/StarField";
 import "../globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+// ─────────────────────────────────────────────────────────
+// Typographie — Inter (Google Fonts, libre)
+// Gotham (titre principal) : licence commerciale requise
+// → déclarer via @font-face dans globals.css une fois achetée
+// ─────────────────────────────────────────────────────────
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  display: "swap",
 });
 
 // ─────────────────────────────────────────────────────────
@@ -24,21 +25,21 @@ const geistMono = Geist_Mono({
 // ─────────────────────────────────────────────────────────
 const metaByLocale: Record<string, { title: string; description: string; siteName: string }> = {
   fr: {
-    title: "Groupe Étoile Boréale — Agence créative & technologique | Beauce, Québec",
+    title: "Groupe Étoile Boréale — Guider · Bâtir · Protéger | Beauce, Québec",
     description:
-      "Agence web, cybersécurité et studio de jeux vidéo à Sainte-Marie-de-Beauce. Sites web professionnels, SEO local, identité visuelle pour PME et entrepreneurs de la Chaudière-Appalaches.",
+      "Agence créative et technologique à Sainte-Marie-de-Beauce. Graphisme & identité de marque (Arpenteur), développement web (Draveur), cybersécurité (Carillon) — PME et entrepreneurs de Chaudière-Appalaches.",
     siteName: "Groupe Étoile Boréale",
   },
   en: {
-    title: "Boreal Star Group — Creative & Technology Agency | Beauce, Quebec",
+    title: "Boreal Star Group — Guide · Build · Protect | Beauce, Quebec",
     description:
-      "Web agency, cybersecurity and game studio based in Sainte-Marie-de-Beauce. Professional websites, local SEO, visual identity for SMBs and entrepreneurs in Chaudière-Appalaches.",
+      "Creative and technology agency in Sainte-Marie-de-Beauce. Brand design (Arpenteur), web development (Draveur), cybersecurity (Carillon) — SMBs and entrepreneurs in Chaudière-Appalaches.",
     siteName: "Boreal Star Group",
   },
   es: {
-    title: "Grupo Estrella Boreal — Agencia Creativa & Tecnológica | Beauce, Quebec",
+    title: "Grupo Estrella Boreal — Guiar · Construir · Proteger | Beauce, Quebec",
     description:
-      "Agencia web, ciberseguridad y estudio de videojuegos en Sainte-Marie-de-Beauce. Sitios web profesionales, SEO local e identidad visual para pymes y emprendedores.",
+      "Agencia creativa y tecnológica en Sainte-Marie-de-Beauce. Diseño de marca (Arpenteur), desarrollo web (Draveur), ciberseguridad (Carillon) — pymes y emprendedores de Chaudière-Appalaches.",
     siteName: "Grupo Estrella Boreal",
   },
 };
@@ -126,23 +127,12 @@ export default async function LocaleLayout({
   return (
     <html
       lang={locale}
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${inter.variable} h-full antialiased`}
     >
-      <body className="min-h-screen flex flex-col text-h91-stellar bg-transparent">
+      <body className="min-h-screen flex flex-col">
         <NextIntlClientProvider messages={messages}>
-          {/* Fond cosmique */}
-          <div className="night-sky"></div>
-          <div className="aurora-band"></div>
-          <div className="accretion-ring"></div>
-          <StarField />
-
-          {/* Header */}
           <Header />
-
-          {/* Contenu des pages */}
-          <div className="flex-1 pt-32">{children}</div>
-
-          {/* Footer */}
+          <div className="flex-1 pt-20">{children}</div>
           <Footer />
         </NextIntlClientProvider>
       </body>

@@ -29,38 +29,41 @@ export default function Header() {
   };
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50 bg-transparent backdrop-blur-md border-b border-h91-ion/30">
-      <div className="max-w-7xl mx-auto flex items-center px-8 py-4">
+    /* Bleu Nuit Boréal (#203478) — couleur header du brand book de Paulina */
+    <header className="fixed top-0 left-0 w-full z-50" style={{ backgroundColor: "#203478" }}>
+      <div className="max-w-7xl mx-auto flex items-center px-6 py-3">
 
-        {/* ZONE GAUCHE — MARK + NOM */}
-        <div className="flex items-center" style={{ flex: "0 0 300px" }}>
+        {/* ZONE GAUCHE — COMPAS + NOM */}
+        <div className="flex items-center" style={{ flex: "0 0 280px" }}>
           <Link href="/" className="flex items-center gap-3">
             <Image
               src="/mark-etoile.svg"
-              alt="Mark Groupe Étoile Boréale"
-              width={38}
-              height={38}
-              style={{ width: "38px", height: "38px" }}
-              className="drop-shadow-lg"
+              alt="Compas Groupe Étoile Boréale"
+              width={36}
+              height={36}
+              style={{ width: "36px", height: "36px" }}
             />
-            <span className="text-lg font-bold text-h91-ion whitespace-nowrap">
+            <span
+              className="text-base font-bold whitespace-nowrap"
+              style={{ color: "#F4F4F0", fontFamily: "var(--font-display, 'Gotham', 'Montserrat', system-ui)" }}
+            >
               {tBrand("name")}
             </span>
           </Link>
         </div>
 
-        {/* ZONE CENTRALE — MENU */}
-        <nav className="hidden md:flex flex-1 justify-center items-center gap-6 text-h91-stellar">
-          <Link href="/">{t("home")}</Link>
-          <Link href="/divisions">{t("divisions")}</Link>
-          <Link href="/portfolio">{t("portfolio")}</Link>
-          <Link href="/tarification">{t("pricing")}</Link>
-          <Link href="/actualites">{t("news")}</Link>
-          <Link href="/contacts">{t("contacts")}</Link>
+        {/* ZONE CENTRALE — MENU DESKTOP */}
+        <nav className="hidden md:flex flex-1 justify-center items-center gap-5 text-sm font-medium" style={{ color: "rgba(244,244,240,0.85)" }}>
+          <Link href="/" className="hover:text-white transition">{t("home")}</Link>
+          <Link href="/divisions" className="hover:text-white transition">{t("divisions")}</Link>
+          <Link href="/portfolio" className="hover:text-white transition">{t("portfolio")}</Link>
+          <Link href="/tarification" className="hover:text-white transition">{t("pricing")}</Link>
+          <Link href="/actualites" className="hover:text-white transition">{t("news")}</Link>
+          <Link href="/contacts" className="hover:text-white transition">{t("contacts")}</Link>
         </nav>
 
-        {/* ZONE DROITE — SÉLECTEUR LANGUE + BOUTON */}
-        <div className="hidden md:flex justify-end items-center gap-4" style={{ flex: "0 0 300px" }}>
+        {/* ZONE DROITE — LANGUE + CTA */}
+        <div className="hidden md:flex justify-end items-center gap-4" style={{ flex: "0 0 280px" }}>
           {/* Sélecteur de langue */}
           <div className="flex items-center gap-1">
             {locales.map((loc, i) => (
@@ -68,24 +71,29 @@ export default function Header() {
                 <button
                   onClick={() => mounted && switchLocale(loc.code)}
                   disabled={!mounted}
-                  className={`text-xs font-bold px-1 transition ${
-                    locale === loc.code
-                      ? "text-h91-ion"
-                      : "text-h91-stellar/40 hover:text-h91-stellar/70"
-                  }`}
+                  className="text-xs font-bold px-1 transition"
+                  style={{
+                    color: locale === loc.code ? "#0099D1" : "rgba(244,244,240,0.40)",
+                  }}
+                  onMouseEnter={e => { if (locale !== loc.code) (e.target as HTMLElement).style.color = "rgba(244,244,240,0.75)"; }}
+                  onMouseLeave={e => { if (locale !== loc.code) (e.target as HTMLElement).style.color = "rgba(244,244,240,0.40)"; }}
                 >
                   {loc.label}
                 </button>
                 {i < locales.length - 1 && (
-                  <span className="text-h91-stellar/20 text-xs">|</span>
+                  <span className="text-xs" style={{ color: "rgba(244,244,240,0.20)" }}>|</span>
                 )}
               </span>
             ))}
           </div>
 
+          {/* Bouton CTA — Bleu Polaire */}
           <Link
             href="/rejoindre"
-            className="px-4 py-2 rounded-lg bg-h91-ion text-h91-gravity font-semibold hover:bg-h91-fusion transition whitespace-nowrap"
+            className="px-4 py-2 rounded-lg font-semibold text-sm whitespace-nowrap transition"
+            style={{ backgroundColor: "#0099D1", color: "#F4F4F0" }}
+            onMouseEnter={e => { (e.currentTarget as HTMLElement).style.backgroundColor = "#007eb0"; }}
+            onMouseLeave={e => { (e.currentTarget as HTMLElement).style.backgroundColor = "#0099D1"; }}
           >
             {t("join")}
           </Link>
@@ -93,38 +101,36 @@ export default function Header() {
 
         {/* HAMBURGER MOBILE */}
         <button
-          className="md:hidden flex flex-col gap-1 ml-auto"
+          className="md:hidden flex flex-col gap-1.5 ml-auto"
           onClick={() => setOpen(!open)}
           aria-label="Menu"
         >
-          <span className="w-6 h-0.5 bg-h91-stellar"></span>
-          <span className="w-6 h-0.5 bg-h91-stellar"></span>
-          <span className="w-6 h-0.5 bg-h91-stellar"></span>
+          <span className="w-6 h-0.5" style={{ backgroundColor: "#F4F4F0" }}></span>
+          <span className="w-6 h-0.5" style={{ backgroundColor: "#F4F4F0" }}></span>
+          <span className="w-6 h-0.5" style={{ backgroundColor: "#F4F4F0" }}></span>
         </button>
       </div>
 
       {/* MENU MOBILE */}
       {open && (
-        <div className="md:hidden bg-h91-gravity border-t border-h91-ion/30 px-6 py-4 flex flex-col gap-4 text-h91-stellar">
-          <Link href="/" onClick={() => setOpen(false)}>{t("home")}</Link>
-          <Link href="/divisions" onClick={() => setOpen(false)}>{t("divisions")}</Link>
-          <Link href="/portfolio" onClick={() => setOpen(false)}>{t("portfolio")}</Link>
-          <Link href="/tarification" onClick={() => setOpen(false)}>{t("pricing")}</Link>
-          <Link href="/actualites" onClick={() => setOpen(false)}>{t("news")}</Link>
-          <Link href="/contacts" onClick={() => setOpen(false)}>{t("contacts")}</Link>
+        <div className="md:hidden px-6 py-4 flex flex-col gap-4 text-sm font-medium border-t"
+             style={{ backgroundColor: "#1a2a60", borderColor: "rgba(244,244,240,0.15)", color: "rgba(244,244,240,0.85)" }}>
+          <Link href="/" onClick={() => setOpen(false)} className="hover:text-white transition">{t("home")}</Link>
+          <Link href="/divisions" onClick={() => setOpen(false)} className="hover:text-white transition">{t("divisions")}</Link>
+          <Link href="/portfolio" onClick={() => setOpen(false)} className="hover:text-white transition">{t("portfolio")}</Link>
+          <Link href="/tarification" onClick={() => setOpen(false)} className="hover:text-white transition">{t("pricing")}</Link>
+          <Link href="/actualites" onClick={() => setOpen(false)} className="hover:text-white transition">{t("news")}</Link>
+          <Link href="/contacts" onClick={() => setOpen(false)} className="hover:text-white transition">{t("contacts")}</Link>
 
           {/* Sélecteur langue mobile */}
-          <div className="flex items-center gap-3 pt-2 border-t border-h91-ion/20">
+          <div className="flex items-center gap-3 pt-2 border-t" style={{ borderColor: "rgba(244,244,240,0.15)" }}>
             {locales.map((loc) => (
               <button
                 key={loc.code}
                 onClick={() => { if (mounted) { switchLocale(loc.code); setOpen(false); } }}
                 disabled={!mounted}
-                className={`text-sm font-bold transition ${
-                  locale === loc.code
-                    ? "text-h91-ion"
-                    : "text-h91-stellar/40 hover:text-h91-stellar/70"
-                }`}
+                className="text-sm font-bold transition"
+                style={{ color: locale === loc.code ? "#0099D1" : "rgba(244,244,240,0.45)" }}
               >
                 {loc.label}
               </button>
@@ -133,7 +139,8 @@ export default function Header() {
 
           <Link
             href="/rejoindre"
-            className="px-4 py-2 rounded-lg bg-h91-ion text-h91-gravity font-semibold hover:bg-h91-fusion transition text-center"
+            className="px-4 py-2 rounded-lg font-semibold text-center transition"
+            style={{ backgroundColor: "#0099D1", color: "#F4F4F0" }}
             onClick={() => setOpen(false)}
           >
             {t("join")}

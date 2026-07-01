@@ -1,7 +1,7 @@
 @AGENTS.md
 
 # CONTEXTE PROJET — Groupe Étoile Boréale Inc. / HorizonSite
-Dernière mise à jour : 2026-05-26 — SITE EN PRODUCTION ✅ — REBRAND COMPLET ✅
+Dernière mise à jour : 2026-07-01 — REBRAND BRAND BOOK PAULINA ✅ — 3 PILIERS + DIVISION ARPENTEUR + LE CRIEUR
 
 ## Fichiers de contexte global Horizon 91
 - **Master context :** `C:\Users\Pc\OneDrive\Documents\Horizon 91\horizon91_master.md`
@@ -24,7 +24,7 @@ app/
   page.tsx                ← Redirect → /fr
   sitemap.ts              ← Sitemap dynamique — BASE_URL = etoileboreale.ca
   robots.ts               ← robots.txt — host = etoileboreale.ca
-  globals.css             ← Tokens CSS h91-*, fond cosmique
+  globals.css             ← Tokens CSS h91-* BRAND BOOK PAULINA, font Inter+Gotham, hero-dark, pilier-*
   accueil/page.tsx        ← Redirect → /fr (résidu)
   contacts/page.tsx       ← Redirect → /fr/contacts (résidu)
   divisions/page.tsx      ← Redirect → /fr/divisions (résidu)
@@ -36,7 +36,8 @@ app/
     layout.tsx            ← Layout complet + generateMetadata() trilingue + OG tags
     page.tsx              ← Homepage (generateMetadata + JSON-LD LocalBusiness enrichi + hero + équipe + histoire)
     divisions/
-      page.tsx            ← Liste divisions (generateMetadata + marks cliquables)
+      page.tsx            ← Liste 3 divisions (Arpenteur/Draveur/Carillon) + section Écosystème discrète
+      arpenteur/page.tsx  ← Division Arpenteur (generateMetadata + JSON-LD Service + lore Bourdon/Holland) ← NOUVEAU
       web/page.tsx        ← Division Draveur (generateMetadata + JSON-LD Service + 6 services + CTA)
       cyber/page.tsx      ← Division Carillon (generateMetadata + JSON-LD Service + Saurel + Suite Carignan)
     actualites/page.tsx   ← Blogue (generateMetadata — contenu phase 2)
@@ -47,6 +48,7 @@ app/
     rejoindre/
       page.tsx            ← Serveur — generateMetadata + importe RejoindreCl
       RejoindreCl.tsx     ← "use client" — formulaire contact (useState + useLocale)
+    le-crieur/page.tsx    ← Teaser portail Le Crieur / The Town Crier (robot noindex pour l'instant) ← NOUVEAU
     tarification/page.tsx ← Serveur — generateMetadata + forfaits (PAS "use client")
     confidentialite/
       page.tsx            ← Serveur async — generateMetadata + contenu FR/EN/ES inline (PAS "use client")
@@ -71,24 +73,40 @@ DEPLOIEMENT.md            ← Guide complet Vercel + domaines Namecheap (mis à 
 ZOHO-MAIL.md              ← Guide complet Zoho Mail + MX records + comptes + alias
 ```
 
-## Palette de couleurs (tokens Tailwind)
+## Palette de couleurs — BRAND BOOK PAULINA 2026-07-01
 ```css
-h91-gravity:    #000000   /* Fond trou noir absolu */
-h91-accretion:  #FF7A1A   /* Orange principal — Groupe Étoile Boréale */
-h91-fusion:     #FFD65C   /* Or/jaune — Direction générale */
-h91-ion:        #00F0FF   /* Cyan — Nordik Legion Studio */
-h91-warp:       #6A00FF   /* Violet — Division Draveur (Web) */
-h91-stellar:    #F2F7FF   /* Blanc stellaire — texte principal */
-h91-relativistic: #1A8CFF /* Bleu (token réservé, non utilisé en UI) */
+/* Couleurs principales */
+h91-space:   #1D1D1B   /* Noir de l'Espace — hero, header, footer, fond body */
+h91-white:   #F4F4F0   /* Blanc Polaire — fond sections claires, texte sur fond sombre */
+h91-blue:    #0099D1   /* Bleu Polaire — Division Draveur (développement web) */
+h91-violet:  #5762A2   /* Violette Boréale — Division Arpenteur (graphisme & marque) */
+h91-night:   #203478   /* Bleu Nuit Boréal — Division Carillon (cyber) + header */
+h91-gold:    #C9A84C   /* Or Boréal — accent chaud, CTA sur fond clair */
+
+/* Aliases rétro-compat (évitent de réécrire l'ancien code) */
+h91-gravity:     #1D1D1B   /* ≡ h91-space */
+h91-stellar:     #F4F4F0   /* ≡ h91-white */
+h91-ion:         #0099D1   /* ≡ h91-blue   (était cyan #00F0FF) */
+h91-warp:        #5762A2   /* ≡ h91-violet (était violet foncé #6A00FF) */
+h91-accretion:   #203478   /* ≡ h91-night  (était orange #FF7A1A) */
+h91-fusion:      #C9A84C   /* ≡ h91-gold   (était jaune #FFD65C) */
 ```
 
-## Système de marks (logos par division)
-- Concept : 4 marks géométriques partageant le même langage cosmique + branding folklorique/historique canadien
-- **L'ÉTOILE Polaris** → Groupe Étoile Boréale maison mère (mark-etoile.svg) ← NOUVEAU
-- **Singularité**     → Division Carillon — Cybersécurité (mark-cyber.svg) → /divisions/cyber ✓
-- **Vortex**          → Nordik Legion Studio (mark-nordik.svg) → nordiklegion.ca (externe)
-- **La Flamme**       → Division Draveur — Développement Web (mark-web.svg) → /divisions/web ✓
-- Marks CLIQUABLES depuis la page /divisions ✓
+## Typographie — BRAND BOOK PAULINA
+- **Gotham** (titres/logo) — licence commerciale requise (Hoefler & Co.) ← PAS Montserrat, PAS Aptos
+- **Inter** (corps de texte) — libre, chargé via next/font/google (variable `--font-inter`)
+- Gotham déclaré via `--font-display` dans globals.css (fallback: Montserrat system-ui)
+
+## Système de marks (logos par division) — BRAND BOOK PAULINA 2026-07-01
+- Concept : marks géométriques partageant le même langage cosmique/compas + branding folklorique canadien
+- **Rose des Vents (Compas)** → Groupe Étoile Boréale maison mère (mark-etoile.svg) ← REBRAND 2026-07-01
+  - SVG blanc sur fond sombre, étoile 4 pointes + anneaux + points cardinaux, centre Bleu Nuit #203478
+- **L'Arpenteur** → Division Arpenteur — Graphisme & Marque (mark-arpenteur.svg) ← NOUVEAU 2026-07-01
+  - SVG Violette Boréale #5762A2 + clair #8A92C8, croix d'arpenteur + cercle de précision
+- **Singularité** → Division Carillon — Cybersécurité (mark-cyber.svg) → /divisions/cyber ✓
+- **Vortex**      → Nordik Legion Studio (mark-nordik.svg) → nordiklegion.ca (externe)
+- **La Flamme**   → Division Draveur — Développement Web (mark-web.svg) → /divisions/web ✓
+- Marks CLIQUABLES depuis la page /divisions ✓ (3 divisions + écosystème discret)
 
 ## Noms de marque adaptatifs par langue
 - FR : Groupe Étoile Boréale (etoileboreale.ca) ← REBRAND 2026-05-26
@@ -152,6 +170,12 @@ Variables ENV Vercel ✅ : ZOHO_USER (= contact@groupesupernova.ca), ZOHO_PASS, 
   - Contexte historique : Pierre de Saurel, Fort Saurel 1665, verrou rivière Richelieu, régiment Carignan-Salières
   - Parallèle produit : fort surveille l'autoroute fluviale → SaaS surveille les flux de données / Dark Web
   - JSON-LD SoftwareApplication sur /divisions/cyber (name: "Fort Saurel")
+  - ⚠️ NOM EN RÉFLEXION (2026-05-28) : Jonathan évalue "Fort Richelieu" vs "Fort Saurel"
+    - Fort Richelieu = nom original du fort (1642), abandonné puis rebâti par Saurel en 1665
+    - Fort Saurel = nom donné après la reconstruction par le capitaine Pierre de Saurel (Carignan-Salières)
+    - Les deux noms désignent le même emplacement stratégique (embouchure Richelieu / St-Laurent, Sorel-Tracy)
+    - Logique Suite Carignan : le régiment Carignan-Salières a CONSTRUIT Fort Saurel → cohérence narrative forte
+    - Décision finale à prendre avant déploiement section photos Fort Saurel
 - **Suite Carignan** : 4 produits en développement (ex-Suite Olympus) — cartes floutées "Zone de travaux"
   - Sorel (remédiation & réponse aux incidents)
   - Contrecoeur (simulation phishing & ingénierie sociale)
@@ -169,6 +193,32 @@ Variables ENV Vercel ✅ : ZOHO_USER (= contact@groupesupernova.ca), ZOHO_PASS, 
 - Canonical URLs : etoileboreale.ca (FR/ES), borealstar.ca (EN)
 - Client components extraits (PortfolioClient.tsx, RejoindreCl.tsx) pour permettre generateMetadata serveur
 - Google Search Console : etoileboreale.ca + borealstar.ca vérifiés ✅, sitemaps soumis ✅, indexation demandée ✅
+
+## Enrichissement contenu — Session 2026-05-28
+
+### Accomplissements session 2026-05-28
+- **StarField.tsx** : composant React Canvas (180 étoiles animées, twinkling) — remplace approches CSS échouées
+  - Ajouté dans app/components/StarField.tsx + importé dans app/[locale]/layout.tsx
+- **Aurora tunée** : opacités réduites à 0.22/0.28/0.24 dans globals.css pour équilibre étoiles/aurore
+- **Tagline homepage** : remplacée par option 2 (positionnement élite) — FR/EN/ES dans messages/*.json
+- **Section Équipe** : restructurée — nouveau subtitle narratif, bio JP condensée, bouton "En savoir plus → #histoire" sur carte JP seulement
+- **Correction historique** : dojo jiu-jitsu "à Québec" (pas "en Beauce") + phrase d'ouverture régionale dans p6 histoire (FR/EN/ES)
+- **Galerie Division Draveur** : 5 photos domaine public dans /divisions/web/page.tsx (1 grande + grille 4)
+  - Draveur_HR.jpg, Botte_draveur.jpg, draveur_1.avif, Draveur_2.jpg, Draveur_3.avif
+- **Galerie Division Carillon** : 5 photos domaine public dans /divisions/cyber/page.tsx (1 grande + grille 4)
+  - Ogden painting (principale), British at Carillon.webp, Carillon_map.jpg, Fort_Carillon_1.jpg, Fort_ticonderoga_place_d_arms.jpg
+  - ⚠️ 2 photos Alamy (watermark) remplacées par équivalents domaine public
+- **Bloc cyber Tarification** : section Division Carillon ajoutée dans /tarification/page.tsx
+  - Fort Saurel SaaS dès 75$/mois + Suite Carignan sur devis + CTA → /divisions/cyber
+- **Bloc tarif Division Draveur** : résumé forfaits ajouté dans /divisions/web/page.tsx avant CTA final
+- **⚠️ NOM PRODUIT EN RÉFLEXION** : "Fort Saurel" vs "Fort Richelieu" (voir section produits cyber)
+- **⚠️ RSYNC + GIT PUSH EN ATTENTE** : toutes les modifs session prêtes, pas encore poussées sur Vercel
+
+### Photos domaine public dans public/photos_images/
+- Draveur_HR.jpg, Botte_draveur.jpg, draveur_1.avif, Draveur_2.jpg, Draveur_3.avif (Division Draveur)
+- The_Victory_of_Montcalms_Troops_at_Carillon_by_Henry_Alexander_OgdenAAA.jpg (Carillon — Ogden)
+- British at Carillon.webp, Carillon_map.jpg, Fort_Carillon_1.jpg, Fort_ticonderoga_place_d_arms.jpg (Carillon)
+- Fort Saurel / Fort Richelieu photos → À ajouter (Jonathan en recherche — BAnQ, BAC, Wikimedia Commons)
 
 ## Enrichissement contenu — Session 2026-05-26 (soir)
 ### SEO sémantique Division Draveur (FR + EN + ES)
@@ -256,6 +306,12 @@ Variables ENV Vercel ✅ : ZOHO_USER (= contact@groupesupernova.ca), ZOHO_PASS, 
 - ✅ Section historique/lore Division Carillon : Bataille de Carillon 1758 + ancrage cybersec
 - ✅ "Saviez-vous que ?" stats : BDC +22%, marché 3k-10k$ (Draveur) / 40% PME, 25k$ incident (Carillon)
 - ✅ Contexte Fort Saurel : Pierre de Saurel 1665, Richelieu, Sentinelles, avantage Boréale
+- ✅ Galerie photos Division Draveur (5 photos domaine public)
+- ✅ Galerie photos Division Carillon (5 photos domaine public)
+- ✅ Bloc tarification cyber sur page /tarification
+- [ ] Photos Fort Saurel/Richelieu → Jonathan en recherche (BAnQ, BAC, Wikimedia)
+- [ ] Décision finale nom produit : "Fort Saurel" ou "Fort Richelieu"
+- [ ] Galerie photos Fort Saurel dans /divisions/cyber (après décision nom + photos trouvées)
 - [ ] Contexte Suite Carignan (Sorel, Contrecoeur, Berthier, Chambly) avec lore historique
 - [ ] Articles Loi 25 sur /actualites
 - [ ] og-image.jpg avec branding Étoile Boréale

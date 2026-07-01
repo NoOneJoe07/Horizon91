@@ -13,7 +13,14 @@
     "join": "Nous joindre"
   },
   "home": {
-    "tagline": "Votre repère dans la complexité numérique. Cybersécurité de pointe, infrastructures web et innovation média — le Groupe Étoile Boréale guide la croissance des entreprises régionales.",
+    "triptyque": "Guider · Bâtir · Protéger",
+    "tagline": "De la première idée de marque jusqu'à la sécurité de votre infrastructure — Groupe Étoile Boréale accompagne les entrepreneurs de la région à chaque étape de leur présence numérique.",
+    "cta_divisions": "Explorer nos divisions",
+    "cta_contact": "Parler à l'équipe",
+    "piliers": {
+      "title": "Trois piliers. Une seule vision.",
+      "subtitle": "Chaque pilier taillé dans l'héritage québécois, chaque service conçu pour la réalité des entrepreneurs d'ici."
+    },
     "team": {
       "title": "Nos étoiles",
       "subtitle": "Les bâtisseurs derrière votre trajectoire numérique. L'Étoile Polaire a guidé les coureurs des bois à travers les nuits les plus noires — notre équipe fusionne la rigueur de nos bâtisseurs historiques à la puissance des technologies de demain pour guider les entrepreneurs de la région.",
@@ -57,6 +64,14 @@
   "divisions": {
     "title": "Nos Divisions",
     "subtitle": "Trois pôles d'expertise. Une seule vision.",
+    "triptyque": "Guider · Bâtir · Protéger",
+    "ecosysteme_label": "Écosystème",
+    "arpenteur": {
+      "nom": "Division Arpenteur — Graphisme & Marque",
+      "description": "Comme Jean Bourdon a tracé les premières rues de la Nouvelle-France, la Division Arpenteur trace votre identité de marque. Graphisme, livre de marque, photographie professionnelle.",
+      "services": ["Livre de marque & identité visuelle", "Photographie professionnelle", "Stratégie médias sociaux", "Imprimés & papeterie"],
+      "cta": "Voir la division →"
+    },
     "divisionWeb": {
       "hero_titre": "Division Draveur — Développement Web",
       "hero_tagline": "La Flamme",

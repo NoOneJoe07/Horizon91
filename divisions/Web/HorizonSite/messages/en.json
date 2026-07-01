@@ -13,7 +13,14 @@
     "join": "Contact Us"
   },
   "home": {
-    "tagline": "Your anchor in digital complexity. Cutting-edge cybersecurity, web infrastructure and media innovation — Boreal Star Group guides regional businesses toward growth.",
+    "triptyque": "Guide · Build · Protect",
+    "tagline": "From the first brand idea to the security of your infrastructure — Boreal Star Group supports entrepreneurs at every step of their digital presence.",
+    "cta_divisions": "Explore our divisions",
+    "cta_contact": "Talk to the team",
+    "piliers": {
+      "title": "Three pillars. One vision.",
+      "subtitle": "Each pillar forged from Quebec's heritage, each service designed for local entrepreneurs' reality."
+    },
     "team": {
       "title": "Our Stars",
       "subtitle": "The builders behind your digital trajectory. Polaris guided the coureurs des bois through the darkest nights — our team merges the rigour of our historical builders with the power of tomorrow's technologies to guide regional entrepreneurs.",
@@ -57,6 +64,14 @@
   "divisions": {
     "title": "Our Divisions",
     "subtitle": "Three areas of expertise. One vision.",
+    "triptyque": "Guide · Build · Protect",
+    "ecosysteme_label": "Ecosystem",
+    "arpenteur": {
+      "nom": "Arpenteur Division — Brand Design & Photography",
+      "description": "Like Samuel Holland charted British North America with astronomical precision, Arpenteur Division charts your brand identity. Brand design, visual identity book, professional photography.",
+      "services": ["Brand book & visual identity", "Professional photography", "Social media strategy", "Print & brand stationery"],
+      "cta": "See the division →"
+    },
     "divisionWeb": {
       "hero_titre": "Draveur Division — Web Development",
       "hero_tagline": "La Flamme",

@@ -76,11 +76,14 @@ export default function StarField() {
   return (
     <canvas
       ref={canvasRef}
+      aria-hidden="true"
       style={{
-        position: "fixed",
+        position: "absolute",
         inset: 0,
-        zIndex: 1,
+        zIndex: 0,
         pointerEvents: "none",
+        width: "100%",
+        height: "100%",
       }}
     />
   );

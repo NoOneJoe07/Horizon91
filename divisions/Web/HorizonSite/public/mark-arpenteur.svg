@@ -1,0 +1,26 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Division Arpenteur — Graphisme &amp; Marque">
+  <!-- L'ARPENTEUR — Division Graphisme, Livre de marque & Photographie -->
+  <!-- Inspiré du compas d'arpenteur et de la précision de Jean Bourdon / Samuel Holland -->
+
+  <!-- Anneau extérieur — Violette Boréale -->
+  <circle cx="50" cy="50" r="44" fill="none" stroke="#5762A2" stroke-width="1.5"/>
+  <!-- Anneau intérieur décoratif -->
+  <circle cx="50" cy="50" r="30" fill="none" stroke="#5762A2" stroke-width="0.7" opacity="0.5"/>
+
+  <!-- Points cardinaux (cercle ext.) — couleur claire -->
+  <circle cx="50"   cy="5.5"  r="2.5" fill="#8A92C8"/>
+  <circle cx="94.5" cy="50"   r="2.5" fill="#8A92C8"/>
+  <circle cx="50"   cy="94.5" r="2.5" fill="#8A92C8"/>
+  <circle cx="5.5"  cy="50"   r="2.5" fill="#8A92C8"/>
+
+  <!-- Branche verticale (N-S) — représente la chaîne d'arpenteur, plus longue -->
+  <path d="M50,10 L53,46 L50,90 L47,46 Z" fill="#5762A2"/>
+
+  <!-- Branche horizontale (E-O) — représente l'alignement de parcelles -->
+  <path d="M20,50 L46,47 L80,50 L46,53 Z" fill="#5762A2"/>
+
+  <!-- Cercle de précision central -->
+  <circle cx="50" cy="50" r="9" fill="#5762A2"/>
+  <circle cx="50" cy="50" r="6" fill="none" stroke="#8A92C8" stroke-width="1.2"/>
+  <circle cx="50" cy="50" r="2.5" fill="#F4F4F0"/>
+</svg>

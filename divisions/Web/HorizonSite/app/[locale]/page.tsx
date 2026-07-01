@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { useTranslations } from "next-intl";
 import { getLocale } from "next-intl/server";
 import Image from "next/image";
+import { Link } from "@/i18n/navigation";
+import StarField from "@/app/components/StarField";
 
 // ─────────────────────────────────────────────────────────
 // Metadata SEO — HomePage
@@ -14,14 +16,14 @@ export async function generateMetadata({
   const { locale } = await params;
 
   const titles: Record<string, string> = {
-    fr: "Groupe Étoile Boréale — Agence Web & Cybersécurité | Sainte-Marie-de-Beauce",
-    en: "Boreal Star Group — Web Agency & Cybersecurity | Sainte-Marie-de-Beauce",
-    es: "Grupo Estrella Boreal — Agencia Web & Ciberseguridad | Beauce, Quebec",
+    fr: "Groupe Étoile Boréale — Agence Web, Graphisme & Cybersécurité | Beauce, Québec",
+    en: "Boreal Star Group — Web, Branding & Cybersecurity Agency | Beauce, Quebec",
+    es: "Grupo Estrella Boreal — Agencia Web, Diseño & Ciberseguridad | Beauce, Quebec",
   };
   const descriptions: Record<string, string> = {
-    fr: "Comme l'Étoile Polaire guidait les coureurs des bois à travers l'immensité du pays, Groupe Étoile Boréale guide les PME de Beauce dans l'univers numérique. Développement web, cybersécurité, médias sociaux — Chaudière-Appalaches.",
-    en: "Like Polaris guided the coureurs des bois through Canada's wilderness, Boreal Star Group guides Beauce entrepreneurs through the digital landscape. Web development, cybersecurity, social media — Chaudière-Appalaches, Quebec.",
-    es: "Como la Estrella Polar guiaba a los viajeros por el vasto territorio canadiense, Grupo Estrella Boreal guía a las pymes de Beauce en el universo digital. Desarrollo web, ciberseguridad, redes sociales — Chaudière-Appalaches.",
+    fr: "Comme l'Étoile Polaire guidait les explorateurs à travers le pays, Groupe Étoile Boréale guide les PME de Beauce dans l'univers numérique. Graphisme & marque, développement web, cybersécurité — Chaudière-Appalaches.",
+    en: "Like Polaris guided explorers across the land, Boreal Star Group guides Beauce entrepreneurs through the digital landscape. Branding, web development, cybersecurity — Chaudière-Appalaches, Quebec.",
+    es: "Como la Estrella Polar guiaba a los exploradores, Grupo Estrella Boreal guía a las pymes de Beauce. Diseño de marca, desarrollo web, ciberseguridad — Chaudière-Appalaches.",
   };
 
   const t = titles[locale] ?? titles.fr;
@@ -42,7 +44,9 @@ export async function generateMetadata({
 async function LocalBusinessJsonLd() {
   const locale = await getLocale();
   const name =
-    locale === "en" ? "Boreal Star Group" : locale === "es" ? "Grupo Estrella Boreal" : "Groupe Étoile Boréale";
+    locale === "en" ? "Boreal Star Group"
+    : locale === "es" ? "Grupo Estrella Boreal"
+    : "Groupe Étoile Boréale";
   const url =
     locale === "en" ? "https://borealstar.ca" : "https://etoileboreale.ca";
 
@@ -54,18 +58,16 @@ async function LocalBusinessJsonLd() {
     logo: `${url}/mark-etoile.svg`,
     image: `${url}/og-image.jpg`,
     slogan:
-      locale === "en"
-        ? "Like Polaris, we guide entrepreneurs through the digital frontier."
-        : locale === "es"
-        ? "Como la Estrella Polar, guiamos a los emprendedores en el universo digital."
-        : "Comme l'Étoile Polaire, nous guidons les entrepreneurs dans l'univers numérique.",
+      locale === "en" ? "Guide · Build · Protect"
+      : locale === "es" ? "Guiar · Construir · Proteger"
+      : "Guider · Bâtir · Protéger",
     description:
       locale === "en"
-        ? "Web agency, cybersecurity and game studio based in Sainte-Marie-de-Beauce, Quebec. Named after the North Star that guided Canada's coureurs des bois."
+        ? "Creative and technology agency based in Sainte-Marie-de-Beauce, Quebec. Three pillars: Arpenteur (brand & design), Draveur (web development), Carillon (cybersecurity)."
         : locale === "es"
-        ? "Agencia web, ciberseguridad y estudio de videojuegos en Sainte-Marie-de-Beauce, Quebec. Nombrada tras la Estrella Polar que guiaba a los exploradores canadienses."
-        : "Agence web, cybersécurité et studio de jeux vidéo à Sainte-Marie-de-Beauce, Québec. Nommée en hommage à l'étoile qui guidait les coureurs des bois du pays.",
-    foundingDate: "2024",
+        ? "Agencia creativa y tecnológica en Sainte-Marie-de-Beauce. Tres pilares: Arpenteur (marca y diseño), Draveur (desarrollo web), Carillon (ciberseguridad)."
+        : "Agence créative et technologique à Sainte-Marie-de-Beauce, Québec. Trois piliers : Arpenteur (graphisme & marque), Draveur (développement web), Carillon (cybersécurité).",
+    foundingDate: "2026",
     numberOfEmployees: { "@type": "QuantitativeValue", value: 4 },
     priceRange: "$$",
     address: {
@@ -83,11 +85,11 @@ async function LocalBusinessJsonLd() {
     ],
     hasOfferCatalog: {
       "@type": "OfferCatalog",
-      name: locale === "en" ? "Digital Services" : "Services numériques",
+      name: locale === "en" ? "Digital & Creative Services" : "Services créatifs & numériques",
       itemListElement: [
+        { "@type": "Offer", itemOffered: { "@type": "Service", name: locale === "en" ? "Brand Design & Photography" : "Graphisme, livre de marque & photographie" } },
         { "@type": "Offer", itemOffered: { "@type": "Service", name: locale === "en" ? "Web Development" : "Développement web" } },
         { "@type": "Offer", itemOffered: { "@type": "Service", name: locale === "en" ? "Cybersecurity" : "Cybersécurité" } },
-        { "@type": "Offer", itemOffered: { "@type": "Service", name: locale === "en" ? "Social Media Management" : "Gestion médias sociaux" } },
       ],
     },
     contactPoint: {
@@ -112,179 +114,327 @@ async function LocalBusinessJsonLd() {
   );
 }
 
+// ─────────────────────────────────────────────────────────
+// Données membres
+// ─────────────────────────────────────────────────────────
 const membresMeta = [
   {
     key: "jonathan",
     initiales: "JP",
-    couleurBordure: "border-h91-glacier",  /* Bleu-gris glacé — Direction générale */
-    couleurInitiales: "text-h91-glacier",
+    couleurBordure: "#0099D1",
+    couleurInitiales: "#0099D1",
     badge: false,
   },
   {
     key: "alexandra",
     initiales: "AE",
-    couleurBordure: "border-h91-ion",      /* Cyan/turquoise — couleur préférée d'Alexandra */
-    couleurInitiales: "text-h91-ion",
+    couleurBordure: "#5762A2",
+    couleurInitiales: "#5762A2",
     badge: false,
   },
   {
     key: "paulina",
     initiales: "PJ",
-    couleurBordure: "border-h91-warp",     /* Violet — Division Draveur */
-    couleurInitiales: "text-h91-warp",
+    couleurBordure: "#5762A2",
+    couleurInitiales: "#5762A2",
     badge: false,
   },
   {
     key: "gabriel",
     initiales: "GP",
-    couleurBordure: "border-h91-accretion", /* Orange — Division Carillon / cybersécurité */
-    couleurInitiales: "text-h91-accretion",
+    couleurBordure: "#203478",
+    couleurInitiales: "#203478",
     badge: true,
   },
 ] as const;
 
+// ─────────────────────────────────────────────────────────
+// Les 3 piliers — données
+// ─────────────────────────────────────────────────────────
+const piliers = [
+  {
+    key: "arpenteur",
+    couleur: "#5762A2",
+    couleurLight: "#E8EAF6",
+    mark: "/mark-arpenteur.svg",
+    href: "/divisions/arpenteur",
+  },
+  {
+    key: "web",           // clé i18n = divisions.web
+    couleur: "#0099D1",
+    couleurLight: "#E0F4FB",
+    mark: "/mark-web.svg",
+    href: "/divisions/web",
+  },
+  {
+    key: "cyber",         // clé i18n = divisions.cyber
+    couleur: "#203478",
+    couleurLight: "#E3E6EF",
+    mark: "/mark-cyber.svg",
+    href: "/divisions/cyber",
+  },
+] as const;
+
+// ─────────────────────────────────────────────────────────
+// Page principale
+// ─────────────────────────────────────────────────────────
 export default function HomePage() {
   const t = useTranslations("home");
   const tBrand = useTranslations("brand");
+  const tDivisions = useTranslations("divisions");
 
   return (
     <>
       <LocalBusinessJsonLd />
-      {/* ================================================================
-          HERO
-      ================================================================ */}
-      <main
-        id="hero"
-        className="relative flex flex-col items-center min-h-screen text-center px-6 pt-28 overflow-hidden"
-      >
-        <h1 className="text-6xl md:text-8xl font-bold h91-title-gradient-animated mb-14">
-          {tBrand("name")}
-        </h1>
 
-        {/* LOGO + ORBITAL EFFECT */}
-        <div className="relative flex items-center justify-center mb-10">
-          <div className="blue-halo"></div>
-          <div className="orbital-core"></div>
-          <Image
-            src="/mark-etoile.svg"
-            alt="Logo Groupe Étoile Boréale"
-            width={310}
-            height={310}
-            priority
-            style={{ width: "310px", height: "310px" }}
-            className="relative z-10"
-          />
+      {/* ================================================================
+          HERO — fond Space Black, compas centré, triptyque
+      ================================================================ */}
+      <section
+        id="hero"
+        className="hero-dark relative flex flex-col items-center min-h-[92vh] text-center px-6 pt-24 pb-20"
+      >
+        {/* Champ d'étoiles animé — canvas 180 étoiles scintillantes */}
+        <StarField />
+
+        {/* Aurore boréale — Bleu Polaire + Violette Boréale */}
+        <div className="aurora-band aurora-band-1" aria-hidden="true" />
+        <div className="aurora-band aurora-band-2" aria-hidden="true" />
+        <div className="aurora-band aurora-band-3" aria-hidden="true" />
+
+        <div className="relative z-10 flex flex-col items-center">
+
+          {/* Compas / Logo */}
+          <div className="mb-8">
+            <Image
+              src="/mark-etoile.svg"
+              alt="Compas Groupe Étoile Boréale"
+              width={220}
+              height={220}
+              priority
+              style={{ width: "220px", height: "220px" }}
+            />
+          </div>
+
+          {/* Nom de marque */}
+          <h1
+            className="text-5xl md:text-7xl font-bold mb-5 h91-title-gradient-animated"
+            style={{ fontFamily: "var(--font-display, 'Gotham', 'Montserrat', system-ui)" }}
+          >
+            {tBrand("name")}
+          </h1>
+
+          {/* Triptyque */}
+          <p
+            className="text-lg md:text-xl font-bold tracking-widest uppercase mb-8"
+            style={{ color: "#0099D1", letterSpacing: "0.15em" }}
+          >
+            {t("triptyque")}
+          </p>
+
+          {/* Tagline */}
+          <p className="text-base md:text-lg max-w-2xl leading-relaxed mb-10" style={{ color: "rgba(244,244,240,0.75)" }}>
+            {t("tagline")}
+          </p>
+
+          {/* CTAs */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link
+              href="/divisions"
+              className="px-8 py-3 rounded-lg font-semibold text-sm transition"
+              style={{ backgroundColor: "#0099D1", color: "#F4F4F0" }}
+            >
+              {t("cta_divisions")}
+            </Link>
+            <Link
+              href="/contacts"
+              className="px-8 py-3 rounded-lg font-semibold text-sm border transition"
+              style={{ borderColor: "rgba(244,244,240,0.30)", color: "rgba(244,244,240,0.85)" }}
+            >
+              {t("cta_contact")}
+            </Link>
+          </div>
         </div>
 
-        <p className="text-lg md:text-xl text-h91-stellar/80 max-w-2xl mb-10">
-          {t("tagline")}
-        </p>
-
-        {/* SCROLL INDICATOR */}
+        {/* Indicateur défilement */}
         <a
-          href="#equipe"
-          className="flex flex-col items-center gap-2 text-h91-stellar/40 hover:text-h91-accretion transition group"
+          href="#piliers"
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 transition z-10"
+          style={{ color: "rgba(244,244,240,0.35)" }}
           aria-label="Défiler vers le bas"
         >
-          <span className="text-xs font-semibold tracking-widest uppercase">Défiler</span>
-          <svg
-            width="24" height="24" viewBox="0 0 24 24" fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            className="animate-bounce"
-          >
-            <path d="M6 9L12 15L18 9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="animate-bounce">
+            <path d="M6 9L12 15L18 9" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
         </a>
+      </section>
 
-      </main>
+      {/* ================================================================
+          LES 3 PILIERS — fond blanc, rectangles colorés
+      ================================================================ */}
+      <section id="piliers" className="py-20 px-6" style={{ backgroundColor: "#FFFFFF" }}>
+        <div className="max-w-6xl mx-auto">
+          <p
+            className="text-center text-xs font-bold tracking-widest uppercase mb-3"
+            style={{ color: "#0099D1" }}
+          >
+            {tBrand("name")}
+          </p>
+          <h2
+            className="text-4xl md:text-5xl font-bold text-center mb-4"
+            style={{ color: "#1D1D1B", fontFamily: "var(--font-display, 'Gotham', 'Montserrat', system-ui)" }}
+          >
+            {t("piliers.title")}
+          </h2>
+          <p className="text-center mb-14 max-w-2xl mx-auto" style={{ color: "rgba(29,29,27,0.60)" }}>
+            {t("piliers.subtitle")}
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {piliers.map((p, idx) => (
+              <Link
+                key={p.key}
+                href={p.href}
+                className={`block p-8 rounded-xl border-l-4 card-lift animate-fade-in-up stagger-${idx + 1}`}
+                style={{
+                  borderLeftColor: p.couleur,
+                  backgroundColor: p.couleurLight,
+                }}
+              >
+                <Image
+                  src={p.mark}
+                  alt={`Mark Division ${p.key}`}
+                  width={44}
+                  height={44}
+                  style={{ width: "44px", height: "44px", marginBottom: "16px" }}
+                />
+                <h3
+                  className="text-xl font-bold mb-2"
+                  style={{ color: p.couleur, fontFamily: "var(--font-display, 'Gotham', 'Montserrat', system-ui)" }}
+                >
+                  {tDivisions(`${p.key}.nom`)}
+                </h3>
+                <p className="text-sm leading-relaxed mb-4" style={{ color: "rgba(29,29,27,0.65)" }}>
+                  {tDivisions(`${p.key}.description`)}
+                </p>
+                <span
+                  className="text-xs font-bold uppercase tracking-widest"
+                  style={{ color: p.couleur }}
+                >
+                  {tDivisions(`${p.key}.cta`)}
+                </span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* ================================================================
           L'ÉQUIPE
       ================================================================ */}
-      <section id="equipe" className="py-12 px-6 max-w-6xl mx-auto">
-        <h2 className="text-4xl md:text-5xl font-bold text-h91-stellar text-center mb-4">
-          {t("team.title")}
-        </h2>
-        <p className="text-center text-h91-stellar/60 mb-14 text-lg max-w-3xl mx-auto">
-          {t("team.subtitle")}
-        </p>
+      <section id="equipe" className="py-20 px-6" style={{ backgroundColor: "#F4F4F0" }}>
+        <div className="max-w-6xl mx-auto">
+          <h2
+            className="text-4xl md:text-5xl font-bold text-center mb-4"
+            style={{ color: "#1D1D1B", fontFamily: "var(--font-display, 'Gotham', 'Montserrat', system-ui)" }}
+          >
+            {t("team.title")}
+          </h2>
+          <p className="text-center mb-14 text-lg max-w-3xl mx-auto" style={{ color: "rgba(29,29,27,0.60)" }}>
+            {t("team.subtitle")}
+          </p>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {membresMeta.map((meta, idx) => (
-            <div
-              key={meta.key}
-              className={`relative p-6 border-2 ${meta.couleurBordure} rounded-xl bg-h91-gravity/50 flex flex-col items-center gap-4 text-center card-lift animate-fade-in-up stagger-${idx + 1}`}
-            >
-              {meta.badge && (
-                <span className="absolute top-4 right-4 text-xs font-bold px-2 py-1 rounded-full bg-h91-ion/20 text-h91-ion">
-                  {t("team.badge_soon")}
-                </span>
-              )}
-
-              {/* Photo placeholder */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            {membresMeta.map((meta, idx) => (
               <div
-                className={`w-24 h-24 rounded-full border-2 ${meta.couleurBordure} bg-h91-gravity flex items-center justify-center`}
+                key={meta.key}
+                className={`relative p-6 border-2 rounded-xl flex flex-col items-center gap-4 text-center card-lift animate-fade-in-up stagger-${idx + 1}`}
+                style={{ borderColor: meta.couleurBordure, backgroundColor: "#FFFFFF" }}
               >
-                <span className={`text-2xl font-bold ${meta.couleurInitiales}`}>
-                  {meta.initiales}
-                </span>
-              </div>
+                {meta.badge && (
+                  <span
+                    className="absolute top-4 right-4 text-xs font-bold px-2 py-1 rounded-full"
+                    style={{ backgroundColor: "rgba(32,52,120,0.10)", color: "#203478" }}
+                  >
+                    {t("team.badge_soon")}
+                  </span>
+                )}
 
-              <div>
-                <h3 className="text-lg font-bold text-h91-stellar leading-tight">
-                  {t(`team.members.${meta.key}.nom`)}
-                </h3>
-                <p className={`text-xs font-semibold mt-1 ${meta.couleurInitiales}`}>
-                  {t(`team.members.${meta.key}.titre`)}
-                </p>
-              </div>
-
-              <p className="text-h91-stellar/70 text-sm leading-relaxed">
-                {t(`team.members.${meta.key}.bio`)}
-              </p>
-
-              {/* Bouton "En savoir plus" sur la carte JP uniquement */}
-              {meta.key === "jonathan" && (
-                <a
-                  href="#histoire"
-                  className="mt-2 text-xs font-semibold text-h91-glacier hover:text-h91-ion transition underline underline-offset-4"
+                {/* Photo placeholder */}
+                <div
+                  className="w-24 h-24 rounded-full border-2 flex items-center justify-center"
+                  style={{ borderColor: meta.couleurBordure, backgroundColor: "#F4F4F0" }}
                 >
-                  {t("team.cta_histoire")}
-                </a>
-              )}
-            </div>
-          ))}
+                  <span className="text-2xl font-bold" style={{ color: meta.couleurInitiales }}>
+                    {meta.initiales}
+                  </span>
+                </div>
+
+                <div>
+                  <h3 className="text-lg font-bold leading-tight" style={{ color: "#1D1D1B" }}>
+                    {t(`team.members.${meta.key}.nom`)}
+                  </h3>
+                  <p className="text-xs font-semibold mt-1" style={{ color: meta.couleurInitiales }}>
+                    {t(`team.members.${meta.key}.titre`)}
+                  </p>
+                </div>
+
+                <p className="text-sm leading-relaxed" style={{ color: "rgba(29,29,27,0.65)" }}>
+                  {t(`team.members.${meta.key}.bio`)}
+                </p>
+
+                {meta.key === "jonathan" && (
+                  <a
+                    href="#histoire"
+                    className="mt-2 text-xs font-semibold underline underline-offset-4 transition"
+                    style={{ color: "#0099D1" }}
+                  >
+                    {t("team.cta_histoire")}
+                  </a>
+                )}
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* ================================================================
           NOTRE HISTOIRE
       ================================================================ */}
-      <section id="histoire" className="py-20 px-6 max-w-4xl mx-auto">
-        <h2 className="text-4xl md:text-5xl font-bold text-h91-stellar text-center mb-14">
-          {t("histoire.title")}
-        </h2>
-
-        <div className="space-y-6 text-h91-stellar/80 text-lg leading-relaxed">
-          <p className="scroll-fade">{t("histoire.p1")}</p>
-          <p className="scroll-fade">{t("histoire.p2")}</p>
-          <p className="scroll-fade">{t("histoire.p3")}</p>
-          <p className="scroll-fade">{t("histoire.p4")}</p>
-          <p className="scroll-fade">{t("histoire.p5")}</p>
-          <p className="scroll-fade">{t("histoire.p6")}</p>
-
-          <blockquote className="scroll-fade border-l-4 border-h91-ion pl-6 mt-8 text-h91-stellar/60 italic text-base">
-            {t("histoire.quote")}
-          </blockquote>
-        </div>
-
-        <div className="mt-14 text-center">
-          <a
-            href={`divisions`}
-            className="inline-block bg-h91-ion text-h91-gravity font-bold px-8 py-4 rounded-lg text-xl hover:bg-h91-ion/80 transition"
+      <section id="histoire" className="py-20 px-6" style={{ backgroundColor: "#FFFFFF" }}>
+        <div className="max-w-4xl mx-auto">
+          <h2
+            className="text-4xl md:text-5xl font-bold text-center mb-14"
+            style={{ color: "#1D1D1B", fontFamily: "var(--font-display, 'Gotham', 'Montserrat', system-ui)" }}
           >
-            {t("histoire.cta")}
-          </a>
+            {t("histoire.title")}
+          </h2>
+
+          <div className="space-y-6 text-lg leading-relaxed" style={{ color: "rgba(29,29,27,0.75)" }}>
+            <p className="scroll-fade">{t("histoire.p1")}</p>
+            <p className="scroll-fade">{t("histoire.p2")}</p>
+            <p className="scroll-fade">{t("histoire.p3")}</p>
+            <p className="scroll-fade">{t("histoire.p4")}</p>
+            <p className="scroll-fade">{t("histoire.p5")}</p>
+            <p className="scroll-fade">{t("histoire.p6")}</p>
+
+            <blockquote
+              className="scroll-fade border-l-4 pl-6 mt-8 italic text-base"
+              style={{ borderColor: "#0099D1", color: "rgba(29,29,27,0.55)" }}
+            >
+              {t("histoire.quote")}
+            </blockquote>
+          </div>
+
+          <div className="mt-14 text-center">
+            <Link
+              href="/divisions"
+              className="inline-block font-bold px-8 py-4 rounded-lg text-lg transition"
+              style={{ backgroundColor: "#203478", color: "#F4F4F0" }}
+            >
+              {t("histoire.cta")}
+            </Link>
+          </div>
         </div>
       </section>
     </>

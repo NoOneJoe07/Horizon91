@@ -1,43 +1,25 @@
-<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-  <!-- L'ÉTOILE POLAIRE — Groupe Étoile Boréale — Polaris Boréal — fond transparent -->
-  <defs>
-    <radialGradient id="rg-star" cx="50%" cy="50%" r="50%">
-      <stop offset="0%"   stop-color="#FFFFFF"/>
-      <stop offset="20%"  stop-color="#A8F6FF"/>
-      <stop offset="55%"  stop-color="#00C8E8"/>
-      <stop offset="100%" stop-color="#041828" stop-opacity="0.35"/>
-    </radialGradient>
-  </defs>
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Groupe Étoile Boréale">
 
-  <!-- Outer compass ring -->
-  <circle cx="50" cy="50" r="47" fill="none" stroke="#00F0FF" stroke-width="0.6" opacity="0.5"/>
+  <!-- Anneau extérieur -->
+  <circle cx="50" cy="50" r="44" fill="none" stroke="white" stroke-width="2.5"/>
 
-  <!-- Mid precision ring -->
-  <circle cx="50" cy="50" r="28" fill="none" stroke="#60E8FF" stroke-width="0.4" opacity="0.28"/>
+  <!-- Points cardinaux sur l'anneau extérieur — N E S O -->
+  <circle cx="50"   cy="6"  r="3.5" fill="white"/>
+  <circle cx="94"   cy="50" r="3.5" fill="white"/>
+  <circle cx="50"   cy="94" r="3.5" fill="white"/>
+  <circle cx="6"    cy="50" r="3.5" fill="white"/>
 
-  <!-- 8-pointed Polaris star — cardinaux r=47, diagonaux r=30, concaves r=12 -->
-  <polygon
-    points="50,3 54.6,38.9 71.2,28.8 61.1,45.4 97,50 61.1,54.6 71.2,71.2 54.6,61.1 50,97 45.4,61.1 28.8,71.2 38.9,54.6 3,50 38.9,45.4 28.8,28.8 45.4,38.9"
-    fill="url(#rg-star)"
-  />
+  <!-- Anneau intérieur — visible dans les concavités entre les pointes -->
+  <circle cx="50" cy="50" r="26" fill="none" stroke="white" stroke-width="1.5" opacity="0.45"/>
 
-  <!-- Inner precision ring -->
-  <circle cx="50" cy="50" r="10" fill="none" stroke="#00F0FF" stroke-width="0.6" opacity="0.55"/>
+  <!-- Rose des vents — étoile 4 pointes à côtés CONCAVES (courbes bezier)    -->
+  <!-- Pointes : N(50,9)  E(83,50)  S(50,91)  O(17,50)  — N-S légèrement allongé -->
+  <!-- Points de contrôle quadratique tirés vers le centre pour la concavité    -->
+  <path d="M50,9 Q54,46 83,50 Q54,54 50,91 Q46,54 17,50 Q46,46 50,9 Z"
+        fill="white"/>
 
-  <!-- Circuit nodes — pointes cardinales -->
-  <circle cx="50" cy="3"  r="2" fill="#00F0FF"/>
-  <circle cx="97" cy="50" r="2" fill="#00F0FF"/>
-  <circle cx="50" cy="97" r="2" fill="#00F0FF"/>
-  <circle cx="3"  cy="50" r="2" fill="#00F0FF"/>
+  <!-- Centre — disque Bleu Nuit + point blanc -->
+  <circle cx="50" cy="50" r="8"   fill="#203478"/>
+  <circle cx="50" cy="50" r="3.5" fill="white"/>
 
-  <!-- Circuit nodes — pointes diagonales -->
-  <circle cx="71.2" cy="28.8" r="1.3" fill="#00C8E8" opacity="0.8"/>
-  <circle cx="71.2" cy="71.2" r="1.3" fill="#00C8E8" opacity="0.8"/>
-  <circle cx="28.8" cy="71.2" r="1.3" fill="#00C8E8" opacity="0.8"/>
-  <circle cx="28.8" cy="28.8" r="1.3" fill="#00C8E8" opacity="0.8"/>
-
-  <!-- White hot stellar core -->
-  <circle cx="50" cy="50" r="4.5" fill="#FFFFFF"/>
-  <!-- Cyan precision ring -->
-  <circle cx="50" cy="50" r="7" fill="none" stroke="#00F0FF" stroke-width="1.2"/>
 </svg>
