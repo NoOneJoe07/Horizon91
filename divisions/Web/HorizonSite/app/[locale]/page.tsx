@@ -139,13 +139,6 @@ const membresMeta = [
     couleurInitiales: "#5762A2",
     badge: false,
   },
-  {
-    key: "gabriel",
-    initiales: "GP",
-    couleurBordure: "#203478",
-    couleurInitiales: "#203478",
-    badge: true,
-  },
 ] as const;
 
 // ─────────────────────────────────────────────────────────
@@ -209,7 +202,7 @@ export default function HomePage() {
           {/* Compas / Logo */}
           <div className="mb-8">
             <Image
-              src="/mark-etoile.svg"
+              src="/mark-etoile-color.svg"
               alt="Compas Groupe Étoile Boréale"
               width={220}
               height={220}
@@ -346,7 +339,7 @@ export default function HomePage() {
             {t("team.subtitle")}
           </p>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-4xl mx-auto">
             {membresMeta.map((meta, idx) => (
               <div
                 key={meta.key}

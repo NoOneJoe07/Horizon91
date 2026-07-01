@@ -195,10 +195,10 @@
         "couleur": "border-h91-warp"
       },
       {
-        "nom": "Fort Saurel — Surveillance Dark Web",
+        "nom": "Saurel — Surveillance Dark Web",
         "client": "Groupe Étoile Boréale — Produit interne",
         "categorie": "Cybersécurité",
-        "description": "SaaS de surveillance du Dark Web en temps réel. Fort Saurel scanne en continu les marchés clandestins, forums et fuites de données pour alerter les entreprises dès que leurs informations apparaissent.",
+        "description": "SaaS de surveillance du Dark Web en temps réel. Saurel scanne en continu les marchés clandestins, forums et fuites de données pour alerter les entreprises dès que leurs informations apparaissent.",
         "resultats": ["Scan Dark Web continu", "Alertes temps réel", "4 tiers tarifaires", "Données au Québec"],
         "statut": "En cours",
         "couleur": "border-h91-glacier"
@@ -232,7 +232,7 @@
         "titre": "Cybersécurité",
         "couleur": "text-h91-accretion",
         "courriel": "cyber@etoileboreale.ca",
-        "note": "Audits, sécurisation, Fort Saurel, formation."
+        "note": "Audits, sécurisation, Saurel, formation."
       }
     ]
   },

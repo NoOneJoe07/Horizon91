@@ -319,10 +319,10 @@ export default function TarificationPage() {
           {/* Deux lignes produits */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
 
-            {/* Fort Saurel */}
+            {/* Saurel */}
             <div className="p-6 rounded-xl border border-h91-ion/30 bg-h91-gravity/60 flex flex-col gap-3">
               <div>
-                <p className="text-h91-ion font-bold text-xs uppercase tracking-widest mb-1">Fort Saurel — SaaS</p>
+                <p className="text-h91-ion font-bold text-xs uppercase tracking-widest mb-1">Saurel — SaaS</p>
                 <h3 className="text-h91-stellar font-bold text-lg">Surveillance & Vigie numérique</h3>
               </div>
               <p className="text-h91-stellar/60 text-sm leading-relaxed flex-1">
@@ -359,7 +359,7 @@ export default function TarificationPage() {
               href="/divisions/cyber"
               className="inline-block px-8 py-3 rounded-lg border border-h91-ion text-h91-ion font-bold hover:bg-h91-ion/10 transition"
             >
-              Voir les forfaits Fort Saurel en détail →
+              Voir les forfaits Saurel en détail →
             </Link>
           </div>
         </div>

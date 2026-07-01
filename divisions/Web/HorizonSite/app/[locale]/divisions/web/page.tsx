@@ -192,23 +192,18 @@ export default function DivisionWebPage() {
               Maîtriser le flux, propulser votre achalandage
             </h2>
 
-            {/* Photos d'archives — groupe pleine largeur + 4 en grille */}
-            {/* Rangée 1 — illustration draveur centrée au format naturel */}
-            <div className="flex justify-center mb-3">
-              <div className="relative overflow-hidden rounded-xl" style={{ maxHeight: "420px" }}>
-                <Image
-                  src="/photos_images/Draveur_HR.jpg"
-                  alt="Draveur québécois — illustration historique"
-                  width={560}
-                  height={420}
-                  className="h-auto max-h-[420px] w-auto grayscale opacity-70 hover:opacity-90 transition duration-500"
-                />
-                <div className="absolute inset-0 bg-h91-ion/25 pointer-events-none" />
-              </div>
-            </div>
-            {/* Rangée 2 — 4 photos égales */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-8">
-              <div className="relative aspect-[4/3] overflow-hidden rounded-lg">
+            {/* Photos d'archives — layout staggeré asymétrique */}
+            {/* Desktop: grille 3 colonnes avec portrait gauche + 3 droite */}
+            <div
+              className="hidden md:grid mb-3"
+              style={{
+                gridTemplateColumns: "1fr 1.3fr 1fr",
+                gridTemplateRows: "290px 210px",
+                gap: "10px",
+              }}
+            >
+              {/* Portrait tall — Bottes draveur, col 1, 2 rangées */}
+              <div style={{ gridColumn: "1", gridRow: "1 / span 2" }} className="relative overflow-hidden rounded-xl">
                 <Image
                   src="/photos_images/Botte_draveur.jpg"
                   alt="Bottes à crampons des draveurs — outil emblématique de la drave"
@@ -217,7 +212,8 @@ export default function DivisionWebPage() {
                 />
                 <div className="absolute inset-0 bg-h91-ion/20" />
               </div>
-              <div className="relative aspect-[4/3] overflow-hidden rounded-lg">
+              {/* Paysage large — draveur en action, cols 2-3 rangée 1 */}
+              <div style={{ gridColumn: "2 / span 2", gridRow: "1" }} className="relative overflow-hidden rounded-xl">
                 <Image
                   src="/photos_images/draveur_1.avif"
                   alt="Draveur en action sur les billots — rivière du Québec"
@@ -226,7 +222,8 @@ export default function DivisionWebPage() {
                 />
                 <div className="absolute inset-0 bg-h91-ion/20" />
               </div>
-              <div className="relative aspect-[4/3] overflow-hidden rounded-lg">
+              {/* Carré bas milieu */}
+              <div style={{ gridColumn: "2", gridRow: "2" }} className="relative overflow-hidden rounded-lg">
                 <Image
                   src="/photos_images/Draveur_2.jpg"
                   alt="Draveurs guidant les billots — maîtrise du flux"
@@ -235,7 +232,8 @@ export default function DivisionWebPage() {
                 />
                 <div className="absolute inset-0 bg-h91-ion/20" />
               </div>
-              <div className="relative aspect-[4/3] overflow-hidden rounded-lg">
+              {/* Carré bas droite */}
+              <div style={{ gridColumn: "3", gridRow: "2" }} className="relative overflow-hidden rounded-lg">
                 <Image
                   src="/photos_images/Draveur_3.avif"
                   alt="La drave — héritage québécois du contrôle du flux"
@@ -244,6 +242,20 @@ export default function DivisionWebPage() {
                 />
                 <div className="absolute inset-0 bg-h91-ion/20" />
               </div>
+            </div>
+            {/* Mobile: grille 2x2 */}
+            <div className="grid grid-cols-2 gap-3 mb-3 md:hidden">
+              {[
+                { src: "/photos_images/Botte_draveur.jpg", alt: "Bottes draveurs" },
+                { src: "/photos_images/draveur_1.avif",   alt: "Draveur en action" },
+                { src: "/photos_images/Draveur_2.jpg",    alt: "Draveurs guidant les billots" },
+                { src: "/photos_images/Draveur_3.avif",   alt: "La drave québécoise" },
+              ].map((p) => (
+                <div key={p.src} className="relative aspect-square overflow-hidden rounded-lg">
+                  <Image src={p.src} alt={p.alt} fill className="object-cover grayscale opacity-70" />
+                  <div className="absolute inset-0 bg-h91-ion/20" />
+                </div>
+              ))}
             </div>
             <p className="text-h91-stellar/30 text-xs text-center mb-8 italic">
               Archives historiques — draveurs du Québec, fin XIXe – début XXe siècle

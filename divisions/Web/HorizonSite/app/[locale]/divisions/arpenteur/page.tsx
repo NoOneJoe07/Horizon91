@@ -214,7 +214,7 @@ export default function ArpenteurPage() {
                 alt="Mark Division Arpenteur"
                 width={110}
                 height={110}
-                style={{ width: "110px", height: "110px" }}
+                style={{ width: "110px", height: "110px", filter: "brightness(0) invert(1)" }}
               />
             </div>
             <div>

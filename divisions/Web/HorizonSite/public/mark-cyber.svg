@@ -1,15 +1,14 @@
 <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-  <!-- SINGULARITÉ — Cybersécurité — Orange précision -->
+  <!-- SINGULARITÉ — Cybersécurité — Bleu Nuit Boréal #203478 -->
   <defs>
     <linearGradient id="sg-cyber" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#FFD65C"/>
-      <stop offset="60%" stop-color="#FF7A1A"/>
-      <stop offset="100%" stop-color="#CC3300"/>
+      <stop offset="0%" stop-color="#4A67C8"/>
+      <stop offset="60%" stop-color="#203478"/>
+      <stop offset="100%" stop-color="#152260"/>
     </linearGradient>
   </defs>
 
   <!-- Single precise 300° arc — gap at bottom-right (precision, watchful) -->
-  <!-- Circumference = 2π*39 ≈ 245. 300° = 204, gap 60° = 41 -->
   <circle
     cx="50" cy="50" r="39"
     fill="none"
@@ -20,8 +19,8 @@
     transform="rotate(120 50 50)"
   />
 
-  <!-- Center black -->
-  <circle cx="50" cy="50" r="13" fill="#000000"/>
-  <!-- Gold singularity dot -->
-  <circle cx="50" cy="50" r="4" fill="#FFD65C"/>
+  <!-- Center dark -->
+  <circle cx="50" cy="50" r="13" fill="#152260"/>
+  <!-- Night blue singularity dot -->
+  <circle cx="50" cy="50" r="4" fill="#4A67C8"/>
 </svg>

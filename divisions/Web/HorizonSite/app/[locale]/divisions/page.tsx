@@ -39,7 +39,7 @@ export async function generateMetadata({
 const divisionsMeta = [
   {
     key: "arpenteur",
-    mark: "/mark-nordik.svg",
+    mark: "/mark-arpenteur.svg",
     couleur: "#5762A2",
     bg: "#E8EAF6",
     href: "/divisions/arpenteur",
@@ -81,7 +81,8 @@ export default function DivisionsPage() {
     : "Portail éditorial multi-verticales — à venir.";
 
   return (
-    <main className="max-w-6xl mx-auto px-6 py-20" style={{ backgroundColor: "#F4F4F0", color: "#1D1D1B" }}>
+    <div style={{ backgroundColor: "#F4F4F0", color: "#1D1D1B", minHeight: "100vh" }}>
+    <main className="max-w-6xl mx-auto px-6 py-20">
 
       {/* En-tête */}
       <p className="text-center text-xs font-bold tracking-widest uppercase mb-3" style={{ color: "#0099D1" }}>
@@ -195,5 +196,6 @@ export default function DivisionsPage() {
         </div>
       </div>
     </main>
+    </div>
   );
 }

@@ -72,15 +72,15 @@ async function CyberServiceJsonLd() {
     {
       "@context": "https://schema.org",
       "@type": "SoftwareApplication",
-      name: "Fort Saurel",
+      name: "Saurel",
       applicationCategory: "SecurityApplication",
       operatingSystem: "Web",
       description:
         locale === "en"
-          ? "Fort Saurel is a dark web monitoring SaaS. Like the historic Fort Saurel that guarded the Richelieu River, it acts as the strategic lock of your business — scanning clandestine markets, forums and data leaks to alert you before damage is done."
+          ? "Saurel is a dark web monitoring SaaS. Like the historic Fort Saurel that guarded the Richelieu River, it acts as the strategic lock of your business — scanning clandestine markets, forums and data leaks to alert you before damage is done."
           : locale === "es"
-          ? "Fort Saurel es un SaaS de monitoreo del dark web. Como el histórico Fuerte Saurel que vigilaba el río Richelieu, actúa como el candado estratégico de su empresa — escaneando mercados clandestinos y filtraciones de datos antes de que ocurra el daño."
-          : "Fort Saurel est un SaaS de surveillance du Dark Web. Comme le fort historique qui verrouillait la rivière Richelieu, il agit comme le verrou stratégique de votre entreprise — scannant marchés clandestins, forums et fuites de données avant que les dommages soient faits.",
+          ? "Saurel es un SaaS de monitoreo del dark web. Como el histórico Fuerte Saurel que vigilaba el río Richelieu, actúa como el candado estratégico de su empresa — escaneando mercados clandestinos y filtraciones de datos antes de que ocurra el daño."
+          : "Saurel est un SaaS de surveillance du Dark Web. Comme le fort historique qui verrouillait la rivière Richelieu, il agit comme le verrou stratégique de votre entreprise — scannant marchés clandestins, forums et fuites de données avant que les dommages soient faits.",
       offers: [
         { "@type": "Offer", name: "Sentinelle", price: "75", priceCurrency: "CAD" },
         { "@type": "Offer", name: "Gardien", price: "150", priceCurrency: "CAD" },
@@ -414,7 +414,7 @@ export default function DivisionCyberPage() {
               La vigie numérique des PME.
             </p>
             <p className="text-h91-stellar/55 text-base max-w-2xl mx-auto leading-relaxed">
-              Surveillance du Dark Web en temps réel. Fort Saurel scanne en continu les marchés
+              Surveillance du Dark Web en temps réel. Saurel scanne en continu les marchés
               clandestins, forums et fuites de données pour vous alerter dès que vos
               informations apparaissent — avant que les dommages soient faits.
             </p>
@@ -525,11 +525,11 @@ export default function DivisionCyberPage() {
               </p>
               <p>
                 Tout comme le fort historique surveillait l&apos;autoroute fluviale pour protéger la
-                Nouvelle-France, le SaaS Fort Saurel agit comme le verrou stratégique de votre
+                Nouvelle-France, le SaaS Saurel agit comme le verrou stratégique de votre
                 entreprise. C&apos;est une plateforme de monitoring intelligente qui surveille les flux
                 de données, les performances et les angles morts opérationnels des PME. Il élimine
                 l&apos;effet de surprise : avant qu&apos;une faille, un bug ou une baisse de performance ne
-                vienne couler votre modèle d&apos;affaires, Fort Saurel a déjà sonné l&apos;alarme.
+                vienne couler votre modèle d&apos;affaires, Saurel a déjà sonné l&apos;alarme.
               </p>
             </div>
           </div>
@@ -537,7 +537,7 @@ export default function DivisionCyberPage() {
           {/* Les Sentinelles */}
           <div className="mb-10 p-7 rounded-2xl border border-h91-accretion/20 bg-h91-gravity/50">
             <h3 className="text-xl font-bold text-h91-stellar mb-4">
-              Que font les Sentinelles de Fort Saurel ?
+              Que font les Sentinelles de Saurel ?
             </h3>
             <div className="space-y-4 text-h91-stellar/70 text-base leading-relaxed">
               <p>
@@ -561,7 +561,7 @@ export default function DivisionCyberPage() {
               L&apos;avantage Étoile Boréale
             </p>
             <p className="text-h91-stellar/70 text-lg leading-relaxed">
-              Avec Fort Saurel, vous n&apos;attendez pas que la crise frappe pour colmater les
+              Avec Saurel, vous n&apos;attendez pas que la crise frappe pour colmater les
               brèches. Nos Sentinelles numériques surveillent vos arrières en continu,
               transformant le chaos imprévisible du web en une trajectoire stable, sécurisée
               et entièrement sous contrôle.
