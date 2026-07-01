@@ -158,79 +158,136 @@ a, button {
 }
 
 /* ---------------------------------------------------------
-   AURORE BORÉALE — animation hero homepage
-   Couleurs : Bleu Polaire #0099D1 + Violette Boréale #5762A2
-   (remplace l'ancien cyan #00F0FF / vert)
+   AURORE NUMÉRIQUE CLAUDE — blobs organiques
+   Concept : ellipses inclinées + radial-gradient + blur lourd
+   = voiles de lumière irréguliers, comme une vraie aurore
+   Couleurs : Violette Boréale #5762A2 + Bleu Polaire #0099D1
+              + Bleu Nuit #203478 pour la profondeur
 --------------------------------------------------------- */
-@keyframes auroraFloat1 {
-  0%   { transform: translateX(-10%) scaleY(1);    opacity: 0.50; }
-  50%  { transform: translateX(7%)   scaleY(1.20); opacity: 0.72; }
-  100% { transform: translateX(-10%) scaleY(1);    opacity: 0.50; }
-}
-@keyframes auroraFloat2 {
-  0%   { transform: translateX(12%) scaleY(1.05); opacity: 0.40; }
-  50%  { transform: translateX(-6%) scaleY(0.88); opacity: 0.62; }
-  100% { transform: translateX(12%) scaleY(1.05); opacity: 0.40; }
-}
-@keyframes auroraFloat3 {
-  0%   { transform: translateX(-5%) scaleY(0.95); opacity: 0.35; }
-  60%  { transform: translateX(9%)  scaleY(1.12); opacity: 0.55; }
-  100% { transform: translateX(-5%) scaleY(0.95); opacity: 0.35; }
+
+/* Orb 1 — Grand voile violet, coin sup. gauche, -25° */
+@keyframes auroraOrb1 {
+  0%   { transform: rotate(-25deg) translateX(0%)   scaleY(1.00); opacity: 0.58; }
+  30%  { transform: rotate(-19deg) translateX(9%)   scaleY(1.40); opacity: 0.74; }
+  65%  { transform: rotate(-31deg) translateX(-7%)  scaleY(0.80); opacity: 0.46; }
+  100% { transform: rotate(-25deg) translateX(0%)   scaleY(1.00); opacity: 0.58; }
 }
 
-.aurora-band {
+/* Orb 2 — Voile bleu, coin sup. droit, +22° */
+@keyframes auroraOrb2 {
+  0%   { transform: rotate(22deg)  translateX(0%)   scaleY(1.00); opacity: 0.52; }
+  40%  { transform: rotate(16deg)  translateX(-9%)  scaleY(1.30); opacity: 0.68; }
+  75%  { transform: rotate(28deg)  translateX(6%)   scaleY(0.75); opacity: 0.40; }
+  100% { transform: rotate(22deg)  translateX(0%)   scaleY(1.00); opacity: 0.52; }
+}
+
+/* Orb 3 — Voile central mixte, -12° */
+@keyframes auroraOrb3 {
+  0%   { transform: rotate(-12deg) translateX(0%)   scaleY(1.00); opacity: 0.48; }
+  50%  { transform: rotate(-18deg) translateX(8%)   scaleY(1.45); opacity: 0.66; }
+  100% { transform: rotate(-12deg) translateX(0%)   scaleY(1.00); opacity: 0.48; }
+}
+
+/* Orb 4 — Grand voile bleu bas, +38° */
+@keyframes auroraOrb4 {
+  0%   { transform: rotate(38deg)  translateX(0%)   scaleY(1.00); opacity: 0.44; }
+  45%  { transform: rotate(30deg)  translateX(-11%) scaleY(1.25); opacity: 0.62; }
+  100% { transform: rotate(38deg)  translateX(0%)   scaleY(1.00); opacity: 0.44; }
+}
+
+/* Orb 5 — Accent nuit / profondeur, -48° diagonal */
+@keyframes auroraOrb5 {
+  0%   { transform: rotate(-48deg) translateX(0%)   scaleX(1.00); opacity: 0.38; }
+  55%  { transform: rotate(-42deg) translateX(10%)  scaleX(1.35); opacity: 0.56; }
+  100% { transform: rotate(-48deg) translateX(0%)   scaleX(1.00); opacity: 0.38; }
+}
+
+.aurora-orb {
   position: absolute;
-  left: 0;
-  width: 100%;
+  border-radius: 50%;
   pointer-events: none;
   z-index: 0;
+  will-change: transform, opacity;
 }
 
-/* Bande 1 — Bleu Polaire dominant (haute) */
-.aurora-band-1 {
-  top: 12%;
+/* Orb 1 — Violet dominant, arc supérieur gauche */
+.aurora-orb-1 {
+  width: 85%;
   height: 220px;
-  background: linear-gradient(
-    to right,
-    transparent 0%,
-    rgba(0, 153, 209, 0.55) 20%,
-    rgba(87, 98, 162, 0.70) 50%,
-    rgba(0, 153, 209, 0.55) 80%,
-    transparent 100%
+  top: 4%;
+  left: -20%;
+  background: radial-gradient(ellipse at center,
+    rgba(87, 98, 162, 0.82) 0%,
+    rgba(87, 98, 162, 0.45) 45%,
+    transparent 75%
   );
-  filter: blur(18px);
-  animation: auroraFloat1 14s ease-in-out infinite;
+  filter: blur(52px);
+  animation: auroraOrb1 16s ease-in-out infinite;
 }
 
-/* Bande 2 — Violette Boréale dominant (milieu) */
-.aurora-band-2 {
-  top: 38%;
+/* Orb 2 — Bleu polaire, arc supérieur droit */
+.aurora-orb-2 {
+  width: 72%;
   height: 180px;
-  background: linear-gradient(
-    to right,
-    transparent 0%,
-    rgba(87, 98, 162, 0.50) 15%,
-    rgba(0, 153, 209, 0.65) 50%,
-    rgba(87, 98, 162, 0.50) 85%,
-    transparent 100%
+  top: 16%;
+  right: -18%;
+  left: auto;
+  background: radial-gradient(ellipse at center,
+    rgba(0, 153, 209, 0.78) 0%,
+    rgba(0, 153, 209, 0.38) 50%,
+    transparent 78%
   );
-  filter: blur(22px);
-  animation: auroraFloat2 18s ease-in-out infinite;
+  filter: blur(58px);
+  animation: auroraOrb2 20s ease-in-out infinite;
+  animation-delay: -7s;
 }
 
-/* Bande 3 — mélange bas */
-.aurora-band-3 {
-  top: 62%;
-  height: 160px;
-  background: linear-gradient(
-    to right,
-    transparent 0%,
-    rgba(0, 153, 209, 0.40) 25%,
-    rgba(87, 98, 162, 0.52) 60%,
-    transparent 100%
+/* Orb 3 — Voile central violet→bleu */
+.aurora-orb-3 {
+  width: 68%;
+  height: 200px;
+  top: 30%;
+  left: 12%;
+  background: radial-gradient(ellipse at center,
+    rgba(87, 98, 162, 0.70) 0%,
+    rgba(0, 153, 209, 0.42) 40%,
+    transparent 72%
   );
-  filter: blur(26px);
-  animation: auroraFloat3 22s ease-in-out infinite;
+  filter: blur(64px);
+  animation: auroraOrb3 25s ease-in-out infinite;
+  animation-delay: -12s;
+}
+
+/* Orb 4 — Grand arc bleu bas, très incliné */
+.aurora-orb-4 {
+  width: 92%;
+  height: 155px;
+  top: 54%;
+  left: -28%;
+  background: radial-gradient(ellipse at center,
+    rgba(0, 153, 209, 0.65) 0%,
+    rgba(32, 52, 120, 0.35) 50%,
+    transparent 76%
+  );
+  filter: blur(48px);
+  animation: auroraOrb4 18s ease-in-out infinite;
+  animation-delay: -5s;
+}
+
+/* Orb 5 — Profondeur nuit boréale, diagonale centrale */
+.aurora-orb-5 {
+  width: 55%;
+  height: 140px;
+  top: 10%;
+  left: 32%;
+  background: radial-gradient(ellipse at center,
+    rgba(32, 52, 120, 0.60) 0%,
+    rgba(87, 98, 162, 0.32) 50%,
+    transparent 78%
+  );
+  filter: blur(44px);
+  animation: auroraOrb5 22s ease-in-out infinite;
+  animation-delay: -9s;
 }
 
 /* ---------------------------------------------------------

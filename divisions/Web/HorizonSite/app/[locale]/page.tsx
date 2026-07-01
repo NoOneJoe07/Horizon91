@@ -197,10 +197,12 @@ export default function HomePage() {
         {/* Champ d'étoiles animé — canvas 180 étoiles scintillantes */}
         <StarField />
 
-        {/* Aurore boréale — Bleu Polaire + Violette Boréale */}
-        <div className="aurora-band aurora-band-1" aria-hidden="true" />
-        <div className="aurora-band aurora-band-2" aria-hidden="true" />
-        <div className="aurora-band aurora-band-3" aria-hidden="true" />
+        {/* Aurore numérique Claude — 5 blobs organiques inclinés */}
+        <div className="aurora-orb aurora-orb-1" aria-hidden="true" />
+        <div className="aurora-orb aurora-orb-2" aria-hidden="true" />
+        <div className="aurora-orb aurora-orb-3" aria-hidden="true" />
+        <div className="aurora-orb aurora-orb-4" aria-hidden="true" />
+        <div className="aurora-orb aurora-orb-5" aria-hidden="true" />
 
         <div className="relative z-10 flex flex-col items-center">
 
