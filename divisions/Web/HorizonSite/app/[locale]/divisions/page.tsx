@@ -39,7 +39,7 @@ export async function generateMetadata({
 const divisionsMeta = [
   {
     key: "arpenteur",
-    mark: "/mark-arpenteur.svg",
+    mark: "/mark-nordik.svg",
     couleur: "#5762A2",
     bg: "#E8EAF6",
     href: "/divisions/arpenteur",

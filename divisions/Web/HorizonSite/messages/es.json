@@ -217,22 +217,22 @@
         "note": "Alianzas, visión estratégica, colaboraciones."
       },
       {
-        "titre": "Desarrollo Web",
+        "titre": "Diseño & Marketing",
         "couleur": "text-h91-warp",
-        "courriel": "web@groupesupernova.ca",
-        "note": "Sitios web, e-commerce, SEO, identidad visual."
+        "courriel": "arpenteur@etoileboreale.ca",
+        "note": "Manual de marca, identidad visual, fotografía, redes sociales."
+      },
+      {
+        "titre": "Desarrollo Web",
+        "couleur": "text-h91-ion",
+        "courriel": "web@etoileboreale.ca",
+        "note": "Sitios web, e-commerce, SEO, aplicaciones."
       },
       {
         "titre": "Ciberseguridad",
         "couleur": "text-h91-accretion",
-        "courriel": "cyber@groupesupernova.ca",
-        "note": "Auditorías, fortalecimiento, capacitación."
-      },
-      {
-        "titre": "Estudio Nordik Legion",
-        "couleur": "text-h91-ion",
-        "courriel": "studio@etoileboreale.ca",
-        "note": "Videojuegos, experiencias interactivas."
+        "courriel": "cyber@etoileboreale.ca",
+        "note": "Auditorías, Fort Saurel, capacitación."
       }
     ]
   },

@@ -217,22 +217,22 @@
         "note": "Partenariats, vision stratégique, collaborations."
       },
       {
-        "titre": "Développement Web",
+        "titre": "Graphisme & Marketing",
         "couleur": "text-h91-warp",
+        "courriel": "arpenteur@etoileboreale.ca",
+        "note": "Livre de marque, identité visuelle, photographie, médias sociaux."
+      },
+      {
+        "titre": "Développement Web",
+        "couleur": "text-h91-ion",
         "courriel": "web@etoileboreale.ca",
-        "note": "Sites web, e-commerce, SEO, identité visuelle."
+        "note": "Sites web, e-commerce, SEO, applications."
       },
       {
         "titre": "Cybersécurité",
         "couleur": "text-h91-accretion",
         "courriel": "cyber@etoileboreale.ca",
-        "note": "Audits, sécurisation, formation."
-      },
-      {
-        "titre": "Studio Nordik Legion",
-        "couleur": "text-h91-ion",
-        "courriel": "studio@etoileboreale.ca",
-        "note": "Jeux vidéo, expériences interactives."
+        "note": "Audits, sécurisation, Fort Saurel, formation."
       }
     ]
   },

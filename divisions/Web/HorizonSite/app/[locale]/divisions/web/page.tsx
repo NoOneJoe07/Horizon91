@@ -91,35 +91,37 @@ export default function DivisionWebPage() {
   return (
     <>
       <WebServiceJsonLd />
-      {/* Fond Space Black pour toute la page — cohérence dark mode division */}
-      <div style={{ backgroundColor: "#1D1D1B", color: "#F4F4F0", minHeight: "100vh" }}>
+
       {/* ═══════════════════════════════════════════════════
-          HERO
+          HERO — Bleu Polaire #0099D1
       ═══════════════════════════════════════════════════ */}
-      <section className="relative flex flex-col items-center justify-center min-h-[60vh] text-center px-6 py-24">
+      <section
+        className="relative flex flex-col items-center justify-center min-h-[70vh] text-center px-6"
+        style={{ backgroundColor: "#0099D1", color: "#F4F4F0", marginTop: "-80px", paddingTop: "176px", paddingBottom: "96px" }}
+      >
         {/* Mark */}
         <div className="mb-6 flex items-center justify-center">
           <Image
             src="/mark-web.svg"
             alt="La Flamme — Division Draveur — Développement Web"
-            width={80}
-            height={80}
+            width={90}
+            height={90}
             className="drop-shadow-lg"
           />
         </div>
 
         {/* Tagline */}
-        <p className="text-h91-ion font-bold tracking-widest uppercase text-sm mb-3">
+        <p className="font-bold tracking-widest uppercase text-sm mb-3" style={{ color: "rgba(244,244,240,0.75)" }}>
           {t("hero_tagline")} — {tBrand("name")}
         </p>
 
         {/* Titre */}
-        <h1 className="text-5xl md:text-7xl font-bold text-h91-stellar mb-6">
+        <h1 className="text-5xl md:text-7xl font-bold mb-6" style={{ color: "#F4F4F0" }}>
           {t("hero_titre")}
         </h1>
 
         {/* Description */}
-        <p className="text-lg md:text-xl text-h91-stellar/70 max-w-2xl leading-relaxed">
+        <p className="text-lg md:text-xl max-w-2xl leading-relaxed" style={{ color: "rgba(244,244,240,0.85)" }}>
           {t("hero_description")}
         </p>
 
@@ -127,13 +129,15 @@ export default function DivisionWebPage() {
         <div className="mt-10 flex flex-wrap gap-4 justify-center">
           <Link
             href="/rejoindre"
-            className="px-8 py-4 rounded-lg bg-h91-ion text-h91-stellar font-bold text-lg hover:bg-h91-ion/80 transition"
+            className="px-8 py-4 rounded-lg font-bold text-lg transition"
+            style={{ backgroundColor: "#1D1D1B", color: "#F4F4F0" }}
           >
             {t("cta_bouton")}
           </Link>
           <Link
             href="/portfolio"
-            className="px-8 py-4 rounded-lg border border-h91-ion text-h91-ion font-bold text-lg hover:bg-h91-ion/10 transition"
+            className="px-8 py-4 rounded-lg font-bold text-lg border transition"
+            style={{ borderColor: "rgba(244,244,240,0.50)", color: "#F4F4F0" }}
           >
             {t("cta_portfolio")}
           </Link>
@@ -141,39 +145,42 @@ export default function DivisionWebPage() {
       </section>
 
       {/* ═══════════════════════════════════════════════════
-          SERVICES
+          SERVICES — Space Black
       ═══════════════════════════════════════════════════ */}
-      <section className="py-20 px-6 max-w-6xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold text-h91-stellar text-center mb-14">
-          {t("services_titre")}
-        </h2>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {services.map((service, i) => (
-            <div
-              key={i}
-              className={`p-6 border border-h91-ion/30 rounded-xl bg-h91-gravity/50 hover:border-h91-ion/70 hover:bg-h91-gravity/80 card-lift animate-fade-in-up stagger-${Math.min(i + 1, 6)}`}
-            >
-              <div className="w-8 h-0.5 bg-h91-ion mb-4" />
-              <h3 className="text-h91-stellar font-bold text-lg mb-2">{service.titre}</h3>
-              <p className="text-h91-stellar/60 text-sm leading-relaxed">{service.desc}</p>
-            </div>
-          ))}
+      <section style={{ backgroundColor: "#1D1D1B", color: "#F4F4F0" }} className="py-20 px-6">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-14" style={{ color: "#F4F4F0" }}>
+            {t("services_titre")}
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {services.map((service, i) => (
+              <div
+                key={i}
+                className={`p-6 border border-h91-ion/30 rounded-xl bg-h91-gravity/50 hover:border-h91-ion/70 hover:bg-h91-gravity/80 card-lift animate-fade-in-up stagger-${Math.min(i + 1, 6)}`}
+              >
+                <div className="w-8 h-0.5 bg-h91-ion mb-4" />
+                <h3 className="text-h91-stellar font-bold text-lg mb-2">{service.titre}</h3>
+                <p className="text-h91-stellar/60 text-sm leading-relaxed">{service.desc}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* ═══════════════════════════════════════════════════
-          APPROCHE
+          APPROCHE — Bleu Polaire
       ═══════════════════════════════════════════════════ */}
-      <section className="py-16 px-6 max-w-3xl mx-auto text-center">
-        <h2 className="text-2xl font-bold text-h91-ion mb-6">{t("approche_titre")}</h2>
-        <p className="text-h91-stellar/70 text-lg leading-relaxed">{t("approche_texte")}</p>
+      <section style={{ backgroundColor: "#0099D1", color: "#F4F4F0" }} className="py-16 px-6">
+        <div className="max-w-3xl mx-auto text-center">
+          <h2 className="text-2xl font-bold mb-6" style={{ color: "#F4F4F0" }}>{t("approche_titre")}</h2>
+          <p className="text-lg leading-relaxed" style={{ color: "rgba(244,244,240,0.88)" }}>{t("approche_texte")}</p>
+        </div>
       </section>
 
       {/* ═══════════════════════════════════════════════════
-          HÉRITAGE DES DRAVEURS + SAVIEZ-VOUS QUE ?
+          HÉRITAGE DES DRAVEURS + SAVIEZ-VOUS QUE ? — Space Black
       ═══════════════════════════════════════════════════ */}
-      <section className="py-20 px-6 border-t border-h91-ion/20">
+      <section style={{ backgroundColor: "#1D1D1B", color: "#F4F4F0" }} className="py-20 px-6">
         <div className="max-w-4xl mx-auto">
 
           {/* Narratif historique */}
@@ -304,17 +311,17 @@ export default function DivisionWebPage() {
       </section>
 
       {/* ═══════════════════════════════════════════════════
-          TARIFICATION — RÉSUMÉ
+          TARIFICATION — RÉSUMÉ — Bleu Polaire
       ═══════════════════════════════════════════════════ */}
-      <section className="py-20 px-6 border-t border-h91-ion/20">
+      <section style={{ backgroundColor: "#0099D1", color: "#F4F4F0" }} className="py-20 px-6">
         <div className="max-w-5xl mx-auto">
-          <span className="inline-block text-xs font-bold px-3 py-1.5 rounded-full bg-h91-ion/10 text-h91-ion border border-h91-ion/30 mb-6 uppercase tracking-widest">
+          <span className="inline-block text-xs font-bold px-3 py-1.5 rounded-full mb-6 uppercase tracking-widest" style={{ backgroundColor: "rgba(255,255,255,0.20)", color: "#F4F4F0", border: "1px solid rgba(255,255,255,0.30)" }}>
             Investissement
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-h91-stellar mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4" style={{ color: "#F4F4F0" }}>
             Des forfaits clairs pour chaque ambition
           </h2>
-          <p className="text-h91-stellar/60 text-lg mb-12 max-w-2xl">
+          <p className="text-lg mb-12 max-w-2xl" style={{ color: "rgba(244,244,240,0.70)" }}>
             Livraison unique, sans surprise. La maintenance mensuelle assure la santé
             de votre site sur le long terme.
           </p>
@@ -323,11 +330,11 @@ export default function DivisionWebPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
 
             {/* Vitrine Essentiel */}
-            <div className="p-6 rounded-xl border border-h91-ion/30 bg-h91-gravity/50 flex flex-col gap-3 card-lift">
-              <h3 className="text-h91-stellar font-bold text-lg">Vitrine Essentiel</h3>
-              <p className="text-h91-ion font-bold text-3xl">1 500 – 2 200 $</p>
-              <p className="text-h91-stellar/50 text-xs uppercase tracking-widest">Livraison unique</p>
-              <ul className="text-h91-stellar/70 text-sm space-y-1.5 mt-2 flex-1">
+            <div className="p-6 rounded-xl flex flex-col gap-3 card-lift" style={{ backgroundColor: "rgba(29,29,27,0.70)", border: "1px solid rgba(255,255,255,0.15)" }}>
+              <h3 className="font-bold text-lg" style={{ color: "#F4F4F0" }}>Vitrine Essentiel</h3>
+              <p className="font-bold text-3xl" style={{ color: "#F4F4F0" }}>1 500 – 2 200 $</p>
+              <p className="text-xs uppercase tracking-widest" style={{ color: "rgba(244,244,240,0.50)" }}>Livraison unique</p>
+              <ul className="text-sm space-y-1.5 mt-2 flex-1" style={{ color: "rgba(244,244,240,0.75)" }}>
                 <li>✓ Site vitrine sur mesure</li>
                 <li>✓ Mobile-first & ultra-rapide</li>
                 <li>✓ SEO de base inclus</li>
@@ -336,14 +343,14 @@ export default function DivisionWebPage() {
             </div>
 
             {/* Pro Interactif — Featured */}
-            <div className="p-6 rounded-xl border-2 border-h91-ion bg-h91-ion/8 flex flex-col gap-3 card-lift relative">
-              <span className="absolute -top-3 left-1/2 -translate-x-1/2 text-xs font-bold px-3 py-1 rounded-full bg-h91-ion text-h91-stellar whitespace-nowrap">
+            <div className="p-6 rounded-xl flex flex-col gap-3 card-lift relative" style={{ backgroundColor: "rgba(29,29,27,0.75)", border: "2px solid rgba(255,255,255,0.60)" }}>
+              <span className="absolute -top-3 left-1/2 -translate-x-1/2 text-xs font-bold px-3 py-1 rounded-full whitespace-nowrap" style={{ backgroundColor: "#F4F4F0", color: "#0099D1" }}>
                 Le plus populaire
               </span>
-              <h3 className="text-h91-stellar font-bold text-lg">Pro Interactif</h3>
-              <p className="text-h91-ion font-bold text-3xl">3 000 – 4 500 $</p>
-              <p className="text-h91-stellar/50 text-xs uppercase tracking-widest">Livraison unique</p>
-              <ul className="text-h91-stellar/70 text-sm space-y-1.5 mt-2 flex-1">
+              <h3 className="font-bold text-lg" style={{ color: "#F4F4F0" }}>Pro Interactif</h3>
+              <p className="font-bold text-3xl" style={{ color: "#F4F4F0" }}>3 000 – 4 500 $</p>
+              <p className="text-xs uppercase tracking-widest" style={{ color: "rgba(244,244,240,0.50)" }}>Livraison unique</p>
+              <ul className="text-sm space-y-1.5 mt-2 flex-1" style={{ color: "rgba(244,244,240,0.75)" }}>
                 <li>✓ Réservation / blog / galerie</li>
                 <li>✓ Formulaires avancés</li>
                 <li>✓ SEO local renforcé</li>
@@ -352,11 +359,11 @@ export default function DivisionWebPage() {
             </div>
 
             {/* Commerce Complet */}
-            <div className="p-6 rounded-xl border border-h91-ion/30 bg-h91-gravity/50 flex flex-col gap-3 card-lift">
-              <h3 className="text-h91-stellar font-bold text-lg">Commerce Complet</h3>
-              <p className="text-h91-ion font-bold text-3xl">5 500 – 8 000 $+</p>
-              <p className="text-h91-stellar/50 text-xs uppercase tracking-widest">Livraison unique</p>
-              <ul className="text-h91-stellar/70 text-sm space-y-1.5 mt-2 flex-1">
+            <div className="p-6 rounded-xl flex flex-col gap-3 card-lift" style={{ backgroundColor: "rgba(29,29,27,0.70)", border: "1px solid rgba(255,255,255,0.15)" }}>
+              <h3 className="font-bold text-lg" style={{ color: "#F4F4F0" }}>Commerce Complet</h3>
+              <p className="font-bold text-3xl" style={{ color: "#F4F4F0" }}>5 500 – 8 000 $+</p>
+              <p className="text-xs uppercase tracking-widest" style={{ color: "rgba(244,244,240,0.50)" }}>Livraison unique</p>
+              <ul className="text-sm space-y-1.5 mt-2 flex-1" style={{ color: "rgba(244,244,240,0.75)" }}>
                 <li>✓ E-commerce & paiement Stripe</li>
                 <li>✓ Panel admin sur mesure</li>
                 <li>✓ Gestion de stock</li>
@@ -366,22 +373,23 @@ export default function DivisionWebPage() {
           </div>
 
           {/* Maintenance */}
-          <div className="p-5 rounded-xl border border-h91-ion/20 bg-h91-ion/5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-8">
+          <div className="p-5 rounded-xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-8" style={{ backgroundColor: "rgba(0,0,0,0.25)", border: "1px solid rgba(255,255,255,0.20)" }}>
             <div>
-              <p className="text-h91-stellar font-bold text-sm mb-1">+ Maintenance mensuelle</p>
-              <p className="text-h91-stellar/60 text-sm">
-                Incluse dans tout contrat — à partir de <span className="text-h91-ion font-bold">150 $/mois</span>.
+              <p className="font-bold text-sm mb-1" style={{ color: "#F4F4F0" }}>+ Maintenance mensuelle</p>
+              <p className="text-sm" style={{ color: "rgba(244,244,240,0.70)" }}>
+                Incluse dans tout contrat — à partir de <span className="font-bold" style={{ color: "#F4F4F0" }}>150 $/mois</span>.
                 Mises à jour, sécurité, monitoring et support continu.
               </p>
             </div>
-            <p className="text-h91-ion font-bold text-2xl whitespace-nowrap">150 – 350 $/mois</p>
+            <p className="font-bold text-2xl whitespace-nowrap" style={{ color: "#F4F4F0" }}>150 – 350 $/mois</p>
           </div>
 
           {/* CTA vers tarification */}
           <div className="text-center">
             <Link
               href="/tarification"
-              className="inline-block px-8 py-3 rounded-lg border border-h91-ion text-h91-ion font-bold hover:bg-h91-ion/10 transition"
+              className="inline-block px-8 py-3 rounded-lg font-bold transition"
+              style={{ border: "1px solid rgba(255,255,255,0.70)", color: "#F4F4F0" }}
             >
               Voir tous les détails & options →
             </Link>
@@ -392,18 +400,18 @@ export default function DivisionWebPage() {
       {/* ═══════════════════════════════════════════════════
           CTA FINAL
       ═══════════════════════════════════════════════════ */}
-      <section className="py-20 px-6 text-center border-t border-h91-ion/20">
-        <h2 className="text-3xl md:text-4xl font-bold text-h91-stellar mb-8">
+      <section style={{ backgroundColor: "#1D1D1B", color: "#F4F4F0" }} className="py-20 px-6 text-center">
+        <h2 className="text-3xl md:text-4xl font-bold mb-8" style={{ color: "#F4F4F0" }}>
           {t("cta_titre")}
         </h2>
         <Link
           href="/rejoindre"
-          className="inline-block px-10 py-5 rounded-lg bg-h91-ion text-h91-stellar font-bold text-xl hover:bg-h91-ion/80 transition"
+          className="inline-block px-10 py-5 rounded-lg font-bold text-xl transition"
+          style={{ backgroundColor: "#0099D1", color: "#F4F4F0" }}
         >
           {t("cta_bouton")}
         </Link>
       </section>
-      </div>{/* /fond Space Black */}
     </>
   );
 }

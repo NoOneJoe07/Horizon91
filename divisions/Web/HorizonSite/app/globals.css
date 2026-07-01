@@ -163,19 +163,19 @@ a, button {
    (remplace l'ancien cyan #00F0FF / vert)
 --------------------------------------------------------- */
 @keyframes auroraFloat1 {
-  0%   { transform: translateX(-8%) scaleY(1);    opacity: 0.18; }
-  50%  { transform: translateX(6%)  scaleY(1.15); opacity: 0.30; }
-  100% { transform: translateX(-8%) scaleY(1);    opacity: 0.18; }
+  0%   { transform: translateX(-10%) scaleY(1);    opacity: 0.50; }
+  50%  { transform: translateX(7%)   scaleY(1.20); opacity: 0.72; }
+  100% { transform: translateX(-10%) scaleY(1);    opacity: 0.50; }
 }
 @keyframes auroraFloat2 {
-  0%   { transform: translateX(10%) scaleY(1.05); opacity: 0.12; }
-  50%  { transform: translateX(-5%) scaleY(0.90); opacity: 0.22; }
-  100% { transform: translateX(10%) scaleY(1.05); opacity: 0.12; }
+  0%   { transform: translateX(12%) scaleY(1.05); opacity: 0.40; }
+  50%  { transform: translateX(-6%) scaleY(0.88); opacity: 0.62; }
+  100% { transform: translateX(12%) scaleY(1.05); opacity: 0.40; }
 }
 @keyframes auroraFloat3 {
-  0%   { transform: translateX(-4%) scaleY(0.95); opacity: 0.10; }
-  60%  { transform: translateX(8%)  scaleY(1.10); opacity: 0.18; }
-  100% { transform: translateX(-4%) scaleY(0.95); opacity: 0.10; }
+  0%   { transform: translateX(-5%) scaleY(0.95); opacity: 0.35; }
+  60%  { transform: translateX(9%)  scaleY(1.12); opacity: 0.55; }
+  100% { transform: translateX(-5%) scaleY(0.95); opacity: 0.35; }
 }
 
 .aurora-band {
@@ -186,50 +186,50 @@ a, button {
   z-index: 0;
 }
 
-/* Bande 1 — Bleu Polaire dominant */
+/* Bande 1 — Bleu Polaire dominant (haute) */
 .aurora-band-1 {
-  top: 18%;
+  top: 12%;
+  height: 220px;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(0, 153, 209, 0.55) 20%,
+    rgba(87, 98, 162, 0.70) 50%,
+    rgba(0, 153, 209, 0.55) 80%,
+    transparent 100%
+  );
+  filter: blur(18px);
+  animation: auroraFloat1 14s ease-in-out infinite;
+}
+
+/* Bande 2 — Violette Boréale dominant (milieu) */
+.aurora-band-2 {
+  top: 38%;
   height: 180px;
   background: linear-gradient(
     to right,
     transparent 0%,
-    rgba(0, 153, 209, 0.20) 25%,
-    rgba(87, 98, 162, 0.28) 55%,
-    rgba(0, 153, 209, 0.20) 75%,
+    rgba(87, 98, 162, 0.50) 15%,
+    rgba(0, 153, 209, 0.65) 50%,
+    rgba(87, 98, 162, 0.50) 85%,
     transparent 100%
   );
-  filter: blur(28px);
-  animation: auroraFloat1 14s ease-in-out infinite;
-}
-
-/* Bande 2 — Violette Boréale dominant */
-.aurora-band-2 {
-  top: 40%;
-  height: 150px;
-  background: linear-gradient(
-    to right,
-    transparent 0%,
-    rgba(87, 98, 162, 0.18) 20%,
-    rgba(0, 153, 209, 0.24) 55%,
-    rgba(87, 98, 162, 0.18) 80%,
-    transparent 100%
-  );
-  filter: blur(36px);
+  filter: blur(22px);
   animation: auroraFloat2 18s ease-in-out infinite;
 }
 
-/* Bande 3 — accent doux */
+/* Bande 3 — mélange bas */
 .aurora-band-3 {
-  top: 60%;
-  height: 120px;
+  top: 62%;
+  height: 160px;
   background: linear-gradient(
     to right,
     transparent 0%,
-    rgba(0, 153, 209, 0.10) 30%,
-    rgba(87, 98, 162, 0.16) 60%,
+    rgba(0, 153, 209, 0.40) 25%,
+    rgba(87, 98, 162, 0.52) 60%,
     transparent 100%
   );
-  filter: blur(42px);
+  filter: blur(26px);
   animation: auroraFloat3 22s ease-in-out infinite;
 }
 
