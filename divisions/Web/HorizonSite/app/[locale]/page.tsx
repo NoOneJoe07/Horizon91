@@ -149,7 +149,8 @@ const piliers = [
     key: "arpenteur",
     couleur: "#5762A2",
     couleurLight: "#E8EAF6",
-    mark: "/mark-arpenteur.svg",
+    mark: "/mark-nordik.svg",
+    markFilter: "hue-rotate(45deg) saturate(60%) brightness(55%)" as string | undefined,
     href: "/divisions/arpenteur",
   },
   {
@@ -157,6 +158,7 @@ const piliers = [
     couleur: "#0099D1",
     couleurLight: "#E0F4FB",
     mark: "/mark-web.svg",
+    markFilter: undefined as string | undefined,
     href: "/divisions/web",
   },
   {
@@ -164,9 +166,10 @@ const piliers = [
     couleur: "#203478",
     couleurLight: "#E3E6EF",
     mark: "/mark-cyber.svg",
+    markFilter: undefined as string | undefined,
     href: "/divisions/cyber",
   },
-] as const;
+];
 
 // ─────────────────────────────────────────────────────────
 // Page principale
@@ -185,7 +188,8 @@ export default function HomePage() {
       ================================================================ */}
       <section
         id="hero"
-        className="hero-dark relative flex flex-col items-center min-h-[92vh] text-center px-6 pt-24 pb-20"
+        className="hero-dark relative flex flex-col items-center min-h-[100vh] text-center px-6 pb-20"
+        style={{ marginTop: "-80px", paddingTop: "176px" }}
       >
         {/* Champ d'étoiles animé — canvas 180 étoiles scintillantes */}
         <StarField />
@@ -301,7 +305,7 @@ export default function HomePage() {
                   alt={`Mark Division ${p.key}`}
                   width={44}
                   height={44}
-                  style={{ width: "44px", height: "44px", marginBottom: "16px" }}
+                  style={{ width: "44px", height: "44px", marginBottom: "16px", filter: p.markFilter ?? undefined }}
                 />
                 <h3
                   className="text-xl font-bold mb-2"

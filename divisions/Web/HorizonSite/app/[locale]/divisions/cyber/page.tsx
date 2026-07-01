@@ -186,13 +186,15 @@ export default function DivisionCyberPage() {
   return (
     <>
       <CyberServiceJsonLd />
-      {/* Fond Space Black pour toute la page — cohérence dark mode division */}
-      <div style={{ backgroundColor: "#1D1D1B", color: "#F4F4F0", minHeight: "100vh" }}>
+
       {/* ═══════════════════════════════════════════════════
-          HERO
+          HERO — Bleu Nuit #203478
       ═══════════════════════════════════════════════════ */}
-      <section className="relative flex flex-col items-center justify-center min-h-[60vh] text-center px-6 py-24">
-        <span className="mb-6 inline-block text-xs font-bold px-3 py-1.5 rounded-full bg-h91-accretion/20 text-h91-accretion border border-h91-accretion/40">
+      <section
+        className="relative flex flex-col items-center justify-center min-h-[60vh] text-center px-6"
+        style={{ backgroundColor: "#203478", color: "#F4F4F0", marginTop: "-80px", paddingTop: "176px", paddingBottom: "96px" }}
+      >
+        <span className="mb-6 inline-block text-xs font-bold px-3 py-1.5 rounded-full" style={{ backgroundColor: "rgba(255,255,255,0.15)", color: "#F4F4F0", border: "1px solid rgba(255,255,255,0.30)" }}>
           {t("badge")}
         </span>
 
@@ -203,31 +205,34 @@ export default function DivisionCyberPage() {
             width={80}
             height={80}
             className="drop-shadow-lg"
+            style={{ filter: "brightness(0) invert(1)" }}
           />
         </div>
 
-        <p className="text-h91-accretion font-bold tracking-widest uppercase text-sm mb-3">
+        <p className="font-bold tracking-widest uppercase text-sm mb-3" style={{ color: "rgba(244,244,240,0.75)" }}>
           {t("hero_tagline")} — {tBrand("name")}
         </p>
 
-        <h1 className="text-5xl md:text-7xl font-bold text-h91-stellar mb-6">
+        <h1 className="text-5xl md:text-7xl font-bold mb-6" style={{ color: "#F4F4F0" }}>
           {t("hero_titre")}
         </h1>
 
-        <p className="text-lg md:text-xl text-h91-stellar/70 max-w-2xl leading-relaxed">
+        <p className="text-lg md:text-xl max-w-2xl leading-relaxed" style={{ color: "rgba(244,244,240,0.80)" }}>
           {t("hero_description")}
         </p>
 
         <div className="mt-10 flex flex-wrap gap-4 justify-center">
           <Link
             href="/rejoindre"
-            className="px-8 py-4 rounded-lg bg-h91-accretion text-h91-gravity font-bold text-lg hover:bg-h91-fusion transition"
+            className="px-8 py-4 rounded-lg font-bold text-lg transition"
+            style={{ backgroundColor: "#F4F4F0", color: "#203478" }}
           >
             {t("cta_bouton")}
           </Link>
           <Link
             href="/divisions"
-            className="px-8 py-4 rounded-lg border border-h91-accretion/50 text-h91-accretion font-bold text-lg hover:bg-h91-accretion/10 transition"
+            className="px-8 py-4 rounded-lg font-bold text-lg transition"
+            style={{ border: "1px solid rgba(244,244,240,0.45)", color: "#F4F4F0" }}
           >
             {t("cta_portfolio")}
           </Link>
@@ -235,10 +240,11 @@ export default function DivisionCyberPage() {
       </section>
 
       {/* ═══════════════════════════════════════════════════
-          SERVICES CONSEILS
+          SERVICES CONSEILS — Blanc
       ═══════════════════════════════════════════════════ */}
-      <section className="py-20 px-6 max-w-6xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold text-h91-stellar text-center mb-14">
+      <section className="py-20 px-6" style={{ backgroundColor: "#FFFFFF" }}>
+        <div className="max-w-6xl mx-auto">
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-14" style={{ color: "#203478" }}>
           {t("services_titre")}
         </h2>
 
@@ -246,28 +252,31 @@ export default function DivisionCyberPage() {
           {services.map((service, i) => (
             <div
               key={i}
-              className="p-6 border border-h91-accretion/30 rounded-xl bg-h91-gravity/50 hover:border-h91-accretion/70 hover:bg-h91-gravity/80 transition"
+              className="p-6 rounded-xl border-l-4 card-lift"
+              style={{ borderLeftColor: "#203478", backgroundColor: "#F4F4F0" }}
             >
-              <div className="w-8 h-0.5 bg-h91-accretion mb-4" />
-              <h3 className="text-h91-stellar font-bold text-lg mb-2">{service.titre}</h3>
-              <p className="text-h91-stellar/60 text-sm leading-relaxed">{service.desc}</p>
+              <h3 className="font-bold text-lg mb-2" style={{ color: "#203478" }}>{service.titre}</h3>
+              <p className="text-sm leading-relaxed" style={{ color: "rgba(29,29,27,0.65)" }}>{service.desc}</p>
             </div>
           ))}
+        </div>
         </div>
       </section>
 
       {/* ═══════════════════════════════════════════════════
-          APPROCHE
+          APPROCHE — Gris Nuit
       ═══════════════════════════════════════════════════ */}
-      <section className="py-16 px-6 max-w-3xl mx-auto text-center">
-        <h2 className="text-2xl font-bold text-h91-accretion mb-6">{t("approche_titre")}</h2>
-        <p className="text-h91-stellar/70 text-lg leading-relaxed">{t("approche_texte")}</p>
+      <section className="py-16 px-6" style={{ backgroundColor: "#E3E6EF" }}>
+        <div className="max-w-3xl mx-auto text-center">
+          <h2 className="text-2xl font-bold mb-6" style={{ color: "#203478" }}>{t("approche_titre")}</h2>
+          <p className="text-lg leading-relaxed" style={{ color: "rgba(29,29,27,0.75)" }}>{t("approche_texte")}</p>
+        </div>
       </section>
 
       {/* ═══════════════════════════════════════════════════
-          HÉRITAGE DE CARILLON + SAVIEZ-VOUS QUE ?
+          HÉRITAGE DE CARILLON + SAVIEZ-VOUS QUE ? — Blanc
       ═══════════════════════════════════════════════════ */}
-      <section className="py-20 px-6 border-t border-h91-accretion/20">
+      <section className="py-20 px-6" style={{ backgroundColor: "#FFFFFF" }}>
         <div className="max-w-4xl mx-auto">
 
           {/* Narratif historique */}
@@ -275,68 +284,80 @@ export default function DivisionCyberPage() {
             <span className="inline-block text-xs font-bold px-3 py-1.5 rounded-full bg-h91-accretion/10 text-h91-accretion border border-h91-accretion/30 mb-6 uppercase tracking-widest">
               L&apos;héritage
             </span>
-            <h2 className="text-2xl md:text-3xl font-bold text-h91-stellar mb-6 whitespace-nowrap text-center">
+            <h2 className="text-2xl md:text-3xl font-bold mb-6 whitespace-nowrap text-center" style={{ color: "#1D1D1B" }}>
               L&apos;architecture défensive de votre empire numérique
             </h2>
 
-            {/* Photos d'archives — Bataille de Carillon */}
-            {/* Rangée 1 — peinture principale centrée */}
-            <div className="flex justify-center mb-3">
-              <div className="relative overflow-hidden rounded-xl">
-                <Image
-                  src="/photos_images/The_Victory_of_Montcalms_Troops_at_Carillon_by_Henry_Alexander_OgdenAAA.jpg"
-                  alt="La victoire des troupes de Montcalm à Carillon — Henry Alexander Ogden (domaine public)"
-                  width={800}
-                  height={500}
-                  className="h-auto max-h-[420px] w-auto grayscale opacity-70 hover:opacity-90 transition duration-500"
-                />
-                <div className="absolute inset-0 bg-h91-accretion/20 pointer-events-none" />
-              </div>
-            </div>
-            {/* Rangée 2 — 4 photos égales */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-8">
-              <div className="relative aspect-[4/3] overflow-hidden rounded-lg">
+            {/* Photos d'archives — Bataille de Carillon — layout staggeré asymétrique */}
+            {/* Desktop: grille 3 colonnes avec portrait gauche + 3 droite */}
+            <div
+              className="hidden md:grid mb-3"
+              style={{
+                gridTemplateColumns: "1fr 1.3fr 1fr",
+                gridTemplateRows: "290px 210px",
+                gap: "10px",
+              }}
+            >
+              {/* Portrait tall — Troupes britanniques, col 1, 2 rangées */}
+              <div style={{ gridColumn: "1", gridRow: "1 / span 2" }} className="relative overflow-hidden rounded-xl">
                 <Image
                   src="/photos_images/British at Carillon.webp"
                   alt="Troupes britanniques à Carillon — Bataille de 1758"
                   fill
                   className="object-cover object-center grayscale opacity-70 hover:opacity-90 hover:scale-105 transition duration-500"
                 />
-                <div className="absolute inset-0 bg-h91-accretion/20" />
+                <div className="absolute inset-0" style={{ backgroundColor: "rgba(32,52,120,0.20)" }} />
               </div>
-              <div className="relative aspect-[4/3] overflow-hidden rounded-lg">
+              {/* Paysage large — Victoire de Montcalm (Ogden), cols 2-3 rangée 1 */}
+              <div style={{ gridColumn: "2 / span 2", gridRow: "1" }} className="relative overflow-hidden rounded-xl">
+                <Image
+                  src="/photos_images/The_Victory_of_Montcalms_Troops_at_Carillon_by_Henry_Alexander_OgdenAAA.jpg"
+                  alt="La victoire des troupes de Montcalm à Carillon — Henry Alexander Ogden"
+                  fill
+                  className="object-cover object-top grayscale opacity-70 hover:opacity-90 hover:scale-105 transition duration-500"
+                />
+                <div className="absolute inset-0" style={{ backgroundColor: "rgba(32,52,120,0.20)" }} />
+              </div>
+              {/* Carré bas milieu — Carte stratégique */}
+              <div style={{ gridColumn: "2", gridRow: "2" }} className="relative overflow-hidden rounded-lg">
                 <Image
                   src="/photos_images/Carillon_map.jpg"
-                  alt="Carte stratégique du Fort Carillon — positionnement défensif 1758"
+                  alt="Carte stratégique du Fort Carillon — 1758"
                   fill
                   className="object-cover object-center grayscale opacity-70 hover:opacity-90 hover:scale-105 transition duration-500"
                 />
-                <div className="absolute inset-0 bg-h91-accretion/20" />
+                <div className="absolute inset-0" style={{ backgroundColor: "rgba(32,52,120,0.20)" }} />
               </div>
-              <div className="relative aspect-[4/3] overflow-hidden rounded-lg">
-                <Image
-                  src="/photos_images/Fort_Carillon_1.jpg"
-                  alt="Fort Carillon — forteresse française sur le lac Champlain"
-                  fill
-                  className="object-cover object-center grayscale opacity-70 hover:opacity-90 hover:scale-105 transition duration-500"
-                />
-                <div className="absolute inset-0 bg-h91-accretion/20" />
-              </div>
-              <div className="relative aspect-[4/3] overflow-hidden rounded-lg">
+              {/* Carré bas droite — Fort Ticonderoga */}
+              <div style={{ gridColumn: "3", gridRow: "2" }} className="relative overflow-hidden rounded-lg">
                 <Image
                   src="/photos_images/Fort_ticonderoga_place_d_arms.jpg"
                   alt="Fort Ticonderoga — place d'armes, ancien Fort Carillon"
                   fill
                   className="object-cover object-center grayscale opacity-70 hover:opacity-90 hover:scale-105 transition duration-500"
                 />
-                <div className="absolute inset-0 bg-h91-accretion/20" />
+                <div className="absolute inset-0" style={{ backgroundColor: "rgba(32,52,120,0.20)" }} />
               </div>
             </div>
-            <p className="text-h91-stellar/30 text-xs text-center mb-8 italic">
+            {/* Mobile: grille 2x2 */}
+            <div className="grid grid-cols-2 gap-3 mb-3 md:hidden">
+              {[
+                { src: "/photos_images/British at Carillon.webp", alt: "Troupes britanniques à Carillon" },
+                { src: "/photos_images/The_Victory_of_Montcalms_Troops_at_Carillon_by_Henry_Alexander_OgdenAAA.jpg", alt: "Victoire de Montcalm à Carillon" },
+                { src: "/photos_images/Carillon_map.jpg", alt: "Carte stratégique Fort Carillon" },
+                { src: "/photos_images/Fort_ticonderoga_place_d_arms.jpg", alt: "Fort Ticonderoga" },
+              ].map((p) => (
+                <div key={p.src} className="relative aspect-square overflow-hidden rounded-lg">
+                  <Image src={p.src} alt={p.alt} fill className="object-cover grayscale opacity-70" />
+                  <div className="absolute inset-0" style={{ backgroundColor: "rgba(32,52,120,0.20)" }} />
+                </div>
+              ))}
+            </div>
+            <p className="text-xs text-center mb-8 italic" style={{ color: "rgba(29,29,27,0.30)" }}>
               Archives historiques — Fort Carillon (Fort Ticonderoga), Bataille de 1758
             </p>
 
-            <div className="space-y-5 text-h91-stellar/70 text-lg leading-relaxed">
+            <div className="space-y-5 text-lg leading-relaxed" style={{ color: "rgba(29,29,27,0.70)" }}>
               <p>
                 En 1758, lors de la célèbre bataille du Fort Carillon, une armée de 3 600 soldats
                 et miliciens d&apos;ici a repoussé avec succès une force d&apos;invasion de 15 000 hommes.
@@ -351,8 +372,8 @@ export default function DivisionCyberPage() {
                 architecture cyber sur mesure pour que votre entreprise reste un fort imprenable
                 — peu importe la taille de la menace.
               </p>
-              <div className="mt-2 p-6 rounded-xl border border-h91-accretion/30 bg-h91-accretion/5">
-                <p className="text-h91-accretion font-bold text-sm uppercase tracking-widest mb-3">
+              <div className="mt-2 p-6 rounded-xl" style={{ border: "1px solid rgba(32,52,120,0.25)", backgroundColor: "rgba(32,52,120,0.06)" }}>
+                <p className="font-bold text-sm uppercase tracking-widest mb-3" style={{ color: "#203478" }}>
                   L&apos;avantage Étoile Boréale
                 </p>
                 <p>
@@ -366,24 +387,24 @@ export default function DivisionCyberPage() {
           </div>
 
           {/* Saviez-vous que ? */}
-          <div className="border border-h91-accretion/20 rounded-2xl bg-h91-gravity/50 p-8">
-            <h3 className="text-h91-accretion font-bold text-sm uppercase tracking-widest mb-8 flex items-center gap-3">
+          <div className="rounded-2xl p-8" style={{ border: "1px solid rgba(32,52,120,0.20)", backgroundColor: "#E3E6EF" }}>
+            <h3 className="font-bold text-sm uppercase tracking-widest mb-8 flex items-center gap-3" style={{ color: "#203478" }}>
               <span className="text-xl">💡</span> Saviez-vous que ?
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="p-5 rounded-xl bg-h91-accretion/5 border border-h91-accretion/20">
-                <p className="text-h91-accretion font-bold text-4xl mb-2">40 %</p>
-                <p className="text-h91-stellar font-semibold text-sm mb-3">Des cyberattaques visent les PME</p>
-                <p className="text-h91-stellar/60 text-sm leading-relaxed">
+              <div className="p-5 rounded-xl" style={{ backgroundColor: "#FFFFFF", border: "1px solid rgba(32,52,120,0.20)" }}>
+                <p className="font-bold text-4xl mb-2" style={{ color: "#203478" }}>40 %</p>
+                <p className="font-semibold text-sm mb-3" style={{ color: "#1D1D1B" }}>Des cyberattaques visent les PME</p>
+                <p className="text-sm leading-relaxed" style={{ color: "rgba(29,29,27,0.60)" }}>
                   Contrairement aux idées reçues, Statistique Canada rapporte que près de 40 % des
                   cyberattaques visent directement les petites et moyennes entreprises. Vous n&apos;êtes
                   pas trop petit pour être piraté — vous êtes simplement moins protégé.
                 </p>
               </div>
-              <div className="p-5 rounded-xl bg-h91-accretion/5 border border-h91-accretion/20">
-                <p className="text-h91-accretion font-bold text-4xl mb-2">25 000 $+</p>
-                <p className="text-h91-stellar font-semibold text-sm mb-3">Le coût moyen d&apos;un incident</p>
-                <p className="text-h91-stellar/60 text-sm leading-relaxed">
+              <div className="p-5 rounded-xl" style={{ backgroundColor: "#FFFFFF", border: "1px solid rgba(32,52,120,0.20)" }}>
+                <p className="font-bold text-4xl mb-2" style={{ color: "#203478" }}>25 000 $+</p>
+                <p className="font-semibold text-sm mb-3" style={{ color: "#1D1D1B" }}>Le coût moyen d&apos;un incident</p>
+                <p className="text-sm leading-relaxed" style={{ color: "rgba(29,29,27,0.60)" }}>
                   L&apos;impact financier moyen d&apos;un incident de cybersécurité pour une PME canadienne
                   dépasse les 25 000 $ en frais de récupération — sans compter la perte de confiance
                   irréparable de vos clients. Nous ne vendons pas de la peur, nous coulons votre
@@ -397,9 +418,9 @@ export default function DivisionCyberPage() {
       </section>
 
       {/* ═══════════════════════════════════════════════════
-          ARGOS — PRODUIT PHARE
+          SAUREL — PRODUIT PHARE — Gris Nuit
       ═══════════════════════════════════════════════════ */}
-      <section className="py-24 px-6 border-t border-h91-accretion/20">
+      <section className="py-24 px-6" style={{ backgroundColor: "#E3E6EF" }}>
         <div className="max-w-6xl mx-auto">
 
           {/* En-tête */}
@@ -407,13 +428,13 @@ export default function DivisionCyberPage() {
             <span className="inline-block text-xs font-bold px-3 py-1.5 rounded-full bg-h91-accretion/10 text-h91-accretion border border-h91-accretion/30 mb-6 uppercase tracking-widest">
               Produit phare — SaaS
             </span>
-            <h2 className="text-6xl md:text-7xl font-bold text-h91-stellar mb-5 tracking-tight">
-              FORT SAUREL
+            <h2 className="text-6xl md:text-7xl font-bold mb-5 tracking-tight" style={{ color: "#1D1D1B" }}>
+              SAUREL
             </h2>
-            <p className="text-h91-accretion font-semibold text-lg md:text-xl italic max-w-2xl mx-auto mb-5">
+            <p className="font-semibold text-lg md:text-xl italic max-w-2xl mx-auto mb-5" style={{ color: "#203478" }}>
               La vigie numérique des PME.
             </p>
-            <p className="text-h91-stellar/55 text-base max-w-2xl mx-auto leading-relaxed">
+            <p className="text-base max-w-2xl mx-auto leading-relaxed" style={{ color: "rgba(29,29,27,0.65)" }}>
               Surveillance du Dark Web en temps réel. Saurel scanne en continu les marchés
               clandestins, forums et fuites de données pour vous alerter dès que vos
               informations apparaissent — avant que les dommages soient faits.
@@ -425,57 +446,49 @@ export default function DivisionCyberPage() {
             {SAUREL_TIERS.map((tier, i) => (
               <div
                 key={i}
-                className={`relative p-6 rounded-xl flex flex-col gap-4 transition ${
+                className="relative p-6 rounded-xl flex flex-col gap-4 transition card-lift"
+                style={
                   tier.featured
-                    ? "border-2 border-h91-accretion bg-h91-accretion/10"
+                    ? { backgroundColor: "#FFFFFF", border: "2px solid #203478" }
                     : tier.forteresse
-                    ? "border border-h91-fusion/40 bg-h91-gravity/50"
-                    : "border border-h91-accretion/30 bg-h91-gravity/50"
-                }`}
+                    ? { backgroundColor: "#FFFFFF", border: "1px solid rgba(201,168,76,0.40)" }
+                    : { backgroundColor: "#FFFFFF", border: "1px solid rgba(32,52,120,0.25)" }
+                }
               >
                 {tier.featured && (
-                  <span className="absolute -top-4 left-1/2 -translate-x-1/2 bg-h91-accretion text-h91-gravity text-xs font-bold px-4 py-1 rounded-full uppercase tracking-widest whitespace-nowrap">
+                  <span className="absolute -top-4 left-1/2 -translate-x-1/2 text-h91-gravity text-xs font-bold px-4 py-1 rounded-full uppercase tracking-widest whitespace-nowrap" style={{ backgroundColor: "#203478", color: "#F4F4F0" }}>
                     Recommandé
                   </span>
                 )}
 
                 <div>
                   <h3
-                    className={`text-xl font-bold ${
-                      tier.featured
-                        ? "text-h91-accretion"
-                        : tier.forteresse
-                        ? "text-h91-fusion"
-                        : "text-h91-stellar"
-                    }`}
+                    className="text-xl font-bold"
+                    style={{ color: tier.featured ? "#203478" : tier.forteresse ? "#C9A84C" : "#1D1D1B" }}
                   >
                     {tier.nom}
                   </h3>
-                  <p className="text-h91-stellar/40 text-xs mt-1">{tier.cible}</p>
+                  <p className="text-xs mt-1" style={{ color: "rgba(29,29,27,0.50)" }}>{tier.cible}</p>
                 </div>
 
                 <div className="flex items-baseline gap-1">
                   <span
-                    className={`text-3xl font-extrabold ${
-                      tier.featured
-                        ? "text-h91-accretion"
-                        : tier.forteresse
-                        ? "text-h91-fusion"
-                        : "text-h91-stellar"
-                    }`}
+                    className="text-3xl font-extrabold"
+                    style={{ color: tier.featured ? "#203478" : tier.forteresse ? "#C9A84C" : "#1D1D1B" }}
                   >
                     {tier.prix}
                   </span>
-                  <span className="text-h91-stellar/40 text-sm">{tier.unite}</span>
+                  <span className="text-sm" style={{ color: "rgba(29,29,27,0.50)" }}>{tier.unite}</span>
                 </div>
 
                 <ul className="flex flex-col gap-2 flex-1">
                   {tier.features.map((f, fi) => (
                     <li
                       key={fi}
-                      className="flex items-start gap-2 text-sm text-h91-stellar/80"
+                      className="flex items-start gap-2 text-sm"
+                      style={{ color: "rgba(29,29,27,0.70)" }}
                     >
-                      <span className="text-h91-accretion mt-0.5 shrink-0">✓</span>
+                      <span className="mt-0.5 shrink-0" style={{ color: "#203478" }}>✓</span>
                       <span>{f}</span>
                     </li>
                   ))}
@@ -483,13 +496,14 @@ export default function DivisionCyberPage() {
 
                 <Link
                   href="/rejoindre"
-                  className={`mt-2 block text-center py-3 rounded-lg font-bold text-sm transition ${
+                  className="mt-2 block text-center py-3 rounded-lg font-bold text-sm transition"
+                  style={
                     tier.featured
-                      ? "bg-h91-accretion text-h91-gravity hover:bg-h91-fusion"
+                      ? { backgroundColor: "#203478", color: "#F4F4F0" }
                       : tier.forteresse
-                      ? "border border-h91-fusion/50 text-h91-fusion hover:border-h91-fusion hover:bg-h91-fusion/10"
-                      : "border border-h91-accretion/50 text-h91-accretion hover:border-h91-accretion hover:bg-h91-accretion/10"
-                  }`}
+                      ? { border: "1px solid rgba(201,168,76,0.50)", color: "#C9A84C" }
+                      : { border: "1px solid rgba(32,52,120,0.40)", color: "#203478" }
+                  }
                 >
                   Démarrer
                 </Link>
@@ -500,9 +514,9 @@ export default function DivisionCyberPage() {
       </section>
 
       {/* ═══════════════════════════════════════════════════
-          FORT SAUREL — CONTEXTE HISTORIQUE & SENTINELLES
+          FORT SAUREL — CONTEXTE HISTORIQUE & SENTINELLES — Blanc
       ═══════════════════════════════════════════════════ */}
-      <section className="py-20 px-6 border-t border-h91-accretion/20">
+      <section className="py-20 px-6" style={{ backgroundColor: "#FFFFFF" }}>
         <div className="max-w-4xl mx-auto">
 
           {/* Contexte historique */}
@@ -510,10 +524,10 @@ export default function DivisionCyberPage() {
             <span className="inline-block text-xs font-bold px-3 py-1.5 rounded-full bg-h91-accretion/10 text-h91-accretion border border-h91-accretion/30 mb-6 uppercase tracking-widest">
               Le contexte historique
             </span>
-            <h3 className="text-2xl md:text-3xl font-bold text-h91-stellar mb-6">
+            <h3 className="text-2xl md:text-3xl font-bold mb-6" style={{ color: "#1D1D1B" }}>
               Le Verrou du Richelieu
             </h3>
-            <div className="space-y-5 text-h91-stellar/70 text-lg leading-relaxed">
+            <div className="space-y-5 text-lg leading-relaxed" style={{ color: "rgba(29,29,27,0.70)" }}>
               <p>
                 En 1665, Pierre de Saurel, capitaine au régiment de Carignan-Salières, érige le
                 Fort Saurel à l&apos;embouchure de la rivière Richelieu. À cette époque, cette rivière
@@ -535,11 +549,11 @@ export default function DivisionCyberPage() {
           </div>
 
           {/* Les Sentinelles */}
-          <div className="mb-10 p-7 rounded-2xl border border-h91-accretion/20 bg-h91-gravity/50">
-            <h3 className="text-xl font-bold text-h91-stellar mb-4">
+          <div className="mb-10 p-7 rounded-2xl" style={{ border: "1px solid rgba(32,52,120,0.20)", backgroundColor: "#E3E6EF" }}>
+            <h3 className="text-xl font-bold mb-4" style={{ color: "#1D1D1B" }}>
               Que font les Sentinelles de Saurel ?
             </h3>
-            <div className="space-y-4 text-h91-stellar/70 text-base leading-relaxed">
+            <div className="space-y-4 text-base leading-relaxed" style={{ color: "rgba(29,29,27,0.70)" }}>
               <p>
                 Dans le logiciel, les Sentinelles sont vos agents automatisés — vos scripts de
                 surveillance, vos alertes de serveurs, vos traqueurs de bases de données. Les
@@ -556,11 +570,11 @@ export default function DivisionCyberPage() {
           </div>
 
           {/* Avantage Boréale */}
-          <div className="p-6 rounded-xl border border-h91-accretion/30 bg-h91-accretion/5">
-            <p className="text-h91-accretion font-bold text-sm uppercase tracking-widest mb-3">
+          <div className="p-6 rounded-xl" style={{ border: "1px solid rgba(32,52,120,0.25)", backgroundColor: "rgba(32,52,120,0.06)" }}>
+            <p className="font-bold text-sm uppercase tracking-widest mb-3" style={{ color: "#203478" }}>
               L&apos;avantage Étoile Boréale
             </p>
-            <p className="text-h91-stellar/70 text-lg leading-relaxed">
+            <p className="text-lg leading-relaxed" style={{ color: "rgba(29,29,27,0.70)" }}>
               Avec Saurel, vous n&apos;attendez pas que la crise frappe pour colmater les
               brèches. Nos Sentinelles numériques surveillent vos arrières en continu,
               transformant le chaos imprévisible du web en une trajectoire stable, sécurisée
@@ -572,9 +586,9 @@ export default function DivisionCyberPage() {
       </section>
 
       {/* ═══════════════════════════════════════════════════
-          SUITE OLYMPUS — ZONE DE TRAVAUX
+          SUITE CARIGNAN — ZONE DE TRAVAUX — Noir
       ═══════════════════════════════════════════════════ */}
-      <section className="py-24 px-6 border-t border-h91-stellar/10">
+      <section className="py-24 px-6" style={{ backgroundColor: "#1D1D1B" }}>
         <div className="max-w-6xl mx-auto">
 
           {/* En-tête */}
@@ -630,20 +644,20 @@ export default function DivisionCyberPage() {
       </section>
 
       {/* ═══════════════════════════════════════════════════
-          CTA FINAL
+          CTA FINAL — Noir
       ═══════════════════════════════════════════════════ */}
-      <section className="py-20 px-6 text-center border-t border-h91-accretion/20">
-        <h2 className="text-3xl md:text-4xl font-bold text-h91-stellar mb-8">
+      <section className="py-20 px-6 text-center" style={{ backgroundColor: "#1D1D1B" }}>
+        <h2 className="text-3xl md:text-4xl font-bold mb-8" style={{ color: "#F4F4F0" }}>
           {t("cta_titre")}
         </h2>
         <Link
           href="/rejoindre"
-          className="inline-block px-10 py-5 rounded-lg bg-h91-accretion text-h91-stellar font-bold text-xl hover:bg-h91-accretion/80 transition"
+          className="inline-block px-10 py-5 rounded-lg font-bold text-xl transition"
+          style={{ backgroundColor: "#203478", color: "#F4F4F0" }}
         >
           {t("cta_bouton")}
         </Link>
       </section>
-      </div>{/* /fond Space Black */}
     </>
   );
 }

@@ -210,7 +210,7 @@ export default function ArpenteurPage() {
           <div className="flex flex-col md:flex-row items-start gap-10">
             <div className="flex-shrink-0">
               <Image
-                src="/mark-arpenteur.svg"
+                src="/mark-nordik.svg"
                 alt="Mark Division Arpenteur"
                 width={110}
                 height={110}
@@ -322,11 +322,11 @@ export default function ArpenteurPage() {
       </section>
 
       {/* ── CTA FINAL ── */}
-      <section className="py-20 px-6 text-center border-t" style={{ backgroundColor: "#F4F4F0", borderColor: "rgba(29,29,27,0.08)" }}>
+      <section className="py-20 px-6 text-center" style={{ backgroundColor: "#1D1D1B" }}>
         <div className="max-w-2xl mx-auto">
           <h2
             className="text-3xl font-bold mb-4"
-            style={{ color: "#1D1D1B", fontFamily: "var(--font-display, 'Gotham', 'Montserrat', system-ui)" }}
+            style={{ color: "#F4F4F0", fontFamily: "var(--font-display, 'Gotham', 'Montserrat', system-ui)" }}
           >
             {ctaTitre}
           </h2>
@@ -341,7 +341,7 @@ export default function ArpenteurPage() {
             <Link
               href="/divisions"
               className="px-8 py-4 rounded-lg font-bold text-sm border transition"
-              style={{ borderColor: "#5762A2", color: "#5762A2" }}
+              style={{ borderColor: "rgba(244,244,240,0.40)", color: "#F4F4F0" }}
             >
               {ctaRetour}
             </Link>

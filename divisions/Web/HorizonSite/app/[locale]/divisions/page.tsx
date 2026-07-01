@@ -39,7 +39,8 @@ export async function generateMetadata({
 const divisionsMeta = [
   {
     key: "arpenteur",
-    mark: "/mark-arpenteur.svg",
+    mark: "/mark-nordik.svg",
+    markFilter: "hue-rotate(45deg) saturate(60%) brightness(55%)" as string | undefined,
     couleur: "#5762A2",
     bg: "#E8EAF6",
     href: "/divisions/arpenteur",
@@ -47,6 +48,7 @@ const divisionsMeta = [
   {
     key: "web",
     mark: "/mark-web.svg",
+    markFilter: undefined as string | undefined,
     couleur: "#0099D1",
     bg: "#E0F4FB",
     href: "/divisions/web",
@@ -54,11 +56,12 @@ const divisionsMeta = [
   {
     key: "cyber",
     mark: "/mark-cyber.svg",
+    markFilter: undefined as string | undefined,
     couleur: "#203478",
     bg: "#E3E6EF",
     href: "/divisions/cyber",
   },
-] as const;
+];
 
 export default function DivisionsPage() {
   const t = useTranslations("divisions");
@@ -81,8 +84,8 @@ export default function DivisionsPage() {
     : "Portail éditorial multi-verticales — à venir.";
 
   return (
-    <div style={{ backgroundColor: "#F4F4F0", color: "#1D1D1B", minHeight: "100vh" }}>
-    <main className="max-w-6xl mx-auto px-6 py-20">
+    <div style={{ backgroundColor: "#F4F4F0", color: "#1D1D1B", minHeight: "100vh", marginTop: "-80px" }}>
+    <main className="max-w-6xl mx-auto px-6" style={{ paddingTop: "160px", paddingBottom: "80px" }}>
 
       {/* En-tête */}
       <p className="text-center text-xs font-bold tracking-widest uppercase mb-3" style={{ color: "#0099D1" }}>
@@ -123,7 +126,7 @@ export default function DivisionsPage() {
                   alt={`Mark ${t(`${div.key}.nom`)}`}
                   width={48}
                   height={48}
-                  style={{ width: "48px", height: "48px" }}
+                  style={{ width: "48px", height: "48px", filter: div.markFilter ?? undefined }}
                 />
 
                 <h2
