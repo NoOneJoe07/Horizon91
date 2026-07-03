@@ -3,6 +3,7 @@ import { useTranslations } from "next-intl";
 import { getLocale } from "next-intl/server";
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
+import DivisionPhotoGallery from "@/app/components/DivisionPhotoGallery";
 
 export async function generateMetadata({
   params,
@@ -288,71 +289,36 @@ export default function DivisionCyberPage() {
               L&apos;architecture défensive de votre empire numérique
             </h2>
 
-            {/* Photos d'archives — Bataille de Carillon — layout staggeré asymétrique */}
-            {/* Desktop: grille 3 colonnes avec portrait gauche + 3 droite */}
-            <div
-              className="hidden md:grid mb-3"
-              style={{
-                gridTemplateColumns: "1fr 1.3fr 1fr",
-                gridTemplateRows: "290px 210px",
-                gap: "10px",
-              }}
-            >
-              {/* Portrait tall — Troupes britanniques, col 1, 2 rangées */}
-              <div style={{ gridColumn: "1", gridRow: "1 / span 2" }} className="relative overflow-hidden rounded-xl">
-                <Image
-                  src="/photos_images/British at Carillon.webp"
-                  alt="Troupes britanniques à Carillon — Bataille de 1758"
-                  fill
-                  className="object-cover object-center grayscale opacity-70 hover:opacity-90 hover:scale-105 transition duration-500"
-                />
-                <div className="absolute inset-0" style={{ backgroundColor: "rgba(32,52,120,0.20)" }} />
-              </div>
-              {/* Paysage large — Victoire de Montcalm (Ogden), cols 2-3 rangée 1 */}
-              <div style={{ gridColumn: "2 / span 2", gridRow: "1" }} className="relative overflow-hidden rounded-xl">
-                <Image
-                  src="/photos_images/The_Victory_of_Montcalms_Troops_at_Carillon_by_Henry_Alexander_OgdenAAA.jpg"
-                  alt="La victoire des troupes de Montcalm à Carillon — Henry Alexander Ogden"
-                  fill
-                  className="object-cover object-top grayscale opacity-70 hover:opacity-90 hover:scale-105 transition duration-500"
-                />
-                <div className="absolute inset-0" style={{ backgroundColor: "rgba(32,52,120,0.20)" }} />
-              </div>
-              {/* Carré bas milieu — Carte stratégique */}
-              <div style={{ gridColumn: "2", gridRow: "2" }} className="relative overflow-hidden rounded-lg">
-                <Image
-                  src="/photos_images/Carillon_map.jpg"
-                  alt="Carte stratégique du Fort Carillon — 1758"
-                  fill
-                  className="object-cover object-center grayscale opacity-70 hover:opacity-90 hover:scale-105 transition duration-500"
-                />
-                <div className="absolute inset-0" style={{ backgroundColor: "rgba(32,52,120,0.20)" }} />
-              </div>
-              {/* Carré bas droite — Fort Ticonderoga */}
-              <div style={{ gridColumn: "3", gridRow: "2" }} className="relative overflow-hidden rounded-lg">
-                <Image
-                  src="/photos_images/Fort_ticonderoga_place_d_arms.jpg"
-                  alt="Fort Ticonderoga — place d'armes, ancien Fort Carillon"
-                  fill
-                  className="object-cover object-center grayscale opacity-70 hover:opacity-90 hover:scale-105 transition duration-500"
-                />
-                <div className="absolute inset-0" style={{ backgroundColor: "rgba(32,52,120,0.20)" }} />
-              </div>
-            </div>
-            {/* Mobile: grille 2x2 */}
-            <div className="grid grid-cols-2 gap-3 mb-3 md:hidden">
-              {[
-                { src: "/photos_images/British at Carillon.webp", alt: "Troupes britanniques à Carillon" },
-                { src: "/photos_images/The_Victory_of_Montcalms_Troops_at_Carillon_by_Henry_Alexander_OgdenAAA.jpg", alt: "Victoire de Montcalm à Carillon" },
-                { src: "/photos_images/Carillon_map.jpg", alt: "Carte stratégique Fort Carillon" },
-                { src: "/photos_images/Fort_ticonderoga_place_d_arms.jpg", alt: "Fort Ticonderoga" },
-              ].map((p) => (
-                <div key={p.src} className="relative aspect-square overflow-hidden rounded-lg">
-                  <Image src={p.src} alt={p.alt} fill className="object-cover grayscale opacity-70" />
-                  <div className="absolute inset-0" style={{ backgroundColor: "rgba(32,52,120,0.20)" }} />
-                </div>
-              ))}
-            </div>
+            {/* Photos d'archives — Bataille de Carillon — cliquez pour agrandir */}
+            <DivisionPhotoGallery
+              accentColor="#203478"
+              photos={[
+                {
+                  src: "/photos_images/British at Carillon.webp",
+                  alt: "Troupes britanniques à Carillon — Bataille de 1758",
+                  caption: "Troupes britanniques marchant sur Fort Carillon — 1758",
+                  objectPosition: "center center",
+                },
+                {
+                  src: "/photos_images/The_Victory_of_Montcalms_Troops_at_Carillon_by_Henry_Alexander_OgdenAAA.jpg",
+                  alt: "La victoire des troupes de Montcalm à Carillon — Henry Alexander Ogden",
+                  caption: "La victoire de Montcalm à Carillon (1758) — Henry Alexander Ogden",
+                  objectPosition: "center 70%",
+                },
+                {
+                  src: "/photos_images/Carillon_map.jpg",
+                  alt: "Carte stratégique du Fort Carillon — 1758",
+                  caption: "Carte stratégique du Fort Carillon, 1758",
+                  objectPosition: "center center",
+                },
+                {
+                  src: "/photos_images/Fort_ticonderoga_place_d_arms.jpg",
+                  alt: "Fort Ticonderoga — place d'armes, ancien Fort Carillon",
+                  caption: "Fort Ticonderoga (ancien Fort Carillon) — place d'armes",
+                  objectPosition: "center center",
+                },
+              ]}
+            />
             <p className="text-xs text-center mb-8 italic" style={{ color: "rgba(29,29,27,0.30)" }}>
               Archives historiques — Fort Carillon (Fort Ticonderoga), Bataille de 1758
             </p>

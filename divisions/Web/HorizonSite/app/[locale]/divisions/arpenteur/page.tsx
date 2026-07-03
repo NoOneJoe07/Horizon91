@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
-import { useTranslations, useLocale } from "next-intl";
+import { useLocale } from "next-intl";
 import { getLocale } from "next-intl/server";
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
+import ArpenteurGallery from "@/app/components/ArpenteurGallery";
 
 // ─────────────────────────────────────────────────────────
 // Metadata SEO — Division Arpenteur
@@ -46,15 +47,22 @@ export async function generateMetadata({
 async function ArpenteurJsonLd() {
   const locale = await getLocale();
   const baseUrl = locale === "en" ? "https://borealstar.ca" : "https://etoileboreale.ca";
-  const org = locale === "en" ? "Boreal Star Group" : locale === "es" ? "Grupo Estrella Boreal" : "Groupe Étoile Boréale";
+  const org =
+    locale === "en"
+      ? "Boreal Star Group"
+      : locale === "es"
+      ? "Grupo Estrella Boreal"
+      : "Groupe Étoile Boréale";
 
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Service",
     name:
-      locale === "en" ? "Arpenteur Division — Brand Design & Photography"
-      : locale === "es" ? "División Arpenteur — Diseño de Marca & Fotografía"
-      : "Division Arpenteur — Graphisme, Livre de Marque & Photographie",
+      locale === "en"
+        ? "Arpenteur Division — Brand Design & Photography"
+        : locale === "es"
+        ? "División Arpenteur — Diseño de Marca & Fotografía"
+        : "Division Arpenteur — Graphisme, Livre de Marque & Photographie",
     serviceType: "Brand Design",
     url: `${baseUrl}${locale === "fr" ? "" : `/${locale}`}/divisions/arpenteur`,
     provider: { "@type": "Organization", name: org, url: baseUrl },
@@ -80,34 +88,88 @@ async function ArpenteurJsonLd() {
 // ─────────────────────────────────────────────────────────
 const services = [
   {
-    fr: { titre: "Livre de marque", desc: "Charte complète : couleurs, typographie, ton éditorial, règles d'utilisation du logo et exemples d'application. Votre identité, cohérente partout." },
-    en: { titre: "Brand Book", desc: "Complete brand guide: colors, typography, editorial tone, logo usage rules and application examples. Your identity, consistent everywhere." },
-    es: { titre: "Libro de marca", desc: "Guía de marca completa: colores, tipografía, tono editorial, reglas de uso del logotipo y ejemplos de aplicación." },
+    fr: {
+      titre: "Livre de marque",
+      desc: "Charte complète : couleurs, typographie, ton éditorial, règles d'utilisation du logo et exemples d'application. Votre identité, cohérente partout.",
+    },
+    en: {
+      titre: "Brand Book",
+      desc: "Complete brand guide: colors, typography, editorial tone, logo usage rules and application examples. Your identity, consistent everywhere.",
+    },
+    es: {
+      titre: "Libro de marca",
+      desc: "Guía de marca completa: colores, tipografía, tono editorial, reglas de uso del logotipo y ejemplos de aplicación.",
+    },
   },
   {
-    fr: { titre: "Identité visuelle & logo", desc: "Conception de logos originaux, sélection de palette et système de marks. Une marque qui se démarque et qui dure." },
-    en: { titre: "Visual identity & logo", desc: "Original logo design, color palette selection and mark system. A brand that stands out and lasts." },
-    es: { titre: "Identidad visual & logotipo", desc: "Diseño de logotipos originales, selección de paleta y sistema de marcas." },
+    fr: {
+      titre: "Identité visuelle & logo",
+      desc: "Conception de logos originaux, sélection de palette et système de marks. Une marque qui se démarque et qui dure.",
+    },
+    en: {
+      titre: "Visual identity & logo",
+      desc: "Original logo design, color palette selection and mark system. A brand that stands out and lasts.",
+    },
+    es: {
+      titre: "Identidad visual & logotipo",
+      desc: "Diseño de logotipos originales, selección de paleta y sistema de marcas.",
+    },
   },
   {
-    fr: { titre: "Infographie & gabarits", desc: "Publications pour réseaux sociaux, présentations, dépliants, affiches — aux couleurs de votre marque, prêts à l'emploi." },
-    en: { titre: "Graphic design & templates", desc: "Social media posts, presentations, flyers, posters — in your brand colors, ready to use." },
-    es: { titre: "Diseño gráfico & plantillas", desc: "Publicaciones para redes sociales, presentaciones, folletos, carteles — en los colores de su marca." },
+    fr: {
+      titre: "Infographie & gabarits",
+      desc: "Publications pour réseaux sociaux, présentations, dépliants, affiches — aux couleurs de votre marque, prêts à l'emploi.",
+    },
+    en: {
+      titre: "Graphic design & templates",
+      desc: "Social media posts, presentations, flyers, posters — in your brand colors, ready to use.",
+    },
+    es: {
+      titre: "Diseño gráfico & plantillas",
+      desc: "Publicaciones para redes sociales, presentaciones, folletos, carteles — en los colores de su marca.",
+    },
   },
   {
-    fr: { titre: "Photographie professionnelle", desc: "Photos d'équipe, d'ambiance et de produits. Paulina Jaramillo (DG Photographie) se déplace chez vous pour capturer l'essence de votre entreprise." },
-    en: { titre: "Professional photography", desc: "Team, lifestyle and product photos. Paulina Jaramillo (Photography Director) visits your location to capture the essence of your business." },
-    es: { titre: "Fotografía profesional", desc: "Fotos de equipo, ambiente y productos. Paulina Jaramillo (Directora de Fotografía) visita su local para capturar la esencia de su empresa." },
+    fr: {
+      titre: "Photographie professionnelle",
+      desc: "Photos d'équipe, d'ambiance et de produits. Paulina Jaramillo (DG Photographie) se déplace chez vous pour capturer l'essence de votre entreprise.",
+    },
+    en: {
+      titre: "Professional photography",
+      desc: "Team, lifestyle and product photos. Paulina Jaramillo (Photography Director) visits your location to capture the essence of your business.",
+    },
+    es: {
+      titre: "Fotografía profesional",
+      desc: "Fotos de equipo, ambiente y productos. Paulina Jaramillo (Directora de Fotografía) visita su local para capturar la esencia de su empresa.",
+    },
   },
   {
-    fr: { titre: "Stratégie médias sociaux", desc: "Calendrier éditorial, création de contenu visuel, gestion de communauté. Votre présence en ligne, ancrée dans votre marque." },
-    en: { titre: "Social media strategy", desc: "Editorial calendar, visual content creation, community management. Your online presence, rooted in your brand." },
-    es: { titre: "Estrategia de redes sociales", desc: "Calendario editorial, creación de contenido visual, gestión de comunidad." },
+    fr: {
+      titre: "Stratégie médias sociaux",
+      desc: "Calendrier éditorial, création de contenu visuel, gestion de communauté. Votre présence en ligne, ancrée dans votre marque.",
+    },
+    en: {
+      titre: "Social media strategy",
+      desc: "Editorial calendar, visual content creation, community management. Your online presence, rooted in your brand.",
+    },
+    es: {
+      titre: "Estrategia de redes sociales",
+      desc: "Calendario editorial, creación de contenido visual, gestión de comunidad.",
+    },
   },
   {
-    fr: { titre: "Imprimés & papeterie de marque", desc: "Cartes d'affaires, en-têtes de lettres, enveloppes, agendas — en partenariat avec des imprimeurs locaux de la région." },
-    en: { titre: "Print & brand stationery", desc: "Business cards, letterheads, envelopes, agendas — in partnership with local printers in the region." },
-    es: { titre: "Impresos & papelería de marca", desc: "Tarjetas de presentación, membrete, sobres, agendas — en asociación con impresores locales." },
+    fr: {
+      titre: "Imprimés & papeterie de marque",
+      desc: "Cartes d'affaires, en-têtes de lettres, enveloppes, agendas — en partenariat avec des imprimeurs locaux de la région.",
+    },
+    en: {
+      titre: "Print & brand stationery",
+      desc: "Business cards, letterheads, envelopes, agendas — in partnership with local printers in the region.",
+    },
+    es: {
+      titre: "Impresos & papelería de marca",
+      desc: "Tarjetas de presentación, membrete, sobres, agendas — en asociación con impresores locales.",
+    },
   },
 ];
 
@@ -116,17 +178,20 @@ const services = [
 // ─────────────────────────────────────────────────────────
 export default function ArpenteurPage() {
   const locale = useLocale();
-
-  // Contenu selon la langue
   const isFR = locale === "fr";
   const isEN = locale === "en";
 
-  const heroTitre = isFR ? "Division Arpenteur"
-    : isEN ? "Arpenteur Division"
+  // ── Hero ──
+  const heroTitre = isFR
+    ? "Division Arpenteur"
+    : isEN
+    ? "Arpenteur Division"
     : "División Arpenteur";
 
-  const heroTagline = isFR ? "Graphisme · Livre de Marque · Photographie"
-    : isEN ? "Brand Design · Visual Identity · Photography"
+  const heroTagline = isFR
+    ? "Graphisme · Livre de Marque · Photographie"
+    : isEN
+    ? "Brand Design · Visual Identity · Photography"
     : "Diseño Gráfico · Identidad de Marca · Fotografía";
 
   const heroDesc = isFR
@@ -135,9 +200,138 @@ export default function ArpenteurPage() {
     ? "As the surveyor traces the boundaries of a territory before anyone builds on it, Arpenteur Division traces your brand identity before your business takes flight. We define your brand with the precision of a topographic survey and the vision of an explorer."
     : "Como el topógrafo traza los límites de un territorio antes de que alguien construya en él, la División Arpenteur traza su identidad de marca. Definimos su marca con la precisión de un levantamiento topográfico y la visión de un explorador.";
 
+  // ── Services ──
+  const servicesTitle = isFR
+    ? "Ce que nous faisons"
+    : isEN
+    ? "What we do"
+    : "Lo que hacemos";
+
+  // ── Lore A — Jean Bourdon ──
+  const bourdonSurtitle = isFR
+    ? "L'héritage des arpenteurs"
+    : isEN
+    ? "The Surveyors' Heritage"
+    : "El legado de los agrimensores";
+
+  const bourdonText = isFR
+    ? [
+        "En 1634, Jean Bourdon débarque en Nouvelle-France avec une mission précise : mesurer, cartographier, comprendre le territoire avant tout autre geste. Il deviendra le premier Procureur général de la Nouvelle-France et tracera les premières rues de la ville de Québec — des lignes qui existent encore aujourd'hui.",
+        "Bourdon n'avait pas de GPS. Pas de satellite. Seulement une chaîne d'arpenteur, un théodolite rudimentaire et une capacité extraordinaire à lire le terrain. Il savait qu'avant de bâtir, il faut d'abord comprendre. Avant de construire une route, il faut en voir le tracé.",
+        "C'est cet esprit que la Division Arpenteur porte : la conviction que définir avec précision — une identité, une couleur, un ton, une typographie — c'est poser les fondations de tout ce qui vient après.",
+      ]
+    : isEN
+    ? [
+        "In 1634, Jean Bourdon arrived in New France with a singular mission: to measure, map, and understand the territory before anything else could be built upon it. He would become the first Attorney General of New France and lay out the first streets of Quebec City — lines that still exist today.",
+        "Bourdon had no GPS. No satellite imagery. Only a surveyor's chain, a rudimentary theodolite, and an extraordinary ability to read the land. He knew that before you build, you must first understand. Before you lay a road, you must see its line.",
+        "That spirit — deliberate, precise, foundational — is what Division Arpenteur carries into every brand identity we create: define carefully first, then build everything else on top.",
+      ]
+    : [
+        "En 1634, Jean Bourdon llegó a la Nueva Francia con una misión precisa: medir, cartografiar y comprender el territorio antes de que nadie lo construyera. Se convertiría en el primer Procurador General de la Nueva Francia y trazaría las primeras calles de la ciudad de Quebec — líneas que existen todavía hoy.",
+        "Bourdon no tenía GPS ni satélite. Solo una cadena de agrimensor, un teodolito rudimentario y una capacidad extraordinaria para leer el terreno. Sabía que antes de construir, hay que entender. Antes de trazar una carretera, hay que ver su línea.",
+        "Ese espíritu — deliberado, preciso, fundacional — es el que la División Arpenteur aplica a cada identidad de marca que creamos: definir con precisión primero, luego construir todo lo demás sobre esa base.",
+      ];
+
+  const bourdonPhotos = [
+    {
+      src: "/photos_images/JeanBourdon.jpg",
+      alt: isFR
+        ? "Portrait de Jean Bourdon, arpenteur de la Nouvelle-France"
+        : isEN
+        ? "Portrait of Jean Bourdon, surveyor of New France"
+        : "Retrato de Jean Bourdon, agrimensor de la Nueva Francia",
+      caption: isFR
+        ? "Jean Bourdon (1601–1668) — Premier Procureur général de la Nouvelle-France"
+        : isEN
+        ? "Jean Bourdon (1601–1668) — First Attorney General of New France"
+        : "Jean Bourdon (1601–1668) — Primer Procurador General de la Nueva Francia",
+    },
+    {
+      src: "/photos_images/Jean_Bourdon_1.jpg",
+      alt: isFR
+        ? "Représentation historique de Jean Bourdon"
+        : isEN
+        ? "Historical depiction of Jean Bourdon"
+        : "Representación histórica de Jean Bourdon",
+      caption: isFR
+        ? "Représentation de Jean Bourdon, fondateur de l'arpentage en Nouvelle-France"
+        : isEN
+        ? "Depiction of Jean Bourdon, pioneer of surveying in New France"
+        : "Representación de Jean Bourdon, pionero de la agrimensura en la Nueva Francia",
+    },
+    {
+      src: "/photos_images/Signature_de_Jean_Bourdon.jpg",
+      alt: isFR
+        ? "Signature manuscrite de Jean Bourdon"
+        : isEN
+        ? "Jean Bourdon's handwritten signature"
+        : "Firma manuscrita de Jean Bourdon",
+      caption: isFR
+        ? "Signature manuscrite de Jean Bourdon — ca. 1650s"
+        : isEN
+        ? "Jean Bourdon's handwritten signature — ca. 1650s"
+        : "Firma manuscrita de Jean Bourdon — ca. 1650s",
+    },
+  ];
+
+  // ── Lore B — Samuel Holland ──
+  const hollandSurtitle = isFR
+    ? "L'arpenteur d'un continent"
+    : isEN
+    ? "The Surveyor of a Continent"
+    : "El agrimensor de un continente";
+
+  const hollandText = isFR
+    ? [
+        "Samuel Holland (1728–1801) est né à La Haye, aux Pays-Bas. Il traverse l'Atlantique comme ingénieur militaire dans les rangs britanniques et, en 1757, reçoit une mission d'une précision redoutable : reconnaître les défenses du Fort Carillon — ce bastion franco-canadien au confluent du lac Champlain et du lac George, dont s'inspire aujourd'hui notre Division Carillon.",
+        "Mais Holland n'est pas qu'un militaire. C'est lui qui enseigne à James Cook les bases de la navigation astronomique et du levé topographique. On peut donc tracer une ligne directe : Bourdon mesure la Nouvelle-France → Holland forme Cook → Cook cartographie la planète entière.",
+        "Nommé Arpenteur général de l'Amérique du Nord en 1764, Holland quadrille un continent avec la précision d'une horloge suisse. Il épouse Marie-Joseph Rollet, une Canadienne française, et termine ses jours à Québec en 1801 — enterré dans la même ville que Bourdon avait, un siècle plus tôt, contribué à tracer. Deux arpenteurs. Un seul héritage : mesurer avant de bâtir.",
+      ]
+    : isEN
+    ? [
+        "Samuel Holland (1728–1801), born in The Hague, crossed the Atlantic as a military engineer with British forces. In 1757, he was assigned a mission of critical precision: to reconnoitre the defences of Fort Carillon — the Franco-Canadian bastion at the confluence of Lake Champlain and Lake George — the very same fort that gave our Division Carillon its name.",
+        "Holland's assignment was military, but his legacy was cartographic. A close mentor to James Cook — the great circumnavigator — Holland personally taught Cook the fundamentals of astronomical navigation and topographic surveying. The chain of mastery runs directly: Bourdon charts New France → Holland trains Cook → Cook maps the globe.",
+        "Appointed Surveyor General of North America in 1764, Holland charted a continent with clockwork precision. He married Marie-Joseph Rollet, a French-Canadian woman from Quebec, and spent his final years in Quebec City — buried in the city that Bourdon had helped lay out a century before. Two surveyors. One legacy: measure before you build.",
+      ]
+    : [
+        "Samuel Holland (1728–1801), nacido en La Haya, cruzó el Atlántico como ingeniero militar con las fuerzas británicas. En 1757, recibió una misión de precisión crítica: reconocer las defensas del Fuerte Carillon — el bastión franco-canadiense en la confluencia del lago Champlain y el lago George — el mismo fuerte que da nombre a nuestra División Carillon.",
+        "La misión de Holland era militar, pero su legado fue cartográfico. Mentor cercano de James Cook — el gran circunnavegante —, Holland enseñó personalmente a Cook los fundamentos de la navegación astronómica y la topografía. La cadena del conocimiento es directa: Bourdon cartografía la Nueva Francia → Holland forma a Cook → Cook mapea el globo.",
+        "Nombrado Agrimensor General de América del Norte en 1764, Holland cuadriculó un continente con precisión de relojero. Se casó con Marie-Joseph Rollet, una canadiense francesa, y pasó sus últimos años en la ciudad de Quebec — enterrado en la ciudad que Bourdon había contribuido a trazar un siglo antes. Dos agrimensores. Un solo legado: medir antes de construir.",
+      ];
+
+  const hollandCarillonCallout = isFR
+    ? "En 1757, Samuel Holland reçoit l'ordre de reconnaître le Fort Carillon — la même forteresse dont s'inspire notre Division Carillon. Deux divisions d'Étoile Boréale, un seul héritage de précision et de vision stratégique."
+    : isEN
+    ? "In 1757, Samuel Holland was ordered to reconnoitre Fort Carillon — the very fortress that inspired our Division Carillon. Two Boreal Star divisions, one shared legacy of precision and strategic vision."
+    : "En 1757, Samuel Holland recibió la orden de reconocer el Fuerte Carillon — la misma fortaleza que inspiró nuestra División Carillon. Dos divisiones de Estrella Boreal, un mismo legado de precisión y visión estratégica.";
+
+  const hollandCarillonLabel = isFR
+    ? "⚑ Connexion Division Carillon"
+    : isEN
+    ? "⚑ Division Carillon Connection"
+    : "⚑ Conexión División Carillon";
+
+  const hollandPhoto = [
+    {
+      src: "/photos_images/Samuel_Holland.jpg",
+      alt: isFR
+        ? "Portrait de Samuel Holland, Arpenteur général de l'Amérique du Nord"
+        : isEN
+        ? "Portrait of Samuel Holland, Surveyor General of North America"
+        : "Retrato de Samuel Holland, Agrimensor General de América del Norte",
+      caption: isFR
+        ? "Samuel Holland (1728–1801) — Arpenteur général de l'Amérique du Nord"
+        : isEN
+        ? "Samuel Holland (1728–1801) — Surveyor General of North America"
+        : "Samuel Holland (1728–1801) — Agrimensor General de América del Norte",
+    },
+  ];
+
+  // ── Avantage ──
   const avantage = isFR
     ? "L'avantage Étoile Boréale"
-    : isEN ? "The Boreal Star Advantage"
+    : isEN
+    ? "The Boreal Star Advantage"
     : "La ventaja Estrella Boreal";
 
   const avantageDesc = isFR
@@ -146,65 +340,62 @@ export default function ArpenteurPage() {
     ? "A certified marketing director who works directly on your file — no intermediary agency. On-site photography expertise, regional roots, rates proportionate to local entrepreneurs' reality. We deliver coherent brands, not isolated logos."
     : "Una directora de marketing certificada que trabaja directamente en su proyecto. Experiencia fotográfica sobre el terreno, arraigo regional, tarifas proporcionales a la realidad emprendedora local.";
 
-  const loreTitle = isFR
-    ? "L'héritage des arpenteurs"
-    : isEN ? "The Surveyors' Heritage"
-    : "El legado de los agrimensores";
-
-  const loreFigure = isFR ? "Jean Bourdon (1601–1668)" : "Samuel Holland (1728–1801)";
-
-  const loreText = isFR
+  const avantageItems = isFR
     ? [
-        "En 1634, Jean Bourdon débarque en Nouvelle-France avec une mission précise : mesurer, cartographier, comprendre le territoire avant tout autre geste. Il deviendra le premier Procureur général de la Nouvelle-France et tracera les premières rues de la ville de Québec — des lignes qui existent encore aujourd'hui.",
-        "Bourdon n'avait pas de GPS. Pas de satellite. Seulement une chaîne d'arpenteur, un théodolite rudimentaire et une capacité extraordinaire à lire le terrain. Il savait qu'avant de bâtir, il faut d'abord comprendre. Avant de construire une route, il faut en voir le tracé.",
-        "C'est cet esprit que la Division Arpenteur porte : la conviction que définir avec précision — une identité, une couleur, un ton, une typographie — c'est poser les fondations de tout ce qui vient après.",
+        "Livre de marque complet livré en PDF + sources éditables",
+        "Photos professionnelles sur le terrain (déplacement inclus)",
+        "Gabarits réseaux sociaux prêts à l'emploi (FR/EN)",
+        "Cohérence garantie entre print et numérique",
+        "Révisions incluses — nous peaufinons jusqu'à ce que ce soit juste",
       ]
     : isEN
     ? [
-        "Born in The Hague in 1728, Samuel Holland came to North America as a military engineer. After the Battle of the Plains of Abraham (1759), he became the first Surveyor General of the Northern District of North America — tasked with mapping a continent.",
-        "Holland brought astronomical precision to his surveys. He worked alongside James Cook, helped lay out Prince Edward Island's lot system, and produced maps that shaped how British North America understood itself. He once said that the surveyor's job was to give the land a language.",
-        "Arpenteur Division carries that same mission: giving your brand a language — colors, marks, typography — so precise and intentional that every touchpoint tells the same story.",
+        "Complete brand book delivered in PDF + editable sources",
+        "Professional on-site photography (travel included)",
+        "Ready-to-use social media templates (FR/EN)",
+        "Guaranteed consistency between print and digital",
+        "Revisions included — we refine until it's right",
       ]
     : [
-        "Nacido en La Haya en 1728, Samuel Holland llegó a América del Norte como ingeniero militar. Tras la Batalla de las Llanuras de Abraham (1759), se convirtió en el primer Agrimensor General del Distrito Norte de América del Norte.",
-        "Holland aportó precisión astronómica a sus levantamientos. Colaboró con James Cook, contribuyó a diseñar el sistema de lotes de la Isla del Príncipe Eduardo y produjo mapas que definieron cómo la América del Norte británica se comprendía a sí misma.",
-        "La División Arpenteur lleva esa misma misión: dar a su marca un lenguaje — colores, marcas, tipografía — tan preciso e intencional que cada punto de contacto cuente la misma historia.",
+        "Libro de marca completo entregado en PDF + fuentes editables",
+        "Fotografía profesional in situ (desplazamiento incluido)",
+        "Plantillas de redes sociales listas para usar",
+        "Coherencia garantizada entre impreso y digital",
+        "Revisiones incluidas",
       ];
 
+  // ── CTA ──
   const ctaTitre = isFR
     ? "Prêt à tracer votre identité ?"
-    : isEN ? "Ready to chart your identity?"
+    : isEN
+    ? "Ready to chart your identity?"
     : "¿Listo para trazar su identidad?";
 
   const ctaBouton = isFR
     ? "Parler à notre équipe"
-    : isEN ? "Talk to our team"
+    : isEN
+    ? "Talk to our team"
     : "Hablar con nuestro equipo";
 
   const ctaRetour = isFR
     ? "← Toutes les divisions"
-    : isEN ? "← All divisions"
-    : "← Todas las divisiones";
-
-  const servicesTitle = isFR ? "Ce que nous faisons"
-    : isEN ? "What we do"
-    : "Lo que hacemos";
-
-  const avantageItems = isFR
-    ? ["Livre de marque complet livré en PDF + sources éditables", "Photos professionnelles sur le terrain (déplacement inclus)", "Gabarits réseaux sociaux prêts à l'emploi (FR/EN)", "Cohérence garantie entre print et numérique", "Révisions incluses — nous peaufinons jusqu'à ce que ce soit juste"]
     : isEN
-    ? ["Complete brand book delivered in PDF + editable sources", "Professional on-site photography (travel included)", "Ready-to-use social media templates (FR/EN)", "Guaranteed consistency between print and digital", "Revisions included — we refine until it's right"]
-    : ["Libro de marca completo entregado en PDF + fuentes editables", "Fotografía profesional in situ (desplazamiento incluido)", "Plantillas de redes sociales listas para usar", "Coherencia garantizada entre impreso y digital", "Revisiones incluidas"];
+    ? "← All divisions"
+    : "← Todas las divisiones";
 
   return (
     <>
       <ArpenteurJsonLd />
 
       {/* ── HERO ── */}
-      {/* marginTop -80px couvre le pt-20 du wrapper main (body Space Black) */}
       <section
         className="relative px-6"
-        style={{ backgroundColor: "#5762A2", marginTop: "-80px", paddingTop: "176px", paddingBottom: "96px" }}
+        style={{
+          backgroundColor: "#5762A2",
+          marginTop: "-80px",
+          paddingTop: "176px",
+          paddingBottom: "96px",
+        }}
       >
         <div className="max-w-5xl mx-auto">
           <div className="flex flex-col md:flex-row items-start gap-10">
@@ -214,20 +405,33 @@ export default function ArpenteurPage() {
                 alt="Mark Division Arpenteur"
                 width={110}
                 height={110}
-                style={{ width: "110px", height: "110px", filter: "brightness(0) invert(1)" }}
+                style={{
+                  width: "110px",
+                  height: "110px",
+                  filter: "brightness(0) invert(1)",
+                }}
               />
             </div>
             <div>
-              <p className="text-xs font-bold tracking-widest uppercase mb-3" style={{ color: "rgba(244,244,240,0.60)" }}>
+              <p
+                className="text-xs font-bold tracking-widest uppercase mb-3"
+                style={{ color: "rgba(244,244,240,0.60)" }}
+              >
                 {heroTagline}
               </p>
               <h1
                 className="text-4xl md:text-5xl font-bold mb-6"
-                style={{ color: "#F4F4F0", fontFamily: "var(--font-display, 'Gotham', 'Montserrat', system-ui)" }}
+                style={{
+                  color: "#F4F4F0",
+                  fontFamily: "var(--font-display, 'Gotham', 'Montserrat', system-ui)",
+                }}
               >
                 {heroTitre}
               </h1>
-              <p className="text-lg leading-relaxed max-w-2xl" style={{ color: "rgba(244,244,240,0.82)" }}>
+              <p
+                className="text-lg leading-relaxed max-w-2xl"
+                style={{ color: "rgba(244,244,240,0.82)" }}
+              >
                 {heroDesc}
               </p>
             </div>
@@ -240,7 +444,10 @@ export default function ArpenteurPage() {
         <div className="max-w-5xl mx-auto">
           <h2
             className="text-3xl font-bold mb-12"
-            style={{ color: "#5762A2", fontFamily: "var(--font-display, 'Gotham', 'Montserrat', system-ui)" }}
+            style={{
+              color: "#5762A2",
+              fontFamily: "var(--font-display, 'Gotham', 'Montserrat', system-ui)",
+            }}
           >
             {servicesTitle}
           </h2>
@@ -251,15 +458,18 @@ export default function ArpenteurPage() {
                 <div
                   key={i}
                   className={`p-6 rounded-xl border-l-4 card-lift animate-fade-in-up stagger-${Math.min(i + 1, 6)}`}
-                  style={{ borderLeftColor: "#5762A2", backgroundColor: "#F4F4F0" }}
+                  style={{
+                    borderLeftColor: "#5762A2",
+                    backgroundColor: "#F4F4F0",
+                  }}
                 >
-                  <h3
-                    className="font-bold text-base mb-2"
-                    style={{ color: "#5762A2" }}
-                  >
+                  <h3 className="font-bold text-base mb-2" style={{ color: "#5762A2" }}>
                     {sLocale.titre}
                   </h3>
-                  <p className="text-sm leading-relaxed" style={{ color: "rgba(29,29,27,0.65)" }}>
+                  <p
+                    className="text-sm leading-relaxed"
+                    style={{ color: "rgba(29,29,27,0.65)" }}
+                  >
                     {sLocale.desc}
                   </p>
                 </div>
@@ -269,50 +479,135 @@ export default function ArpenteurPage() {
         </div>
       </section>
 
-      {/* ── LORE — Jean Bourdon (FR) / Samuel Holland (EN/ES) ── */}
+      {/* ── LORE A — JEAN BOURDON ── */}
       <section className="py-20 px-6" style={{ backgroundColor: "#E8EAF6" }}>
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-5xl mx-auto">
           <p
             className="text-xs font-bold tracking-widest uppercase mb-3"
             style={{ color: "#5762A2" }}
           >
-            {loreTitle}
+            {bourdonSurtitle}
           </p>
           <h2
-            className="text-3xl font-bold mb-10"
-            style={{ color: "#1D1D1B", fontFamily: "var(--font-display, 'Gotham', 'Montserrat', system-ui)" }}
+            className="text-3xl font-bold mb-8"
+            style={{
+              color: "#1D1D1B",
+              fontFamily: "var(--font-display, 'Gotham', 'Montserrat', system-ui)",
+            }}
           >
-            {loreFigure}
+            Jean Bourdon (1601–1668)
           </h2>
-          <div className="space-y-5">
-            {loreText.map((p, i) => (
-              <p key={i} className="text-base leading-relaxed scroll-fade" style={{ color: "rgba(29,29,27,0.75)" }}>
+          <div className="space-y-5 mb-12">
+            {bourdonText.map((p, i) => (
+              <p
+                key={i}
+                className="text-base leading-relaxed scroll-fade"
+                style={{ color: "rgba(29,29,27,0.75)" }}
+              >
                 {p}
               </p>
             ))}
+          </div>
+
+          {/* Galerie Bourdon — 3 photos cliquables */}
+          <ArpenteurGallery photos={bourdonPhotos} cols={3} />
+        </div>
+      </section>
+
+      {/* ── LORE B — SAMUEL HOLLAND ── */}
+      <section className="py-20 px-6" style={{ backgroundColor: "#FFFFFF" }}>
+        <div className="max-w-5xl mx-auto">
+          <div className="flex flex-col md:flex-row gap-10 items-start">
+
+            {/* Photo Holland — à gauche sur desktop */}
+            <div className="w-full md:w-72 flex-shrink-0">
+              <ArpenteurGallery photos={hollandPhoto} cols={1} />
+            </div>
+
+            {/* Texte Holland — à droite sur desktop */}
+            <div className="flex-1">
+              <p
+                className="text-xs font-bold tracking-widest uppercase mb-3"
+                style={{ color: "#5762A2" }}
+              >
+                {hollandSurtitle}
+              </p>
+              <h2
+                className="text-3xl font-bold mb-6"
+                style={{
+                  color: "#1D1D1B",
+                  fontFamily: "var(--font-display, 'Gotham', 'Montserrat', system-ui)",
+                }}
+              >
+                Samuel Holland (1728–1801)
+              </h2>
+              <div className="space-y-4 mb-8">
+                {hollandText.map((p, i) => (
+                  <p
+                    key={i}
+                    className="text-base leading-relaxed scroll-fade"
+                    style={{ color: "rgba(29,29,27,0.75)" }}
+                  >
+                    {p}
+                  </p>
+                ))}
+              </div>
+
+              {/* Callout — lien narratif Division Carillon */}
+              <div
+                className="p-4 rounded-lg border-l-4"
+                style={{
+                  borderLeftColor: "#203478",
+                  backgroundColor: "#E3E6EF",
+                }}
+              >
+                <p
+                  className="text-xs font-bold tracking-widest uppercase mb-2"
+                  style={{ color: "#203478" }}
+                >
+                  {hollandCarillonLabel}
+                </p>
+                <p
+                  className="text-sm leading-relaxed"
+                  style={{ color: "rgba(32,52,120,0.85)" }}
+                >
+                  {hollandCarillonCallout}
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* ── AVANTAGE ── */}
-      <section className="py-20 px-6" style={{ backgroundColor: "#FFFFFF" }}>
+      <section className="py-20 px-6" style={{ backgroundColor: "#F4F4F0" }}>
         <div className="max-w-4xl mx-auto">
           <div
             className="p-8 rounded-xl border-l-4"
-            style={{ borderLeftColor: "#5762A2", backgroundColor: "#F4F4F0" }}
+            style={{ borderLeftColor: "#5762A2", backgroundColor: "#FFFFFF" }}
           >
             <h2
               className="text-2xl font-bold mb-4"
-              style={{ color: "#5762A2", fontFamily: "var(--font-display, 'Gotham', 'Montserrat', system-ui)" }}
+              style={{
+                color: "#5762A2",
+                fontFamily: "var(--font-display, 'Gotham', 'Montserrat', system-ui)",
+              }}
             >
               {avantage}
             </h2>
-            <p className="text-base leading-relaxed mb-6" style={{ color: "rgba(29,29,27,0.70)" }}>
+            <p
+              className="text-base leading-relaxed mb-6"
+              style={{ color: "rgba(29,29,27,0.70)" }}
+            >
               {avantageDesc}
             </p>
             <ul className="space-y-2">
               {avantageItems.map((item, i) => (
-                <li key={i} className="flex items-start gap-2 text-sm" style={{ color: "rgba(29,29,27,0.65)" }}>
+                <li
+                  key={i}
+                  className="flex items-start gap-2 text-sm"
+                  style={{ color: "rgba(29,29,27,0.65)" }}
+                >
                   <span style={{ color: "#5762A2" }}>✓</span> {item}
                 </li>
               ))}
@@ -322,11 +617,17 @@ export default function ArpenteurPage() {
       </section>
 
       {/* ── CTA FINAL ── */}
-      <section className="py-20 px-6 text-center" style={{ backgroundColor: "#1D1D1B" }}>
+      <section
+        className="py-20 px-6 text-center"
+        style={{ backgroundColor: "#1D1D1B" }}
+      >
         <div className="max-w-2xl mx-auto">
           <h2
             className="text-3xl font-bold mb-4"
-            style={{ color: "#F4F4F0", fontFamily: "var(--font-display, 'Gotham', 'Montserrat', system-ui)" }}
+            style={{
+              color: "#F4F4F0",
+              fontFamily: "var(--font-display, 'Gotham', 'Montserrat', system-ui)",
+            }}
           >
             {ctaTitre}
           </h2>
@@ -341,7 +642,10 @@ export default function ArpenteurPage() {
             <Link
               href="/divisions"
               className="px-8 py-4 rounded-lg font-bold text-sm border transition"
-              style={{ borderColor: "rgba(244,244,240,0.40)", color: "#F4F4F0" }}
+              style={{
+                borderColor: "rgba(244,244,240,0.40)",
+                color: "#F4F4F0",
+              }}
             >
               {ctaRetour}
             </Link>

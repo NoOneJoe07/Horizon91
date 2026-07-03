@@ -56,13 +56,13 @@ export default function ContactsPage() {
         {membres.map((c) => (
           <div
             key={c.titre}
-            className="p-6 border border-h91-accretion/20 rounded-xl bg-h91-gravity/50 flex flex-col gap-2 hover:border-h91-accretion/50 transition"
+            className="p-6 border border-h91-accretion/15 hover:border-h91-accretion/40 rounded-xl bg-h91-stellar flex flex-col gap-2 transition"
           >
             <h2 className={`text-xl font-bold ${c.couleur}`}>{c.titre}</h2>
-            <p className="text-h91-stellar/50 text-sm">{c.note}</p>
+            <p className="text-h91-gravity/55 text-sm">{c.note}</p>
             <a
               href={`mailto:${c.courriel}`}
-              className="mt-2 text-h91-stellar/80 hover:text-h91-ion transition text-sm font-mono"
+              className="mt-2 text-h91-gravity/65 hover:text-h91-ion transition text-sm font-mono"
             >
               {c.courriel}
             </a>

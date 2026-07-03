@@ -120,24 +120,24 @@ async function LocalBusinessJsonLd() {
 const membresMeta = [
   {
     key: "jonathan",
+    slug: "jonathan-patoine",
     initiales: "JP",
     couleurBordure: "#0099D1",
     couleurInitiales: "#0099D1",
-    badge: false,
   },
   {
     key: "alexandra",
+    slug: "alexandra-espin",
     initiales: "AE",
     couleurBordure: "#5762A2",
     couleurInitiales: "#5762A2",
-    badge: false,
   },
   {
     key: "paulina",
+    slug: "paulina-jaramillo",
     initiales: "PJ",
     couleurBordure: "#5762A2",
     couleurInitiales: "#5762A2",
-    badge: false,
   },
 ] as const;
 
@@ -345,20 +345,12 @@ export default function HomePage() {
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-4xl mx-auto">
             {membresMeta.map((meta, idx) => (
-              <div
+              <Link
                 key={meta.key}
+                href={`/equipe/${meta.slug}`}
                 className={`relative p-6 border-2 rounded-xl flex flex-col items-center gap-4 text-center card-lift animate-fade-in-up stagger-${idx + 1}`}
                 style={{ borderColor: meta.couleurBordure, backgroundColor: "#FFFFFF" }}
               >
-                {meta.badge && (
-                  <span
-                    className="absolute top-4 right-4 text-xs font-bold px-2 py-1 rounded-full"
-                    style={{ backgroundColor: "rgba(32,52,120,0.10)", color: "#203478" }}
-                  >
-                    {t("team.badge_soon")}
-                  </span>
-                )}
-
                 {/* Photo placeholder */}
                 <div
                   className="w-24 h-24 rounded-full border-2 flex items-center justify-center"
@@ -382,16 +374,13 @@ export default function HomePage() {
                   {t(`team.members.${meta.key}.bio`)}
                 </p>
 
-                {meta.key === "jonathan" && (
-                  <a
-                    href="#histoire"
-                    className="mt-2 text-xs font-semibold underline underline-offset-4 transition"
-                    style={{ color: "#0099D1" }}
-                  >
-                    {t("team.cta_histoire")}
-                  </a>
-                )}
-              </div>
+                <span
+                  className="mt-auto text-xs font-semibold underline underline-offset-4"
+                  style={{ color: meta.couleurInitiales }}
+                >
+                  {t("team.cta_profile")}
+                </span>
+              </Link>
             ))}
           </div>
         </div>

@@ -14,6 +14,7 @@ const locales = [
 export default function Header() {
   const [open, setOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const [langOpen, setLangOpen] = useState(false);
   const t = useTranslations("nav");
   const tBrand = useTranslations("brand");
   const locale = useLocale();
@@ -23,6 +24,14 @@ export default function Header() {
   useEffect(() => {
     setMounted(true);
   }, []);
+
+  // Ferme le dropdown langue si on clique ailleurs
+  useEffect(() => {
+    if (!langOpen) return;
+    const close = () => setLangOpen(false);
+    document.addEventListener("click", close);
+    return () => document.removeEventListener("click", close);
+  }, [langOpen]);
 
   const switchLocale = (newLocale: string) => {
     router.replace(pathname, { locale: newLocale });
@@ -64,27 +73,45 @@ export default function Header() {
 
         {/* ZONE DROITE — LANGUE + CTA */}
         <div className="hidden md:flex justify-end items-center gap-4" style={{ flex: "0 0 280px" }}>
-          {/* Sélecteur de langue */}
-          <div className="flex items-center gap-1">
-            {locales.map((loc, i) => (
-              <span key={loc.code} className="flex items-center">
-                <button
-                  onClick={() => mounted && switchLocale(loc.code)}
-                  disabled={!mounted}
-                  className="text-xs font-bold px-1 transition"
-                  style={{
-                    color: locale === loc.code ? "#0099D1" : "rgba(244,244,240,0.40)",
-                  }}
-                  onMouseEnter={e => { if (locale !== loc.code) (e.target as HTMLElement).style.color = "rgba(244,244,240,0.75)"; }}
-                  onMouseLeave={e => { if (locale !== loc.code) (e.target as HTMLElement).style.color = "rgba(244,244,240,0.40)"; }}
-                >
-                  {loc.label}
-                </button>
-                {i < locales.length - 1 && (
-                  <span className="text-xs" style={{ color: "rgba(244,244,240,0.20)" }}>|</span>
-                )}
-              </span>
-            ))}
+          {/* Sélecteur de langue — dropdown */}
+          <div className="relative" onClick={e => e.stopPropagation()}>
+            <button
+              onClick={() => mounted && setLangOpen(v => !v)}
+              disabled={!mounted}
+              className="flex items-center gap-1 text-xs font-bold px-2 py-1 rounded transition"
+              style={{
+                color: "#F4F4F0",
+                border: "1px solid rgba(244,244,240,0.25)",
+                backgroundColor: langOpen ? "rgba(244,244,240,0.10)" : "transparent",
+              }}
+            >
+              {locale.toUpperCase()}
+              <svg width="8" height="5" viewBox="0 0 8 5" fill="none" style={{ transition: "transform 0.15s", transform: langOpen ? "rotate(180deg)" : "rotate(0deg)" }}>
+                <path d="M1 1l3 3 3-3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </button>
+            {langOpen && (
+              <div
+                className="absolute right-0 top-full mt-1 rounded-lg overflow-hidden shadow-xl z-50"
+                style={{ backgroundColor: "#162260", border: "1px solid rgba(244,244,240,0.15)", minWidth: "68px" }}
+              >
+                {locales.map(loc => (
+                  <button
+                    key={loc.code}
+                    onClick={() => { switchLocale(loc.code); setLangOpen(false); }}
+                    className="block w-full text-left px-3 py-2 text-xs font-bold transition"
+                    style={{
+                      color: locale === loc.code ? "#0099D1" : "rgba(244,244,240,0.75)",
+                      backgroundColor: "transparent",
+                    }}
+                    onMouseEnter={e => { (e.currentTarget as HTMLElement).style.backgroundColor = "rgba(255,255,255,0.08)"; }}
+                    onMouseLeave={e => { (e.currentTarget as HTMLElement).style.backgroundColor = "transparent"; }}
+                  >
+                    {loc.label}
+                  </button>
+                ))}
+              </div>
+            )}
           </div>
 
           {/* Bouton CTA — Bleu Polaire */}
