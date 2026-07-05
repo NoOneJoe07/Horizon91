@@ -20,6 +20,7 @@ interface Projet {
   resultats: string[];
   statut: "Livré" | "En cours" | "À venir";
   couleur: string;
+  url?: string;
 }
 
 const categorieKeys: CategorieKey[] = [
@@ -75,11 +76,11 @@ export default function PortfolioClient() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {filtres.map((projet) => {
           const isRedacted = projet.statut === "À venir";
-          return (
+          const isLinked = !isRedacted && !!projet.url;
+          const card = (
           <article
-            key={projet.nom}
             className={`relative p-6 border-2 ${projet.couleur} rounded-xl bg-h91-gravity/50 flex flex-col gap-3 transition overflow-hidden ${
-              isRedacted ? "cursor-default" : "hover:bg-h91-gravity/80"
+              isRedacted ? "cursor-default" : isLinked ? "hover:bg-h91-gravity/80 hover:border-opacity-100 group" : "hover:bg-h91-gravity/80"
             }`}
           >
             {/* Badge catégorie + statut — toujours visible */}
@@ -119,6 +120,13 @@ export default function PortfolioClient() {
               </ul>
             </div>
 
+            {/* Lien vers le site livré */}
+            {isLinked && (
+              <span className="text-h91-ion text-xs font-semibold mt-auto pt-2 group-hover:underline">
+                Voir le site →
+              </span>
+            )}
+
             {/* Overlay zone en formation */}
             {isRedacted && (
               <div className="absolute inset-0 flex flex-col items-center justify-center bg-h91-gravity/60 rounded-xl gap-3">
@@ -137,6 +145,13 @@ export default function PortfolioClient() {
               </div>
             )}
           </article>
+          );
+          return isLinked ? (
+            <a key={projet.nom} href={projet.url} target="_blank" rel="noopener noreferrer" className="block">
+              {card}
+            </a>
+          ) : (
+            <div key={projet.nom}>{card}</div>
           );
         })}
 

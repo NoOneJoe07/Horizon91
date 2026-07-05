@@ -231,65 +231,145 @@ export default function TarificationPage() {
       </section>
 
       {/* ══════════════════════════════════════════════════
-          MÉDIAS SOCIAUX
+          DIVISION ARPENTEUR — GRAPHISME, MARQUE & MÉDIAS
       ══════════════════════════════════════════════════ */}
       <section className="mb-20">
-        <h2 className="text-2xl font-bold text-h91-stellar text-center mb-10 uppercase tracking-wider">
-          {t("social_title")}
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {socialPackages.map((pkg, i) => (
-            <div
-              key={i}
-              className={`relative p-7 rounded-xl flex flex-col gap-4 transition ${
-                pkg.featured
-                  ? "border-2 border-h91-ion bg-h91-ion/8 card-featured-glow"
-                  : "border border-h91-glacier/25 bg-h91-gravity/50"
-              }`}
-            >
-              {pkg.featured && (
-                <span className="absolute -top-4 left-1/2 -translate-x-1/2 bg-h91-ion text-h91-gravity text-xs font-bold px-4 py-1 rounded-full uppercase tracking-widest whitespace-nowrap">
-                  {t("recommended_badge")}
-                </span>
-              )}
+        <div className="border border-h91-warp/30 rounded-2xl bg-h91-warp/5 p-10">
 
-              <div>
-                <h3 className="text-xl font-bold text-h91-stellar">
-                  {pkg.nom}
-                </h3>
-                <p className="text-h91-stellar/40 text-xs mt-1">{pkg.cible}</p>
-              </div>
+          {/* En-tête */}
+          <div className="mb-10">
+            <span className="inline-block text-xs font-bold px-3 py-1.5 rounded-full bg-h91-warp/15 text-h91-warp border border-h91-warp/30 mb-4 uppercase tracking-widest">
+              Division Arpenteur — Graphisme & Marque
+            </span>
+            <h2 className="text-2xl font-bold text-h91-stellar mb-2">
+              Votre marque, votre voix, votre image
+            </h2>
+            <p className="text-h91-stellar/60 text-sm max-w-xl leading-relaxed">
+              Du premier logo jusqu'à la gestion quotidienne de votre présence en ligne,
+              Paulina et Alexandra bâtissent une image qui vous ressemble — et qui reste
+              cohérente sur tous vos supports.
+            </p>
+          </div>
 
-              <div className="flex items-baseline gap-2">
-                <span className="text-3xl font-extrabold text-h91-stellar">
-                  {pkg.prix_min}
-                </span>
-                {pkg.prix_max && (
-                  <span className="text-h91-stellar/40 text-sm">→ {pkg.prix_max}</span>
-                )}
-              </div>
-
-              <ul className="flex flex-col gap-2 flex-1">
-                {pkg.features.map((f, fi) => (
-                  <li key={fi} className="flex items-start gap-2 text-sm text-h91-stellar/80">
-                    <span className="text-h91-ion mt-0.5 shrink-0">✓</span>
-                    <span>{f}</span>
-                  </li>
-                ))}
-              </ul>
-
-              <Link
-                href="/rejoindre"
-                className={`mt-2 block text-center py-3 rounded-lg font-bold text-sm transition ${
+          {/* Médias sociaux */}
+          <p className="text-xs font-bold uppercase tracking-widest text-h91-warp mb-6">
+            Médias sociaux — add-on mensuel
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+            {socialPackages.map((pkg, i) => (
+              <div
+                key={i}
+                className={`relative p-7 rounded-xl flex flex-col gap-4 transition ${
                   pkg.featured
-                    ? "bg-h91-ion text-h91-gravity hover:bg-h91-ion/80"
-                    : "border border-h91-glacier/50 text-h91-glacier hover:border-h91-glacier hover:bg-h91-glacier/10"
+                    ? "border-2 border-h91-warp bg-h91-warp/8"
+                    : "border border-h91-warp/20 bg-h91-gravity/50"
                 }`}
               >
-                {t("cta_bouton")}
-              </Link>
+                {pkg.featured && (
+                  <span className="absolute -top-4 left-1/2 -translate-x-1/2 bg-h91-warp text-h91-stellar text-xs font-bold px-4 py-1 rounded-full uppercase tracking-widest whitespace-nowrap">
+                    {t("recommended_badge")}
+                  </span>
+                )}
+                <div>
+                  <h3 className="text-xl font-bold text-h91-stellar">{pkg.nom}</h3>
+                  <p className="text-h91-stellar/40 text-xs mt-1">{pkg.cible}</p>
+                </div>
+                <div className="flex items-baseline gap-2">
+                  <span className="text-3xl font-extrabold text-h91-stellar">{pkg.prix_min}</span>
+                  {pkg.prix_max && (
+                    <span className="text-h91-stellar/40 text-sm">→ {pkg.prix_max}</span>
+                  )}
+                </div>
+                <ul className="flex flex-col gap-2 flex-1">
+                  {pkg.features.map((f, fi) => (
+                    <li key={fi} className="flex items-start gap-2 text-sm text-h91-stellar/80">
+                      <span className="text-h91-warp mt-0.5 shrink-0">✓</span>
+                      <span>{f}</span>
+                    </li>
+                  ))}
+                </ul>
+                <Link
+                  href="/rejoindre"
+                  className={`mt-2 block text-center py-3 rounded-lg font-bold text-sm transition ${
+                    pkg.featured
+                      ? "bg-h91-warp text-h91-stellar hover:bg-h91-warp/80"
+                      : "border border-h91-warp/40 text-h91-warp hover:border-h91-warp hover:bg-h91-warp/10"
+                  }`}
+                >
+                  {t("cta_bouton")}
+                </Link>
+              </div>
+            ))}
+          </div>
+
+          {/* Identité de marque & Communication */}
+          <p className="text-xs font-bold uppercase tracking-widest text-h91-warp mb-6">
+            Identité de marque & Communication
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+
+            {/* Branding */}
+            <div className="p-6 rounded-xl border border-h91-warp/30 bg-h91-gravity/60 flex flex-col gap-3">
+              <div>
+                <p className="text-h91-warp font-bold text-xs uppercase tracking-widest mb-1">Branding — Livraison unique</p>
+                <h3 className="text-h91-stellar font-bold text-lg">Identité de marque</h3>
+              </div>
+              <p className="text-h91-stellar/60 text-sm leading-relaxed flex-1">
+                Logo sur mesure, palette de couleurs, guide typographique, gabarits réseaux sociaux.
+                Une identité visuelle cohérente dès le premier jour.
+              </p>
+              <ul className="flex flex-col gap-1.5 text-sm text-h91-stellar/70 mt-1">
+                <li className="flex items-start gap-2">
+                  <span className="text-h91-warp shrink-0 mt-0.5">✓</span>
+                  <span><strong className="text-h91-stellar">Signature Locale</strong> — logo + palette + guide simplifié : dès 450 $</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-h91-warp shrink-0 mt-0.5">✓</span>
+                  <span><strong className="text-h91-stellar">Identité Complète</strong> — + gabarits + carte d'affaires : dès 900 $</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-h91-warp shrink-0 mt-0.5">✓</span>
+                  <span><strong className="text-h91-stellar">Refonte de marque</strong> : dès 600 $</span>
+                </li>
+              </ul>
             </div>
-          ))}
+
+            {/* Photo & Communication imprimée */}
+            <div className="p-6 rounded-xl border border-h91-warp/20 bg-h91-gravity/60 flex flex-col gap-3">
+              <div>
+                <p className="text-h91-warp font-bold text-xs uppercase tracking-widest mb-1">Photo & Imprimé</p>
+                <h3 className="text-h91-stellar font-bold text-lg">Photographie & Communication</h3>
+              </div>
+              <p className="text-h91-stellar/60 text-sm leading-relaxed flex-1">
+                Séances photo professionnelles chez vous, design de pamphlets, dépliants et
+                cartes d'affaires. Partenariat avec l'imprimerie locale.
+              </p>
+              <ul className="flex flex-col gap-1.5 text-sm text-h91-stellar/70 mt-1">
+                <li className="flex items-start gap-2">
+                  <span className="text-h91-warp shrink-0 mt-0.5">✓</span>
+                  <span><strong className="text-h91-stellar">Séance produits</strong> — 20 photos livrées : dès 275 $</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-h91-warp shrink-0 mt-0.5">✓</span>
+                  <span><strong className="text-h91-stellar">Séance entreprise</strong> — équipe + espace : dès 450 $</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-h91-warp shrink-0 mt-0.5">✓</span>
+                  <span><strong className="text-h91-stellar">Carte d'affaires, pamphlet, dépliant</strong> : dès 125 $</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          {/* CTA Division Arpenteur */}
+          <div className="text-center">
+            <Link
+              href="/divisions/arpenteur"
+              className="inline-block px-8 py-3 rounded-lg border border-h91-warp text-h91-warp font-bold hover:bg-h91-warp/10 transition"
+            >
+              Découvrir la Division Arpenteur →
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -297,12 +377,12 @@ export default function TarificationPage() {
           CYBERSÉCURITÉ — DIVISION CARILLON
       ══════════════════════════════════════════════════ */}
       <section className="mb-20">
-        <div className="border border-h91-ion/30 rounded-2xl bg-h91-ion/5 p-10">
+        <div className="border border-[#203478]/50 rounded-2xl bg-[#203478]/15 p-10">
 
           {/* En-tête */}
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-10">
             <div>
-              <span className="inline-block text-xs font-bold px-3 py-1.5 rounded-full bg-h91-ion/15 text-h91-ion border border-h91-ion/30 mb-4 uppercase tracking-widest">
+              <span className="inline-block text-xs font-bold px-3 py-1.5 rounded-full bg-[#203478]/40 text-h91-stellar border border-[#203478]/60 mb-4 uppercase tracking-widest">
                 Division Carillon — Cybersécurité
               </span>
               <h2 className="text-2xl font-bold text-h91-stellar mb-2">
@@ -320,7 +400,7 @@ export default function TarificationPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
 
             {/* Saurel */}
-            <div className="p-6 rounded-xl border border-h91-ion/30 bg-h91-gravity/60 flex flex-col gap-3">
+            <div className="p-6 rounded-xl border border-[#203478]/50 bg-h91-gravity/60 flex flex-col gap-3">
               <div>
                 <p className="text-h91-ion font-bold text-xs uppercase tracking-widest mb-1">Saurel — SaaS</p>
                 <h3 className="text-h91-stellar font-bold text-lg">Surveillance & Vigie numérique</h3>
@@ -336,7 +416,7 @@ export default function TarificationPage() {
             </div>
 
             {/* Suite Carignan */}
-            <div className="p-6 rounded-xl border border-h91-ion/20 bg-h91-gravity/60 flex flex-col gap-3">
+            <div className="p-6 rounded-xl border border-[#203478]/40 bg-h91-gravity/60 flex flex-col gap-3">
               <div>
                 <p className="text-h91-ion font-bold text-xs uppercase tracking-widest mb-1">Suite Carignan — Gouvernance</p>
                 <h3 className="text-h91-stellar font-bold text-lg">Architecture défensive sur mesure</h3>
@@ -357,7 +437,7 @@ export default function TarificationPage() {
           <div className="text-center">
             <Link
               href="/divisions/cyber"
-              className="inline-block px-8 py-3 rounded-lg border border-h91-ion text-h91-ion font-bold hover:bg-h91-ion/10 transition"
+              className="inline-block px-8 py-3 rounded-lg border border-h91-stellar/40 text-h91-stellar font-bold hover:bg-h91-stellar/10 transition"
             >
               Voir les forfaits Saurel en détail →
             </Link>

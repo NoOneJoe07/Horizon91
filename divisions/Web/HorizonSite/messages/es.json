@@ -156,8 +156,9 @@
         "categorie": "Services",
         "description": "Sitio web completo para un dojo de jiu-jitsu brasileño: membresías en línea, pagos Stripe, panel de administración, bilingüe FR/EN, reserva de clase de prueba gratuita.",
         "resultats": ["Pagos en línea integrados", "Panel de administración completo", "Bilingüe FR/EN", "SEO local"],
-        "statut": "En cours",
-        "couleur": "border-h91-ion"
+        "statut": "Livré",
+        "couleur": "border-h91-ion",
+        "url": "https://www.citadellebjj.com/"
       },
       {
         "nom": "Atelier91",
@@ -260,14 +261,14 @@
   },
   "tarification": {
     "title": "Precios",
-    "subtitle": "Precios justos para la región. Sin costos ocultos — aquí está el rango completo.",
+    "subtitle": "Contratos sellados con un apretón de manos. Precios hechos para los artesanos y emprendedores de la región — claros, honestos y cumplidos.",
     "livrables_title": "Incluido en cada paquete — sin excepción",
     "livrables": [
       { "titre": "Contrato de servicio detallado", "desc": "Qué está incluido, plazos, revisiones, condiciones de pago y cancelación. Sin sorpresas." },
       { "titre": "Documento de garantías y condiciones", "desc": "Qué está cubierto (bugs, compatibilidad, seguridad) y qué aplica. Modificaciones no autorizadas, retraso en mantenimiento — todo documentado claramente." },
       { "titre": "Guía de administrador personalizada", "desc": "Cómo actualizar contenido, agregar una foto, cambiar horarios. Simple, visual, hecho para personas no técnicas. Su sitio, su autonomía." }
     ],
-    "web_title": "Sitios web — entrega única",
+    "web_title": "Sitios web construidos a la altura de tus ambiciones",
     "web_packages": [
       { "nom": "Vitrina Esencial", "cible": "Artesanos, terapeutas, servicios locales", "prix_min": "$1,500", "prix_max": "$2,200", "features": ["Diseño personalizado, mobile-first", "Hasta 5 secciones / páginas", "Formulario de contacto", "SEO básico + Google Maps", "Hosting incluido 1 año", "3 entregables documentales incluidos"], "featured": false },
       { "nom": "Pro Interactivo", "cible": "Salones, dojos, restaurantes, profesionales", "prix_min": "$3,000", "prix_max": "$4,500", "features": ["Todo del Esencial", "Reservas en línea o blog", "Galería de fotos / videos", "Multilingüe — FR, EN, ES y más según su clientela", "SEO local avanzado", "Panel de administración", "3 entregables documentales incluidos"], "featured": true },
@@ -281,9 +282,9 @@
     ],
     "heures_title": "Horas adicionales fuera del paquete",
     "heures": [
-      { "label": "Soporte y modificaciones de contenido", "prix": "$75 — $90 / h" },
-      { "label": "Desarrollo (nueva funcionalidad)", "prix": "$80 — $120 / h" },
-      { "label": "Banco de horas prepago — 10 h", "prix": "$700", "note": "ahorro de $100" }
+      { "label": "Soporte y modificaciones de contenido", "prix": "$60 / h" },
+      { "label": "Desarrollo (nueva funcionalidad)", "prix": "$70 / h" },
+      { "label": "Banco de horas prepago — 10 h", "prix": "$500", "note": "ahorro de $100" }
     ],
     "social_title": "Gestión de redes sociales — add-on mensual",
     "social_packages": [

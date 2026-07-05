@@ -1,7 +1,7 @@
 @AGENTS.md
 
 # CONTEXTE PROJET — Groupe Étoile Boréale Inc. / HorizonSite
-Dernière mise à jour : 2026-07-01 — REBRAND BRAND BOOK PAULINA ✅ — 3 PILIERS + DIVISION ARPENTEUR + LE CRIEUR
+Dernière mise à jour : 2026-07-03 — SESSION INFRA — Next.js 16, dropdown langue, pages profil équipe ✅
 
 ## Fichiers de contexte global Horizon 91
 - **Master context :** `C:\Users\Pc\OneDrive\Documents\Horizon 91\horizon91_master.md`
@@ -10,11 +10,12 @@ Dernière mise à jour : 2026-07-01 — REBRAND BRAND BOOK PAULINA ✅ — 3 PIL
 - À mettre à jour en fin de session si décisions systémiques prises (master) ou session productive (starlog)
 
 ## Stack technique
-- Next.js 15.5.18 App Router (TypeScript, Tailwind v4) — package.json: ^15.3.1
-- next-intl 3.26.5 pour l'internationalisation (FR/EN/ES)
+- Next.js 16.x App Router (TypeScript, Tailwind v4) — package.json: ^16.0.0 ← MIS À JOUR 2026-07-03
+- next-intl 4.x pour l'internationalisation (FR/EN/ES) — package.json: ^4.0.0 ← MIS À JOUR 2026-07-03
 - Deux copies : OneDrive (Cowork édite ici) ↔ WSL ~/Horizon91/divisions/Web/HorizonSite (npm run dev)
 - Sync manuel requis après chaque session : rsync depuis OneDrive vers WSL, puis git add/commit/push
-- Middleware actif : middleware.ts — proxy.ts SUPPRIMÉ
+- middleware.ts renommé en proxy.ts (session 2026-07-03) — routing locale géré par page-level redirects
+- .gitignore recréé (session 2026-07-03) — .next/ et node_modules/ exclus du tracking git ← CRITIQUE
 - Déployé sur Vercel (Hobby) — Framework Preset: Next.js, Root Directory: divisions/Web/HorizonSite
 
 ## Structure app/
@@ -44,7 +45,7 @@ app/
     portfolio/
       page.tsx            ← Serveur — generateMetadata + importe PortfolioClient
       PortfolioClient.tsx ← "use client" — filtre catégories (useState)
-    contacts/page.tsx     ← generateMetadata + liste contacts
+    contacts/page.tsx     ← generateMetadata + liste contacts (bg blanc #F4F4F0 sur les cartes — Server Component, Tailwind hover only)
     rejoindre/
       page.tsx            ← Serveur — generateMetadata + importe RejoindreCl
       RejoindreCl.tsx     ← "use client" — formulaire contact (useState + useLocale)
@@ -52,8 +53,12 @@ app/
     tarification/page.tsx ← Serveur — generateMetadata + forfaits (PAS "use client")
     confidentialite/
       page.tsx            ← Serveur async — generateMetadata + contenu FR/EN/ES inline (PAS "use client")
+    equipe/
+      jonathan-patoine/page.tsx  ← Profil complet JP (generateMetadata + bio histoire.p1-p6 + rôles) ← NOUVEAU 2026-07-03
+      alexandra-espin/page.tsx   ← Stub AE (generateMetadata + "à venir") ← NOUVEAU 2026-07-03
+      paulina-jaramillo/page.tsx ← Stub PJ (generateMetadata + "à venir") ← NOUVEAU 2026-07-03
   components/
-    Header.tsx            ← Sélecteur FR|EN|ES + mark-etoile.svg + nav
+    Header.tsx            ← Dropdown langue (useState) + mark-etoile.svg + nav ← MIS À JOUR 2026-07-03
     Footer.tsx            ← Nom de marque adaptatif
 i18n/
   routing.ts              ← locales: [fr, en, es], default: fr
@@ -194,6 +199,27 @@ Variables ENV Vercel ✅ : ZOHO_USER (= contact@groupesupernova.ca), ZOHO_PASS, 
 - Client components extraits (PortfolioClient.tsx, RejoindreCl.tsx) pour permettre generateMetadata serveur
 - Google Search Console : etoileboreale.ca + borealstar.ca vérifiés ✅, sitemaps soumis ✅, indexation demandée ✅
 
+## Session 2026-07-03 — Infra, UX, Pages équipe
+
+### Accomplissements
+- **`.gitignore` recréé** : avait été supprimé → `.next/` (372 MiB cache turbopack) avait été committé → 2 fichiers >100 MB rejetés par GitHub. Fix : `git reset HEAD~1` + `.gitignore` + re-commit propre (38 objets, 87 KiB)
+- **Import paths corrigés** : `@/components/` → `@/app/components/` dans cyber/page.tsx, web/page.tsx, arpenteur/page.tsx (tsconfig paths: `"@/*": ["./*"]` = racine projet, pas `app/`)
+- **package.json** : `next ^15.3.1 → ^16.0.0`, `next-intl ^3.26.5 → ^4.0.0`, `eslint-config-next ^15 → ^16`
+- **Dropdown langue Header** : `useState langOpen` + `useEffect` clic extérieur → remplace les 3 boutons FR|EN|ES inline. Dropdown `#162260`, min-width 68px, chevron rotatif
+- **Cartes contacts** : fond `bg-h91-stellar` (#F4F4F0) + hover Tailwind uniquement (pas d'event handlers — contacts/page.tsx est un Server Component)
+- **Pages profil équipe** (3 nouvelles routes) :
+  - `/equipe/jonathan-patoine` : bio complète (réutilise home.histoire.p1-p6 + quote), section rôles & expertises (3 cartes hardcodées FR), generateMetadata trilingue
+  - `/equipe/alexandra-espin` : stub "à venir" + description rôle, generateMetadata trilingue
+  - `/equipe/paulina-jaramillo` : stub "à venir" + description rôle, generateMetadata trilingue
+- **Homepage cartes équipe cliquables** : `membresMeta` avec slug, `<div>` → `<Link href="/equipe/[slug]">`, clé `home.team.cta_profile` ajoutée FR/EN/ES
+- **Git** : commit `f550e80` propre — 18 fichiers, 1500 insertions
+
+### Règles techniques importantes apprises
+- `@/` dans ce projet = racine repo (`tsconfig paths`), donc imports de `app/components/` = `@/app/components/`
+- Server Components (pages sans "use client") : PAS d'event handlers JS sur les éléments JSX → Tailwind `hover:` uniquement
+- `.next/` doit TOUJOURS être dans `.gitignore` — ne jamais supprimer ce fichier
+- rsync exclude `.next/` : `rsync -av --exclude='.next/' --exclude='node_modules/' ...`
+
 ## Enrichissement contenu — Session 2026-05-28
 
 ### Accomplissements session 2026-05-28
@@ -315,8 +341,11 @@ Variables ENV Vercel ✅ : ZOHO_USER (= contact@groupesupernova.ca), ZOHO_PASS, 
 - [ ] Contexte Suite Carignan (Sorel, Contrecoeur, Berthier, Chambly) avec lore historique
 - [ ] Articles Loi 25 sur /actualites
 - [ ] og-image.jpg avec branding Étoile Boréale
-- [ ] Photos équipe (Jonathan, Alexandra, Paulina) → remplacer initiales
-- [ ] Bios Alexandra et Paulina
+- ✅ Pages profil équipe créées : /equipe/jonathan-patoine (complet), /equipe/alexandra-espin (stub), /equipe/paulina-jaramillo (stub)
+- ✅ Cartes équipe homepage rendues cliquables → /equipe/[slug] (clé cta_profile ajoutée FR/EN/ES)
+- [ ] Photos équipe (Jonathan, Alexandra, Paulina) → remplacer initiales sur pages profil
+- [ ] Bios Alexandra et Paulina → compléter les stubs /equipe/
+- [ ] Réécrire histoire cie (home.histoire.*) quand les 3 bios fondateurs seront prêts
 
 ## À faire — Jonathan (hors code)
 - [ ] Enregistrement légal : NEQ (Registraire entreprises QC) + numéro fédéral ARC — "Groupe Étoile Boréale Inc."
@@ -353,7 +382,7 @@ Variables ENV Vercel ✅ : ZOHO_USER (= contact@groupesupernova.ca), ZOHO_PASS, 
 19. [ ] Bios Alexandra et Paulina
 20. [ ] Suite Carignan — section lore historique (Sorel, Contrecoeur, Berthier, Chambly)
 21. [ ] Articles Loi 25 sur /actualites
-22. [ ] Upgrade Next.js → latest (tester localement d'abord, session dédiée)
+22. ✅ Upgrade Next.js 16.x + next-intl 4.x (2026-07-03) — testé en local WSL, déployé sur Vercel
 23. [ ] Formation Vercel — Analytics, Speed Insights, Firewall, Storage
 
 ## Vercel — Notes configuration

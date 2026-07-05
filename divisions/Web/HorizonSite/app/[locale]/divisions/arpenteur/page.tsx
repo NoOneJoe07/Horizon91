@@ -616,6 +616,170 @@ export default function ArpenteurPage() {
         </div>
       </section>
 
+      {/* ── TARIFICATION ── */}
+      <section className="py-20 px-6" style={{ backgroundColor: "#FFFFFF" }}>
+        <div className="max-w-5xl mx-auto">
+          <p
+            className="text-xs font-bold tracking-widest uppercase mb-3"
+            style={{ color: "#5762A2" }}
+          >
+            {isFR ? "Aperçu des tarifs" : isEN ? "Pricing overview" : "Vista de precios"}
+          </p>
+          <h2
+            className="text-3xl font-bold mb-4"
+            style={{
+              color: "#1D1D1B",
+              fontFamily: "var(--font-display, 'Gotham', 'Montserrat', system-ui)",
+            }}
+          >
+            {isFR
+              ? "Des tarifs taillés pour la région"
+              : isEN
+              ? "Pricing built for the region"
+              : "Precios hechos para la región"}
+          </h2>
+          <p
+            className="text-base leading-relaxed mb-12 max-w-2xl"
+            style={{ color: "rgba(29,29,27,0.65)" }}
+          >
+            {isFR
+              ? "Une marque professionnelle n'est pas réservée aux grandes entreprises. Nos forfaits s'adressent aux artisans, commerçants et entrepreneurs d'ici — avec la transparence d'une poignée de main."
+              : isEN
+              ? "A professional brand isn't reserved for big companies. Our packages are designed for local artisans, merchants and entrepreneurs — with the transparency of a handshake."
+              : "Una marca profesional no está reservada para grandes empresas. Nuestros paquetes están diseñados para artesanos, comerciantes y emprendedores locales — con la transparencia de un apretón de manos."}
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+
+            {/* Identité de marque */}
+            <div
+              className="p-6 rounded-xl border-l-4 flex flex-col gap-4"
+              style={{ borderLeftColor: "#5762A2", backgroundColor: "#F4F4F0" }}
+            >
+              <h3 className="font-bold text-base" style={{ color: "#5762A2" }}>
+                {isFR ? "Identité de marque" : isEN ? "Brand identity" : "Identidad de marca"}
+              </h3>
+              <ul className="flex flex-col gap-2 flex-1">
+                {(isFR
+                  ? [
+                      ["Signature Locale", "logo + palette + guide", "dès 450 $"],
+                      ["Identité Complète", "+ gabarits + carte d'affaires", "dès 900 $"],
+                      ["Refonte de marque", "", "dès 600 $"],
+                    ]
+                  : isEN
+                  ? [
+                      ["Local Signature", "logo + palette + guide", "from $450"],
+                      ["Full Identity", "+ templates + business card", "from $900"],
+                      ["Brand refresh", "", "from $600"],
+                    ]
+                  : [
+                      ["Firma Local", "logo + paleta + guía", "desde $450"],
+                      ["Identidad Completa", "+ plantillas + tarjeta", "desde $900"],
+                      ["Renovación de marca", "", "desde $600"],
+                    ]
+                ).map(([titre, detail, prix], i) => (
+                  <li key={i} className="text-sm" style={{ color: "rgba(29,29,27,0.70)" }}>
+                    <span className="font-semibold" style={{ color: "#1D1D1B" }}>{titre}</span>
+                    {detail && <span className="text-xs"> — {detail}</span>}
+                    <span className="block font-bold mt-0.5" style={{ color: "#5762A2" }}>{prix}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Photographie & Communication */}
+            <div
+              className="p-6 rounded-xl border-l-4 flex flex-col gap-4"
+              style={{ borderLeftColor: "#5762A2", backgroundColor: "#F4F4F0" }}
+            >
+              <h3 className="font-bold text-base" style={{ color: "#5762A2" }}>
+                {isFR ? "Photographie & Communication" : isEN ? "Photography & Print" : "Fotografía & Comunicación"}
+              </h3>
+              <ul className="flex flex-col gap-2 flex-1">
+                {(isFR
+                  ? [
+                      ["Séance produits", "20 photos livrées", "dès 275 $"],
+                      ["Séance entreprise", "équipe + espace", "dès 450 $"],
+                      ["Carte d'affaires, pamphlet, dépliant", "", "dès 125 $"],
+                    ]
+                  : isEN
+                  ? [
+                      ["Product session", "20 photos delivered", "from $275"],
+                      ["Business session", "team + space", "from $450"],
+                      ["Business card, flyer, brochure", "", "from $125"],
+                    ]
+                  : [
+                      ["Sesión de productos", "20 fotos entregadas", "desde $275"],
+                      ["Sesión empresarial", "equipo + espacio", "desde $450"],
+                      ["Tarjeta, folleto, díptico", "", "desde $125"],
+                    ]
+                ).map(([titre, detail, prix], i) => (
+                  <li key={i} className="text-sm" style={{ color: "rgba(29,29,27,0.70)" }}>
+                    <span className="font-semibold" style={{ color: "#1D1D1B" }}>{titre}</span>
+                    {detail && <span className="text-xs"> — {detail}</span>}
+                    <span className="block font-bold mt-0.5" style={{ color: "#5762A2" }}>{prix}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Médias sociaux */}
+            <div
+              className="p-6 rounded-xl border-l-4 flex flex-col gap-4"
+              style={{ borderLeftColor: "#5762A2", backgroundColor: "#F4F4F0" }}
+            >
+              <h3 className="font-bold text-base" style={{ color: "#5762A2" }}>
+                {isFR ? "Médias sociaux" : isEN ? "Social media" : "Redes sociales"}
+              </h3>
+              <ul className="flex flex-col gap-2 flex-1">
+                {(isFR
+                  ? [
+                      ["Présence Essentielle", "FB + Instagram", "399 $ / mois"],
+                      ["Présence Active", "multi-plateformes + vidéo", "699 $ / mois"],
+                      ["Présence Complète", "écosystème + book postal", "1 099 $ / mois"],
+                    ]
+                  : isEN
+                  ? [
+                      ["Essential Presence", "FB + Instagram", "$399 / month"],
+                      ["Active Presence", "multi-platform + video", "$699 / month"],
+                      ["Full Presence", "ecosystem + postal book", "$1,099 / month"],
+                    ]
+                  : [
+                      ["Presencia Esencial", "FB + Instagram", "$399 / mes"],
+                      ["Presencia Activa", "multiplataforma + video", "$699 / mes"],
+                      ["Presencia Completa", "ecosistema + book postal", "$1.099 / mes"],
+                    ]
+                ).map(([titre, detail, prix], i) => (
+                  <li key={i} className="text-sm" style={{ color: "rgba(29,29,27,0.70)" }}>
+                    <span className="font-semibold" style={{ color: "#1D1D1B" }}>{titre}</span>
+                    {detail && <span className="text-xs"> — {detail}</span>}
+                    <span className="block font-bold mt-0.5" style={{ color: "#5762A2" }}>{prix}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          {/* CTAs */}
+          <div className="flex flex-col sm:flex-row gap-4">
+            <Link
+              href="/contacts"
+              className="px-8 py-3 rounded-lg font-bold text-sm transition text-center"
+              style={{ backgroundColor: "#5762A2", color: "#F4F4F0" }}
+            >
+              {isFR ? "Parlons de votre projet" : isEN ? "Let's talk about your project" : "Hablemos de su proyecto"}
+            </Link>
+            <Link
+              href="/tarification"
+              className="px-8 py-3 rounded-lg font-bold text-sm border transition text-center"
+              style={{ borderColor: "rgba(87,98,162,0.40)", color: "#5762A2" }}
+            >
+              {isFR ? "Voir la tarification complète →" : isEN ? "View full pricing →" : "Ver precios completos →"}
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* ── CTA FINAL ── */}
       <section
         className="py-20 px-6 text-center"

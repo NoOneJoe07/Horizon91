@@ -156,8 +156,9 @@
         "categorie": "Services",
         "description": "Full website for a Brazilian jiu-jitsu dojo: online memberships, Stripe payments, admin dashboard, bilingual FR/EN, free trial class booking.",
         "resultats": ["Integrated online payments", "Full admin dashboard", "Bilingual FR/EN", "Local SEO"],
-        "statut": "En cours",
-        "couleur": "border-h91-ion"
+        "statut": "Livré",
+        "couleur": "border-h91-ion",
+        "url": "https://www.citadellebjj.com/"
       },
       {
         "nom": "Atelier91",
@@ -260,14 +261,14 @@
   },
   "tarification": {
     "title": "Pricing",
-    "subtitle": "Fair prices for the region. No hidden fees — here's the full range.",
+    "subtitle": "Contracts sealed with a handshake. Prices built for local artisans and entrepreneurs — clear, honest, and kept.",
     "livrables_title": "Included with every package — no exceptions",
     "livrables": [
       { "titre": "Detailed service contract", "desc": "What's included, timelines, revisions, payment terms and cancellation conditions. No surprises." },
       { "titre": "Warranty & conditions document", "desc": "What's covered (bugs, compatibility, security) and what applies. Unauthorized changes, late maintenance — everything clearly documented." },
       { "titre": "Personalized admin guide", "desc": "How to update content, add a photo, change your hours. Simple, visual, made for non-technical people. Your site, your independence." }
     ],
-    "web_title": "Websites — one-time delivery",
+    "web_title": "Websites built to match your ambitions",
     "web_packages": [
       { "nom": "Essential Showcase", "cible": "Artisans, therapists, local services", "prix_min": "$1,500", "prix_max": "$2,200", "features": ["Custom design, mobile-first", "Up to 5 sections / pages", "Contact form", "Basic SEO + Google Maps", "Hosting included 1 year", "3 documentation deliverables included"], "featured": false },
       { "nom": "Pro Interactive", "cible": "Salons, dojos, restaurants, professionals", "prix_min": "$3,000", "prix_max": "$4,500", "features": ["Everything in Essential", "Online booking or blog", "Photo / video gallery", "Multilingual — FR, EN, ES and more based on your clientele", "Advanced local SEO", "Admin dashboard", "3 documentation deliverables included"], "featured": true },
@@ -281,9 +282,9 @@
     ],
     "heures_title": "Extra hours outside your package",
     "heures": [
-      { "label": "Support & content modifications", "prix": "$75 — $90 / h" },
-      { "label": "Development (new feature)", "prix": "$80 — $120 / h" },
-      { "label": "Prepaid hour bank — 10 h", "prix": "$700", "note": "save $100" }
+      { "label": "Support & content modifications", "prix": "$60 / h" },
+      { "label": "Development (new feature)", "prix": "$70 / h" },
+      { "label": "Prepaid hour bank — 10 h", "prix": "$500", "note": "save $100" }
     ],
     "social_title": "Social media management — monthly add-on",
     "social_packages": [

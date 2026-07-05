@@ -156,8 +156,9 @@
         "categorie": "Services",
         "description": "Site complet pour un dojo de jiu-jitsu brésilien : abonnements en ligne, paiement Stripe, espace admin, bilingue FR/EN, séance d'essai gratuite.",
         "resultats": ["Paiement en ligne intégré", "Admin complet", "Bilingue FR/EN", "SEO local"],
-        "statut": "En cours",
-        "couleur": "border-h91-ion"
+        "statut": "Livré",
+        "couleur": "border-h91-ion",
+        "url": "https://www.citadellebjj.com/"
       },
       {
         "nom": "Atelier91",
@@ -260,7 +261,7 @@
   },
   "tarification": {
     "title": "Tarification",
-    "subtitle": "Des prix justes pour la région. Pas de cachette — de quoi à quoi.",
+    "subtitle": "Des contrats scellés par une poignée de main. Des prix taillés pour les artisans et entrepreneurs d'ici — clairs, honnêtes, tenus.",
     "livrables_title": "Inclus dans chaque forfait — sans exception",
     "livrables": [
       {
@@ -276,7 +277,7 @@
         "desc": "Comment mettre à jour le contenu, ajouter une photo, modifier les heures. Simple, visuel, fait pour quelqu'un qui n'est pas techno. Votre site, votre autonomie."
       }
     ],
-    "web_title": "Sites web — livraison unique",
+    "web_title": "Sites web bâtis à la hauteur de vos ambitions",
     "web_packages": [
       {
         "nom": "Vitrine Essentielle",
@@ -342,9 +343,9 @@
     ],
     "heures_title": "Heures supplémentaires hors forfait",
     "heures": [
-      { "label": "Support & modifications de contenu", "prix": "75 $ — 90 $ / h" },
-      { "label": "Développement (nouvelle fonctionnalité)", "prix": "80 $ — 120 $ / h" },
-      { "label": "Banque d'heures prépayée — 10 h", "prix": "700 $", "note": "économie de 100 $" }
+      { "label": "Support & modifications de contenu", "prix": "60 $ / h" },
+      { "label": "Développement (nouvelle fonctionnalité)", "prix": "70 $ / h" },
+      { "label": "Banque d'heures prépayée — 10 h", "prix": "500 $", "note": "économie de 100 $" }
     ],
     "social_title": "Gestion des médias sociaux — add-on mensuel",
     "social_packages": [
