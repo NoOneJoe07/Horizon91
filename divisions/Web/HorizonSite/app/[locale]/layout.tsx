@@ -3,10 +3,13 @@ import { Inter } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import { notFound } from "next/navigation";
+import Script from "next/script";
 import { routing } from "@/i18n/routing";
 import Header from "@/app/components/Header";
 import Footer from "@/app/components/Footer";
 import "../globals.css";
+
+const GA_ID = "G-0BNVZP1NXM";
 
 // ─────────────────────────────────────────────────────────
 // Typographie — Inter (Google Fonts, libre)
@@ -129,6 +132,20 @@ export default async function LocaleLayout({
       lang={locale}
       className={`${inter.variable} h-full antialiased`}
     >
+      <head>
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="ga4-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GA_ID}');
+          `}
+        </Script>
+      </head>
       <body className="min-h-screen flex flex-col">
         <NextIntlClientProvider messages={messages}>
           <Header />
