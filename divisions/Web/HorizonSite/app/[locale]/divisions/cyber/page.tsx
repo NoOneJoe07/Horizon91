@@ -192,51 +192,57 @@ export default function DivisionCyberPage() {
           HERO — Bleu Nuit #203478
       ═══════════════════════════════════════════════════ */}
       <section
-        className="relative flex flex-col items-center justify-center min-h-[60vh] text-center px-6"
+        className="relative px-6"
         style={{ backgroundColor: "#203478", color: "#F4F4F0", marginTop: "-80px", paddingTop: "176px", paddingBottom: "96px" }}
       >
-        <span className="mb-6 inline-block text-xs font-bold px-3 py-1.5 rounded-full" style={{ backgroundColor: "rgba(255,255,255,0.15)", color: "#F4F4F0", border: "1px solid rgba(255,255,255,0.30)" }}>
-          {t("badge")}
-        </span>
+        <div className="max-w-5xl mx-auto">
+          <div className="flex flex-col md:flex-row items-start gap-10">
 
-        <div className="mb-6 flex items-center justify-center">
-          <Image
-            src="/mark-cyber.svg"
-            alt="Singularité — Division Carillon — Cybersécurité"
-            width={80}
-            height={80}
-            className="drop-shadow-lg"
-            style={{ filter: "brightness(0) invert(1)" }}
-          />
-        </div>
+            {/* Mark — gauche */}
+            <div className="flex-shrink-0">
+              <Image
+                src="/mark-cyber.svg"
+                alt="Singularité — Division Carillon"
+                width={110}
+                height={110}
+                style={{ width: "110px", height: "110px", filter: "brightness(0) invert(1)" }}
+                className="drop-shadow-lg"
+              />
+            </div>
 
-        <p className="font-bold tracking-widest uppercase text-sm mb-3" style={{ color: "rgba(244,244,240,0.75)" }}>
-          {t("hero_tagline")} — {tBrand("name")}
-        </p>
+            {/* Contenu — droite */}
+            <div>
+              <p className="text-xs font-bold tracking-widest uppercase mb-3" style={{ color: "rgba(244,244,240,0.60)" }}>
+                {t("hero_tagline")}
+              </p>
+              <h1
+                className="text-4xl md:text-5xl font-bold mb-6"
+                style={{ color: "#F4F4F0", fontFamily: "var(--font-display, 'Gotham', 'Montserrat', system-ui)" }}
+              >
+                {t("hero_titre")}
+              </h1>
+              <p className="text-lg leading-relaxed max-w-2xl mb-10" style={{ color: "rgba(244,244,240,0.80)" }}>
+                {t("hero_description")}
+              </p>
+              <div className="flex flex-wrap gap-4">
+                <Link
+                  href="/rejoindre"
+                  className="px-8 py-4 rounded-lg font-bold text-lg transition"
+                  style={{ backgroundColor: "#F4F4F0", color: "#203478" }}
+                >
+                  {t("cta_bouton")}
+                </Link>
+                <Link
+                  href="/divisions"
+                  className="px-8 py-4 rounded-lg font-bold text-lg transition"
+                  style={{ border: "1px solid rgba(244,244,240,0.45)", color: "#F4F4F0" }}
+                >
+                  {t("cta_portfolio")}
+                </Link>
+              </div>
+            </div>
 
-        <h1 className="text-5xl md:text-7xl font-bold mb-6" style={{ color: "#F4F4F0" }}>
-          {t("hero_titre")}
-        </h1>
-
-        <p className="text-lg md:text-xl max-w-2xl leading-relaxed" style={{ color: "rgba(244,244,240,0.80)" }}>
-          {t("hero_description")}
-        </p>
-
-        <div className="mt-10 flex flex-wrap gap-4 justify-center">
-          <Link
-            href="/rejoindre"
-            className="px-8 py-4 rounded-lg font-bold text-lg transition"
-            style={{ backgroundColor: "#F4F4F0", color: "#203478" }}
-          >
-            {t("cta_bouton")}
-          </Link>
-          <Link
-            href="/divisions"
-            className="px-8 py-4 rounded-lg font-bold text-lg transition"
-            style={{ border: "1px solid rgba(244,244,240,0.45)", color: "#F4F4F0" }}
-          >
-            {t("cta_portfolio")}
-          </Link>
+          </div>
         </div>
       </section>
 

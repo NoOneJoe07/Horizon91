@@ -56,7 +56,7 @@ export default function Header() {
               className="text-base font-bold whitespace-nowrap"
               style={{ color: "#F4F4F0", fontFamily: "var(--font-display, 'Gotham', 'Montserrat', system-ui)" }}
             >
-              {tBrand("name")}
+              {tBrand("short_name")}
             </span>
           </Link>
         </div>

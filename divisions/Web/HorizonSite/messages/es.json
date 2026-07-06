@@ -1,6 +1,7 @@
 {
   "brand": {
     "name": "Grupo Estrella Boreal",
+    "short_name": "Estrella Boreal",
     "tagline_footer": "Agencia Creativa & Tecnológica"
   },
   "nav": {
@@ -74,8 +75,8 @@
       "cta": "Ver la división →"
     },
     "divisionWeb": {
-      "hero_titre": "División Web",
-      "hero_tagline": "La Flamme",
+      "hero_titre": "División Draveur",
+      "hero_tagline": "Desarrollo Web · Sitios Web · Soluciones Digitales",
       "hero_description": "Así como los draveurs dominaban el flujo de los ríos salvajes de Quebec, la División Draveur domina el flujo digital de tu negocio. Creamos portales web robustos que optimizan el tráfico web de tu empresa y trabajan por ti — incluso mientras duermes. Sitios rápidos, bellos y posicionados, mantenidos por un equipo local que entiende la realidad de los emprendedores de aquí.",
       "services_titre": "Lo que hacemos",
       "services": [
@@ -93,8 +94,8 @@
       "cta_portfolio": "Ver nuestros proyectos"
     },
     "divisionCyber": {
-      "hero_titre": "División Ciberseguridad",
-      "hero_tagline": "Singularité",
+      "hero_titre": "División Carillon",
+      "hero_tagline": "Ciberseguridad · Protección Digital · Conformidad",
       "hero_description": "Tus datos, tu infraestructura y la confianza de tus clientes merecen protección seria. Analizamos, aseguramos y formamos — para que puedas crecer sin vulnerabilidades ocultas.",
       "services_titre": "Lo que hacemos",
       "services": [

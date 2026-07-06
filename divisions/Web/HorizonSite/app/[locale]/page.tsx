@@ -220,7 +220,7 @@ export default function HomePage() {
             className="text-5xl md:text-7xl font-bold mb-5 h91-title-gradient-animated"
             style={{ fontFamily: "var(--font-display, 'Gotham', 'Montserrat', system-ui)" }}
           >
-            {tBrand("name")}
+            {tBrand("short_name")}
           </h1>
 
           {/* Triptyque */}

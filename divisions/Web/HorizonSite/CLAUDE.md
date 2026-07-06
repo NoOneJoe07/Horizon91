@@ -199,6 +199,15 @@ Variables ENV Vercel ✅ : ZOHO_USER (= contact@groupesupernova.ca), ZOHO_PASS, 
 - Client components extraits (PortfolioClient.tsx, RejoindreCl.tsx) pour permettre generateMetadata serveur
 - Google Search Console : etoileboreale.ca + borealstar.ca vérifiés ✅, sitemaps soumis ✅, indexation demandée ✅
 
+## Session 2026-07-03 (soir) — Contenu, Tarification, Portfolio
+
+### Accomplissements
+- **Portfolio Citadelle BJJ** : statut "En cours" → "Livré" (FR/EN/ES), champ `url` ajouté, carte cliquable → citadellebjj.com, indicateur "Voir le site →" au hover
+- **Tarification** : sous-titre "poignée de main", titre web "bâtis à la hauteur de vos ambitions", heures 60$/h · 70$/h · banque 500$ (FR/EN/ES)
+- **Boîte Division Arpenteur** (violet) : médias sociaux + identité de marque (dès 450$) + photo & communication (dès 275$) — remplace section standalone
+- **Boîte Division Carillon** : fond `#203478/15` pour cohérence visuelle avec couleur de division
+- **Page /divisions/arpenteur** : bloc tarification ajouté (3 cartes + CTAs) avant CTA final
+
 ## Session 2026-07-03 — Infra, UX, Pages équipe
 
 ### Accomplissements

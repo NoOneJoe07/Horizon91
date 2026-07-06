@@ -616,6 +616,51 @@ export default function ArpenteurPage() {
         </div>
       </section>
 
+      {/* ── SAVIEZ-VOUS QUE ? ── */}
+      <section className="py-20 px-6" style={{ backgroundColor: "#FFFFFF" }}>
+        <div className="max-w-5xl mx-auto">
+          <div className="rounded-2xl p-8" style={{ border: "1px solid rgba(87,98,162,0.20)", backgroundColor: "rgba(87,98,162,0.07)" }}>
+            <h3 className="font-bold text-sm uppercase tracking-widest mb-8 flex items-center gap-3" style={{ color: "#5762A2" }}>
+              <span className="text-xl">💡</span>
+              {isFR ? "Saviez-vous que ?" : isEN ? "Did you know?" : "¿Sabías que?"}
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+              {/* Stat 1 — Identité de marque cohérente */}
+              <div className="p-5 rounded-xl" style={{ backgroundColor: "#FFFFFF", border: "1px solid rgba(87,98,162,0.20)" }}>
+                <p className="font-bold text-4xl mb-2" style={{ color: "#5762A2" }}>+33 %</p>
+                <p className="font-semibold text-sm mb-3" style={{ color: "#1D1D1B" }}>
+                  {isFR ? "De revenus supplémentaires" : isEN ? "In additional revenue" : "De ingresos adicionales"}
+                </p>
+                <p className="text-sm leading-relaxed" style={{ color: "rgba(29,29,27,0.60)" }}>
+                  {isFR
+                    ? "Selon Lucidpress (2019), les entreprises qui maintiennent une identité de marque cohérente — logo, couleurs, typographie, ton — génèrent en moyenne 33 % de revenus supplémentaires. Un livre de marque solide, c'est l'investissement le plus rentable que vous puissiez faire."
+                    : isEN
+                    ? "According to Lucidpress (2019), businesses that maintain a consistent brand identity — logo, colors, typography, tone — generate an average of 33% more revenue. A solid brand book is the highest-ROI investment you can make."
+                    : "Según Lucidpress (2019), las empresas que mantienen una identidad de marca coherente generan en promedio un 33% más de ingresos. Un libro de marca sólido es la inversión con mayor retorno que puede hacer."}
+                </p>
+              </div>
+
+              {/* Stat 2 — Visuels professionnels & réseaux sociaux */}
+              <div className="p-5 rounded-xl" style={{ backgroundColor: "#FFFFFF", border: "1px solid rgba(87,98,162,0.20)" }}>
+                <p className="font-bold text-4xl mb-2" style={{ color: "#5762A2" }}>40×</p>
+                <p className="font-semibold text-sm mb-3" style={{ color: "#1D1D1B" }}>
+                  {isFR ? "Plus de partages sur les réseaux" : isEN ? "More shares on social media" : "Más compartidos en redes sociales"}
+                </p>
+                <p className="text-sm leading-relaxed" style={{ color: "rgba(29,29,27,0.60)" }}>
+                  {isFR
+                    ? "HubSpot rapporte que les publications accompagnées de visuels professionnels sont partagées 40 fois plus sur les réseaux sociaux que les textes seuls. Une photo bien cadrée ou un graphisme de marque cohérent, c'est ce qui transforme un scroll en arrêt."
+                    : isEN
+                    ? "HubSpot reports that posts with professional visuals are shared 40 times more on social media than text-only content. A well-framed photo or consistent brand graphic is what turns a scroll into a stop."
+                    : "HubSpot reporta que las publicaciones con visuales profesionales se comparten 40 veces más en redes sociales que el texto solo. Una foto bien encuadrada o un gráfico de marca coherente es lo que convierte un scroll en una pausa."}
+                </p>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ── TARIFICATION ── */}
       <section className="py-20 px-6" style={{ backgroundColor: "#FFFFFF" }}>
         <div className="max-w-5xl mx-auto">

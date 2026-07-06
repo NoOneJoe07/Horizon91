@@ -1,6 +1,7 @@
 {
   "brand": {
     "name": "Groupe Étoile Boréale",
+    "short_name": "Étoile Boréale",
     "tagline_footer": "Agence Créative & Technologique"
   },
   "nav": {
@@ -74,8 +75,8 @@
       "cta": "Voir la division →"
     },
     "divisionWeb": {
-      "hero_titre": "Division Draveur — Développement Web",
-      "hero_tagline": "La Flamme",
+      "hero_titre": "Division Draveur",
+      "hero_tagline": "Développement Web · Sites Internet · Solutions Numériques",
       "hero_description": "Comme les draveurs maîtrisaient le flux des rivières sauvages du Québec, la Division Draveur maîtrise le flux numérique de votre entreprise. Nous concevons des portails web robustes qui optimisent l'achalandage web et travaillent pour vous — même quand vous dormez. Sites rapides, beaux, référencés et maintenus par une équipe locale qui comprend la réalité des entrepreneurs d'ici.",
       "services_titre": "Ce que nous faisons",
       "services": [
@@ -93,8 +94,8 @@
       "cta_portfolio": "Voir nos réalisations"
     },
     "divisionCyber": {
-      "hero_titre": "Division Carillon — Cybersécurité",
-      "hero_tagline": "Singularité",
+      "hero_titre": "Division Carillon",
+      "hero_tagline": "Cybersécurité · Protection Numérique · Conformité Loi 25",
       "hero_description": "Vos données, votre infrastructure et la confiance de vos clients méritent une protection sérieuse. Nous analysons, sécurisons et formons — pour que vous puissiez croître sans vulnérabilité cachée.",
       "services_titre": "Ce que nous faisons",
       "services": [

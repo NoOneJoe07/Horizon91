@@ -117,7 +117,7 @@ export default function RejoindreCl() {
           <button
             type="submit"
             disabled={status === "loading"}
-            className="px-8 py-4 bg-h91-accretion text-h91-stellar font-bold rounded-lg text-lg hover:bg-h91-fusion transition disabled:opacity-50 disabled:cursor-not-allowed"
+            className="px-8 py-4 bg-h91-accretion text-h91-stellar font-bold rounded-lg text-lg hover:bg-h91-silver hover:text-h91-space transition disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {status === "loading" ? t("sending") : t("cta")}
           </button>

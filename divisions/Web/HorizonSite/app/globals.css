@@ -14,6 +14,7 @@
   --color-h91-violet:     #5762A2;   /* Violette Boréale — Division Arpenteur (graphisme) */
   --color-h91-night:      #203478;   /* Bleu Nuit Boréal — Division Carillon (cyber) + header */
   --color-h91-gold:       #C9A84C;   /* Or Boréal — accent chaud, CTA sur fond clair */
+  --color-h91-silver:     #B7BABB;   /* Argenté Boréal — hover neutre, précision, sophistication */
 
   /* ── Aliases rétro-compat — permettent de garder le code existant sans tout réécrire ── */
   --color-h91-gravity:    #1D1D1B;   /* ≡ h91-space */

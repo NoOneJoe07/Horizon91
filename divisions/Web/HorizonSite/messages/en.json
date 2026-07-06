@@ -1,6 +1,7 @@
 {
   "brand": {
     "name": "Boreal Star Group",
+    "short_name": "Boreal Star",
     "tagline_footer": "Creative & Technology Agency"
   },
   "nav": {
@@ -74,8 +75,8 @@
       "cta": "See the division →"
     },
     "divisionWeb": {
-      "hero_titre": "Draveur Division — Web Development",
-      "hero_tagline": "La Flamme",
+      "hero_titre": "Draveur Division",
+      "hero_tagline": "Web Development · Business Websites · Digital Solutions",
       "hero_description": "Just as the log drivers mastered the wild rivers of Québec, the Draveur Division masters the digital flow of your business. We build robust web portals that optimize your web traffic and work for you — even while you sleep. Fast, beautiful, SEO-optimized and maintained by a local team that understands what entrepreneurs here actually need.",
       "services_titre": "What we do",
       "services": [
@@ -93,8 +94,8 @@
       "cta_portfolio": "See our work"
     },
     "divisionCyber": {
-      "hero_titre": "Carillon Division — Cybersecurity",
-      "hero_tagline": "Singularité",
+      "hero_titre": "Carillon Division",
+      "hero_tagline": "Cybersecurity · Digital Protection · Law 25 Compliance",
       "hero_description": "Your data, your infrastructure, and your clients' trust deserve serious protection. We analyze, secure, and train — so you can grow without hidden vulnerabilities.",
       "services_titre": "What we do",
       "services": [

@@ -97,51 +97,57 @@ export default function DivisionWebPage() {
           HERO — Bleu Polaire #0099D1
       ═══════════════════════════════════════════════════ */}
       <section
-        className="relative flex flex-col items-center justify-center min-h-[70vh] text-center px-6"
+        className="relative px-6"
         style={{ backgroundColor: "#0099D1", color: "#F4F4F0", marginTop: "-80px", paddingTop: "176px", paddingBottom: "96px" }}
       >
-        {/* Mark */}
-        <div className="mb-6 flex items-center justify-center">
-          <Image
-            src="/mark-web.svg"
-            alt="La Flamme — Division Draveur — Développement Web"
-            width={90}
-            height={90}
-            className="drop-shadow-lg"
-          />
-        </div>
+        <div className="max-w-5xl mx-auto">
+          <div className="flex flex-col md:flex-row items-start gap-10">
 
-        {/* Tagline */}
-        <p className="font-bold tracking-widest uppercase text-sm mb-3" style={{ color: "rgba(244,244,240,0.75)" }}>
-          {t("hero_tagline")} — {tBrand("name")}
-        </p>
+            {/* Mark — gauche */}
+            <div className="flex-shrink-0">
+              <Image
+                src="/mark-web.svg"
+                alt="La Flamme — Division Draveur"
+                width={110}
+                height={110}
+                style={{ width: "110px", height: "110px" }}
+                className="drop-shadow-lg"
+              />
+            </div>
 
-        {/* Titre */}
-        <h1 className="text-5xl md:text-7xl font-bold mb-6" style={{ color: "#F4F4F0" }}>
-          {t("hero_titre")}
-        </h1>
+            {/* Contenu — droite */}
+            <div>
+              <p className="text-xs font-bold tracking-widest uppercase mb-3" style={{ color: "rgba(244,244,240,0.60)" }}>
+                {t("hero_tagline")}
+              </p>
+              <h1
+                className="text-4xl md:text-5xl font-bold mb-6"
+                style={{ color: "#F4F4F0", fontFamily: "var(--font-display, 'Gotham', 'Montserrat', system-ui)" }}
+              >
+                {t("hero_titre")}
+              </h1>
+              <p className="text-lg leading-relaxed max-w-2xl mb-10" style={{ color: "rgba(244,244,240,0.85)" }}>
+                {t("hero_description")}
+              </p>
+              <div className="flex flex-wrap gap-4">
+                <Link
+                  href="/rejoindre"
+                  className="px-8 py-4 rounded-lg font-bold text-lg transition"
+                  style={{ backgroundColor: "#1D1D1B", color: "#F4F4F0" }}
+                >
+                  {t("cta_bouton")}
+                </Link>
+                <Link
+                  href="/portfolio"
+                  className="px-8 py-4 rounded-lg font-bold text-lg border transition"
+                  style={{ borderColor: "rgba(244,244,240,0.50)", color: "#F4F4F0" }}
+                >
+                  {t("cta_portfolio")}
+                </Link>
+              </div>
+            </div>
 
-        {/* Description */}
-        <p className="text-lg md:text-xl max-w-2xl leading-relaxed" style={{ color: "rgba(244,244,240,0.85)" }}>
-          {t("hero_description")}
-        </p>
-
-        {/* CTAs */}
-        <div className="mt-10 flex flex-wrap gap-4 justify-center">
-          <Link
-            href="/rejoindre"
-            className="px-8 py-4 rounded-lg font-bold text-lg transition"
-            style={{ backgroundColor: "#1D1D1B", color: "#F4F4F0" }}
-          >
-            {t("cta_bouton")}
-          </Link>
-          <Link
-            href="/portfolio"
-            className="px-8 py-4 rounded-lg font-bold text-lg border transition"
-            style={{ borderColor: "rgba(244,244,240,0.50)", color: "#F4F4F0" }}
-          >
-            {t("cta_portfolio")}
-          </Link>
+          </div>
         </div>
       </section>
 
