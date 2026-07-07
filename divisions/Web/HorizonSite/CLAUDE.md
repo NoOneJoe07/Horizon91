@@ -1,7 +1,7 @@
 @AGENTS.md
 
 # CONTEXTE PROJET — Groupe Étoile Boréale Inc. / HorizonSite
-Dernière mise à jour : 2026-07-03 — SESSION INFRA — Next.js 16, dropdown langue, pages profil équipe ✅
+Dernière mise à jour : 2026-07-06 — SESSION DIGITAL — GA4, GBP, Search Console, OG Image, Fort Saurel décision finale ✅
 
 ## Fichiers de contexte global Horizon 91
 - **Master context :** `C:\Users\Pc\OneDrive\Documents\Horizon 91\horizon91_master.md`
@@ -168,19 +168,15 @@ Variables ENV Vercel ✅ : ZOHO_USER (= contact@groupesupernova.ca), ZOHO_PASS, 
 - PAS de domaines séparés par division pour l'instant
 
 ## Produits cyber internes — Fort Saurel & Suite Carignan
-- **Fort Saurel** : Dark Web Monitoring SaaS (ex-Argos → ex-Saurel) — 4 tiers en production sur /divisions/cyber
+- **Saurel** : Dark Web Monitoring SaaS — 4 tiers en production sur /divisions/cyber
   - Sentinelle 75$/mois | Gardien 150$/mois (featured) | Bouclier 200$/mois | Forteresse 350$/mois
   - Tagline : "La vigie numérique des PME."
   - Sentinelles = agents automatisés internes du logiciel (scripts, alertes, traqueurs) — ≠ tier tarifaire
-  - Contexte historique : Pierre de Saurel, Fort Saurel 1665, verrou rivière Richelieu, régiment Carignan-Salières
+  - Lore ancré sur **Fort Saurel** : Pierre de Saurel 1665, verrou rivière Richelieu, régiment Carignan-Salières
   - Parallèle produit : fort surveille l'autoroute fluviale → SaaS surveille les flux de données / Dark Web
-  - JSON-LD SoftwareApplication sur /divisions/cyber (name: "Fort Saurel")
-  - ⚠️ NOM EN RÉFLEXION (2026-05-28) : Jonathan évalue "Fort Richelieu" vs "Fort Saurel"
-    - Fort Richelieu = nom original du fort (1642), abandonné puis rebâti par Saurel en 1665
-    - Fort Saurel = nom donné après la reconstruction par le capitaine Pierre de Saurel (Carignan-Salières)
-    - Les deux noms désignent le même emplacement stratégique (embouchure Richelieu / St-Laurent, Sorel-Tracy)
-    - Logique Suite Carignan : le régiment Carignan-Salières a CONSTRUIT Fort Saurel → cohérence narrative forte
-    - Décision finale à prendre avant déploiement section photos Fort Saurel
+  - Nom produit = **Saurel** | Contexte narratif = Fort Saurel ← DISTINCTION IMPORTANTE
+  - JSON-LD SoftwareApplication sur /divisions/cyber (name: "Saurel")
+  - ✅ DÉCISION FINALE (2026-07-06) : **Saurel** (nom produit), lore Fort Saurel
 - **Suite Carignan** : 4 produits en développement (ex-Suite Olympus) — cartes floutées "Zone de travaux"
   - Sorel (remédiation & réponse aux incidents)
   - Contrecoeur (simulation phishing & ingénierie sociale)
