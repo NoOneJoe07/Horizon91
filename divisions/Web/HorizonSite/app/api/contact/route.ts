@@ -9,7 +9,7 @@ import nodemailer from "nodemailer";
 ───────────────────────────────────────────────────────────── */
 
 const transporter = nodemailer.createTransport({
-  host: "smtp.zoho.ca",
+  host: "smtp.zoho.com",
   port: 465,
   secure: true,
   auth: {
