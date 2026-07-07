@@ -19,6 +19,7 @@ const transporter = nodemailer.createTransport({
 });
 
 export async function POST(req: NextRequest) {
+  console.log('[SMTP Debug] USER:', process.env.ZOHO_USER, '| PASS length:', process.env.ZOHO_PASS?.length, '| PASS start:', process.env.ZOHO_PASS?.substring(0, 4));
   try {
     const body = await req.json();
     const { nom, courriel, message, locale } = body as {
