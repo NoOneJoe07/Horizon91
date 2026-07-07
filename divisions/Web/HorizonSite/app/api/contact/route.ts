@@ -3,8 +3,8 @@ import nodemailer from "nodemailer";
 
 /* ─────────────────────────────────────────────────────────
    Variables d'environnement requises dans Vercel :
-   ZOHO_USER    = contact@groupesupernova.ca (auth SMTP — ne pas changer)
-   ZOHO_PASS    = mot de passe du compte Zoho
+   ZOHO_USER    = contact@etoileboreale.ca (auth SMTP — app password Zoho)
+   ZOHO_PASS    = mot de passe d'application Zoho (généré dans accounts.zohocloud.ca)
    CONTACT_TO   = jonathan.patoine@etoileboreale.ca (destinataire)
 ───────────────────────────────────────────────────────────── */
 
@@ -19,7 +19,6 @@ const transporter = nodemailer.createTransport({
 });
 
 export async function POST(req: NextRequest) {
-  console.log('[SMTP Debug] USER:', process.env.ZOHO_USER, '| PASS length:', process.env.ZOHO_PASS?.length, '| PASS start:', process.env.ZOHO_PASS?.substring(0, 4));
   try {
     const body = await req.json();
     const { nom, courriel, message, locale } = body as {
