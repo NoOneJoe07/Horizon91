@@ -359,9 +359,9 @@ export default function DivisionCyberPage() {
                   objectPosition: "center center",
                 },
                 {
-                  src: "/photos_images/Fort_ticonderoga_place_d_arms.jpg",
-                  alt: "Fort Ticonderoga — place d'armes, ancien Fort Carillon",
-                  caption: "Fort Ticonderoga (ancien Fort Carillon) — place d'armes",
+                  src: "/photos_images/Fort_Carillon_1.jpg",
+                  alt: "Fort Carillon — vue aérienne, lac Champlain",
+                  caption: "Fort Carillon — vue aérienne (aujourd'hui Fort Ticonderoga)",
                   objectPosition: "center center",
                 },
               ]}
