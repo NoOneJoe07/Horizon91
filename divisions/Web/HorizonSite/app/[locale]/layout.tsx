@@ -4,6 +4,8 @@ import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import { notFound } from "next/navigation";
 import Script from "next/script";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { routing } from "@/i18n/routing";
 import Header from "@/app/components/Header";
 import Footer from "@/app/components/Footer";
@@ -159,6 +161,9 @@ export default async function LocaleLayout({
           <div className="flex-1 pt-20">{children}</div>
           <Footer />
         </NextIntlClientProvider>
+        {/* Vercel observability — Analytics + Speed Insights */}
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
