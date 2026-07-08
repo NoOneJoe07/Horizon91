@@ -130,7 +130,7 @@ const membresMeta = [
     key: "alexandra",
     slug: "alexandra-espin",
     initiales: "AE",
-    photo: null,
+    photo: "/photos_images/alexandra-espin.jpg",
     couleurBordure: "#5762A2",
     couleurInitiales: "#5762A2",
   },
