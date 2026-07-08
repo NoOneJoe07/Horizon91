@@ -179,6 +179,47 @@ const SUITE_CARIGNAN = [
   { nom: "Chambly",     categorie: "IAM — Contrôle d'accès & identités" },
 ];
 
+/* ─────────────────────────────────────────────────────────────
+   LA CHAÎNE DES 5 FORTS — lore Carignan-Salières
+───────────────────────────────────────────────────────────────── */
+const CHAINE_FORTS = [
+  {
+    fort: "Fort Saurel",
+    produit: "Saurel",
+    mission: "Vigie Dark Web — surveille les flux clandestins avant que la menace ne remonte le courant.",
+    statut: "production" as const,
+    accentColor: "#203478",
+  },
+  {
+    fort: "Fort Sorel",
+    produit: "Sorel",
+    mission: "Remédiation & réponse aux incidents — intervient dès que la brèche est détectée.",
+    statut: "dev" as const,
+    accentColor: "#203478",
+  },
+  {
+    fort: "Fort Contrecoeur",
+    produit: "Contrecoeur",
+    mission: "Simulation phishing & ingénierie sociale — teste vos défenses avant que l'ennemi ne le fasse.",
+    statut: "dev" as const,
+    accentColor: "#203478",
+  },
+  {
+    fort: "Berthier",
+    produit: "Berthier",
+    mission: "Analyseur de légitimité des courriels — distingue l'allié de l'imposteur à la porte.",
+    statut: "dev" as const,
+    accentColor: "#203478",
+  },
+  {
+    fort: "Fort Chambly",
+    produit: "Chambly",
+    mission: "IAM — contrôle d'accès & identités — verrouille qui entre dans la forteresse et qui en sort.",
+    statut: "dev" as const,
+    accentColor: "#203478",
+  },
+];
+
 export default function DivisionCyberPage() {
   const t = useTranslations("divisions.divisionCyber");
   const tBrand = useTranslations("brand");
@@ -558,9 +599,112 @@ export default function DivisionCyberPage() {
       </section>
 
       {/* ═══════════════════════════════════════════════════
-          SUITE CARIGNAN — ZONE DE TRAVAUX — Noir
+          DOCTRINE DE LA CHAÎNE — Lore Carignan-Salières
       ═══════════════════════════════════════════════════ */}
       <section className="py-24 px-6" style={{ backgroundColor: "#1D1D1B" }}>
+        <div className="max-w-4xl mx-auto">
+
+          {/* En-tête lore */}
+          <div className="text-center mb-14">
+            <span className="inline-block text-xs font-bold px-3 py-1.5 rounded-full mb-6 uppercase tracking-widest"
+              style={{ backgroundColor: "rgba(32,52,120,0.25)", color: "rgba(244,244,240,0.50)", border: "1px solid rgba(32,52,120,0.40)" }}>
+              Suite Carignan — La doctrine
+            </span>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6" style={{ color: "#F4F4F0" }}>
+              La force de la chaîne
+            </h2>
+            <p className="text-lg leading-relaxed max-w-2xl mx-auto" style={{ color: "rgba(244,244,240,0.55)" }}>
+              Un régiment ne gagne pas par sa taille. Il gagne par la précision de son dispositif.
+            </p>
+          </div>
+
+          {/* Narrative historique */}
+          <div className="space-y-5 text-base leading-relaxed mb-14" style={{ color: "rgba(244,244,240,0.60)" }}>
+            <p>
+              En 1665, le Régiment Carignan-Salières débarque en Nouvelle-France avec 1 200 soldats.
+              Face à eux : des milliers de guerriers iroquois qui terrorisent les colonies depuis des années.
+              Le déséquilibre de force est évident. Pourtant, en moins d&apos;un an, le régiment rétablit la paix.
+            </p>
+            <p>
+              Leur secret n&apos;est pas la bravoure aveugle — c&apos;est l&apos;architecture. Plutôt que de disperser
+              ses hommes ou de chercher la confrontation directe, le régiment érige une chaîne de forts
+              stratégiquement positionnés le long de la rivière Richelieu. Chaque fort couvre un secteur
+              précis, surveille un angle mort et s&apos;appuie sur ses voisins. Chaque maillon renforce le
+              suivant. Ensemble, ils forment un périmètre sans faille qui coupe l&apos;accès à toute la
+              vallée du Saint-Laurent.
+            </p>
+            <p style={{ color: "rgba(244,244,240,0.40)", fontStyle: "italic" }}>
+              La force n&apos;est pas dans chaque fort pris isolément. Elle est dans l&apos;espacement,
+              dans la coordination — dans le fait que chaque maillon surveille le suivant.
+            </p>
+            <p>
+              Suite Carignan s&apos;inspire de cette doctrine. Pas une plateforme monolithique qui prétend
+              tout faire. Cinq outils spécialisés, chacun maître de son périmètre cybersécurité, qui
+              ensemble couvrent l&apos;intégralité de votre surface d&apos;attaque — de la vigie Dark Web jusqu&apos;au
+              contrôle des identités internes.
+            </p>
+          </div>
+
+          {/* La chaîne des 5 forts */}
+          <div className="relative">
+            {/* Ligne de connexion horizontale (desktop) */}
+            <div
+              className="hidden lg:block absolute top-[42px] left-[10%] right-[10%] h-px"
+              style={{ backgroundColor: "rgba(32,52,120,0.45)" }}
+              aria-hidden="true"
+            />
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+              {CHAINE_FORTS.map((item, i) => (
+                <div key={i} className="relative flex flex-col items-center text-center">
+
+                  {/* Nœud de la chaîne */}
+                  <div
+                    className="relative z-10 w-[84px] h-[84px] rounded-full flex items-center justify-center mb-4 shrink-0"
+                    style={
+                      item.statut === "production"
+                        ? { backgroundColor: "#203478", border: "2px solid rgba(244,244,240,0.30)" }
+                        : { backgroundColor: "rgba(32,52,120,0.15)", border: "1px solid rgba(32,52,120,0.35)" }
+                    }
+                  >
+                    {item.statut === "production" ? (
+                      <span className="text-xs font-bold uppercase tracking-widest text-center px-2 leading-tight" style={{ color: "#F4F4F0" }}>
+                        En<br />prod.
+                      </span>
+                    ) : (
+                      <span className="text-lg">🚧</span>
+                    )}
+                  </div>
+
+                  {/* Nom du produit */}
+                  <p
+                    className="font-bold text-base mb-1"
+                    style={{ color: item.statut === "production" ? "#F4F4F0" : "rgba(244,244,240,0.40)" }}
+                  >
+                    {item.produit}
+                  </p>
+
+                  {/* Nom du fort */}
+                  <p className="text-xs mb-2" style={{ color: "rgba(244,244,240,0.30)" }}>
+                    {item.fort}
+                  </p>
+
+                  {/* Mission — une ligne */}
+                  <p className="text-xs leading-relaxed" style={{ color: "rgba(244,244,240,0.35)" }}>
+                    {item.mission}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════════════
+          SUITE CARIGNAN — ZONE DE TRAVAUX — Noir
+      ═══════════════════════════════════════════════════ */}
+      <section className="py-24 px-6" style={{ backgroundColor: "#111111" }}>
         <div className="max-w-6xl mx-auto">
 
           {/* En-tête */}
