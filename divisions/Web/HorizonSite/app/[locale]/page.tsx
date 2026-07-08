@@ -122,6 +122,7 @@ const membresMeta = [
     key: "jonathan",
     slug: "jonathan-patoine",
     initiales: "JP",
+    photo: "/photos_images/jonathan-patoine.jpg",
     couleurBordure: "#0099D1",
     couleurInitiales: "#0099D1",
   },
@@ -129,6 +130,7 @@ const membresMeta = [
     key: "alexandra",
     slug: "alexandra-espin",
     initiales: "AE",
+    photo: null,
     couleurBordure: "#5762A2",
     couleurInitiales: "#5762A2",
   },
@@ -136,6 +138,7 @@ const membresMeta = [
     key: "paulina",
     slug: "paulina-jaramillo",
     initiales: "PJ",
+    photo: null,
     couleurBordure: "#5762A2",
     couleurInitiales: "#5762A2",
   },
@@ -351,14 +354,24 @@ export default function HomePage() {
                 className={`relative p-6 border-2 rounded-xl flex flex-col items-center gap-4 text-center card-lift animate-fade-in-up stagger-${idx + 1}`}
                 style={{ borderColor: meta.couleurBordure, backgroundColor: "#FFFFFF" }}
               >
-                {/* Photo placeholder */}
+                {/* Photo ou initiales */}
                 <div
-                  className="w-24 h-24 rounded-full border-2 flex items-center justify-center"
+                  className="w-24 h-24 rounded-full border-2 overflow-hidden flex items-center justify-center shrink-0"
                   style={{ borderColor: meta.couleurBordure, backgroundColor: "#F4F4F0" }}
                 >
-                  <span className="text-2xl font-bold" style={{ color: meta.couleurInitiales }}>
-                    {meta.initiales}
-                  </span>
+                  {meta.photo ? (
+                    <Image
+                      src={meta.photo}
+                      alt={`Photo de ${meta.key}`}
+                      width={96}
+                      height={96}
+                      className="w-full h-full object-cover object-top"
+                    />
+                  ) : (
+                    <span className="text-2xl font-bold" style={{ color: meta.couleurInitiales }}>
+                      {meta.initiales}
+                    </span>
+                  )}
                 </div>
 
                 <div>

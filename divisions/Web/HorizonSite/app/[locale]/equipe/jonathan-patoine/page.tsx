@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { useTranslations } from "next-intl";
+import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 
 // ─────────────────────────────────────────────────────────
@@ -94,12 +95,19 @@ export default function JonathanPatoinePage() {
         </div>
 
         <div className="max-w-4xl mx-auto flex flex-col items-center gap-6">
-          {/* Initiales — placeholder photo */}
+          {/* Photo de profil */}
           <div
-            className="w-36 h-36 rounded-full border-4 flex items-center justify-center"
-            style={{ borderColor: "#0099D1", backgroundColor: "#F4F4F0" }}
+            className="w-40 h-40 rounded-full border-4 overflow-hidden shrink-0"
+            style={{ borderColor: "#0099D1" }}
           >
-            <span className="text-5xl font-bold" style={{ color: "#0099D1" }}>JP</span>
+            <Image
+              src="/photos_images/jonathan-patoine.jpg"
+              alt="Jonathan Patoine — Fondateur & PDG, Groupe Étoile Boréale"
+              width={160}
+              height={160}
+              className="w-full h-full object-cover object-top"
+              priority
+            />
           </div>
 
           <div>
