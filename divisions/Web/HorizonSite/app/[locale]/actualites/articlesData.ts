@@ -17,6 +17,9 @@ export interface Article {
   readTime: number; // minutes
   tags: string[];
   accentColor: string;
+  /** Chemin relatif depuis /public — ex: "/images/articles/citadelle-bjj.jpg" */
+  image?: string;
+  imageAlt?: string;
   fr: ArticleContent;
   en: ArticleContent;
   es: ArticleContent;
@@ -30,6 +33,8 @@ export const articles: Article[] = [
     readTime: 4,
     tags: ["Portfolio", "Web", "Arts martiaux"],
     accentColor: "#0099D1",
+    image: "/photos_images/citadelle-bjj-screenshot.png",
+    imageAlt: "Citadelle Jiu-Jitsu — Page d'accueil citadellebjj.com",
     fr: {
       title: "Premier site livré : Citadelle Jiu-Jitsu s'installe dans le numérique",
       excerpt:
@@ -78,6 +83,8 @@ export const articles: Article[] = [
     readTime: 3,
     tags: ["Entreprise", "Annonce"],
     accentColor: "#C9A84C",
+    image: "/photos_images/Etoile_Boreale.png",
+    imageAlt: "Groupe Étoile Boréale — Page d'accueil etoileboreale.ca",
     fr: {
       title: "Groupe Étoile Boréale naît officiellement — Une nouvelle étoile guide le numérique de la Beauce",
       excerpt:

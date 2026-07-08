@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import { articles, getArticleBySlug, formatDate } from "../articlesData";
 
@@ -121,6 +122,23 @@ export default async function ArticlePage({
         className="h-0.5 w-16 rounded-full mb-10"
         style={{ backgroundColor: article.accentColor }}
       />
+
+      {/* Image hero — affichée si disponible */}
+      {article.image && (
+        <div className="relative w-full rounded-xl overflow-hidden mb-10 border border-h91-stellar/10"
+          style={{ aspectRatio: "16/9" }}>
+          <Image
+            src={article.image}
+            alt={article.imageAlt ?? content.title}
+            fill
+            className="object-cover object-top"
+            sizes="(max-width: 768px) 100vw, 768px"
+            priority
+          />
+          {/* Overlay subtil pour protéger la lisibilité */}
+          <div className="absolute inset-0 ring-1 ring-inset ring-h91-stellar/10 rounded-xl pointer-events-none" />
+        </div>
+      )}
 
       {/* Corps de l'article */}
       <article className="prose-custom">
