@@ -162,6 +162,16 @@
         "url": "https://www.citadellebjj.com/"
       },
       {
+        "nom": "Sitio Grupo Estrella Boreal",
+        "client": "Grupo Estrella Boreal Inc. — Empresa matriz",
+        "categorie": "Services",
+        "description": "Sitio vitrina trilingüe (FR/EN/ES) de la empresa matriz: tres divisiones, formulario de contacto seguro SMTP Zoho, SEO enriquecido JSON-LD, animaciones CSS y tipografía Urbanist.",
+        "resultats": ["Trilingüe FR/EN/ES", "3 divisiones presentadas", "Formulario seguro + rate limiting", "SEO JSON-LD enriquecido"],
+        "statut": "Livré",
+        "couleur": "border-h91-gold",
+        "url": "https://etoileboreale.ca"
+      },
+      {
         "nom": "Atelier91",
         "client": "Artesano local, Scott, Beauce",
         "categorie": "Artisanat",

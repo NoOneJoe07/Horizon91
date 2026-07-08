@@ -162,6 +162,16 @@
         "url": "https://www.citadellebjj.com/"
       },
       {
+        "nom": "Site Groupe Étoile Boréale",
+        "client": "Groupe Étoile Boréale Inc. — Maison mère",
+        "categorie": "Services",
+        "description": "Site vitrine trilingue (FR/EN/ES) de la maison mère : trois divisions, formulaire de contact sécurisé SMTP Zoho, SEO enrichi JSON-LD, animations CSS et police Urbanist.",
+        "resultats": ["Trilingue FR/EN/ES", "3 divisions présentées", "Formulaire sécurisé + rate limiting", "SEO JSON-LD enrichi"],
+        "statut": "Livré",
+        "couleur": "border-h91-gold",
+        "url": "https://etoileboreale.ca"
+      },
+      {
         "nom": "Atelier91",
         "client": "Artisan local, Scott, Beauce",
         "categorie": "Artisanat",

@@ -162,6 +162,16 @@
         "url": "https://www.citadellebjj.com/"
       },
       {
+        "nom": "Boreal Star Group Website",
+        "client": "Boreal Star Group Inc. — Parent company",
+        "categorie": "Services",
+        "description": "Trilingual (FR/EN/ES) showcase website for the parent company: three divisions, secure Zoho SMTP contact form, enriched JSON-LD SEO, CSS animations and Urbanist typeface.",
+        "resultats": ["Trilingual FR/EN/ES", "3 divisions showcased", "Secure form + rate limiting", "Enriched JSON-LD SEO"],
+        "statut": "Livré",
+        "couleur": "border-h91-gold",
+        "url": "https://borealstar.ca"
+      },
+      {
         "nom": "Atelier91",
         "client": "Local artisan, Scott, Beauce",
         "categorie": "Artisanat",

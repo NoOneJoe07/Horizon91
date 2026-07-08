@@ -1,7 +1,7 @@
 @AGENTS.md
 
 # CONTEXTE PROJET — Groupe Étoile Boréale Inc. / HorizonSite
-Dernière mise à jour : 2026-07-07 — SESSION ZOHO SMTP — Migration @etoileboreale.ca complète, formulaire contact opérationnel ✅
+Dernière mise à jour : 2026-07-08 — SESSION ACTUALITES + POLICE + SECURITE — Articles trilingues, Urbanist, rate limiting, portfolio ✅
 
 ## Fichiers de contexte global Horizon 91
 - **Master context :** `C:\Users\Pc\OneDrive\Documents\Horizon 91\horizon91_master.md`
@@ -249,6 +249,36 @@ MX zohocloud.ca + SPF + DKIM + DMARC — propagés et vérifiés
 - Zoho Canada (zohocloud.ca) ≠ Zoho global (zoho.com) — le serveur SMTP doit correspondre au data center du compte
 - App password Zoho : ne jamais copier-coller directement dans Vercel (ajoute \n invisible) → coller dans Notepad d'abord
 - nslookup -type=MX zohocloud.ca → mx.zohocloud.ca, mx2.zohocloud.ca, mx3.zohocloud.ca
+
+## Session 2026-07-08 — Police Urbanist, Sécurité, Articles trilingues, Portfolio
+
+### Accomplissements
+- **Triptyque corrigé** : "Guider·Bâtir·Protéger" → "Créer·Bâtir·Protéger" (FR/EN/ES) dans messages/*.json, Footer.tsx, layout.tsx metadata, page.tsx JSON-LD, globals.css
+  - "guider" conservé dans les textes narratifs faisant référence à l'Étoile Polaire (distinction sémantique intentionnelle)
+- **Tagline hero** : "accompagne les entrepreneurs" → "guide les entrepreneurs" (FR/EN/ES)
+- **Police Urbanist** (Google Fonts, gratuit) remplace Gotham (licence indisponible) :
+  - Chargé via `next/font/google` dans `app/[locale]/layout.tsx`
+  - Variable CSS `--font-display` → `var(--font-urbanist)` dans globals.css
+  - CSP next.config.ts mis à jour : `style-src` +fonts.googleapis.com, `font-src` +fonts.gstatic.com
+- **Sécurité formulaire de contact** :
+  - Rate limiting en mémoire (5 req/IP/10 min) → HTTP 429
+  - Validation longueurs max (nom ≤ 100, courriel ≤ 254 RFC 5321, message ≤ 5000)
+  - CSP `connect-src` + `script-src` mis à jour pour GA4 (googletagmanager.com + google-analytics.com)
+- **Page /actualites** : placeholder remplacé par vrais articles (Server Component)
+  - `app/[locale]/actualites/articlesData.ts` : données trilingues des 2 articles, helpers formatDate + getArticleBySlug
+  - `app/[locale]/actualites/page.tsx` : liste articles avec cartes cliquables (couleur par article, tags, date, extrait)
+  - `app/[locale]/actualites/[slug]/page.tsx` : page article individuelle (generateMetadata, generateStaticParams, JSON-LD article, CTA)
+- **Articles trilingues** (FR/EN/ES from day one — signal entreprise multilingue) :
+  - "Groupe Étoile Boréale naît officiellement" — date 2026-05-15, lore 3 divisions, mention trilinguisme
+  - "Premier site livré : Citadelle Jiu-Jitsu" — date 2026-06-21, lien citadellebjj.com + mention etoileboreale.ca
+- **Portfolio** : entrée "Site Groupe Étoile Boréale" ajoutée (couleur or, statut Livré, url etoileboreale.ca) dans FR/EN/ES
+- **Sitemap** : /actualites + /actualites/[slug]×2 ajoutés (lastModified = date article, priority 0.85/0.75)
+
+### Architecture articles
+- Données centralisées dans `articlesData.ts` (hors messages/*.json — article content is rich, not i18n key-value)
+- Route individuelle : `/[locale]/actualites/[slug]` — SEO-optimisé, generateStaticParams = pré-rendu statique
+- Ajouter un article : append dans `articles[]` de articlesData.ts (aucune autre modification requise)
+- Trilingue natif : chaque article objet = { slug, date, tags, fr: {}, en: {}, es: {} }
 
 ## Enrichissement contenu — Session 2026-05-28
 
