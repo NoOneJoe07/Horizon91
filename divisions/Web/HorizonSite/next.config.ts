@@ -89,15 +89,18 @@ const securityHeaders = [
     value: [
       "default-src 'self'",
       // unsafe-eval requis en dev Turbopack uniquement
-      `script-src 'self' 'unsafe-inline'${
+      // Google Analytics GA4 (gtag.js chargé depuis googletagmanager.com)
+      `script-src 'self' 'unsafe-inline' https://www.googletagmanager.com${
         process.env.NODE_ENV === "development" ? " 'unsafe-eval'" : ""
       }`,
-      "style-src 'self' 'unsafe-inline'",
+      // Google Fonts (Urbanist) requiert googleapis.com pour la feuille de style
+      "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
       // data: pour SVG inline ; https: pour images externes (og-image, CDN futur)
       "img-src 'self' data: blob: https:",
-      "font-src 'self' data:",
-      // connect-src : API interne uniquement (formulaire /api/contact)
-      "connect-src 'self'",
+      // Google Fonts (Urbanist) — fichiers woff2 hébergés sur gstatic.com
+      "font-src 'self' data: https://fonts.gstatic.com",
+      // connect-src : API interne + Google Analytics GA4
+      "connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com",
       // Bloque Flash, Java, PDF inline, etc.
       "object-src 'none'",
       "base-uri 'self'",

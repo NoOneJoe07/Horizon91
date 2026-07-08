@@ -8,6 +8,29 @@ import nodemailer from "nodemailer";
    CONTACT_TO   = jonathan.patoine@etoileboreale.ca (destinataire)
 ───────────────────────────────────────────────────────────── */
 
+// ── Rate limiting — 5 requêtes max par IP par fenêtre de 10 minutes ──────────
+const rateMap = new Map<string, { count: number; resetAt: number }>();
+const RATE_LIMIT = 5;
+const RATE_WINDOW_MS = 10 * 60 * 1000; // 10 minutes
+
+function isRateLimited(ip: string): boolean {
+  const now = Date.now();
+  const entry = rateMap.get(ip);
+  if (!entry || now > entry.resetAt) {
+    rateMap.set(ip, { count: 1, resetAt: now + RATE_WINDOW_MS });
+    return false;
+  }
+  if (entry.count >= RATE_LIMIT) return true;
+  entry.count++;
+  return false;
+}
+
+// ── Limites de longueur ───────────────────────────────────────────────────────
+const MAX_NOM = 100;
+const MAX_COURRIEL = 254; // RFC 5321
+const MAX_MESSAGE = 5000;
+
+// ── Transporter SMTP ─────────────────────────────────────────────────────────
 const transporter = nodemailer.createTransport({
   host: "smtp.zohocloud.ca",
   port: 465,
@@ -19,6 +42,19 @@ const transporter = nodemailer.createTransport({
 });
 
 export async function POST(req: NextRequest) {
+  // ── Rate limiting ───────────────────────────────────────────────────────────
+  const ip =
+    req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ??
+    req.headers.get("x-real-ip") ??
+    "unknown";
+
+  if (isRateLimited(ip)) {
+    return NextResponse.json(
+      { error: "Trop de requêtes. Réessayez dans quelques minutes." },
+      { status: 429 }
+    );
+  }
+
   try {
     const body = await req.json();
     const { nom, courriel, message, locale } = body as {
@@ -28,12 +64,16 @@ export async function POST(req: NextRequest) {
       locale: string;
     };
 
+    // ── Validation — présence, longueur min/max, format courriel ─────────────
     if (
       !nom?.trim() ||
       !courriel?.trim() ||
       !message?.trim() ||
       nom.trim().length < 2 ||
+      nom.trim().length > MAX_NOM ||
+      courriel.trim().length > MAX_COURRIEL ||
       message.trim().length < 10 ||
+      message.trim().length > MAX_MESSAGE ||
       !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(courriel)
     ) {
       return NextResponse.json({ error: "Données invalides." }, { status: 400 });
