@@ -28,19 +28,19 @@ const inter = Inter({
 // ─────────────────────────────────────────────────────────
 const metaByLocale: Record<string, { title: string; description: string; siteName: string }> = {
   fr: {
-    title: "Groupe Étoile Boréale — Guider · Bâtir · Protéger | Beauce, Québec",
+    title: "Groupe Étoile Boréale — Créer · Bâtir · Protéger | Beauce, Québec",
     description:
       "Agence créative et technologique à Sainte-Marie-de-Beauce. Graphisme & identité de marque (Arpenteur), développement web (Draveur), cybersécurité (Carillon) — PME et entrepreneurs de Chaudière-Appalaches.",
     siteName: "Groupe Étoile Boréale",
   },
   en: {
-    title: "Boreal Star Group — Guide · Build · Protect | Beauce, Quebec",
+    title: "Boreal Star Group — Create · Build · Protect | Beauce, Quebec",
     description:
       "Creative and technology agency in Sainte-Marie-de-Beauce. Brand design (Arpenteur), web development (Draveur), cybersecurity (Carillon) — SMBs and entrepreneurs in Chaudière-Appalaches.",
     siteName: "Boreal Star Group",
   },
   es: {
-    title: "Grupo Estrella Boreal — Guiar · Construir · Proteger | Beauce, Quebec",
+    title: "Grupo Estrella Boreal — Crear · Construir · Proteger | Beauce, Quebec",
     description:
       "Agencia creativa y tecnológica en Sainte-Marie-de-Beauce. Diseño de marca (Arpenteur), desarrollo web (Draveur), ciberseguridad (Carillon) — pymes y emprendedores de Chaudière-Appalaches.",
     siteName: "Grupo Estrella Boreal",

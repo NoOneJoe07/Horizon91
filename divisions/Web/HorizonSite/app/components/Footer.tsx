@@ -56,9 +56,9 @@ export default function Footer() {
               {t("tagline_footer")}
             </p>
             <p className="text-xs font-bold tracking-widest uppercase" style={{ color: "#0099D1" }}>
-              {locale === "en" ? "Guide · Build · Protect"
-               : locale === "es" ? "Guiar · Construir · Proteger"
-               : "Guider · Bâtir · Protéger"}
+              {locale === "en" ? "Create · Build · Protect"
+               : locale === "es" ? "Crear · Construir · Proteger"
+               : "Créer · Bâtir · Protéger"}
             </p>
           </div>
 

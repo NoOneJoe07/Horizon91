@@ -58,9 +58,9 @@ async function LocalBusinessJsonLd() {
     logo: `${url}/mark-etoile.svg`,
     image: `${url}/og-image.jpg`,
     slogan:
-      locale === "en" ? "Guide · Build · Protect"
-      : locale === "es" ? "Guiar · Construir · Proteger"
-      : "Guider · Bâtir · Protéger",
+      locale === "en" ? "Create · Build · Protect"
+      : locale === "es" ? "Crear · Construir · Proteger"
+      : "Créer · Bâtir · Protéger",
     description:
       locale === "en"
         ? "Creative and technology agency based in Sainte-Marie-de-Beauce, Quebec. Three pillars: Arpenteur (brand & design), Draveur (web development), Carillon (cybersecurity)."

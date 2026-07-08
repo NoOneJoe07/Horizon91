@@ -1,7 +1,7 @@
 @AGENTS.md
 
 # CONTEXTE PROJET — Groupe Étoile Boréale Inc. / HorizonSite
-Dernière mise à jour : 2026-07-06 — SESSION DIGITAL — GA4, GBP, Search Console, OG Image, Fort Saurel décision finale ✅
+Dernière mise à jour : 2026-07-07 — SESSION ZOHO SMTP — Migration @etoileboreale.ca complète, formulaire contact opérationnel ✅
 
 ## Fichiers de contexte global Horizon 91
 - **Master context :** `C:\Users\Pc\OneDrive\Documents\Horizon 91\horizon91_master.md`
@@ -32,7 +32,7 @@ app/
   portfolio/page.tsx      ← Redirect → /fr/portfolio (résidu)
   rejoindre/page.tsx      ← Redirect → /fr/rejoindre (résidu)
   api/
-    contact/route.ts      ← API contact — nodemailer Zoho SMTP (port 465 SSL)
+    contact/route.ts      ← API contact — nodemailer smtp.zohocloud.ca:465 SSL ✅ OPÉRATIONNEL 2026-07-07
   [locale]/
     layout.tsx            ← Layout complet + generateMetadata() trilingue + OG tags
     page.tsx              ← Homepage (generateMetadata + JSON-LD LocalBusiness enrichi + hero + équipe + histoire)
@@ -140,26 +140,30 @@ h91-fusion:      #C9A84C   /* ≡ h91-gold   (était jaune #FFD65C) */
 ## Emails (Zoho Mail Lite — voir ZOHO-MAIL.md)
 Plan : Mail Lite, C$1.25/user/mois, 5 users, 10 Go/user, renouvellement mai 2027
 
-⚠️ SMTP AUTH : ZOHO_USER reste contact@groupesupernova.ca (compte réel actif)
-   Ne pas changer sans migrer le compte Zoho vers @etoileboreale.ca d'abord.
+✅ MIGRATION @etoileboreale.ca COMPLÈTE (2026-07-07) — tous les vestiges @groupesupernova.ca supprimés de Zoho
 
-Comptes @etoileboreale.ca à créer dans Zoho (migration à planifier) :
-  - jonathan.patoine@etoileboreale.ca
+### Comptes @etoileboreale.ca actifs ✅
+  - contact@etoileboreale.ca          ← compte SMTP pour formulaire de contact (auth Vercel)
+  - jonathan.patoine@etoileboreale.ca ← destinataire CONTACT_TO
   - alexandra.espin@etoileboreale.ca
   - paulina.jaramillo@etoileboreale.ca
   - gabriel.patoine@etoileboreale.ca
-  - contact@etoileboreale.ca
 
-Alias opérationnels actuels (@etoileboreale.ca) ✅ :
-  - direction@etoileboreale.ca → jonathan.patoine@groupesupernova.ca
-  - studio@etoileboreale.ca   → jonathan.patoine@groupesupernova.ca
+### SMTP — CRITIQUE ⚠️
+- **Serveur : smtp.zohocloud.ca:465 SSL** ← Centre de données canadien Zoho (zohocloud.ca)
+- ❌ smtp.zoho.com → serveur US/global, ne reconnaît PAS les comptes zohocloud.ca (535 Auth Failed)
+- ❌ smtp.zoho.ca → résout vers Bluehost (erreur SSL)
+- ❌ smtp.zohomail.ca → résout vers Cloudflare (ETIMEDOUT)
+- App password : généré dans accounts.zohocloud.ca → Sécurité → Mots de passe spécifiques aux apps
+- ⚠️ Copier-coller le mot de passe app Zoho ajoute un \n → Vercel affiche symbole jaune "↵" et refuse. Coller dans Notepad d'abord, copier les caractères seulement, puis coller dans Vercel.
 
-Alias à créer (@etoileboreale.ca) :
-  - web@etoileboreale.ca   → paulina.jaramillo@groupesupernova.ca
-  - cyber@etoileboreale.ca → gabriel.patoine@groupesupernova.ca
+### Variables ENV Vercel ✅
+  - ZOHO_USER = contact@etoileboreale.ca
+  - ZOHO_PASS = [app password — généré dans accounts.zohocloud.ca]
+  - CONTACT_TO = jonathan.patoine@etoileboreale.ca
 
-DNS etoileboreale.ca : MX zohocloud.ca + SPF + DKIM + DMARC ← à vérifier propagation
-Variables ENV Vercel ✅ : ZOHO_USER (= contact@groupesupernova.ca), ZOHO_PASS, CONTACT_TO (= jonathan.patoine@etoileboreale.ca)
+### DNS etoileboreale.ca ✅
+MX zohocloud.ca + SPF + DKIM + DMARC — propagés et vérifiés
 
 ## Architecture de site décidée
 - etoileboreale.ca = site principal maison mère
@@ -224,6 +228,27 @@ Variables ENV Vercel ✅ : ZOHO_USER (= contact@groupesupernova.ca), ZOHO_PASS, 
 - Server Components (pages sans "use client") : PAS d'event handlers JS sur les éléments JSX → Tailwind `hover:` uniquement
 - `.next/` doit TOUJOURS être dans `.gitignore` — ne jamais supprimer ce fichier
 - rsync exclude `.next/` : `rsync -av --exclude='.next/' --exclude='node_modules/' ...`
+
+## Session 2026-07-07 — Migration Zoho @etoileboreale.ca + SMTP zohocloud.ca
+
+### Accomplissements
+- **Migration Zoho complète** : tous les 5 comptes (@groupesupernova.ca) migrés → @etoileboreale.ca comme adresse principale + adresse de connexion. Tous les vestiges @groupesupernova.ca supprimés (y compris l'adresse de connexion — nécessitait de définir l'adresse @etoileboreale.ca comme messagerie par défaut sur chaque compte d'abord)
+- **SMTP corrigé** : découverte critique — Zoho Canada utilise `smtp.zohocloud.ca:465` (pas smtp.zoho.com). Le compte appartient au data center canadien (zohocloud.ca), le serveur global US refuse l'authentification (535)
+- **Vercel ENV mis à jour** : ZOHO_USER = contact@etoileboreale.ca, ZOHO_PASS = app password (accounts.zohocloud.ca → Sécurité → Mots de passe spécifiques aux apps), CONTACT_TO = jonathan.patoine@etoileboreale.ca
+- **Formulaire de contact** : 100% opérationnel ✅ — test live etoileboreale.ca/fr/contacts → "Message envoyé!" → reçu dans Zoho jonathan.patoine@etoileboreale.ca
+
+### Anomalies & Résolutions SMTP
+| Serveur testé | Résultat | Cause |
+|---|---|---|
+| smtp.zoho.com:465 | 535 Authentication Failed | Serveur US ne reconnaît pas les comptes zohocloud.ca |
+| smtp.zoho.ca:465 | Erreur SSL | Résout vers Bluehost (pas un serveur Zoho) |
+| smtp.zohomail.ca:465 | ETIMEDOUT | Résout vers Cloudflare (pas un serveur SMTP) |
+| **smtp.zohocloud.ca:465** | **✅ SUCCÈS** | **Serveur canadien Zoho — correct** |
+
+### Règle critique à retenir
+- Zoho Canada (zohocloud.ca) ≠ Zoho global (zoho.com) — le serveur SMTP doit correspondre au data center du compte
+- App password Zoho : ne jamais copier-coller directement dans Vercel (ajoute \n invisible) → coller dans Notepad d'abord
+- nslookup -type=MX zohocloud.ca → mx.zohocloud.ca, mx2.zohocloud.ca, mx3.zohocloud.ca
 
 ## Enrichissement contenu — Session 2026-05-28
 
