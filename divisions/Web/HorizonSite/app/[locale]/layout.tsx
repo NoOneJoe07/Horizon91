@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Urbanist } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import { notFound } from "next/navigation";
@@ -12,14 +12,21 @@ import "../globals.css";
 const GA_ID = "G-0BNVZP1NXM";
 
 // ─────────────────────────────────────────────────────────
-// Typographie — Inter (Google Fonts, libre)
-// Gotham (titre principal) : licence commerciale requise
-// → déclarer via @font-face dans globals.css une fois achetée
+// Typographie
+// Urbanist (Google Fonts) — titres, alternative libre à Gotham
+// Inter (Google Fonts) — corps de texte
 // ─────────────────────────────────────────────────────────
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
+  display: "swap",
+});
+
+const urbanist = Urbanist({
+  variable: "--font-display",
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700", "800"],
   display: "swap",
 });
 
@@ -130,7 +137,7 @@ export default async function LocaleLayout({
   return (
     <html
       lang={locale}
-      className={`${inter.variable} h-full antialiased`}
+      className={`${inter.variable} ${urbanist.variable} h-full antialiased`}
     >
       <head>
         <Script

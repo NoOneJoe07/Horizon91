@@ -4,7 +4,7 @@
    PALETTE GROUPE ÉTOILE BORÉALE — BRAND BOOK 2026
    Design : Paulina Jaramillo, DG Marketing & Photographie
    Triptyque : Arpenteur · Draveur · Carillon
-   Guider · Bâtir · Protéger
+   Créer · Bâtir · Protéger
 --------------------------------------------------------- */
 @theme inline {
   /* ── Couleurs principales ── */
@@ -27,7 +27,7 @@
   --color-h91-relativistic: #203478; /* ≡ h91-night  (retiré — alias) */
 
   /* ── Typographie ── */
-  --font-display: 'Gotham', 'Montserrat', ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-urbanist), 'Urbanist', 'Gotham', ui-sans-serif, system-ui, sans-serif;
   --font-sans:    var(--font-inter), 'Inter', ui-sans-serif, system-ui, sans-serif;
 }
 
@@ -43,16 +43,16 @@ body {
 }
 
 /* ---------------------------------------------------------
-   TYPOGRAPHIE — titres en Gotham (licence commerciale requise)
-   En prod : remplacer par fichier @font-face Gotham licencié
+   TYPOGRAPHIE — titres en Urbanist (Google Fonts, libre)
+   Alternative géométrique à Gotham — chargée via next/font/google
 --------------------------------------------------------- */
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-display, 'Gotham', 'Montserrat', system-ui, sans-serif);
+  font-family: var(--font-display, 'Urbanist', system-ui, sans-serif);
 }
 
-/* Classe utilitaire pour forcer Gotham sur un élément */
+/* Classe utilitaire pour forcer la police de titre sur un élément */
 .font-display {
-  font-family: var(--font-display, 'Gotham', 'Montserrat', system-ui, sans-serif);
+  font-family: var(--font-display, 'Urbanist', system-ui, sans-serif);
 }
 
 /* ---------------------------------------------------------
