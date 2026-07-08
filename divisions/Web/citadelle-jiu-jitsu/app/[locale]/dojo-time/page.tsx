@@ -114,7 +114,11 @@ export default async function DojoTimePage({
                           src={post.imageUrl}
                           alt={title}
                           style={{ width: "100%", height: "100%", objectFit: "cover",
-                            objectPosition: post.imagePosition ?? "center"
+                            objectPosition:
+                              post.slug === "ibjjf-open-montreal-mai-2026"        ? "bottom center" :
+                              post.slug === "hupf-grappling-medaille-or-mai-2026" ? "top center"    :
+                              post.slug === "adcc-open-toronto-fevrier-2026"       ? "top center"    :
+                              "center"
                           }}
                         />
                       </div>

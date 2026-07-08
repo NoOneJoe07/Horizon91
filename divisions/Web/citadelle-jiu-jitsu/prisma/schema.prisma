@@ -201,25 +201,30 @@ enum ExperienceLevel {
 }
 
 model TrialSession {
-  id            String          @id @default(cuid())
-  userId        String?         // si formulaire rempli en étant connecté
-  firstName     String
-  lastName      String
-  email         String
-  phone         String
-  age           Int
-  experience    ExperienceLevel
-  preferredDate DateTime
-  message       String?
-  status        TrialStatus     @default(PENDING)
-  notes         String?         // note interne du proprio
-  createdAt     DateTime        @default(now())
-  updatedAt     DateTime        @updatedAt
+  id              String          @id @default(cuid())
+  userId          String?         // si formulaire rempli en étant connecté
+  firstName       String
+  lastName        String
+  email           String
+  phone           String
+  age             Int
+  experience      ExperienceLevel
+  preferredDate   DateTime
+  message         String?
+  status          TrialStatus     @default(PENDING)
+  notes           String?         // note interne du proprio
+  // --- Rappel 48h (ajouté le 24 juin 2026) ---
+  confirmToken    String?         @unique  // token lien "Confirmer ma présence" dans le courriel rappel
+  cancelToken     String?         @unique  // token lien "Annuler ma réservation" dans le courriel rappel
+  reminderSentAt  DateTime?               // null = rappel pas encore envoyé par le cron
+  createdAt       DateTime        @default(now())
+  updatedAt       DateTime        @updatedAt
 
   user User? @relation(fields: [userId], references: [id], onDelete: SetNull)
 
   @@index([status])
   @@index([preferredDate])
+  @@index([reminderSentAt])
 }
 
 // -----------------------------------------------------------------------------
@@ -288,8 +293,7 @@ model Post {
   excerptEn   String
   contentFr   String       @db.Text  // texte complet de l'article
   contentEn   String       @db.Text
-  imageUrl      String?    // URL photo principale (podium, ceinture, etc.)
-  imagePosition String     @default("center") // CSS object-position : "center" | "top center" | "center 70%" …
+  imageUrl    String?      // URL photo principale (podium, ceinture, etc.)
   category    PostCategory
   status      PostStatus   @default(DRAFT)
   externalUrl String?      // lien optionnel → futur site martial arts Supernova

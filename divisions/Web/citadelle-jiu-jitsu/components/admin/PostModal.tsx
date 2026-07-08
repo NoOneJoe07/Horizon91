@@ -131,23 +131,8 @@ export function PostModal({ post, onClose, locale }: Props) {
 
           {/* Image + lien externe */}
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0.75rem" }}>
-            <Field label="URL image (optionnel)" name="imageUrl" defaultValue={post?.imageUrl ?? ""} type="text" />
+            <Field label="URL image (optionnel)" name="imageUrl" defaultValue={post?.imageUrl ?? ""} type="url" />
             <Field label="Lien Supernova (optionnel)" name="externalUrl" defaultValue={post?.externalUrl ?? ""} type="url" />
-          </div>
-
-          {/* Cadrage photo */}
-          <div>
-            <label style={labelStyle}>Cadrage de la photo</label>
-            <select name="imagePosition" defaultValue={post?.imagePosition ?? "center"} style={inputStyle}>
-              <option value="center">Centre (défaut)</option>
-              <option value="top center">Haut — têtes / podium visible</option>
-              <option value="center 30%">Centre-haut (30%)</option>
-              <option value="center 40%">Centre-haut (40%)</option>
-              <option value="center 60%">Centre-bas (60%)</option>
-              <option value="center 70%">Centre-bas (70%)</option>
-              <option value="center 80%">Centre-bas (80%)</option>
-              <option value="bottom center">Bas — pieds / trophée visible</option>
-            </select>
           </div>
 
           {error && (

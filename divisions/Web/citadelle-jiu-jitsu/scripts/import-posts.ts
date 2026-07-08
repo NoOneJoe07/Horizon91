@@ -123,7 +123,6 @@ A packed weekend and high-level performances that confirm the caliber of our ath
 
 Thank you to all Citadelle Jiu-Jitsu students for the encouragement, training sessions, and help with preparation. It's a team effort! 🔥`,
     imageUrl: "/images/dojo-time/JS_Max_Calgary.png",
-    imagePosition: "top center",
     category: "COMPETITION" as const,
     status: "PUBLISHED" as const,
     publishedAt: new Date("2026-04-04"),
@@ -149,7 +148,6 @@ Congratulations [@js_dionne](https://www.instagram.com/js_dionne/) 🏆
 
 One more performance that demonstrates the exceptional level of our coach and inspires the entire Citadelle community. Well done! 🔥`,
     imageUrl: "/images/dojo-time/JS_Hupfrapplng.png",
-    imagePosition: "top center",
     category: "COMPETITION" as const,
     status: "PUBLISHED" as const,
     publishedAt: new Date("2026-05-09"),
@@ -185,7 +183,6 @@ A total domination in a cage grappling format that requires special technical an
 
 Thank you to all Citadelle Jiu-Jitsu students who contributed to his preparation. Every training round, every drill, every sparring session is part of this victory. You are all champions! 💪🔥`,
     imageUrl: "/images/dojo-time/JS ECFS.jpg",
-    imagePosition: "center",
     category: "COMPETITION" as const,
     status: "PUBLISHED" as const,
     publishedAt: new Date("2026-05-17"),
@@ -211,7 +208,6 @@ Thank you to Citadelle Jiu-Jitsu students and training partners for the preparat
 
 📍 See you on the mats this week, the competition season continues! 💪`,
     imageUrl: "/images/dojo-time/ADCC Open Toronto.jpg",
-    imagePosition: "top center",
     category: "COMPETITION" as const,
     status: "PUBLISHED" as const,
     publishedAt: new Date("2026-02-15"),
@@ -243,7 +239,6 @@ A remarkable performance that demonstrates Coach Max's technical mastery and phy
 
 Thank you to all Citadelle Jiu-Jitsu students who helped with his preparation. These victories belong to you too! 💪🔥`,
     imageUrl: "/images/dojo-time/CoachMAx ibjjf open MTL.jpg",
-    imagePosition: "center 70%",
     category: "COMPETITION" as const,
     status: "PUBLISHED" as const,
     publishedAt: new Date("2026-05-19"),
