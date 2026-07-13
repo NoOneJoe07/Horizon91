@@ -176,7 +176,6 @@ const SUITE_CARIGNAN = [
   { nom: "Sorel",        categorie: "Remédiation & réponse aux incidents" },
   { nom: "Contrecoeur", categorie: "Simulation phishing & ingénierie sociale" },
   { nom: "Berthier",    categorie: "Analyseur de légitimité des courriels" },
-  { nom: "Chambly",     categorie: "IAM — Contrôle d'accès & identités" },
 ];
 
 /* ─────────────────────────────────────────────────────────────
@@ -215,7 +214,7 @@ const CHAINE_FORTS = [
     fort: "Fort Chambly",
     produit: "Chambly",
     mission: "IAM — contrôle d'accès & identités — verrouille qui entre dans la forteresse et qui en sort.",
-    statut: "dev" as const,
+    statut: "production" as const,
     accentColor: "#203478",
   },
 ];
