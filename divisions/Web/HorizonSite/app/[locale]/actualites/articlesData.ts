@@ -26,6 +26,57 @@ export interface Article {
 }
 
 export const articles: Article[] = [
+  // ── Article 3 — Loi 25 (2026-07-13) ─────────────────────────────────────
+  {
+    slug: "loi-25-guide-pme-quebec",
+    date: "2026-07-13",
+    readTime: 6,
+    tags: ["Cybersécurité", "Conformité", "PME", "Loi 25"],
+    accentColor: "#203478",
+    fr: {
+      title: "Loi 25 : ce que chaque PME québécoise doit savoir — et faire — maintenant",
+      excerpt:
+        "La Loi 25 est en vigueur. Les amendes peuvent atteindre 25 millions de dollars. Pourtant, la majorité des PME québécoises ne sont pas encore conformes. Voici ce qui vous attend — et comment vous protéger.",
+      paragraphs: [
+        "En septembre 2023, la dernière vague d'obligations de la Loi 25 est entrée en vigueur au Québec. Officiellement connue sous le nom de Loi modernisant des dispositions législatives en matière de protection des renseignements personnels (Loi 25), elle transforme en profondeur la façon dont les entreprises doivent collecter, traiter et protéger les données personnelles de leurs clients, employés et fournisseurs.",
+        "Contrairement à ce que plusieurs croient, la Loi 25 ne vise pas seulement les grandes entreprises. Elle s'applique à toute organisation qui recueille des renseignements personnels dans le cadre de ses activités commerciales — y compris les PME, les travailleurs autonomes, les organismes sans but lucratif et les municipalités.",
+        "Les obligations concrètes sont nombreuses. Chaque entreprise doit désigner un responsable de la protection des renseignements personnels (RPRP) — dans les petites structures, c'est souvent le dirigeant lui-même. Elle doit publier une politique de confidentialité accessible, obtenir un consentement clair et explicite avant toute collecte de données, et informer la Commission d'accès à l'information (CAI) ainsi que les personnes concernées dans les 72 heures suivant toute atteinte à la sécurité.",
+        "Les droits accordés aux individus ont également été considérablement renforcés : droit d'accès à leurs données, droit de rectification, droit à la désindexation (être « oublié »), et droit à la portabilité — c'est-à-dire de récupérer leurs données dans un format réutilisable.",
+        "Les sanctions en cas de non-conformité sont sévères. Les pénalités administratives peuvent atteindre 10 millions de dollars ou 2 % du chiffre d'affaires mondial. Les sanctions pénales grimpent jusqu'à 25 millions de dollars ou 4 % du chiffre d'affaires. La CAI dispose de pouvoirs d'enquête élargis et peut agir proactivement.",
+        "La bonne nouvelle : la conformité n'est pas inatteignable pour une PME bien accompagnée. Division Carillon de Groupe Étoile Boréale aide les entreprises de Beauce et de Chaudière-Appalaches à faire le point sur leur posture actuelle, à implanter les mesures requises et à documenter leurs pratiques pour pouvoir le prouver en cas d'audit. Parce que dans le monde numérique d'aujourd'hui, la confiance se construit — ou se perd — en quelques clics.",
+      ],
+      cta: { text: "Parler à Division Carillon →", url: "/contacts", external: false },
+    },
+    en: {
+      title: "Law 25: What Every Quebec SMB Needs to Know — and Do — Right Now",
+      excerpt:
+        "Law 25 is in effect. Fines can reach $25 million. Yet most Quebec SMBs are still not compliant. Here's what's at stake — and how to protect yourself.",
+      paragraphs: [
+        "In September 2023, the final wave of obligations under Quebec's Law 25 came into force. Officially known as An Act to modernize legislative provisions as regards the protection of personal information, Law 25 fundamentally transforms how organizations must collect, process, and protect the personal data of their clients, employees, and suppliers.",
+        "Contrary to popular belief, Law 25 does not only target large corporations. It applies to any organization that collects personal information in the course of its commercial activities — including SMBs, self-employed workers, non-profit organizations, and municipalities.",
+        "The concrete obligations are numerous. Every business must designate a person in charge of the protection of personal information (PCPI) — in smaller organizations, this is often the owner or manager. They must publish an accessible privacy policy, obtain clear and explicit consent before any data collection, and notify the Commission d'accès à l'information (CAI) and affected individuals within 72 hours of any privacy breach.",
+        "Individual rights have also been significantly strengthened: the right to access their data, the right to rectification, the right to de-indexation (the right to be 'forgotten'), and the right to data portability — meaning the ability to recover their data in a reusable format.",
+        "Penalties for non-compliance are serious. Administrative sanctions can reach $10 million or 2% of worldwide revenue. Criminal penalties climb to $25 million or 4% of revenue. The CAI has expanded investigative powers and can act proactively.",
+        "The good news: compliance is achievable for a well-supported SMB. Carillon Division at Boreal Star Group helps businesses in Beauce and Chaudière-Appalaches assess their current posture, implement required measures, and document their practices to demonstrate compliance in case of an audit. Because in today's digital world, trust is built — or lost — in just a few clicks.",
+      ],
+      cta: { text: "Talk to Carillon Division →", url: "/contacts", external: false },
+    },
+    es: {
+      title: "Ley 25: Lo que toda pyme quebequense debe saber — y hacer — ahora",
+      excerpt:
+        "La Ley 25 está en vigor. Las multas pueden llegar a 25 millones de dólares. Sin embargo, la mayoría de las pymes quebequenses aún no cumplen con sus requisitos. Esto es lo que está en juego — y cómo protegerse.",
+      paragraphs: [
+        "En septiembre de 2023, entró en vigor en Quebec la última oleada de obligaciones de la Ley 25, oficialmente conocida como Ley de modernización de disposiciones legislativas en materia de protección de información personal. Esta ley transforma profundamente la forma en que las organizaciones deben recopilar, tratar y proteger los datos personales de sus clientes, empleados y proveedores.",
+        "Contrariamente a lo que muchos creen, la Ley 25 no se aplica únicamente a las grandes empresas. Se aplica a toda organización que recopile información personal en el marco de sus actividades comerciales, incluidas las pymes, los trabajadores autónomos, los organismos sin fines de lucro y los municipios.",
+        "Las obligaciones concretas son numerosas. Toda empresa debe designar un responsable de la protección de la información personal (RPIP) — en las estructuras pequeñas, suele ser el propio dirigente. Debe publicar una política de privacidad accesible, obtener un consentimiento claro y explícito antes de cualquier recopilación de datos, e informar a la Commission d'accès à l'information (CAI) y a las personas afectadas en un plazo de 72 horas tras cualquier violación de seguridad.",
+        "Los derechos otorgados a las personas también se han reforzado considerablemente: derecho de acceso a sus datos, derecho de rectificación, derecho a la desindexación (el derecho al olvido) y derecho a la portabilidad de los datos, es decir, la posibilidad de recuperar sus datos en un formato reutilizable.",
+        "Las sanciones por incumplimiento son severas. Las penalidades administrativas pueden alcanzar los 10 millones de dólares o el 2% del volumen de negocios mundial. Las sanciones penales ascienden hasta 25 millones de dólares o el 4% del volumen de negocios. La CAI dispone de amplios poderes de investigación y puede actuar de forma proactiva.",
+        "La buena noticia: el cumplimiento es alcanzable para una pyme bien acompañada. La División Carillon de Grupo Estrella Boreal ayuda a las empresas de Beauce y Chaudière-Appalaches a evaluar su postura actual, implantar las medidas requeridas y documentar sus prácticas para poder demostrarlo en caso de auditoría. Porque en el mundo digital de hoy, la confianza se construye — o se pierde — en unos pocos clics.",
+      ],
+      cta: { text: "Hablar con División Carillon →", url: "/contacts", external: false },
+    },
+  },
+
   // ── Article 2 — Citadelle BJJ (2026-06-21) ───────────────────────────────
   {
     slug: "citadelle-bjj-premier-site",

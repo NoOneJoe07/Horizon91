@@ -11,8 +11,12 @@ const routes = [
   { path: "/divisions/cyber", priority: 0.85, changeFrequency: "monthly" as const },
   { path: "/actualites", priority: 0.85, changeFrequency: "weekly" as const },
   { path: "/portfolio", priority: 0.8, changeFrequency: "weekly" as const },
+  { path: "/tarification", priority: 0.75, changeFrequency: "monthly" as const },
   { path: "/contacts", priority: 0.7, changeFrequency: "monthly" as const },
   { path: "/rejoindre", priority: 0.6, changeFrequency: "monthly" as const },
+  { path: "/equipe/jonathan-patoine", priority: 0.65, changeFrequency: "monthly" as const },
+  { path: "/equipe/alexandra-espin", priority: 0.65, changeFrequency: "monthly" as const },
+  { path: "/equipe/paulina-jaramillo", priority: 0.65, changeFrequency: "monthly" as const },
   { path: "/le-crieur", priority: 0.4, changeFrequency: "monthly" as const },
   // Articles individuels
   ...articles.map((a) => ({
