@@ -239,7 +239,6 @@ const CHAMBLY_TIERS = [
    SUITE CARIGNAN — produits à venir (blurred / zone de travaux)
 ───────────────────────────────────────────────────────────────── */
 const SUITE_CARIGNAN = [
-  { nom: "Sorel",        categorie: "Remédiation & réponse aux incidents" },
   { nom: "Contrecoeur", categorie: "Simulation phishing & ingénierie sociale" },
   { nom: "Berthier",    categorie: "Analyseur de légitimité des courriels" },
 ];
@@ -253,13 +252,6 @@ const CHAINE_FORTS = [
     produit: "Saurel",
     mission: "Vigie Dark Web — surveille les flux clandestins avant que la menace ne remonte le courant.",
     statut: "production" as const,
-    accentColor: "#203478",
-  },
-  {
-    fort: "Fort Sorel",
-    produit: "Sorel",
-    mission: "Remédiation & réponse aux incidents — intervient dès que la brèche est détectée.",
-    statut: "dev" as const,
     accentColor: "#203478",
   },
   {
