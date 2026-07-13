@@ -53,13 +53,10 @@
     },
     "histoire": {
       "title": "Nuestra historia",
-      "p1": "Jonathan Patoine no siguió un solo camino. Recorrió muchos — reforestador, agente de seguridad, policía, emprendedor en restauración, editor para medios de comunicación en Montreal — y en cada uno buscó lo mismo sin siempre poder nombrarlo: un lugar donde sus habilidades se encontraran con algo verdaderamente valioso.",
-      "p2": "Ese algo lo encontró por primera vez frente a una pantalla de Atari. No en el juego en sí, sino en lo que representaba: la prueba viviente de que un poco de código podía crear un mundo entero. Esa fascinación nunca lo abandonó.",
-      "p3": "En diciembre de 2022, su empresa cierra por decisión gubernamental. Vuelve a empezar con su hermano, abre una franquicia, lucha. No es suficiente. Luego un CISO — responsable de la ciberseguridad de una autoridad sanitaria regional — les abre una puerta inesperada. Jonathan se inscribe en un programa AEC en el Collège Cumberland. Aprende protocolos, redes, vulnerabilidades. Al aprender cómo caen los sistemas, finalmente entiende cómo funcionan.",
-      "p4": "Es durante este período que comienza a trabajar con inteligencia artificial — no como una herramienta, sino como un socio. Se da cuenta de algo fundamental: ya no está bloqueado detrás del muro de conocimientos que necesitaría adquirir antes de poder crear. La imaginación puede preceder a la maestría. Comienza a construir su estudio de videojuegos. Comienza a soñar más grande.",
-      "p5": "A principios de 2026, su contrato editorial en Montreal termina. Esa es la supernova. La explosión que precede al renacimiento.",
-      "p6": "En marzo de 2026, el grupo nace oficialmente — con una misión precisa: empezar local. Ayudar a los emprendedores y artesanos de la región a construir su presencia digital y a vivir genuinamente de lo que aman hacer. Como los draveurs casaban el rigor físico con el dominio de los ríos, Grupo Estrella Boreal casa el rigor de nuestros constructores históricos con el poder de las tecnologías del mañana. El primer proyecto piloto: un dojo de jiu-jitsu brasileño en la ciudad de Quebec. Un profesor apasionado que tiene dificultades para llegar a suficientes clientes. Exactamente el tipo de persona para quien todo esto fue construido — sin importar de dónde vengan. Nuestras raíces son regionales, pero nuestras puertas están abiertas a todos los que nos lo pidan. En mayo de 2026, el grupo adopta su nombre definitivo: Grupo Estrella Boreal Inc.",
-      "quote": "La Estrella Polar guió a los coureurs des bois a través de las noches más oscuras. Hoy guía a los emprendedores de la región a través del flujo digital. Nosotros somos esa estrella.",
+      "p1": "Jonathan Patoine nunca ha dejado de construir. Ya sea una empresa, un software o un universo digital, está impulsado por la misma necesidad de entender cómo funcionan las cosas para imaginar cómo podrían ser mejores. Su trayectoria, rica en experiencias variadas, lo llevó naturalmente hacia la ciberseguridad, el desarrollo web y la creación de productos tecnológicos.",
+      "p2": "El descubrimiento de la inteligencia artificial marca un punto de inflexión. Ve en ella no solo una herramienta, sino un verdadero compañero creativo, capaz de acelerar el paso de la idea a su realización. Esta nueva forma de concebir la innovación se convierte en la piedra angular de Étoile Boréale.",
+      "p3": "Hoy pone esta visión al servicio de los emprendedores locales desarrollando soluciones tecnológicas accesibles, de alto rendimiento y profundamente arraigadas en la realidad de las pymes quebequenses.",
+      "quote": "La inteligencia artificial — no una herramienta, sino un verdadero compañero creativo, capaz de acelerar el paso de la idea a su realización.",
       "cta": "Explorar nuestras divisiones"
     }
   },
@@ -208,13 +205,22 @@
         "couleur": "border-h91-warp"
       },
       {
-        "nom": "Argos — Vigilancia Dark Web",
+        "nom": "Saurel — Vigilancia Dark Web",
         "client": "Grupo Estrella Boreal — Producto interno",
         "categorie": "Cybersécurité",
-        "description": "SaaS de vigilancia del Dark Web en tiempo real. Argos escanea continuamente mercados clandestinos, foros y filtraciones de datos para alertar a las empresas cuando su información aparece.",
+        "description": "SaaS de vigilancia del Dark Web en tiempo real. Saurel escanea continuamente mercados clandestinos, foros y filtraciones de datos para alertar a las empresas cuando su información aparece.",
         "resultats": ["Escaneo Dark Web continuo", "Alertas en tiempo real", "4 niveles de precios", "Datos alojados en Quebec"],
         "statut": "En cours",
         "couleur": "border-h91-glacier"
+      },
+      {
+        "nom": "Chambly — IAM / RBAC",
+        "client": "Grupo Estrella Boreal — Producto interno",
+        "categorie": "Cybersécurité",
+        "description": "Software de gestión de identidades y accesos (IAM/RBAC) diseñado para municipios, MRC y pymes. Control de acceso a estaciones de trabajo, seguimiento de conexiones y gestión granular de permisos por rol.",
+        "resultats": ["Gestión de identidades", "Control de acceso por rol", "Seguimiento de conexiones", "Diseñado para municipios"],
+        "statut": "En cours",
+        "couleur": "border-h91-night"
       }
     ]
   },

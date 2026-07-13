@@ -415,9 +415,6 @@ export default function HomePage() {
             <p className="scroll-fade">{t("histoire.p1")}</p>
             <p className="scroll-fade">{t("histoire.p2")}</p>
             <p className="scroll-fade">{t("histoire.p3")}</p>
-            <p className="scroll-fade">{t("histoire.p4")}</p>
-            <p className="scroll-fade">{t("histoire.p5")}</p>
-            <p className="scroll-fade">{t("histoire.p6")}</p>
 
             <blockquote
               className="scroll-fade border-l-4 pl-6 mt-8 italic text-base"

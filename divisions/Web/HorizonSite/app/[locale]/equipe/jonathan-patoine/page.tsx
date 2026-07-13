@@ -144,9 +144,6 @@ export default function JonathanPatoinePage() {
             <p>{t("histoire.p1")}</p>
             <p>{t("histoire.p2")}</p>
             <p>{t("histoire.p3")}</p>
-            <p>{t("histoire.p4")}</p>
-            <p>{t("histoire.p5")}</p>
-            <p>{t("histoire.p6")}</p>
           </div>
 
           <blockquote

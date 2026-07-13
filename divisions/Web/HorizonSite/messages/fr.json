@@ -53,13 +53,10 @@
     },
     "histoire": {
       "title": "Notre histoire",
-      "p1": "Jonathan Patoine n'a pas suivi un seul chemin. Il en a arpenté plusieurs — reboiseur, agent de sécurité, policier, entrepreneur en restauration, éditeur pour les médias montréalais — et dans chacun il a cherché la même chose sans toujours pouvoir la nommer : un endroit où ses compétences rencontrent quelque chose qui en vaut vraiment la peine.",
-      "p2": "Ce quelque chose, il l'a trouvé pour la première fois sur un écran d'Atari. Pas dans le jeu lui-même, mais dans ce qu'il représentait : la preuve vivante qu'un peu de code pouvait créer un monde entier. Cette fascination ne l'a jamais quitté.",
-      "p3": "En décembre 2022, son entreprise ferme sur décision gouvernementale. Il repart à zéro avec son frère, ouvre une franchise, se bat. Ça ne suffit pas. Puis un CISO — responsable de la cybersécurité d'un CISSS régional — leur ouvre une porte inattendue. Jonathan s'inscrit en AEC au Collège Cumberland. Il apprend les protocoles, les réseaux, les vulnérabilités. En apprenant comment les systèmes tombent, il comprend enfin comment ils fonctionnent.",
-      "p4": "C'est dans cette période qu'il commence à travailler avec l'intelligence artificielle — pas comme un outil, mais comme un partenaire. Il réalise quelque chose de fondamental : il n'est plus bloqué derrière le mur des connaissances à acquérir avant de pouvoir créer. L'imagination peut précéder la maîtrise. Il commence à bâtir son studio de jeux. Il commence à rêver plus grand.",
-      "p5": "Début 2026, son contrat éditorial à Montréal prend fin. C'est la supernova. L'explosion qui précède la renaissance.",
-      "p6": "En mars 2026, le groupe naît officiellement — avec une mission précise : commencer local. Aider les entrepreneurs et artisans de la région à construire leur présence numérique et à vivre de ce qu'ils aiment vraiment faire. Comme les draveurs mariaient la rigueur physique à la connaissance des rivières, Groupe Étoile Boréale marie la rigueur de nos bâtisseurs historiques à la puissance des technologies de demain. Le premier projet pilote : un dojo de jiu-jitsu brésilien à Québec. Un prof passionné qui peine à rejoindre sa clientèle. Exactement le genre de personne pour qui tout ça a été bâti — peu importe d'où ils viennent. Notre ancrage est régional, mais nos portes sont ouvertes à tous ceux qui nous le demandent. En mai 2026, le groupe adopte son nom définitif : Groupe Étoile Boréale Inc.",
-      "quote": "L'Étoile Polaire a guidé les coureurs des bois à travers les nuits les plus noires. Aujourd'hui, elle guide les entrepreneurs de la région à travers le flux numérique. Nous sommes cette étoile.",
+      "p1": "Jonathan Patoine n'a jamais cessé de bâtir. Qu'il s'agisse d'une entreprise, d'un logiciel ou d'un univers numérique, il est animé par le même besoin de comprendre comment les choses fonctionnent pour imaginer comment elles pourraient être meilleures. Son parcours, riche d'expériences variées, l'a naturellement conduit vers la cybersécurité, le développement Web et la création de produits technologiques.",
+      "p2": "La découverte de l'intelligence artificielle marque un tournant. Il y voit non seulement un outil, mais un véritable partenaire de création, capable d'accélérer le passage de l'idée à sa réalisation. Cette nouvelle façon de concevoir l'innovation devient la pierre d'assise d'Étoile Boréale.",
+      "p3": "Aujourd'hui, il met cette vision au service des entrepreneurs d'ici en développant des solutions technologiques accessibles, performantes et profondément ancrées dans la réalité des PME québécoises.",
+      "quote": "L'intelligence artificielle — non pas un outil, mais un véritable partenaire de création, capable d'accélérer le passage de l'idée à sa réalisation.",
       "cta": "Explorer nos divisions"
     }
   },
@@ -215,6 +212,15 @@
         "resultats": ["Scan Dark Web continu", "Alertes temps réel", "4 tiers tarifaires", "Données au Québec"],
         "statut": "En cours",
         "couleur": "border-h91-glacier"
+      },
+      {
+        "nom": "Chambly — IAM / RBAC",
+        "client": "Groupe Étoile Boréale — Produit interne",
+        "categorie": "Cybersécurité",
+        "description": "Logiciel de gestion des identités et des accès (IAM/RBAC) conçu pour les municipalités, MRC et PME. Contrôle des accès aux postes de travail, suivi des connexions, gestion fine des permissions par rôle.",
+        "resultats": ["Gestion des identités", "Contrôle RBAC par rôle", "Suivi des connexions", "Conçu pour les municipalités"],
+        "statut": "En cours",
+        "couleur": "border-h91-night"
       }
     ]
   },
