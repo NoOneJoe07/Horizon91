@@ -170,6 +170,72 @@ const SAUREL_TIERS = [
 ];
 
 /* ─────────────────────────────────────────────────────────────
+   CHAMBLY — tiers tarifaires (IAM / Contrôle d'accès & identités)
+   Nommés d'après les 4 guérites du Fort Chambly (1709-1711)
+───────────────────────────────────────────────────────────────── */
+const CHAMBLY_TIERS = [
+  {
+    nom: "Guérite",
+    prix: "75 $",
+    unite: "/ mois",
+    cible: "Indépendants & petits commerces",
+    features: [
+      "Jusqu'à 10 utilisateurs",
+      "Gestion des rôles de base (RBAC)",
+      "Tableau de bord des accès",
+      "Rapport mensuel d'activité",
+    ],
+    featured: false,
+    citadelle: false,
+  },
+  {
+    nom: "Bastion",
+    prix: "125 $",
+    unite: "/ mois",
+    cible: "PME & professionnels",
+    features: [
+      "Jusqu'à 25 utilisateurs",
+      "RBAC complet & politiques granulaires",
+      "Journaux d'audit en temps réel",
+      "Alertes de connexions suspectes",
+      "Support prioritaire",
+    ],
+    featured: true,
+    citadelle: false,
+  },
+  {
+    nom: "Redoute",
+    prix: "200 $",
+    unite: "/ mois",
+    cible: "Entreprises multi-sites",
+    features: [
+      "Jusqu'à 100 utilisateurs",
+      "IAM avancé & intégrations AD/LDAP",
+      "Rapports de conformité Loi 25",
+      "Révision des accès automatisée",
+      "Consultant dédié",
+    ],
+    featured: false,
+    citadelle: false,
+  },
+  {
+    nom: "Citadelle",
+    prix: "Sur devis",
+    unite: "",
+    cible: "Municipalités & MRC",
+    features: [
+      "Utilisateurs illimités",
+      "Gouvernance des identités complète",
+      "Hébergement Québec (Loi 25)",
+      "Réponse aux incidents incluse",
+      "Rapport exécutif mensuel",
+    ],
+    featured: false,
+    citadelle: true,
+  },
+];
+
+/* ─────────────────────────────────────────────────────────────
    SUITE CARIGNAN — produits à venir (blurred / zone de travaux)
 ───────────────────────────────────────────────────────────────── */
 const SUITE_CARIGNAN = [
@@ -591,6 +657,175 @@ export default function DivisionCyberPage() {
               brèches. Nos Sentinelles numériques surveillent vos arrières en continu,
               transformant le chaos imprévisible du web en une trajectoire stable, sécurisée
               et entièrement sous contrôle.
+            </p>
+          </div>
+
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════════════
+          CHAMBLY — PRODUIT IAM — Bleu Nuit
+      ═══════════════════════════════════════════════════ */}
+      <section className="py-24 px-6" style={{ backgroundColor: "#E3E6EF" }}>
+        <div className="max-w-6xl mx-auto">
+
+          {/* En-tête */}
+          <div className="text-center mb-16">
+            <span className="inline-block text-xs font-bold px-3 py-1.5 rounded-full bg-h91-accretion/10 text-h91-accretion border border-h91-accretion/30 mb-6 uppercase tracking-widest">
+              Produit — IAM / Contrôle d&apos;accès
+            </span>
+            <h2 className="text-6xl md:text-7xl font-bold mb-5 tracking-tight" style={{ color: "#1D1D1B" }}>
+              CHAMBLY
+            </h2>
+            <p className="font-semibold text-lg md:text-xl italic max-w-2xl mx-auto mb-5" style={{ color: "#203478" }}>
+              Qui entre dans la forteresse — et qui en sort.
+            </p>
+            <p className="text-base max-w-2xl mx-auto leading-relaxed" style={{ color: "rgba(29,29,27,0.65)" }}>
+              Contrôle d&apos;accès basé sur les rôles (RBAC), gestion des identités et journaux
+              d&apos;audit. Chambly verrouille chaque point d&apos;entrée de votre organisation — parce
+              qu&apos;une brèche commence presque toujours de l&apos;intérieur.
+            </p>
+          </div>
+
+          {/* Tiers */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+            {CHAMBLY_TIERS.map((tier, i) => (
+              <div
+                key={i}
+                className="relative p-6 rounded-xl flex flex-col gap-4 transition card-lift"
+                style={
+                  tier.featured
+                    ? { backgroundColor: "#FFFFFF", border: "2px solid #203478" }
+                    : tier.citadelle
+                    ? { backgroundColor: "#FFFFFF", border: "1px solid rgba(201,168,76,0.40)" }
+                    : { backgroundColor: "#FFFFFF", border: "1px solid rgba(32,52,120,0.25)" }
+                }
+              >
+                {tier.featured && (
+                  <span className="absolute -top-4 left-1/2 -translate-x-1/2 text-xs font-bold px-4 py-1 rounded-full uppercase tracking-widest whitespace-nowrap" style={{ backgroundColor: "#203478", color: "#F4F4F0" }}>
+                    Recommandé
+                  </span>
+                )}
+
+                <div>
+                  <h3
+                    className="text-xl font-bold"
+                    style={{ color: tier.featured ? "#203478" : tier.citadelle ? "#C9A84C" : "#1D1D1B" }}
+                  >
+                    {tier.nom}
+                  </h3>
+                  <p className="text-xs mt-1" style={{ color: "rgba(29,29,27,0.50)" }}>{tier.cible}</p>
+                </div>
+
+                <div className="flex items-baseline gap-1">
+                  <span
+                    className="text-3xl font-extrabold"
+                    style={{ color: tier.featured ? "#203478" : tier.citadelle ? "#C9A84C" : "#1D1D1B" }}
+                  >
+                    {tier.prix}
+                  </span>
+                  {tier.unite && (
+                    <span className="text-sm" style={{ color: "rgba(29,29,27,0.50)" }}>{tier.unite}</span>
+                  )}
+                </div>
+
+                <ul className="flex flex-col gap-2 flex-1">
+                  {tier.features.map((f, fi) => (
+                    <li
+                      key={fi}
+                      className="flex items-start gap-2 text-sm"
+                      style={{ color: "rgba(29,29,27,0.70)" }}
+                    >
+                      <span className="mt-0.5 shrink-0" style={{ color: "#203478" }}>✓</span>
+                      <span>{f}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <Link
+                  href="/rejoindre"
+                  className="mt-2 block text-center py-3 rounded-lg font-bold text-sm transition"
+                  style={
+                    tier.featured
+                      ? { backgroundColor: "#203478", color: "#F4F4F0" }
+                      : tier.citadelle
+                      ? { border: "1px solid rgba(201,168,76,0.50)", color: "#C9A84C" }
+                      : { border: "1px solid rgba(32,52,120,0.40)", color: "#203478" }
+                  }
+                >
+                  {tier.citadelle ? "Nous contacter" : "Démarrer"}
+                </Link>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════════════
+          FORT CHAMBLY — CONTEXTE HISTORIQUE — Blanc
+      ═══════════════════════════════════════════════════ */}
+      <section className="py-20 px-6" style={{ backgroundColor: "#FFFFFF" }}>
+        <div className="max-w-4xl mx-auto">
+
+          {/* Contexte historique */}
+          <div className="mb-10">
+            <span className="inline-block text-xs font-bold px-3 py-1.5 rounded-full bg-h91-accretion/10 text-h91-accretion border border-h91-accretion/30 mb-6 uppercase tracking-widest">
+              Le contexte historique
+            </span>
+            <h3 className="text-2xl md:text-3xl font-bold mb-6" style={{ color: "#1D1D1B" }}>
+              Les guérites du Fort Chambly
+            </h3>
+            <div className="space-y-5 text-lg leading-relaxed" style={{ color: "rgba(29,29,27,0.70)" }}>
+              <p>
+                En 1665, le capitaine Jacques de Chambly érige un premier fort en bois aux rapides
+                de la rivière Richelieu. Rebâti en pierre entre 1709 et 1711, le Fort Chambly
+                devient l&apos;un des ouvrages défensifs les mieux préservés de la Nouvelle-France.
+                Sa particularité : quatre guérites d&apos;angle, une à chaque coin du fort, qui
+                permettaient aux soldats de surveiller simultanément chaque approche — aucun angle
+                mort, aucune zone non gardée.
+              </p>
+              <p>
+                Ce principe de contrôle total des points d&apos;accès est au cœur de Chambly (le
+                produit). Chaque utilisateur de votre organisation est une porte. Chaque rôle est
+                une clé. Le logiciel Chambly veille sur chacun de ces points d&apos;entrée en temps
+                réel — parce qu&apos;une brèche de sécurité commence presque toujours par un accès
+                mal géré, une permission trop large ou une identité compromise de l&apos;intérieur.
+              </p>
+            </div>
+          </div>
+
+          {/* Que font les guérites */}
+          <div className="mb-10 p-7 rounded-2xl" style={{ border: "1px solid rgba(32,52,120,0.20)", backgroundColor: "#E3E6EF" }}>
+            <h3 className="text-xl font-bold mb-4" style={{ color: "#1D1D1B" }}>
+              Que contrôlent les guérites de Chambly ?
+            </h3>
+            <div className="space-y-4 text-base leading-relaxed" style={{ color: "rgba(29,29,27,0.70)" }}>
+              <p>
+                Chaque guérite surveille un angle stratégique : <strong>qui se connecte</strong>,
+                <strong> depuis où</strong>, <strong>à quoi ils accèdent</strong> et <strong>à
+                quelle heure</strong>. Si un comportement sort du profil habituel d&apos;un
+                utilisateur — nouvelle localisation, heure inhabituelle, tentative d&apos;accès à
+                un dossier restreint — Chambly déclenche une alerte immédiate.
+              </p>
+              <p>
+                Le principe RBAC (Role-Based Access Control) garantit que chaque membre de votre
+                équipe accède uniquement à ce dont il a besoin pour son rôle — ni plus, ni moins.
+                La surface d&apos;attaque se réduit. L&apos;audit devient automatique. La conformité
+                à la Loi 25 est documentée à chaque étape.
+              </p>
+            </div>
+          </div>
+
+          {/* Avantage Boréale */}
+          <div className="p-6 rounded-xl" style={{ border: "1px solid rgba(32,52,120,0.25)", backgroundColor: "rgba(32,52,120,0.06)" }}>
+            <p className="font-bold text-sm uppercase tracking-widest mb-3" style={{ color: "#203478" }}>
+              L&apos;avantage Étoile Boréale
+            </p>
+            <p className="text-lg leading-relaxed" style={{ color: "rgba(29,29,27,0.70)" }}>
+              Chambly ne se contente pas de gérer les accès — il documente chaque décision.
+              En cas d&apos;audit Loi 25 ou d&apos;incident de sécurité, vous disposez d&apos;une
+              traçabilité complète, horodatée et exportable. Vos guérites n&apos;ont jamais
+              dormi.
             </p>
           </div>
 
