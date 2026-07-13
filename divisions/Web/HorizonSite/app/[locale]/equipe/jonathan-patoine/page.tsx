@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 
@@ -42,8 +42,36 @@ export async function generateMetadata({
 // ─────────────────────────────────────────────────────────
 // Page — Jonathan Patoine
 // ─────────────────────────────────────────────────────────
+const bio = {
+  fr: {
+    p1: "Jonathan Patoine n'a jamais cessé de bâtir. Qu'il s'agisse d'une entreprise, d'un logiciel ou d'un univers numérique, il est animé par le même besoin de comprendre comment les choses fonctionnent pour imaginer comment elles pourraient être meilleures. Son parcours, riche d'expériences variées, l'a naturellement conduit vers la cybersécurité, le développement Web et la création de produits technologiques.",
+    p2: "La découverte de l'intelligence artificielle marque un tournant. Il y voit non seulement un outil, mais un véritable partenaire de création, capable d'accélérer le passage de l'idée à sa réalisation. Cette nouvelle façon de concevoir l'innovation devient la pierre d'assise d'Étoile Boréale.",
+    p3: "Aujourd'hui, il met cette vision au service des entrepreneurs d'ici en développant des solutions technologiques accessibles, performantes et profondément ancrées dans la réalité des PME québécoises.",
+    quote: "L'intelligence artificielle — non pas un outil, mais un véritable partenaire de création, capable d'accélérer le passage de l'idée à sa réalisation.",
+  },
+  en: {
+    p1: "Jonathan Patoine has never stopped building. Whether it's a company, software, or a digital universe, he is driven by the same need to understand how things work in order to imagine how they could be better. His journey, rich with varied experiences, naturally led him toward cybersecurity, web development, and the creation of technological products.",
+    p2: "The discovery of artificial intelligence marks a turning point. He sees in it not only a tool, but a genuine creative partner, capable of accelerating the journey from idea to realization. This new way of conceiving innovation becomes the cornerstone of Étoile Boréale.",
+    p3: "Today, he puts this vision at the service of local entrepreneurs by developing accessible, high-performance technological solutions deeply rooted in the reality of Quebec SMBs.",
+    quote: "Artificial intelligence — not a tool, but a genuine creative partner, capable of accelerating the journey from idea to realization.",
+  },
+  es: {
+    p1: "Jonathan Patoine nunca ha dejado de construir. Ya sea una empresa, un software o un universo digital, está impulsado por la misma necesidad de entender cómo funcionan las cosas para imaginar cómo podrían ser mejores. Su trayectoria, rica en experiencias variadas, lo llevó naturalmente hacia la ciberseguridad, el desarrollo web y la creación de productos tecnológicos.",
+    p2: "El descubrimiento de la inteligencia artificial marca un punto de inflexión. Ve en ella no solo una herramienta, sino un verdadero compañero creativo, capaz de acelerar el paso de la idea a su realización. Esta nueva forma de concebir la innovación se convierte en la piedra angular de Étoile Boréale.",
+    p3: "Hoy pone esta visión al servicio de los emprendedores locales desarrollando soluciones tecnológicas accesibles, de alto rendimiento y profundamente arraigadas en la realidad de las pymes quebequenses.",
+    quote: "La inteligencia artificial — no una herramienta, sino un verdadero compañero creativo, capaz de acelerar el paso de la idea a su realización.",
+  },
+};
+
 export default function JonathanPatoinePage() {
   const t = useTranslations("home");
+  const locale = useLocale();
+  const content = bio[locale as keyof typeof bio] ?? bio.fr;
+  const parcoursLabel: Record<string, string> = {
+    fr: "Parcours",
+    en: "Background",
+    es: "Trayectoria",
+  };
 
   const roles = [
     {
@@ -137,20 +165,20 @@ export default function JonathanPatoinePage() {
             className="text-xs font-bold uppercase tracking-widest mb-4"
             style={{ color: "#0099D1" }}
           >
-            {t("histoire.title")}
+            {parcoursLabel[locale] ?? "Parcours"}
           </p>
 
           <div className="space-y-6 text-lg leading-relaxed" style={{ color: "rgba(29,29,27,0.75)" }}>
-            <p>{t("histoire.p1")}</p>
-            <p>{t("histoire.p2")}</p>
-            <p>{t("histoire.p3")}</p>
+            <p>{content.p1}</p>
+            <p>{content.p2}</p>
+            <p>{content.p3}</p>
           </div>
 
           <blockquote
             className="border-l-4 pl-6 mt-10 italic text-base"
             style={{ borderColor: "#0099D1", color: "rgba(29,29,27,0.50)" }}
           >
-            {t("histoire.quote")}
+            {content.quote}
           </blockquote>
         </div>
       </section>
