@@ -1,7 +1,7 @@
 @AGENTS.md
 
 # CONTEXTE PROJET — Groupe Étoile Boréale Inc. / HorizonSite
-Dernière mise à jour : 2026-07-08 — SESSION ACTUALITES + POLICE + SECURITE — Articles trilingues, Urbanist, rate limiting, portfolio ✅
+Dernière mise à jour : 2026-07-13 — SESSION LANCEMENT — Bios JP+AE, OG image, Firewall Vercel, Article Loi 25, sitemap complet, Chambly portfolio ✅
 
 ## Fichiers de contexte global Horizon 91
 - **Master context :** `C:\Users\Pc\OneDrive\Documents\Horizon 91\horizon91_master.md`
@@ -250,7 +250,7 @@ MX zohocloud.ca + SPF + DKIM + DMARC — propagés et vérifiés
 - App password Zoho : ne jamais copier-coller directement dans Vercel (ajoute \n invisible) → coller dans Notepad d'abord
 - nslookup -type=MX zohocloud.ca → mx.zohocloud.ca, mx2.zohocloud.ca, mx3.zohocloud.ca
 
-## Session 2026-07-08 — Police Urbanist, Sécurité, Articles trilingues, Portfolio
+## Session 2026-07-08 — Police Urbanist, Sécurité, Articles trilingues, Portfolio, Lore Carignan, Photos, Analytics
 
 ### Accomplissements
 - **Triptyque corrigé** : "Guider·Bâtir·Protéger" → "Créer·Bâtir·Protéger" (FR/EN/ES) dans messages/*.json, Footer.tsx, layout.tsx metadata, page.tsx JSON-LD, globals.css
@@ -267,18 +267,93 @@ MX zohocloud.ca + SPF + DKIM + DMARC — propagés et vérifiés
 - **Page /actualites** : placeholder remplacé par vrais articles (Server Component)
   - `app/[locale]/actualites/articlesData.ts` : données trilingues des 2 articles, helpers formatDate + getArticleBySlug
   - `app/[locale]/actualites/page.tsx` : liste articles avec cartes cliquables (couleur par article, tags, date, extrait)
-  - `app/[locale]/actualites/[slug]/page.tsx` : page article individuelle (generateMetadata, generateStaticParams, JSON-LD article, CTA)
+  - `app/[locale]/actualites/[slug]/page.tsx` : page article individuelle (generateMetadata, generateStaticParams, CTA)
 - **Articles trilingues** (FR/EN/ES from day one — signal entreprise multilingue) :
   - "Groupe Étoile Boréale naît officiellement" — date 2026-05-15, lore 3 divisions, mention trilinguisme
   - "Premier site livré : Citadelle Jiu-Jitsu" — date 2026-06-21, lien citadellebjj.com + mention etoileboreale.ca
+  - Images hero dans chaque article : citadelle-bjj-screenshot.png + Etoile_Boreale.png → /photos_images/
 - **Portfolio** : entrée "Site Groupe Étoile Boréale" ajoutée (couleur or, statut Livré, url etoileboreale.ca) dans FR/EN/ES
 - **Sitemap** : /actualites + /actualites/[slug]×2 ajoutés (lastModified = date article, priority 0.85/0.75)
+- **Suite Carignan — Section lore historique** : `app/[locale]/divisions/cyber/page.tsx`
+  - Nouvelle section "La doctrine de la chaîne" avant les cartes blurrées
+  - Narratif Régiment Carignan-Salières 1665 : 1 200 soldats, chaîne fortifiée le long du Richelieu
+  - Visualisation 5 nœuds connectés : Saurel (en prod. #203478) + Sorel/Contrecoeur/Berthier/Chambly (en dev 🚧)
+  - `CHAINE_FORTS[]` data structure avec fort historique → produit → mission
+  - Zone de travaux blurrée rebgée en `#111111` pour dégradé visuel distinct
+- **Photo Jonathan Patoine** :
+  - `Jonathan_Patoine.jpg` (3.7 MB) → `jonathan-patoine.jpg` (24 KB, 600×600, crop top)
+  - `app/[locale]/page.tsx` : membresMeta.jonathan.photo + rendu conditionnel Image/initiales (Alexandra & Paulina gardent initiales)
+  - `app/[locale]/equipe/jonathan-patoine/page.tsx` : Image 160×160 object-top remplace placeholder "JP"
+- **Vercel Analytics + Speed Insights** :
+  - `@vercel/analytics` + `@vercel/speed-insights` installés dans package.json
+  - `<Analytics />` + `<SpeedInsights />` ajoutés dans layout.tsx
+  - Analytics et Speed Insights activés dans le dashboard Vercel (Hobby plan) ✅
+  - Firewall → Vercel Managed Ruleset à activer dans Settings → Firewall
 
 ### Architecture articles
 - Données centralisées dans `articlesData.ts` (hors messages/*.json — article content is rich, not i18n key-value)
+- Interface Article : slug, date, readTime, tags, accentColor, image?, imageAlt?, fr/en/es: { title, excerpt, paragraphs[], cta }
 - Route individuelle : `/[locale]/actualites/[slug]` — SEO-optimisé, generateStaticParams = pré-rendu statique
 - Ajouter un article : append dans `articles[]` de articlesData.ts (aucune autre modification requise)
 - Trilingue natif : chaque article objet = { slug, date, tags, fr: {}, en: {}, es: {} }
+
+### Commits session 2026-07-08
+- `b5d637a` — articles trilingues + portfolio etoileboreale.ca + sitemap
+- `b1da542` — Suite Carignan lore doctrine chaîne forts
+- `9943396` — images hero articles + photo Jonathan
+- `5950878` — layout.tsx Analytics + SpeedInsights (build fail — packages manquants)
+- `c3be1bc` — fix package.json @vercel/analytics + @vercel/speed-insights ✅ build OK
+
+## Session 2026-07-13 — Lancement site, Bios, OG Image, Firewall, Loi 25, Sitemap complet
+
+### Accomplissements
+- **Vercel Firewall** : Bot Protection (Challenge mode) + AI Bots (Deny) activés dans Vercel Settings → Firewall
+  - Contexte : JA4 fingerprinting montrait 717/942 requêtes avec même fingerprint (trafic automatisé)
+  - Bot Protection Challenge = CAPTCHA invisible pour bots suspectés, transparent pour humains
+  - AI Bots Deny = bloque scrapers IA (GPTBot, Claude-Web, Bytespider, etc.)
+- **OG Image** : `public/og-image.jpg` remplacé par design Paulina (1200×630) — starfield + grille bleue + mark-etoile.svg + "ÉTOILE BORÉALE" + "Créer · Bâtir · Protéger" + etoileboreale.ca
+- **public/ nettoyé** : fichiers `__MACOSX/` et `Tipografía Gotham/` (artefacts macOS ZIP) supprimés via File Explorer (jamais stagés git — aucune action git requise)
+- **Photo Alexandra Espin** :
+  - `Alexandra.jpg` (952×1197, 35 KB) → `alexandra-espin.jpg` (600×600, 25 KB, crop top, Pillow q=85)
+  - Homepage : carte Alexandra mise à jour avec vraie photo (membresMeta.alexandra.photo)
+  - Page `/equipe/alexandra-espin` : Image 160×160 remplace placeholder "AE"
+- **Galerie Division Carillon** : photo Fort Ticonderoga (fort_ticonderoga_place_d_arms.jpg) remplacée par vue aérienne Fort Carillon (Fort_Carillon_1.jpg) dans `/divisions/cyber/page.tsx`
+- **Vercel 404 — faux incident** : découverte d'un projet doublon "horizon91" (même repo GitHub, aucun domaine custom). Le vrai projet est "horizon91-2zpm" (borealstar.ca + etoileboreale.ca). Site n'a jamais été down.
+- **Bio Jonathan restructurée** :
+  - messages/*.json (FR/EN/ES) : `home.histoire` réduit à p1 + p2 + p3 (3 paragraphes + quote) — retrait p4/p5/p6
+  - `app/[locale]/page.tsx` : rendu p1-p3 seulement, section histoire plus concise
+  - `app/[locale]/equipe/jonathan-patoine/page.tsx` : affiche p1-p3 seulement
+- **Page Alexandra Espin — réécrite complète** (`app/[locale]/equipe/alexandra-espin/page.tsx`) :
+  - `useLocale()` de next-intl pour choisir la langue correcte (FR/EN/ES)
+  - Bio trilingue hardcodée en objet `bio` : p1 + p2 + p3 + quote par langue
+  - Sections : Hero (photo 160×160, border violette #5762A2), Parcours (3 §), Rôles (3 cartes), CTAs
+  - generateMetadata trilingue mis à jour avec vraie description
+- **Portfolio Chambly** : entrée "Chambly — IAM / RBAC" ajoutée dans messages/*.json (FR/EN/ES)
+  - Statut "En cours", `border-h91-night`, client "Groupe Étoile Boréale — Produit interne"
+  - Correction au passage : EN/ES messages avaient "Argos" (vieux nom) → corrigé "Saurel"
+- **Sitemap complet** (`app/sitemap.ts`) :
+  - Ajout `/tarification` (priority 0.75, monthly)
+  - Ajout `/equipe/jonathan-patoine`, `/equipe/alexandra-espin`, `/equipe/paulina-jaramillo` (priority 0.65, monthly)
+  - `/le-crieur` conservé tel quel (Jonathan en développement ~35%, domaine à venir)
+- **Article Loi 25** (`app/[locale]/actualites/articlesData.ts`) — 3e article, placé en premier (plus récent) :
+  - Slug : `loi-25-guide-pme-quebec` | Date : 2026-07-13 | readTime : 6 min | accentColor : #203478
+  - Tags : Cybersécurité, Conformité, PME, Loi 25
+  - 6 paragraphes trilingues : qu'est-ce que la Loi 25, qui est concerné, obligations (RPRP 72h), droits individuels, sanctions (jusqu'à 25 M$), solution Division Carillon
+  - CTA → /contacts "Parler à Division Carillon →"
+- **DÉCISION LANCEMENT** : procéder maintenant, ajouter photo + bio Paulina mercredi 2026-07-16 (examens de francisation lundi-mardi)
+
+### Commits session 2026-07-13
+- `3121bfa` — bios JP+AE, photo AE, Chambly portfolio, OG image, Fort Carillon gallery
+- `67b8f17` — article Loi 25 trilingue + sitemap /equipe/* + /tarification
+
+### Anomalies & Résolutions
+| Anomalie | Résolution |
+|---|---|
+| rsync `--relative` flag créait chemin `app/mnt/c/Users/Pc/...` dans WSL | `sudo rm -rf ~/Horizon91/.../app/mnt` + rsync sans `--relative` |
+| Alexandra page : `const locale = "fr"` hardcodé → FR seulement | Ajout `import { useLocale }` + `const locale = useLocale()` |
+| EN/ES portfolio : "Argos" (vieux nom produit) | Corrigé → "Saurel" lors de l'ajout Chambly |
+| OG image avec espaces dans le nom ("OG Image — etoileboreale.ca 2 (2).jpg") | Renommé en `og-image.jpg` via File Explorer avant rsync |
+| OneDrive sync arrow (bleu) sur og-image.jpg | Attendre checkmark vert File Explorer avant rsync |
 
 ## Enrichissement contenu — Session 2026-05-28
 
@@ -399,22 +474,31 @@ MX zohocloud.ca + SPF + DKIM + DMARC — propagés et vérifiés
 - [ ] Décision finale nom produit : "Fort Saurel" ou "Fort Richelieu"
 - [ ] Galerie photos Fort Saurel dans /divisions/cyber (après décision nom + photos trouvées)
 - [ ] Contexte Suite Carignan (Sorel, Contrecoeur, Berthier, Chambly) avec lore historique
-- [ ] Articles Loi 25 sur /actualites
-- [ ] og-image.jpg avec branding Étoile Boréale
-- ✅ Pages profil équipe créées : /equipe/jonathan-patoine (complet), /equipe/alexandra-espin (stub), /equipe/paulina-jaramillo (stub)
+- ✅ Articles Loi 25 sur /actualites — slug loi-25-guide-pme-quebec (2026-07-13)
+- ✅ og-image.jpg avec branding Étoile Boréale — design Paulina Jaramillo, 1200×630 (2026-07-13)
+- ✅ Pages profil équipe créées : /equipe/jonathan-patoine (complet), /equipe/alexandra-espin (complet), /equipe/paulina-jaramillo (stub)
 - ✅ Cartes équipe homepage rendues cliquables → /equipe/[slug] (clé cta_profile ajoutée FR/EN/ES)
-- [ ] Photos équipe (Jonathan, Alexandra, Paulina) → remplacer initiales sur pages profil
-- [ ] Bios Alexandra et Paulina → compléter les stubs /equipe/
+- ✅ Photos Jonathan + Alexandra remplacent initiales sur pages profil (Paulina mercredi 2026-07-16)
+- ✅ Bio Jonathan restructurée (p1-p3) + Bio Alexandra complète (FR/EN/ES) — Paulina mercredi
+- [ ] Photo et bio Paulina Jaramillo — mercredi 2026-07-16
 - [ ] Réécrire histoire cie (home.histoire.*) quand les 3 bios fondateurs seront prêts
+- [ ] Supprimer projet Vercel doublon "horizon91" (garder uniquement "horizon91-2zpm")
+- [ ] Resubmit sitemap Google Search Console (etoileboreale.ca + borealstar.ca) après suppression doublon
 
 ## À faire — Jonathan (hors code)
 - [ ] Enregistrement légal : NEQ (Registraire entreprises QC) + numéro fédéral ARC — "Groupe Étoile Boréale Inc."
 - [ ] Numéros de taxes : TPS/TVQ (seuil obligatoire 30 000$/an, recommandé dès maintenant)
-- [ ] Migration Zoho : créer comptes @etoileboreale.ca + basculer SMTP_USER
-- [ ] Réserver handles @etoileboreale sur toutes les plateformes sociales
-- [ ] Photos d'équipe (Jonathan, Alexandra, Paulina) — attendues cette semaine
-- [ ] Bios Alexandra et Paulina — à rédiger
+- ✅ Migration Zoho @etoileboreale.ca — comptes créés + SMTP zohocloud.ca:465 (2026-07-07)
+- [ ] Réserver handles @etoileboreale sur toutes les plateformes sociales (Alexandra — phase lancement)
+- ✅ Photo Jonathan ajoutée (jonathan-patoine.jpg, 600×600, 24 KB) — 2026-07-08
+- ✅ Photo Alexandra ajoutée (alexandra-espin.jpg, 600×600, 25 KB) — 2026-07-13
+- [ ] Photo Paulina — mercredi 2026-07-16
+- ✅ Bio Jonathan restructurée (p1-p3) — 2026-07-13
+- ✅ Bio Alexandra complète FR/EN/ES — 2026-07-13
+- [ ] Bio Paulina — mercredi 2026-07-16
 - [ ] Contenu Citadelle Jiu-Jitsu — en attente retour client
+- [ ] Supprimer projet Vercel doublon "horizon91" (garder horizon91-2zpm) ← SESSION 2026-07-13
+- [ ] Resubmit sitemap Google Search Console (etoileboreale.ca + borealstar.ca) ← SESSION 2026-07-13
 - ✅ Zoho Mail configuré — comptes créés, DNS en place (voir ZOHO-MAIL.md)
 - ✅ DKIM propagé et vérifié (groupesupernova.ca)
 - ✅ Test courriel envoyé — premier courriel professionnel expédié à Citadelle Jiu-Jitsu
@@ -436,14 +520,15 @@ MX zohocloud.ca + SPF + DKIM + DMARC — propagés et vérifiés
 13. ✅ Client components extraits (PortfolioClient, RejoindreCl) pour SEO serveur
 14. ✅ Google Search Console — etoileboreale.ca + borealstar.ca vérifiés + sitemaps + indexation
 15. ✅ Micro-animations — globals.css (card-lift, animate-fade-in-up, stagger, scroll-fade)
-16. [ ] og-image.jpg — nouvelle image branding Étoile Boréale
+16. ✅ og-image.jpg — design Paulina Jaramillo, 1200×630 (2026-07-13)
 17. [ ] Google Business Profile — mettre à jour nom "Groupe Étoile Boréale Inc."
-18. [ ] Photos équipe → remplacer placeholders (initiales) par vraies photos
-19. [ ] Bios Alexandra et Paulina
+18. ✅ Photos Jonathan + Alexandra ajoutées / Paulina mercredi 2026-07-16
+19. ✅ Bio Jonathan restructurée (p1-p3) + Bio Alexandra complète FR/EN/ES — Paulina mercredi
 20. [ ] Suite Carignan — section lore historique (Sorel, Contrecoeur, Berthier, Chambly)
-21. [ ] Articles Loi 25 sur /actualites
+21. ✅ Article Loi 25 trilingue sur /actualites (slug: loi-25-guide-pme-quebec, 2026-07-13)
 22. ✅ Upgrade Next.js 16.x + next-intl 4.x (2026-07-03) — testé en local WSL, déployé sur Vercel
-23. [ ] Formation Vercel — Analytics, Speed Insights, Firewall, Storage
+23. ✅ Vercel Analytics + Speed Insights activés (2026-07-08) / Firewall Bot Protection Challenge + AI Bots Deny (2026-07-13)
+24. [ ] Supprimer projet Vercel doublon "horizon91" + resubmit sitemap GSC
 
 ## Vercel — Notes configuration
 - Projet : horizon91-2zpm (Hobby plan)
@@ -453,3 +538,4 @@ MX zohocloud.ca + SPF + DKIM + DMARC — propagés et vérifiés
 - Build auto sur chaque push git → main
 - Domaines Production : etoileboreale.ca, borealstar.ca, groupesupernova.ca (301), supernovagroup.ca (301)
 - ATTENTION : changer Root Directory ou Framework Preset casse le déploiement
+- ⚠️ DOUBLON à supprimer : projet "horizon91" (même repo GitHub, aucun domaine custom, 0 visiteurs) — garder uniquement "horizon91-2zpm"
