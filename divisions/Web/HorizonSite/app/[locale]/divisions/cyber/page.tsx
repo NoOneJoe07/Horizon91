@@ -838,233 +838,277 @@ export default function DivisionCyberPage() {
       </section>
 
       {/* ═══════════════════════════════════════════════════
-          CONTRECOEUR — EN DÉVELOPPEMENT — Gris clair
+          CONTRECOEUR — EN DÉVELOPPEMENT
       ═══════════════════════════════════════════════════ */}
-      <section className="py-20 px-6" style={{ backgroundColor: "#E3E6EF" }}>
-        <div className="max-w-5xl mx-auto">
-          <div className="flex flex-col md:flex-row gap-10 items-start">
 
-            {/* Colonne gauche — lore + description */}
-            <div className="flex-1">
-              <div className="flex items-center gap-3 mb-6">
-                <span className="inline-block text-xs font-bold px-3 py-1.5 rounded-full bg-h91-accretion/10 text-h91-accretion border border-h91-accretion/30 uppercase tracking-widest">
-                  Simulation phishing & ingénierie sociale
-                </span>
-                <span className="inline-block text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-widest" style={{ backgroundColor: "rgba(32,52,120,0.10)", color: "#203478", border: "1px solid rgba(32,52,120,0.25)" }}>
-                  Disponible fin 2026
-                </span>
-              </div>
-              <h2 className="text-5xl font-bold mb-4 tracking-tight" style={{ color: "#1D1D1B" }}>CONTRECOEUR</h2>
-              <p className="font-semibold text-base italic mb-6" style={{ color: "#203478" }}>
-                Le verrou de Fort Duquesne.
-              </p>
-              <div className="space-y-4 text-base leading-relaxed" style={{ color: "rgba(29,29,27,0.70)" }}>
-                <p>
-                  En 1754, Pierre-Claude Pécaudy de Contrecoeur commande Fort Duquesne. Face à la
-                  progression britannique, il n&apos;envoie pas d&apos;abord des soldats — il envoie un
-                  émissaire. L&apos;affaire Jumonville qui s&apos;ensuit est l&apos;un des premiers exemples
-                  documentés de manipulation tactique en Amérique du Nord : des messages apparemment
-                  officiels, des identités ambiguës, une situation fabriquée pour pousser l&apos;adversaire
-                  à réagir sur de fausses prémisses. Le jeune George Washington signe même une
-                  capitulation rédigée en français qu&apos;il ne comprend pas — admettant sans le savoir
-                  un &quot;assassinat&quot;.
-                </p>
-                <p>
-                  Contrecoeur retourne cette tactique contre ceux qui l&apos;utilisent aujourd&apos;hui. Il
-                  simule des campagnes de phishing réalistes, teste vos employés avec de vrais
-                  scénarios d&apos;ingénierie sociale, et transforme chaque tentative de manipulation en
-                  exercice de formation. Parce que la meilleure défense contre la tromperie, c&apos;est
-                  de l&apos;avoir déjà vue.
-                </p>
-              </div>
-              <div className="mt-6 p-5 rounded-xl" style={{ border: "1px solid rgba(32,52,120,0.25)", backgroundColor: "rgba(32,52,120,0.06)" }}>
-                <p className="font-bold text-sm uppercase tracking-widest mb-2" style={{ color: "#203478" }}>L&apos;avantage Étoile Boréale</p>
-                <p className="text-sm leading-relaxed" style={{ color: "rgba(29,29,27,0.65)" }}>
-                  Selon la Banque de développement du Canada (BDC, 2025), 61 % des PME ont déjà été
-                  ciblées par des attaques d&apos;hameçonnage. Chaque simulation Contrecœur génère un
-                  rapport nominatif complet : qui a cliqué, qui a soumis ses identifiants, qui a eu
-                  le bon réflexe de signaler l&apos;attaque — avant que le véritable ennemi ne teste vos failles.
-                </p>
-              </div>
+      {/* Header + Cartes */}
+      <section className="py-24 px-6" style={{ backgroundColor: "#E3E6EF" }}>
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <div className="flex items-center justify-center gap-3 mb-6">
+              <span className="inline-block text-xs font-bold px-3 py-1.5 rounded-full bg-h91-accretion/10 text-h91-accretion border border-h91-accretion/30 uppercase tracking-widest">
+                Simulation phishing &amp; ingénierie sociale
+              </span>
+              <span className="inline-block text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-widest" style={{ backgroundColor: "rgba(32,52,120,0.10)", color: "#203478", border: "1px solid rgba(32,52,120,0.25)" }}>
+                Disponible fin 2026
+              </span>
             </div>
-
-            {/* Colonne droite — tarifs indicatifs */}
-            <div className="w-full md:w-72 shrink-0">
-              <p className="text-xs font-bold uppercase tracking-widest mb-4 text-center" style={{ color: "rgba(29,29,27,0.40)" }}>
-                Tarifs indicatifs / mois
-              </p>
-              {[
-                { palier: "Sentinelle", prix: "25 $", desc: "~1-5 personnes · 1 simulation/trimestre" },
-                { palier: "Gardien",    prix: "40 $", desc: "~5-20 personnes · simulations mensuelles" },
-                { palier: "Bouclier",   prix: "120 $", desc: "~20-50 personnes · suivi individuel" },
-                { palier: "Forteresse", prix: "250 $", desc: "Multi-sites · rapports exécutifs" },
-              ].map((t, i) => (
-                <div key={i} className="flex items-center justify-between py-3 border-b" style={{ borderColor: "rgba(29,29,27,0.08)" }}>
-                  <div>
-                    <p className="font-bold text-sm" style={{ color: "#1D1D1B" }}>{t.palier}</p>
-                    <p className="text-xs" style={{ color: "rgba(29,29,27,0.50)" }}>{t.desc}</p>
-                  </div>
-                  <span className="font-extrabold text-lg" style={{ color: "#203478" }}>{t.prix}</span>
-                </div>
-              ))}
-              <p className="text-xs mt-4 text-center italic" style={{ color: "rgba(29,29,27,0.40)" }}>
-                Forfait par organisation — pas par utilisateur
-              </p>
-            </div>
+            <h2 className="text-6xl md:text-7xl font-bold mb-5 tracking-tight" style={{ color: "#1D1D1B" }}>CONTRECOEUR</h2>
+            <p className="font-semibold text-lg md:text-xl italic max-w-2xl mx-auto mb-5" style={{ color: "#203478" }}>
+              La meilleure défense contre la tromperie, c&apos;est de l&apos;avoir déjà vue.
+            </p>
+            <p className="text-base max-w-2xl mx-auto leading-relaxed" style={{ color: "rgba(29,29,27,0.65)" }}>
+              Simulation de campagnes de phishing réalistes et formation en ingénierie sociale.
+              Contrecoeur teste vos employés avec de vrais scénarios avant que le véritable
+              ennemi ne le fasse — chaque tentative devient un exercice de formation.
+            </p>
           </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+            {[
+              { nom: "Sentinelle", prix: "25 $", cible: "~1-5 personnes", features: ["1 simulation / trimestre", "Rapport de résultats", "Module de formation de base", "Tableau de bord équipe"], featured: false, forteresse: false },
+              { nom: "Gardien",    prix: "40 $", cible: "PME 5-20 employés", features: ["Simulations mensuelles", "Suivi individuel des clics", "Formation adaptative", "Rapport nominatif complet", "Support prioritaire"], featured: true, forteresse: false },
+              { nom: "Bouclier",   prix: "120 $", cible: "PME 20-50 employés", features: ["Simulations bi-mensuelles", "Scénarios personnalisés", "Suivi par département", "Rapport de conformité", "Consultant dédié"], featured: false, forteresse: false },
+              { nom: "Forteresse", prix: "250 $", cible: "Municipalités & MRC", features: ["Simulations illimitées", "Multi-sites & multi-équipes", "Rapports exécutifs", "Tableau de bord centralisé", "SLA garanti"], featured: false, forteresse: true },
+            ].map((tier, i) => (
+              <div key={i} className="relative p-6 rounded-xl flex flex-col gap-4 transition card-lift"
+                style={tier.featured ? { backgroundColor: "#FFFFFF", border: "2px solid #203478" } : tier.forteresse ? { backgroundColor: "#FFFFFF", border: "1px solid rgba(201,168,76,0.40)" } : { backgroundColor: "#FFFFFF", border: "1px solid rgba(32,52,120,0.20)" }}>
+                {tier.featured && <span className="absolute -top-4 left-1/2 -translate-x-1/2 text-xs font-bold px-4 py-1 rounded-full uppercase tracking-widest whitespace-nowrap" style={{ backgroundColor: "#203478", color: "#F4F4F0" }}>Recommandé</span>}
+                <div>
+                  <h3 className="text-xl font-bold" style={{ color: tier.featured ? "#203478" : tier.forteresse ? "#C9A84C" : "#1D1D1B" }}>{tier.nom}</h3>
+                  <p className="text-xs mt-1" style={{ color: "rgba(29,29,27,0.50)" }}>{tier.cible}</p>
+                </div>
+                <p className="text-3xl font-extrabold" style={{ color: tier.featured ? "#203478" : tier.forteresse ? "#C9A84C" : "#1D1D1B" }}>{tier.prix} <span className="text-sm font-normal" style={{ color: "rgba(29,29,27,0.50)" }}>/ mois</span></p>
+                <ul className="flex flex-col gap-2 flex-1">
+                  {tier.features.map((f, fi) => <li key={fi} className="flex items-start gap-2 text-sm" style={{ color: "rgba(29,29,27,0.70)" }}><span className="mt-0.5 shrink-0" style={{ color: "#203478" }}>✓</span><span>{f}</span></li>)}
+                </ul>
+                <Link href="/rejoindre" className="mt-2 block text-center py-3 rounded-lg font-bold text-sm transition"
+                  style={tier.featured ? { backgroundColor: "#203478", color: "#F4F4F0" } : tier.forteresse ? { border: "1px solid rgba(201,168,76,0.50)", color: "#C9A84C" } : { border: "1px solid rgba(32,52,120,0.40)", color: "#203478" }}>
+                  {tier.forteresse ? "Nous contacter" : "Rejoindre la liste →"}
+                </Link>
+              </div>
+            ))}
+          </div>
+          <p className="text-center mt-5 text-xs italic" style={{ color: "rgba(29,29,27,0.40)" }}>Tarifs indicatifs — forfait par organisation, pas par utilisateur</p>
         </div>
       </section>
 
-      {/* ═══════════════════════════════════════════════════
-          BERTHIER — EN DÉVELOPPEMENT — Blanc
-      ═══════════════════════════════════════════════════ */}
+      {/* Lore Contrecoeur */}
       <section className="py-20 px-6" style={{ backgroundColor: "#FFFFFF" }}>
-        <div className="max-w-5xl mx-auto">
-          <div className="flex flex-col md:flex-row gap-10 items-start">
-
-            {/* Colonne gauche — lore + description */}
-            <div className="flex-1">
-              <div className="flex items-center gap-3 mb-6">
-                <span className="inline-block text-xs font-bold px-3 py-1.5 rounded-full bg-h91-accretion/10 text-h91-accretion border border-h91-accretion/30 uppercase tracking-widest">
-                  Analyseur de légitimité des courriels
-                </span>
-                <span className="inline-block text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-widest" style={{ backgroundColor: "rgba(32,52,120,0.10)", color: "#203478", border: "1px solid rgba(32,52,120,0.25)" }}>
-                  Disponible fin 2026
-                </span>
-              </div>
-              <h2 className="text-5xl font-bold mb-4 tracking-tight" style={{ color: "#1D1D1B" }}>BERTHIER</h2>
-              <p className="font-semibold text-base italic mb-6" style={{ color: "#203478" }}>
-                La guérite du Saint-Laurent.
-              </p>
-              <div className="space-y-4 text-base leading-relaxed" style={{ color: "rgba(29,29,27,0.70)" }}>
-                <p>
-                  La seigneurie de Berthier et son poste militaire sur le Saint-Laurent servaient
-                  de point de contrôle obligatoire sur la grande route fluviale de la
-                  Nouvelle-France. Marchands, messagers, soldats — tous devaient être identifiés
-                  avant de passer. Un laisser-passer compromis, un faux nom accepté, et c&apos;est
-                  l&apos;ensemble du réseau de communication colonial qui risquait d&apos;être infiltré.
-                  La garnison de Berthier n&apos;avait qu&apos;une mission : distinguer l&apos;allié de
-                  l&apos;imposteur avant que la porte ne s&apos;ouvre.
-                </p>
-                <p>
-                  Berthier fait exactement ça pour votre boîte de réception. Chaque courriel
-                  entrant est un messager qui se présente à la porte — Berthier vérifie l&apos;identité
-                  de l&apos;expéditeur, l&apos;authenticité du domaine, la validité de la signature
-                  cryptographique et la cohérence du routage, avant que le message n&apos;atteigne
-                  jamais votre équipe.
-                </p>
-              </div>
-              <div className="mt-6 p-5 rounded-xl" style={{ border: "1px solid rgba(32,52,120,0.25)", backgroundColor: "rgba(32,52,120,0.06)" }}>
-                <p className="font-bold text-sm uppercase tracking-widest mb-2" style={{ color: "#203478" }}>L&apos;avantage Étoile Boréale</p>
-                <p className="text-sm leading-relaxed" style={{ color: "rgba(29,29,27,0.65)" }}>
-                  Berthier neutralise les cyberimposteurs en amont, directement à la racine de votre
-                  domaine DNS. Pas besoin d&apos;entraîner vos employés, pas de changement dans vos
-                  habitudes de travail, et une configuration chirurgicale pour éliminer les faux
-                  positifs qui pourraient bloquer vos vrais clients.
-                </p>
-              </div>
-            </div>
-
-            {/* Colonne droite — tarifs indicatifs */}
-            <div className="w-full md:w-72 shrink-0">
-              <p className="text-xs font-bold uppercase tracking-widest mb-4 text-center" style={{ color: "rgba(29,29,27,0.40)" }}>
-                Tarifs indicatifs / mois
-              </p>
-              {[
-                { palier: "Sentinelle", prix: "30 $", desc: "~1-5 personnes · filtrage de base" },
-                { palier: "Gardien",    prix: "40 $", desc: "~5-20 personnes · analyse avancée" },
-                { palier: "Bouclier",   prix: "115 $", desc: "~20-50 personnes · rapports d'activité" },
-                { palier: "Forteresse", prix: "240 $", desc: "Multi-sites · tableau de bord unifié" },
-              ].map((t, i) => (
-                <div key={i} className="flex items-center justify-between py-3 border-b" style={{ borderColor: "rgba(29,29,27,0.08)" }}>
-                  <div>
-                    <p className="font-bold text-sm" style={{ color: "#1D1D1B" }}>{t.palier}</p>
-                    <p className="text-xs" style={{ color: "rgba(29,29,27,0.50)" }}>{t.desc}</p>
-                  </div>
-                  <span className="font-extrabold text-lg" style={{ color: "#203478" }}>{t.prix}</span>
-                </div>
-              ))}
-              <p className="text-xs mt-4 text-center italic" style={{ color: "rgba(29,29,27,0.40)" }}>
-                Forfait par organisation — pas par utilisateur
-              </p>
-            </div>
+        <div className="max-w-4xl mx-auto">
+          <span className="inline-block text-xs font-bold px-3 py-1.5 rounded-full bg-h91-accretion/10 text-h91-accretion border border-h91-accretion/30 mb-6 uppercase tracking-widest">
+            Le contexte historique
+          </span>
+          <h3 className="text-2xl md:text-3xl font-bold mb-6" style={{ color: "#1D1D1B" }}>Le verrou de Fort Duquesne</h3>
+          <div className="space-y-5 text-lg leading-relaxed mb-8" style={{ color: "rgba(29,29,27,0.70)" }}>
+            <p>
+              En 1754, Pierre-Claude Pécaudy de Contrecoeur commande Fort Duquesne. Face à la
+              progression britannique, il n&apos;envoie pas d&apos;abord des soldats — il envoie un
+              émissaire. L&apos;affaire Jumonville qui s&apos;ensuit est l&apos;un des premiers exemples
+              documentés de manipulation tactique en Amérique du Nord : des messages apparemment
+              officiels, des identités ambiguës, une situation fabriquée pour pousser l&apos;adversaire
+              à réagir sur de fausses prémisses. Le jeune George Washington signe même une
+              capitulation rédigée en français qu&apos;il ne comprend pas — admettant sans le savoir
+              un &quot;assassinat&quot;.
+            </p>
+            <p>
+              Contrecoeur retourne cette tactique contre ceux qui l&apos;utilisent aujourd&apos;hui. Il
+              simule des campagnes de phishing réalistes, teste vos employés avec de vrais
+              scénarios d&apos;ingénierie sociale, et transforme chaque tentative de manipulation en
+              exercice de formation.
+            </p>
+          </div>
+          <div className="p-6 rounded-xl" style={{ border: "1px solid rgba(32,52,120,0.25)", backgroundColor: "rgba(32,52,120,0.06)" }}>
+            <p className="font-bold text-sm uppercase tracking-widest mb-3" style={{ color: "#203478" }}>L&apos;avantage Étoile Boréale</p>
+            <p className="text-lg leading-relaxed" style={{ color: "rgba(29,29,27,0.70)" }}>
+              Selon la Banque de développement du Canada (BDC, 2025), 61 % des PME ont déjà été
+              ciblées par des attaques d&apos;hameçonnage. Chaque simulation Contrecœur génère un
+              rapport nominatif complet : qui a cliqué, qui a soumis ses identifiants, qui a eu
+              le bon réflexe de signaler l&apos;attaque — avant que le véritable ennemi ne teste vos failles.
+            </p>
           </div>
         </div>
       </section>
 
       {/* ═══════════════════════════════════════════════════
-          SALIÈRES — EN DÉVELOPPEMENT — Gris Nuit
+          BERTHIER — EN DÉVELOPPEMENT
       ═══════════════════════════════════════════════════ */}
-      <section className="py-20 px-6" style={{ backgroundColor: "#E3E6EF" }}>
-        <div className="max-w-5xl mx-auto">
-          <div className="flex flex-col md:flex-row gap-10 items-start">
 
-            {/* Colonne gauche — lore + description */}
-            <div className="flex-1">
-              <div className="flex items-center gap-3 mb-6">
-                <span className="inline-block text-xs font-bold px-3 py-1.5 rounded-full bg-h91-accretion/10 text-h91-accretion border border-h91-accretion/30 uppercase tracking-widest">
-                  Remédiation & réponse aux incidents
-                </span>
-                <span className="inline-block text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-widest" style={{ backgroundColor: "rgba(32,52,120,0.10)", color: "#203478", border: "1px solid rgba(32,52,120,0.25)" }}>
-                  Disponible fin 2026
-                </span>
-              </div>
-              <h2 className="text-5xl font-bold mb-4 tracking-tight" style={{ color: "#1D1D1B" }}>SALIÈRES</h2>
-              <p className="font-semibold text-base italic mb-6" style={{ color: "#203478" }}>
-                La contre-offensive du Richelieu.
-              </p>
-              <div className="space-y-4 text-base leading-relaxed" style={{ color: "rgba(29,29,27,0.70)" }}>
-                <p>
-                  Le Marquis de Salières ne s&apos;est pas contenté de construire des forts. Quand
-                  les raids survenaient malgré les défenses, son régiment ne restait pas derrière
-                  les murs. En janvier et février 1666, les Carignan-Salières lancent des
-                  expéditions hivernales en territoire iroquois — la première doctrine de réponse
-                  active documentée en Amérique du Nord. Identifier la source, isoler la menace,
-                  neutraliser, remettre le territoire sous contrôle. Pas de négociation avec la
-                  Chimère.
-                </p>
-                <p>
-                  Quand une brèche survient dans votre organisation — rançongiciel, données
-                  compromises, système infecté — Salières n&apos;attend pas derrière le pare-feu.
-                  Il isole les machines touchées, nettoie les menaces actives, restaure les
-                  systèmes à partir de points de sauvegarde sains, et livre un rapport d&apos;autopsie
-                  complet pour que ça ne se reproduise pas.
-                </p>
-              </div>
-              <div className="mt-6 p-5 rounded-xl" style={{ border: "1px solid rgba(32,52,120,0.25)", backgroundColor: "rgba(32,52,120,0.06)" }}>
-                <p className="font-bold text-sm uppercase tracking-widest mb-2" style={{ color: "#203478" }}>L&apos;avantage Étoile Boréale</p>
-                <p className="text-sm leading-relaxed" style={{ color: "rgba(29,29,27,0.65)" }}>
-                  Une cyberattaque majeure peut paralyser une organisation pendant des semaines et
-                  engendrer des coûts de récupération dans les six chiffres. Salières transforme une
-                  crise potentiellement fatale en incident contenu, isolé et documenté — avec un
-                  temps de rétablissement mesuré en heures, pas en semaines.
-                </p>
-              </div>
+      {/* Header + Cartes */}
+      <section className="py-24 px-6" style={{ backgroundColor: "#E3E6EF" }}>
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <div className="flex items-center justify-center gap-3 mb-6">
+              <span className="inline-block text-xs font-bold px-3 py-1.5 rounded-full bg-h91-accretion/10 text-h91-accretion border border-h91-accretion/30 uppercase tracking-widest">
+                Analyseur de légitimité des courriels
+              </span>
+              <span className="inline-block text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-widest" style={{ backgroundColor: "rgba(32,52,120,0.10)", color: "#203478", border: "1px solid rgba(32,52,120,0.25)" }}>
+                Disponible fin 2026
+              </span>
             </div>
-
-            {/* Colonne droite — tarifs indicatifs */}
-            <div className="w-full md:w-72 shrink-0">
-              <p className="text-xs font-bold uppercase tracking-widest mb-4 text-center" style={{ color: "rgba(29,29,27,0.40)" }}>
-                Tarifs indicatifs / mois
-              </p>
-              {[
-                { palier: "Sentinelle", prix: "100 $", desc: "~1-5 personnes · réponse de base" },
-                { palier: "Gardien",    prix: "135 $", desc: "~5-20 personnes · isolation & nettoyage" },
-                { palier: "Bouclier",   prix: "400 $", desc: "~20-50 personnes · restauration complète" },
-                { palier: "Forteresse", prix: "800 $", desc: "Multi-sites · SLA garanti" },
-              ].map((t, i) => (
-                <div key={i} className="flex items-center justify-between py-3 border-b" style={{ borderColor: "rgba(29,29,27,0.08)" }}>
-                  <div>
-                    <p className="font-bold text-sm" style={{ color: "#1D1D1B" }}>{t.palier}</p>
-                    <p className="text-xs" style={{ color: "rgba(29,29,27,0.50)" }}>{t.desc}</p>
-                  </div>
-                  <span className="font-extrabold text-lg" style={{ color: "#203478" }}>{t.prix}</span>
+            <h2 className="text-6xl md:text-7xl font-bold mb-5 tracking-tight" style={{ color: "#1D1D1B" }}>BERTHIER</h2>
+            <p className="font-semibold text-lg md:text-xl italic max-w-2xl mx-auto mb-5" style={{ color: "#203478" }}>
+              Aucun imposteur ne passe la guérite.
+            </p>
+            <p className="text-base max-w-2xl mx-auto leading-relaxed" style={{ color: "rgba(29,29,27,0.65)" }}>
+              Analyseur de légitimité des courriels en temps réel. Berthier vérifie l&apos;identité
+              de l&apos;expéditeur, l&apos;authenticité du domaine et la signature cryptographique —
+              avant que le message n&apos;atteigne votre équipe.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+            {[
+              { nom: "Sentinelle", prix: "30 $", cible: "~1-5 personnes", features: ["Filtrage SPF/DKIM/DMARC", "Blocage domaines suspects", "Rapport mensuel", "Dashboard simple"], featured: false, forteresse: false },
+              { nom: "Gardien",    prix: "40 $", cible: "PME 5-20 employés", features: ["Analyse avancée des en-têtes", "Détection d'usurpation d'identité", "Alertes en temps réel", "Rapport hebdomadaire", "Support prioritaire"], featured: true, forteresse: false },
+              { nom: "Bouclier",   prix: "115 $", cible: "PME 20-50 employés", features: ["Analyse comportementale", "Rapports d'activité détaillés", "Intégration messagerie d'entreprise", "Listes blanches gérées", "Consultant dédié"], featured: false, forteresse: false },
+              { nom: "Forteresse", prix: "240 $", cible: "Municipalités & MRC", features: ["Tableau de bord multi-domaines", "Rapports exécutifs", "SLA de filtrage garanti", "Hébergement Québec (Loi 25)", "Zéro faux positifs critiques"], featured: false, forteresse: true },
+            ].map((tier, i) => (
+              <div key={i} className="relative p-6 rounded-xl flex flex-col gap-4 transition card-lift"
+                style={tier.featured ? { backgroundColor: "#FFFFFF", border: "2px solid #203478" } : tier.forteresse ? { backgroundColor: "#FFFFFF", border: "1px solid rgba(201,168,76,0.40)" } : { backgroundColor: "#FFFFFF", border: "1px solid rgba(32,52,120,0.20)" }}>
+                {tier.featured && <span className="absolute -top-4 left-1/2 -translate-x-1/2 text-xs font-bold px-4 py-1 rounded-full uppercase tracking-widest whitespace-nowrap" style={{ backgroundColor: "#203478", color: "#F4F4F0" }}>Recommandé</span>}
+                <div>
+                  <h3 className="text-xl font-bold" style={{ color: tier.featured ? "#203478" : tier.forteresse ? "#C9A84C" : "#1D1D1B" }}>{tier.nom}</h3>
+                  <p className="text-xs mt-1" style={{ color: "rgba(29,29,27,0.50)" }}>{tier.cible}</p>
                 </div>
-              ))}
-              <p className="text-xs mt-4 text-center italic" style={{ color: "rgba(29,29,27,0.40)" }}>
-                Forfait par organisation — pas par utilisateur
-              </p>
+                <p className="text-3xl font-extrabold" style={{ color: tier.featured ? "#203478" : tier.forteresse ? "#C9A84C" : "#1D1D1B" }}>{tier.prix} <span className="text-sm font-normal" style={{ color: "rgba(29,29,27,0.50)" }}>/ mois</span></p>
+                <ul className="flex flex-col gap-2 flex-1">
+                  {tier.features.map((f, fi) => <li key={fi} className="flex items-start gap-2 text-sm" style={{ color: "rgba(29,29,27,0.70)" }}><span className="mt-0.5 shrink-0" style={{ color: "#203478" }}>✓</span><span>{f}</span></li>)}
+                </ul>
+                <Link href="/rejoindre" className="mt-2 block text-center py-3 rounded-lg font-bold text-sm transition"
+                  style={tier.featured ? { backgroundColor: "#203478", color: "#F4F4F0" } : tier.forteresse ? { border: "1px solid rgba(201,168,76,0.50)", color: "#C9A84C" } : { border: "1px solid rgba(32,52,120,0.40)", color: "#203478" }}>
+                  {tier.forteresse ? "Nous contacter" : "Rejoindre la liste →"}
+                </Link>
+              </div>
+            ))}
+          </div>
+          <p className="text-center mt-5 text-xs italic" style={{ color: "rgba(29,29,27,0.40)" }}>Tarifs indicatifs — forfait par organisation, pas par utilisateur</p>
+        </div>
+      </section>
+
+      {/* Lore Berthier */}
+      <section className="py-20 px-6" style={{ backgroundColor: "#FFFFFF" }}>
+        <div className="max-w-4xl mx-auto">
+          <span className="inline-block text-xs font-bold px-3 py-1.5 rounded-full bg-h91-accretion/10 text-h91-accretion border border-h91-accretion/30 mb-6 uppercase tracking-widest">
+            Le contexte historique
+          </span>
+          <h3 className="text-2xl md:text-3xl font-bold mb-6" style={{ color: "#1D1D1B" }}>La guérite du Saint-Laurent</h3>
+          <div className="space-y-5 text-lg leading-relaxed mb-8" style={{ color: "rgba(29,29,27,0.70)" }}>
+            <p>
+              La seigneurie de Berthier et son poste militaire sur le Saint-Laurent servaient
+              de point de contrôle obligatoire sur la grande route fluviale de la
+              Nouvelle-France. Marchands, messagers, soldats — tous devaient être identifiés
+              avant de passer. Un laisser-passer compromis, un faux nom accepté, et c&apos;est
+              l&apos;ensemble du réseau de communication colonial qui risquait d&apos;être infiltré.
+              La garnison de Berthier n&apos;avait qu&apos;une mission : distinguer l&apos;allié de
+              l&apos;imposteur avant que la porte ne s&apos;ouvre.
+            </p>
+            <p>
+              Berthier fait exactement ça pour votre boîte de réception. Chaque courriel
+              entrant est un messager qui se présente à la porte — Berthier vérifie l&apos;identité
+              de l&apos;expéditeur, l&apos;authenticité du domaine, la validité de la signature
+              cryptographique et la cohérence du routage, avant que le message n&apos;atteigne
+              jamais votre équipe. Les imposteurs sont bloqués à la guérite.
+            </p>
+          </div>
+          <div className="p-6 rounded-xl" style={{ border: "1px solid rgba(32,52,120,0.25)", backgroundColor: "rgba(32,52,120,0.06)" }}>
+            <p className="font-bold text-sm uppercase tracking-widest mb-3" style={{ color: "#203478" }}>L&apos;avantage Étoile Boréale</p>
+            <p className="text-lg leading-relaxed" style={{ color: "rgba(29,29,27,0.70)" }}>
+              Berthier neutralise les cyberimposteurs en amont, directement à la racine de votre
+              domaine DNS. Pas besoin d&apos;entraîner vos employés, pas de changement dans vos
+              habitudes de travail, et une configuration chirurgicale pour éliminer les faux
+              positifs qui pourraient bloquer vos vrais clients.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════════════
+          SALIÈRES — EN DÉVELOPPEMENT
+      ═══════════════════════════════════════════════════ */}
+
+      {/* Header + Cartes */}
+      <section className="py-24 px-6" style={{ backgroundColor: "#E3E6EF" }}>
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <div className="flex items-center justify-center gap-3 mb-6">
+              <span className="inline-block text-xs font-bold px-3 py-1.5 rounded-full bg-h91-accretion/10 text-h91-accretion border border-h91-accretion/30 uppercase tracking-widest">
+                Remédiation &amp; réponse aux incidents
+              </span>
+              <span className="inline-block text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-widest" style={{ backgroundColor: "rgba(32,52,120,0.10)", color: "#203478", border: "1px solid rgba(32,52,120,0.25)" }}>
+                Disponible fin 2026
+              </span>
             </div>
+            <h2 className="text-6xl md:text-7xl font-bold mb-5 tracking-tight" style={{ color: "#1D1D1B" }}>SALIÈRES</h2>
+            <p className="font-semibold text-lg md:text-xl italic max-w-2xl mx-auto mb-5" style={{ color: "#203478" }}>
+              Pas de négociation avec la Chimère.
+            </p>
+            <p className="text-base max-w-2xl mx-auto leading-relaxed" style={{ color: "rgba(29,29,27,0.65)" }}>
+              Remédiation et réponse active aux incidents. Quand la brèche survient, Salières
+              n&apos;attend pas derrière le pare-feu — il isole, nettoie, restaure et documente
+              chaque étape pour que ça ne se reproduise pas.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+            {[
+              { nom: "Sentinelle", prix: "100 $", cible: "~1-5 personnes", features: ["Réponse aux incidents de base", "Isolation des systèmes touchés", "Rapport d'analyse post-incident", "Restauration guidée"], featured: false, forteresse: false },
+              { nom: "Gardien",    prix: "135 $", cible: "PME 5-20 employés", features: ["Isolation & nettoyage actif", "Restauration à partir de sauvegardes", "Rapport d'autopsie complet", "Recommandations de durcissement", "Support prioritaire"], featured: true, forteresse: false },
+              { nom: "Bouclier",   prix: "400 $", cible: "PME 20-50 employés", features: ["Restauration complète des systèmes", "Analyse forensique", "Plan de remédiation structuré", "Rapport de conformité Loi 25", "Consultant dédié"], featured: false, forteresse: false },
+              { nom: "Forteresse", prix: "800 $", cible: "Municipalités & MRC", features: ["SLA de rétablissement garanti", "Réponse 24/7", "Multi-sites coordonné", "Rapport exécutif & légal", "Hébergement Québec (Loi 25)"], featured: false, forteresse: true },
+            ].map((tier, i) => (
+              <div key={i} className="relative p-6 rounded-xl flex flex-col gap-4 transition card-lift"
+                style={tier.featured ? { backgroundColor: "#FFFFFF", border: "2px solid #203478" } : tier.forteresse ? { backgroundColor: "#FFFFFF", border: "1px solid rgba(201,168,76,0.40)" } : { backgroundColor: "#FFFFFF", border: "1px solid rgba(32,52,120,0.20)" }}>
+                {tier.featured && <span className="absolute -top-4 left-1/2 -translate-x-1/2 text-xs font-bold px-4 py-1 rounded-full uppercase tracking-widest whitespace-nowrap" style={{ backgroundColor: "#203478", color: "#F4F4F0" }}>Recommandé</span>}
+                <div>
+                  <h3 className="text-xl font-bold" style={{ color: tier.featured ? "#203478" : tier.forteresse ? "#C9A84C" : "#1D1D1B" }}>{tier.nom}</h3>
+                  <p className="text-xs mt-1" style={{ color: "rgba(29,29,27,0.50)" }}>{tier.cible}</p>
+                </div>
+                <p className="text-3xl font-extrabold" style={{ color: tier.featured ? "#203478" : tier.forteresse ? "#C9A84C" : "#1D1D1B" }}>{tier.prix} <span className="text-sm font-normal" style={{ color: "rgba(29,29,27,0.50)" }}>/ mois</span></p>
+                <ul className="flex flex-col gap-2 flex-1">
+                  {tier.features.map((f, fi) => <li key={fi} className="flex items-start gap-2 text-sm" style={{ color: "rgba(29,29,27,0.70)" }}><span className="mt-0.5 shrink-0" style={{ color: "#203478" }}>✓</span><span>{f}</span></li>)}
+                </ul>
+                <Link href="/rejoindre" className="mt-2 block text-center py-3 rounded-lg font-bold text-sm transition"
+                  style={tier.featured ? { backgroundColor: "#203478", color: "#F4F4F0" } : tier.forteresse ? { border: "1px solid rgba(201,168,76,0.50)", color: "#C9A84C" } : { border: "1px solid rgba(32,52,120,0.40)", color: "#203478" }}>
+                  {tier.forteresse ? "Nous contacter" : "Rejoindre la liste →"}
+                </Link>
+              </div>
+            ))}
+          </div>
+          <p className="text-center mt-5 text-xs italic" style={{ color: "rgba(29,29,27,0.40)" }}>Tarifs indicatifs — forfait par organisation, pas par utilisateur</p>
+        </div>
+      </section>
+
+      {/* Lore Salières */}
+      <section className="py-20 px-6" style={{ backgroundColor: "#FFFFFF" }}>
+        <div className="max-w-4xl mx-auto">
+          <span className="inline-block text-xs font-bold px-3 py-1.5 rounded-full bg-h91-accretion/10 text-h91-accretion border border-h91-accretion/30 mb-6 uppercase tracking-widest">
+            Le contexte historique
+          </span>
+          <h3 className="text-2xl md:text-3xl font-bold mb-6" style={{ color: "#1D1D1B" }}>La contre-offensive du Richelieu</h3>
+          <div className="space-y-5 text-lg leading-relaxed mb-8" style={{ color: "rgba(29,29,27,0.70)" }}>
+            <p>
+              Le Marquis de Salières ne s&apos;est pas contenté de construire des forts. Quand
+              les raids survenaient malgré les défenses, son régiment ne restait pas derrière
+              les murs. En janvier et février 1666, les Carignan-Salières lancent des
+              expéditions hivernales en territoire iroquois — la première doctrine de réponse
+              active documentée en Amérique du Nord. Identifier la source, isoler la menace,
+              neutraliser, remettre le territoire sous contrôle. Pas de négociation avec la
+              Chimère.
+            </p>
+            <p>
+              Quand une brèche survient dans votre organisation — rançongiciel, données
+              compromises, système infecté — Salières n&apos;attend pas derrière le pare-feu.
+              Il isole les machines touchées, nettoie les menaces actives, restaure les
+              systèmes à partir de points de sauvegarde sains, et livre un rapport d&apos;autopsie
+              complet pour que ça ne se reproduise pas.
+            </p>
+          </div>
+          <div className="p-6 rounded-xl" style={{ border: "1px solid rgba(32,52,120,0.25)", backgroundColor: "rgba(32,52,120,0.06)" }}>
+            <p className="font-bold text-sm uppercase tracking-widest mb-3" style={{ color: "#203478" }}>L&apos;avantage Étoile Boréale</p>
+            <p className="text-lg leading-relaxed" style={{ color: "rgba(29,29,27,0.70)" }}>
+              Une cyberattaque majeure peut paralyser une organisation pendant des semaines et
+              engendrer des coûts de récupération dans les six chiffres. Salières transforme une
+              crise potentiellement fatale en incident contenu, isolé et documenté — avec un
+              temps de rétablissement mesuré en heures, pas en semaines.
+            </p>
           </div>
         </div>
       </section>
