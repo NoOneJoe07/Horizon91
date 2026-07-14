@@ -1,7 +1,7 @@
 @AGENTS.md
 
 # CONTEXTE PROJET — Groupe Étoile Boréale Inc. / HorizonSite
-Dernière mise à jour : 2026-07-13 — SESSION LANCEMENT — Bios JP+AE, OG image, Firewall Vercel, Article Loi 25, sitemap complet, Chambly portfolio ✅
+Dernière mise à jour : 2026-07-13 (soir) — SESSION TARIFICATION & SUITE CARIGNAN — Refonte tarif, Chambly/Contrecoeur/Berthier/Salières uniformisés, stats cyber BDC corrigées, Arpenteur comms ✅
 
 ## Fichiers de contexte global Horizon 91
 - **Master context :** `C:\Users\Pc\OneDrive\Documents\Horizon 91\horizon91_master.md`
@@ -303,6 +303,55 @@ MX zohocloud.ca + SPF + DKIM + DMARC — propagés et vérifiés
 - `9943396` — images hero articles + photo Jonathan
 - `5950878` — layout.tsx Analytics + SpeedInsights (build fail — packages manquants)
 - `c3be1bc` — fix package.json @vercel/analytics + @vercel/speed-insights ✅ build OK
+
+## Session 2026-07-13 (soir) — Tarification, Suite Carignan, Stats cyber, Arpenteur comms
+
+### Accomplissements
+- **package.json** : `@vercel/analytics` + `@vercel/speed-insights` ajoutés (fix build Vercel — imports présents dans layout.tsx mais absents des dépendances)
+- **Suite Carignan — CHAMBLY_TIERS** : paliers renommés (Sentinelle/Gardien/Bouclier/Forteresse), repriced (55/200/400/1 250 $/mois), champ `forteresse` remplace `citadelle`
+- **Suite Carignan — Sorel retiré** : trop similaire à "Saurel" (même localisation géographique) → remplacé par **Salières** (remédiation & réponse aux incidents, codename Bellérophon)
+- **CHAINE_FORTS** : Chambly → statut `"beta"` (Accès anticipé, badge or), Salières → statut `"dev"`
+- **Lore 3 nouveaux produits** : sections Contrecoeur / Berthier / Salières ajoutées dans cyber/page.tsx avec texte historique + parallèle numérique + L'avantage Boréale (style matching Saurel/Chambly)
+- **Stats cyber corrigées** (validation CeoClaude + CeoGemini) :
+  - "Saviez-vous que?" : `25 000 $+` → `73 %` des PME ont subi un incident (BDC 2025, sourcé)
+  - Contrecoeur avantage : stat BDC 61 % des PME ciblées par hameçonnage ajoutée
+  - Berthier avantage : "3 à 7 tentatives par semaine" (non sourcé) → version qualitative DNS
+  - Salières avantage : "25 000 $" (non sourcé) → "coûts dans les six chiffres" (qualitatif)
+- **Contrecoeur/Berthier/Salières — restructuration visuelle** : même disposition que Saurel/Chambly (grand nom centré → devise italique → desc → 4 cartes forfaits → lore historique en section séparée). CTA "Rejoindre la liste →" sur les paliers, "Nous contacter" sur Forteresse.
+  - Contrecoeur devise : "La meilleure défense contre la tromperie, c'est de l'avoir déjà vue."
+  - Berthier devise : "Aucun imposteur ne passe la guérite."
+  - Salières devise : "Pas de négociation avec la Chimère."
+- **Communications officielles — Division Arpenteur** :
+  - Service ajouté en 6e position (remplace "Imprimés & papeterie" retiré — partenariat impression non prioritaire)
+  - Description : "Livré par 7 ans+ d'expertise en communication institutionnelle" (sans nommer Alexandra — plus sobre, vérifiable)
+  - Aperçu des tarifs Arpenteur : ligne "Communications officielles 70–95 $/h · ou 400–700 $/mois" ajoutée dans la carte Photographie & Communication
+- **Page /tarification — refonte complète** :
+  - Menu ancrage statique (Draveur | Arpenteur | Carillon | Bundles) + résumé 3 piliers (Créer/Bâtir/Protéger)
+  - Section Draveur (`id="draveur"`) : livrables + forfaits web + maintenance + heures
+  - Section Arpenteur (`id="arpenteur"`) : médias sociaux + identité de marque + photo + Communications officielles (nouvelle carte Alexandra)
+  - Section Carillon (`id="carillon"`) : Saurel 4 cartes (75/150/200/350) + Chambly 4 cartes "Accès anticipé" (55/200/400/1 250) + tableau Contrecoeur/Berthier/Salières indicatif
+  - Section Bundles (`id="bundles"`) : Suite Carignan −25%/−30% + Bundle Total −20% (3 divisions)
+- **Gitlinks nettoyés** : `divisions/Cyber/IAM/cerbere` + `divisions/le-crieur` (repos git imbriqués) retirés de l'index git + ajoutés au `.gitignore`. Le Crieur = futur site portail flywheel publicitaire, son propre repo git.
+
+### Commits session 2026-07-13 soir
+- `3a959e6` — tarification refonte + stats cyber corrigées (BDC 2025)
+- `75f4f42` — gitlinks retirés (cerbere, le-crieur)
+- `63cc096` — .gitignore mis à jour (cerbere/, le-crieur/)
+- `[à venir]` — Arpenteur comms + Contrecoeur/Berthier/Salières uniformisés
+
+### Décisions de session
+- **Chambly Bouclier** : 400 $/mois (compromis brief 600$ → décision Jonathan)
+- **Paliers unifiés Suite Carignan** : Sentinelle/Gardien/Bouclier/Forteresse — même grille pour tous les 5 produits, forfait par organisation (pas par utilisateur)
+- **Alexandra credential** : "étudiante au doctorat en communication" (thèse à défendre) + 7 ans d'expérience — NE PAS dire "doctorante" (implique diplôme obtenu)
+- **Imprimés & papeterie** : service retiré de la liste Arpenteur — partenariat impression à évaluer ultérieurement, non prioritaire
+- **Stats non sourcées** : politique maison — retirer ou remplacer par des sources vérifiables (BDC, Statistique Canada) avant publication
+- **Le Crieur** : repo git séparé (`divisions/le-crieur/`), futur déploiement Vercel indépendant
+
+### À faire — prochaine session
+- [ ] Photo + bio Paulina Jaramillo — mercredi 2026-07-16 (examens francisation lundi-mardi)
+- [ ] Rsync + commit + push des derniers changements Arpenteur + Carillon de cette session
+- [ ] Resubmit sitemap Google Search Console après tous les push
+- [ ] Vérification GBP (Google Business Profile) — Jonathan complète la vidéo de vérification
 
 ## Session 2026-07-13 — Lancement site, Bios, OG Image, Firewall, Loi 25, Sitemap complet
 
