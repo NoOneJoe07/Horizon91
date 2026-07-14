@@ -171,6 +171,20 @@ const services = [
       desc: "Tarjetas de presentación, membrete, sobres, agendas — en asociación con impresores locales.",
     },
   },
+  {
+    fr: {
+      titre: "Communications officielles",
+      desc: "Communiqués de presse, discours, gestion de crise, positionnement public et articles. Livré par Alexandra Espin Espinoza — étudiante au doctorat en communication, plus de 7 ans d'expérience (communications de la présidence de l'Équateur, INSPQ, Salon de l'auto de Quito). 70 – 95 $/h ou forfait 400 – 700 $/mois.",
+    },
+    en: {
+      titre: "Official Communications",
+      desc: "Press releases, speeches, crisis management, public positioning and articles. Delivered by Alexandra Espin Espinoza — doctoral candidate in communication, 7+ years of experience (Ecuador Presidential Communications, INSPQ, Quito Auto Show). 70 – 95 $/hr or 400 – 700 $/month retainer.",
+    },
+    es: {
+      titre: "Comunicaciones Oficiales",
+      desc: "Comunicados de prensa, discursos, gestión de crisis, posicionamiento público y artículos. A cargo de Alexandra Espin Espinoza — estudiante de doctorado en comunicación, más de 7 años de experiencia (comunicaciones de la Presidencia de Ecuador, INSPQ, Salón del Automóvil de Quito). 70 – 95 $/h o retención mensual 400 – 700 $/mes.",
+    },
+  },
 ];
 
 // ─────────────────────────────────────────────────────────
