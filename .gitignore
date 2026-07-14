@@ -26,3 +26,7 @@ Thumbs.db
 *.tmp
 *.bak
 divisions/Cyber/Monitoring/argos/
+
+# Projets git imbriqués
+divisions/Cyber/IAM/cerbere/
+divisions/le-crieur/
