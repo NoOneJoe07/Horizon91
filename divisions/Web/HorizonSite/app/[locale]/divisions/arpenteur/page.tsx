@@ -159,30 +159,16 @@ const services = [
   },
   {
     fr: {
-      titre: "Imprimés & papeterie de marque",
-      desc: "Cartes d'affaires, en-têtes de lettres, enveloppes, agendas — en partenariat avec des imprimeurs locaux de la région.",
-    },
-    en: {
-      titre: "Print & brand stationery",
-      desc: "Business cards, letterheads, envelopes, agendas — in partnership with local printers in the region.",
-    },
-    es: {
-      titre: "Impresos & papelería de marca",
-      desc: "Tarjetas de presentación, membrete, sobres, agendas — en asociación con impresores locales.",
-    },
-  },
-  {
-    fr: {
       titre: "Communications officielles",
-      desc: "Communiqués de presse, discours, gestion de crise, positionnement public et articles. Livré par Alexandra Espin Espinoza — étudiante au doctorat en communication, plus de 7 ans d'expérience (communications de la présidence de l'Équateur, INSPQ, Salon de l'auto de Quito). 70 – 95 $/h ou forfait 400 – 700 $/mois.",
+      desc: "Communiqués de presse, discours, gestion de crise, positionnement public et articles. Livré par 7 ans+ d'expertise en communication institutionnelle. 70 – 95 $/h ou forfait 400 – 700 $/mois.",
     },
     en: {
       titre: "Official Communications",
-      desc: "Press releases, speeches, crisis management, public positioning and articles. Delivered by Alexandra Espin Espinoza — doctoral candidate in communication, 7+ years of experience (Ecuador Presidential Communications, INSPQ, Quito Auto Show). 70 – 95 $/hr or 400 – 700 $/month retainer.",
+      desc: "Press releases, speeches, crisis management, public positioning and articles. Delivered by 7+ years of institutional communication expertise. 70 – 95 $/hr or 400 – 700 $/month retainer.",
     },
     es: {
       titre: "Comunicaciones Oficiales",
-      desc: "Comunicados de prensa, discursos, gestión de crisis, posicionamiento público y artículos. A cargo de Alexandra Espin Espinoza — estudiante de doctorado en comunicación, más de 7 años de experiencia (comunicaciones de la Presidencia de Ecuador, INSPQ, Salón del Automóvil de Quito). 70 – 95 $/h o retención mensual 400 – 700 $/mes.",
+      desc: "Comunicados de prensa, discursos, gestión de crisis, posicionamiento público y artículos. A cargo de 7 años+ de experiencia en comunicaciones institucionales. 70 – 95 $/h o retención mensual 400 – 700 $/mes.",
     },
   },
 ];
@@ -759,18 +745,21 @@ export default function ArpenteurPage() {
                   ? [
                       ["Séance produits", "20 photos livrées", "dès 275 $"],
                       ["Séance entreprise", "équipe + espace", "dès 450 $"],
-                      ["Carte d'affaires, pamphlet, dépliant", "", "dès 125 $"],
+                      ["Carte d'affaires, pamphlet, dépliant", "version numérique", "dès 125 $"],
+                      ["Communications officielles", "communiqués, discours, crise", "70 – 95 $ / h · ou 400 – 700 $ / mois"],
                     ]
                   : isEN
                   ? [
                       ["Product session", "20 photos delivered", "from $275"],
                       ["Business session", "team + space", "from $450"],
-                      ["Business card, flyer, brochure", "", "from $125"],
+                      ["Business card, flyer, brochure", "digital version", "from $125"],
+                      ["Official communications", "releases, speeches, crisis", "70 – 95 $ / hr · or 400 – 700 $ / month"],
                     ]
                   : [
                       ["Sesión de productos", "20 fotos entregadas", "desde $275"],
                       ["Sesión empresarial", "equipo + espacio", "desde $450"],
-                      ["Tarjeta, folleto, díptico", "", "desde $125"],
+                      ["Tarjeta, folleto, díptico", "versión digital", "desde $125"],
+                      ["Comunicaciones oficiales", "comunicados, discursos, crisis", "70 – 95 $ / h · o 400 – 700 $ / mes"],
                     ]
                 ).map(([titre, detail, prix], i) => (
                   <li key={i} className="text-sm" style={{ color: "rgba(29,29,27,0.70)" }}>
