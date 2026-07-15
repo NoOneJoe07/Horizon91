@@ -218,7 +218,7 @@
         "client": "Boreal Star Group — Internal Product",
         "categorie": "Cybersécurité",
         "description": "Identity and access management software (IAM/RBAC) designed for municipalities, MRCs, and SMBs. Workstation access control, login tracking, and fine-grained permission management by role.",
-        "resultats": ["Identity management", "Role-based access control", "Login tracking", "Built for municipalities"],
+        "resultats": ["Identity management", "Role-based access control", "Login tracking", "Built for municipalities and businesses"],
         "statut": "En cours",
         "couleur": "border-h91-night"
       }

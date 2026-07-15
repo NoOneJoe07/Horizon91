@@ -218,7 +218,7 @@
         "client": "Grupo Estrella Boreal — Producto interno",
         "categorie": "Cybersécurité",
         "description": "Software de gestión de identidades y accesos (IAM/RBAC) diseñado para municipios, MRC y pymes. Control de acceso a estaciones de trabajo, seguimiento de conexiones y gestión granular de permisos por rol.",
-        "resultats": ["Gestión de identidades", "Control de acceso por rol", "Seguimiento de conexiones", "Diseñado para municipios"],
+        "resultats": ["Gestión de identidades", "Control de acceso por rol", "Seguimiento de conexiones", "Diseñado para municipios y empresas"],
         "statut": "En cours",
         "couleur": "border-h91-night"
       }

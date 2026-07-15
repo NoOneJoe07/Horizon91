@@ -218,7 +218,7 @@
         "client": "Groupe Étoile Boréale — Produit interne",
         "categorie": "Cybersécurité",
         "description": "Logiciel de gestion des identités et des accès (IAM/RBAC) conçu pour les municipalités, MRC et PME. Contrôle des accès aux postes de travail, suivi des connexions, gestion fine des permissions par rôle.",
-        "resultats": ["Gestion des identités", "Contrôle RBAC par rôle", "Suivi des connexions", "Conçu pour les municipalités"],
+        "resultats": ["Gestion des identités", "Contrôle RBAC par rôle", "Suivi des connexions", "Conçu pour les municipalités et les entreprises"],
         "statut": "En cours",
         "couleur": "border-h91-night"
       }
