@@ -138,7 +138,7 @@ const membresMeta = [
     key: "paulina",
     slug: "paulina-jaramillo",
     initiales: "PJ",
-    photo: null,
+    photo: "/photos_images/paulina-jaramillo.jpg",
     couleurBordure: "#5762A2",
     couleurInitiales: "#5762A2",
   },

@@ -1,79 +1,80 @@
 import type { Metadata } from "next";
 import { useTranslations, useLocale } from "next-intl";
 import { Link } from "@/i18n/navigation";
+import Image from "next/image";
 
 // ─────────────────────────────────────────────────────────
 // Bio trilingue — Paulina Jaramillo
 // ─────────────────────────────────────────────────────────
 const bio = {
   fr: {
-    p1: "Paulina Jaramillo a grandi avec un appareil photo entre les mains et le souci du détail dans les yeux. Photographe de terrain, graphiste et spécialiste du marketing numérique, elle a forgé son regard dans les rues et les paysages de l'Équateur avant de poser ses valises au Québec — une décision qui allait changer sa trajectoire.",
-    p2: "À son arrivée, c'est la culture québécoise qui l'a conquise : sa langue, son histoire, sa fierté tranquille. Ce coup de cœur s'est transformé en engagement. Paulina ne veut pas seulement s'intégrer — elle veut contribuer, construire, laisser sa marque dans le tissu économique de sa région d'adoption.",
-    p3: "Chez Groupe Étoile Boréale, elle pilote la Division Arpenteur : identité de marque, photographie professionnelle, présence sur les réseaux sociaux et stratégie visuelle pour nos clients. Son œil de photographe et sa sensibilité aux cultures font d'elle une communicatrice rare — capable de raconter une entreprise avec autant de justesse qu'une image.",
-    quote: "Une image bien choisie vaut mieux qu'un long discours. Je construis les deux.",
+    p1: "Pour Paulina, le design est bien plus qu'une profession : c'est l'art de transformer une idée en une identité forte et mémorable.",
+    p2: "Graphiste de formation, elle cumule plus de 14 ans d'expérience en image de marque, design éditorial, photographie professionnelle et campagnes publicitaires. Aujourd'hui, son expertise s'étend également au design UX/UI, lui permettant de concevoir des expériences numériques intuitives qui allient créativité, stratégie et fonctionnalité.",
+    p3: "À son arrivée au Québec, elle est rapidement tombée sous le charme de la langue française, de l'histoire et de la culture québécoise. Cette admiration est devenue un véritable engagement : contribuer au développement des entrepreneurs de sa région d'adoption en mettant son savoir-faire au service de leurs ambitions.",
+    quote: "Derrière chaque entreprise se cache une vision. Mon rôle est de lui donner une identité qui inspire confiance, attire les bonnes personnes et accompagne sa croissance.",
     parcoursLabel: "Parcours",
     roles: [
       {
         titre: "Directrice — Division Arpenteur",
-        desc: "Pilotage de l'identité de marque, de la photographie professionnelle et de la stratégie médias sociaux.",
+        desc: "Direction de l'identité de marque, de la photographie professionnelle, de la stratégie visuelle et de l'expérience numérique — 14 ans+ d'expertise.",
         couleur: "#5762A2",
       },
       {
-        titre: "Photographe & Graphiste",
-        desc: "Photographie de terrain, conception graphique et création de contenu visuel pour les PME régionales.",
+        titre: "Graphiste & Photographe",
+        desc: "Image de marque, design éditorial, photographie de terrain et campagnes publicitaires pour les PME régionales.",
         couleur: "#0099D1",
       },
       {
-        titre: "Spécialiste Marketing Numérique",
-        desc: "Stratégie de présence en ligne, gestion des réseaux sociaux et développement de l'achalandage web.",
+        titre: "Design UX/UI",
+        desc: "Conception d'expériences numériques intuitives qui allient créativité, stratégie et fonctionnalité.",
         couleur: "#C9A84C",
       },
     ],
   },
   en: {
-    p1: "Paulina Jaramillo grew up with a camera in hand and an eye for detail. A field photographer, graphic designer, and digital marketing specialist, she honed her craft across the landscapes and streets of Ecuador before settling in Quebec — a decision that would reshape her path.",
-    p2: "What captured her heart on arrival was Quebec's culture: its language, its history, its quiet pride. That connection turned into commitment. Paulina doesn't just want to integrate — she wants to contribute, build, and leave her mark on the economic fabric of her adopted region.",
-    p3: "At Groupe Étoile Boréale, she leads Division Arpenteur: brand identity, professional photography, social media presence, and visual strategy for our clients. Her photographer's eye and cross-cultural sensitivity make her a rare communicator — one who can tell a business's story as powerfully as a single image.",
-    quote: "A well-chosen image speaks louder than a long speech. I build both.",
+    p1: "For Paulina, design is far more than a profession: it is the art of transforming an idea into a strong, memorable identity.",
+    p2: "A trained graphic designer, she brings over 14 years of experience in brand identity, editorial design, professional photography and advertising campaigns. Today, her expertise extends to UX/UI design, allowing her to create intuitive digital experiences that blend creativity, strategy and functionality.",
+    p3: "When she arrived in Quebec, she quickly fell under the spell of the French language, history and culture of Quebec. This admiration became a true commitment: to contribute to the development of entrepreneurs in her adopted region by putting her expertise at the service of their ambitions.",
+    quote: "Behind every business lies a vision. My role is to give it an identity that inspires confidence, attracts the right people and supports its growth.",
     parcoursLabel: "Background",
     roles: [
       {
         titre: "Director — Division Arpenteur",
-        desc: "Leading brand identity, professional photography, and social media strategy.",
+        desc: "Leading brand identity, professional photography, visual strategy and digital experience — 14+ years of expertise.",
         couleur: "#5762A2",
       },
       {
-        titre: "Photographer & Graphic Designer",
-        desc: "Field photography, graphic design, and visual content creation for regional businesses.",
+        titre: "Graphic Designer & Photographer",
+        desc: "Brand identity, editorial design, field photography and advertising campaigns for regional businesses.",
         couleur: "#0099D1",
       },
       {
-        titre: "Digital Marketing Specialist",
-        desc: "Online presence strategy, social media management, and web traffic development.",
+        titre: "UX/UI Design",
+        desc: "Creating intuitive digital experiences that blend creativity, strategy and functionality.",
         couleur: "#C9A84C",
       },
     ],
   },
   es: {
-    p1: "Paulina Jaramillo creció con una cámara en la mano y un ojo para el detalle. Fotógrafa de campo, diseñadora gráfica y especialista en marketing digital, desarrolló su mirada en las calles y paisajes de Ecuador antes de instalarse en Quebec — una decisión que cambiaría su camino.",
-    p2: "Lo que conquistó su corazón al llegar fue la cultura quebequense: su lengua, su historia, su orgullo tranquilo. Ese flechazo se convirtió en compromiso. Paulina no solo quiere integrarse — quiere contribuir, construir y dejar su huella en el tejido económico de su región de adopción.",
-    p3: "En Groupe Étoile Boréale, dirige la División Arpenteur: identidad de marca, fotografía profesional, presencia en redes sociales y estrategia visual para nuestros clientes. Su ojo de fotógrafa y su sensibilidad intercultural la convierten en una comunicadora excepcional — capaz de contar la historia de una empresa con la misma precisión que una imagen.",
-    quote: "Una imagen bien elegida vale más que un largo discurso. Yo construyo ambos.",
+    p1: "Para Paulina, el diseño es mucho más que una profesión: es el arte de transformar una idea en una identidad fuerte y memorable.",
+    p2: "Diseñadora gráfica de formación, acumula más de 14 años de experiencia en imagen de marca, diseño editorial, fotografía profesional y campañas publicitarias. Hoy, su experiencia se extiende también al diseño UX/UI, lo que le permite crear experiencias digitales intuitivas que combinan creatividad, estrategia y funcionalidad.",
+    p3: "A su llegada a Quebec, quedó rápidamente encantada con el idioma francés, la historia y la cultura quebequense. Esta admiración se convirtió en un verdadero compromiso: contribuir al desarrollo de los emprendedores de su región adoptiva poniendo su saber hacer al servicio de sus ambiciones.",
+    quote: "Detrás de cada empresa se esconde una visión. Mi rol es darle una identidad que inspire confianza, atraiga a las personas correctas y acompañe su crecimiento.",
     parcoursLabel: "Trayectoria",
     roles: [
       {
         titre: "Directora — División Arpenteur",
-        desc: "Dirección de identidad de marca, fotografía profesional y estrategia en redes sociales.",
+        desc: "Dirección de identidad de marca, fotografía profesional, estrategia visual y experiencia digital — 14 años+ de experiencia.",
         couleur: "#5762A2",
       },
       {
-        titre: "Fotógrafa & Diseñadora Gráfica",
-        desc: "Fotografía de campo, diseño gráfico y creación de contenido visual para pymes regionales.",
+        titre: "Diseñadora Gráfica & Fotógrafa",
+        desc: "Imagen de marca, diseño editorial, fotografía de campo y campañas publicitarias para pymes regionales.",
         couleur: "#0099D1",
       },
       {
-        titre: "Especialista en Marketing Digital",
-        desc: "Estrategia de presencia en línea, gestión de redes sociales y desarrollo del tráfico web.",
+        titre: "Diseño UX/UI",
+        desc: "Creación de experiencias digitales intuitivas que combinan creatividad, estrategia y funcionalidad.",
         couleur: "#C9A84C",
       },
     ],
@@ -90,14 +91,14 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const titles: Record<string, string> = {
-    fr: "Paulina Jaramillo — Directrice Marketing & Photo | Groupe Étoile Boréale",
-    en: "Paulina Jaramillo — Marketing & Photography Director | Boreal Star Group",
-    es: "Paulina Jaramillo — Directora de Marketing & Fotografía | Grupo Estrella Boreal",
+    fr: "Paulina Jaramillo — Directrice Division Arpenteur | Groupe Étoile Boréale",
+    en: "Paulina Jaramillo — Director, Division Arpenteur | Boreal Star Group",
+    es: "Paulina Jaramillo — Directora División Arpenteur | Grupo Estrella Boreal",
   };
   const descriptions: Record<string, string> = {
-    fr: "Photographe, graphiste et spécialiste du marketing numérique, Paulina Jaramillo pilote la Division Arpenteur de Groupe Étoile Boréale — identité de marque, photographie professionnelle et stratégie médias sociaux.",
-    en: "Photographer, graphic designer, and digital marketing specialist, Paulina Jaramillo leads Division Arpenteur at Boreal Star Group — brand identity, professional photography, and social media strategy.",
-    es: "Fotógrafa, diseñadora gráfica y especialista en marketing digital, Paulina Jaramillo dirige la División Arpenteur de Grupo Estrella Boreal — identidad de marca, fotografía profesional y estrategia en redes sociales.",
+    fr: "Directrice de la Division Arpenteur, Paulina Jaramillo cumule 14 ans d'expérience en image de marque, photographie professionnelle, design éditorial et UX/UI — au service des entrepreneurs du Québec.",
+    en: "Director of Division Arpenteur, Paulina Jaramillo brings 14 years of experience in brand identity, professional photography, editorial design and UX/UI — serving Quebec's entrepreneurs.",
+    es: "Directora de la División Arpenteur, Paulina Jaramillo aporta 14 años de experiencia en imagen de marca, fotografía profesional, diseño editorial y UX/UI — al servicio de los emprendedores de Quebec.",
   };
   const baseUrl = locale === "en" ? "https://borealstar.ca" : "https://etoileboreale.ca";
   const canonical = `${baseUrl}${locale === "fr" ? "" : `/${locale}`}/equipe/paulina-jaramillo`;
@@ -140,12 +141,17 @@ export default function PaulinaJaramilloPage() {
         </div>
 
         <div className="max-w-4xl mx-auto flex flex-col items-center gap-6">
-          {/* Photo — placeholder jusqu'à mercredi */}
           <div
-            className="w-40 h-40 rounded-full border-4 flex items-center justify-center overflow-hidden shrink-0"
-            style={{ borderColor: "#5762A2", backgroundColor: "#F4F4F0" }}
+            className="w-40 h-40 rounded-full border-4 overflow-hidden shrink-0"
+            style={{ borderColor: "#5762A2" }}
           >
-            <span className="text-5xl font-bold" style={{ color: "#5762A2" }}>PJ</span>
+            <Image
+              src="/photos_images/paulina-jaramillo.jpg"
+              alt="Paulina Jaramillo"
+              width={160}
+              height={160}
+              className="w-full h-full object-cover object-top"
+            />
           </div>
 
           <div>
