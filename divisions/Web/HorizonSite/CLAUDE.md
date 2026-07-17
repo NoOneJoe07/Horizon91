@@ -1,7 +1,7 @@
 @AGENTS.md
 
 # CONTEXTE PROJET — Groupe Étoile Boréale Inc. / HorizonSite
-Dernière mise à jour : 2026-07-13 (soir) — SESSION TARIFICATION & SUITE CARIGNAN — Refonte tarif, Chambly/Contrecoeur/Berthier/Salières uniformisés, stats cyber BDC corrigées, Arpenteur comms ✅
+Dernière mise à jour : 2026-07-17 — SESSION PAULINA — Photo + bio trilingue complète (14 ans, UX/UI, Division Arpenteur), homepage photo activée, messages/*.json mis à jour ✅
 
 ## Fichiers de contexte global Horizon 91
 - **Master context :** `C:\Users\Pc\OneDrive\Documents\Horizon 91\horizon91_master.md`
@@ -348,10 +348,36 @@ MX zohocloud.ca + SPF + DKIM + DMARC — propagés et vérifiés
 - **Le Crieur** : repo git séparé (`divisions/le-crieur/`), futur déploiement Vercel indépendant
 
 ### À faire — prochaine session
-- [ ] Photo + bio Paulina Jaramillo — mercredi 2026-07-16 (examens francisation lundi-mardi)
-- [ ] Rsync + commit + push des derniers changements Arpenteur + Carillon de cette session
+- ✅ Photo + bio Paulina Jaramillo — 2026-07-17 (paulina-jaramillo.jpg + bio FR/EN/ES complète)
+- ✅ Rsync + commit + push — 2026-07-17 (commit 90ccd02)
 - [ ] Resubmit sitemap Google Search Console après tous les push
 - [ ] Vérification GBP (Google Business Profile) — Jonathan complète la vidéo de vérification
+
+## Session 2026-07-17 — Paulina Jaramillo : photo + bio complète
+
+### Accomplissements
+- **Photo Paulina** : `PaoJara.jpg` (3900×2600, 6.6 MB) → `paulina-jaramillo.jpg` (600×600, 58 KB, crop top, Pillow q=85)
+- **Page `/equipe/paulina-jaramillo`** :
+  - Import `Image` from `next/image` ajouté
+  - Placeholder "PJ" → `<Image src="/photos_images/paulina-jaramillo.jpg" width={160} height={160} className="object-top" />`
+  - Bio trilingue complète (p1/p2/p3 + quote) basée sur le texte fourni par Jonathan :
+    - p1 : "Pour Paulina, le design est bien plus qu'une profession : c'est l'art de transformer une idée…"
+    - p2 : "14 ans d'expérience en image de marque, design éditorial, photo, campagnes + UX/UI"
+    - p3 : "Arrivée au Québec, engagement pour les entrepreneurs de sa région d'adoption"
+    - quote : "Derrière chaque entreprise se cache une vision…"
+  - Rôles mis à jour : Directrice Division Arpenteur / Graphiste & Photographe / Design UX/UI
+  - `generateMetadata` : "14 ans d'expérience", "UX/UI", "Division Arpenteur" dans descriptions FR/EN/ES
+  - Titre SEO : "Directrice Division Arpenteur" (remplace "Marketing & Photographie")
+- **Homepage `app/[locale]/page.tsx`** : `photo: null` → `photo: "/photos_images/paulina-jaramillo.jpg"` dans `membresMeta.paulina`
+- **messages/fr.json + en.json + es.json** : `titre` → "Directrice — Division Arpenteur" + `bio` courte mise à jour (14 ans, UX/UI)
+
+### Commit session 2026-07-17
+- `90ccd02` — Paulina Jaramillo photo + bio 14 ans UX/UI Division Arpenteur (FR/EN/ES) — 6 fichiers, 50 insertions
+
+### État du site après cette session
+- ✅ 3 bios fondateurs complètes avec vraies photos : Jonathan / Alexandra / Paulina
+- ✅ Homepage : 3 cartes équipe avec vraies photos, cliquables vers /equipe/[slug]
+- ✅ Site fonctionnel, déployé, bios + photos équipe complètes
 
 ## Session 2026-07-13 — Lancement site, Bios, OG Image, Firewall, Loi 25, Sitemap complet
 
@@ -541,10 +567,10 @@ MX zohocloud.ca + SPF + DKIM + DMARC — propagés et vérifiés
 - [ ] Réserver handles @etoileboreale sur toutes les plateformes sociales (Alexandra — phase lancement)
 - ✅ Photo Jonathan ajoutée (jonathan-patoine.jpg, 600×600, 24 KB) — 2026-07-08
 - ✅ Photo Alexandra ajoutée (alexandra-espin.jpg, 600×600, 25 KB) — 2026-07-13
-- [ ] Photo Paulina — mercredi 2026-07-16
+- ✅ Photo Paulina ajoutée (paulina-jaramillo.jpg, 600×600, 58 KB) — 2026-07-17
 - ✅ Bio Jonathan restructurée (p1-p3) — 2026-07-13
 - ✅ Bio Alexandra complète FR/EN/ES — 2026-07-13
-- [ ] Bio Paulina — mercredi 2026-07-16
+- ✅ Bio Paulina complète FR/EN/ES (14 ans, UX/UI, Division Arpenteur) — 2026-07-17
 - [ ] Contenu Citadelle Jiu-Jitsu — en attente retour client
 - [ ] Supprimer projet Vercel doublon "horizon91" (garder horizon91-2zpm) ← SESSION 2026-07-13
 - [ ] Resubmit sitemap Google Search Console (etoileboreale.ca + borealstar.ca) ← SESSION 2026-07-13
