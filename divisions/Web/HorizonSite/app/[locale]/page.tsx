@@ -142,7 +142,7 @@ const membresMeta = [
     couleurBordure: "#5762A2",
     couleurInitiales: "#5762A2",
   },
-] as const;
+];
 
 // ─────────────────────────────────────────────────────────
 // Les 3 piliers — données
