@@ -350,8 +350,8 @@ MX zohocloud.ca + SPF + DKIM + DMARC — propagés et vérifiés
 ### À faire — prochaine session
 - ✅ Photo + bio Paulina Jaramillo — 2026-07-17 (paulina-jaramillo.jpg + bio FR/EN/ES complète)
 - ✅ Rsync + commit + push — 2026-07-17 (commit 90ccd02)
-- [ ] Resubmit sitemap Google Search Console après tous les push
-- [ ] Vérification GBP (Google Business Profile) — Jonathan complète la vidéo de vérification
+- ✅ Resubmit sitemap Google Search Console — 2026-07-17 (etoileboreale.ca/sitemap.xml resoumis)
+- ✅ Vérification GBP (Google Business Profile) — vidéo soumise 2026-07-17, en révision Google
 
 ## Session 2026-07-17 — Paulina Jaramillo : photo + bio complète
 
@@ -557,8 +557,8 @@ MX zohocloud.ca + SPF + DKIM + DMARC — propagés et vérifiés
 - ✅ Bio Jonathan restructurée (p1-p3) + Bio Alexandra complète (FR/EN/ES) — Paulina mercredi
 - [ ] Photo et bio Paulina Jaramillo — mercredi 2026-07-16
 - [ ] Réécrire histoire cie (home.histoire.*) quand les 3 bios fondateurs seront prêts
-- [ ] Supprimer projet Vercel doublon "horizon91" (garder uniquement "horizon91-2zpm")
-- [ ] Resubmit sitemap Google Search Console (etoileboreale.ca + borealstar.ca) après suppression doublon
+- ✅ Supprimer projet Vercel doublon "horizon91" — 2026-07-17
+- ✅ Resubmit sitemap Google Search Console (etoileboreale.ca) — 2026-07-17
 
 ## À faire — Jonathan (hors code)
 - [ ] Enregistrement légal : NEQ (Registraire entreprises QC) + numéro fédéral ARC — "Groupe Étoile Boréale Inc."
@@ -572,8 +572,8 @@ MX zohocloud.ca + SPF + DKIM + DMARC — propagés et vérifiés
 - ✅ Bio Alexandra complète FR/EN/ES — 2026-07-13
 - ✅ Bio Paulina complète FR/EN/ES (14 ans, UX/UI, Division Arpenteur) — 2026-07-17
 - [ ] Contenu Citadelle Jiu-Jitsu — en attente retour client
-- [ ] Supprimer projet Vercel doublon "horizon91" (garder horizon91-2zpm) ← SESSION 2026-07-13
-- [ ] Resubmit sitemap Google Search Console (etoileboreale.ca + borealstar.ca) ← SESSION 2026-07-13
+- ✅ Supprimer projet Vercel doublon "horizon91" — 2026-07-17
+- ✅ Resubmit sitemap Google Search Console (etoileboreale.ca) — 2026-07-17
 - ✅ Zoho Mail configuré — comptes créés, DNS en place (voir ZOHO-MAIL.md)
 - ✅ DKIM propagé et vérifié (groupesupernova.ca)
 - ✅ Test courriel envoyé — premier courriel professionnel expédié à Citadelle Jiu-Jitsu
