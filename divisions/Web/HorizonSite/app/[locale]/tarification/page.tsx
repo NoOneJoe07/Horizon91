@@ -42,20 +42,60 @@ interface MaintenanceOption { nom: string; prix: string; desc: string; }
 interface HeureLine  { label: string; prix: string; note?: string; }
 interface SocialPackage { nom: string; cible: string; prix_min: string; prix_max: string; features: string[]; featured: boolean; }
 
-/* ─── Grilles tarifaires Suite Carignan ─── */
-const SAUREL_TIERS = [
-  { nom: "Sentinelle", prix: "75 $", cible: "~1-5 personnes", features: ["Surveillance 1 domaine", "Alertes fuites (email)", "Rapport mensuel PDF", "Dashboard en ligne"], featured: false, forteresse: false },
-  { nom: "Gardien",    prix: "150 $", cible: "PME 5-20 employés", features: ["Surveillance 3 domaines", "Alertes temps réel (email + SMS)", "Rapport hebdomadaire", "Scan Dark Web continu", "Support prioritaire"], featured: true, forteresse: false },
-  { nom: "Bouclier",   prix: "200 $", cible: "PME 20-50 employés", features: ["Surveillance 10 domaines", "Alertes multi-canaux", "Rapport bi-mensuel détaillé", "Analyse de risque contextuelle", "Consultant dédié"], featured: false, forteresse: false },
-  { nom: "Forteresse", prix: "350 $", cible: "Municipalités & MRC", features: ["Domaines illimités", "Tableau de bord multi-entités", "Rapport exécutif mensuel", "Réponse aux incidents incluse", "Données hébergées au Québec (Loi 25)"], featured: false, forteresse: true },
+/* ─── Grilles tarifaires Suite Carignan (nom/prix non traduits — identité produit) ─── */
+const SAUREL_META = [
+  { nom: "Sentinelle", prix: "75 $", featured: false, forteresse: false },
+  { nom: "Gardien", prix: "150 $", featured: true, forteresse: false },
+  { nom: "Bouclier", prix: "200 $", featured: false, forteresse: false },
+  { nom: "Forteresse", prix: "350 $", featured: false, forteresse: true },
 ];
+const SAUREL_I18N: Record<"fr" | "en" | "es", { cible: string; features: string[] }[]> = {
+  fr: [
+    { cible: "~1-5 personnes", features: ["Surveillance 1 domaine", "Alertes fuites (email)", "Rapport mensuel PDF", "Dashboard en ligne"] },
+    { cible: "PME 5-20 employés", features: ["Surveillance 3 domaines", "Alertes temps réel (email + SMS)", "Rapport hebdomadaire", "Scan Dark Web continu", "Support prioritaire"] },
+    { cible: "PME 20-50 employés", features: ["Surveillance 10 domaines", "Alertes multi-canaux", "Rapport bi-mensuel détaillé", "Analyse de risque contextuelle", "Consultant dédié"] },
+    { cible: "Municipalités & MRC", features: ["Domaines illimités", "Tableau de bord multi-entités", "Rapport exécutif mensuel", "Réponse aux incidents incluse", "Données hébergées au Québec (Loi 25)"] },
+  ],
+  en: [
+    { cible: "~1-5 people", features: ["1 domain monitored", "Leak alerts (email)", "Monthly PDF report", "Online dashboard"] },
+    { cible: "SMBs, 5-20 employees", features: ["3 domains monitored", "Real-time alerts (email + SMS)", "Weekly report", "Continuous Dark Web scan", "Priority support"] },
+    { cible: "SMBs, 20-50 employees", features: ["10 domains monitored", "Multi-channel alerts", "Detailed bi-monthly report", "Contextual risk analysis", "Dedicated consultant"] },
+    { cible: "Municipalities & MRCs", features: ["Unlimited domains", "Multi-entity dashboard", "Monthly executive report", "Incident response included", "Data hosted in Québec (Law 25)"] },
+  ],
+  es: [
+    { cible: "~1-5 personas", features: ["Monitoreo de 1 dominio", "Alertas de filtraciones (correo)", "Reporte mensual en PDF", "Panel en línea"] },
+    { cible: "Pymes de 5-20 empleados", features: ["Monitoreo de 3 dominios", "Alertas en tiempo real (correo + SMS)", "Reporte semanal", "Escaneo continuo del Dark Web", "Soporte prioritario"] },
+    { cible: "Pymes de 20-50 empleados", features: ["Monitoreo de 10 dominios", "Alertas multicanal", "Reporte quincenal detallado", "Análisis de riesgo contextual", "Consultor dedicado"] },
+    { cible: "Municipios & MRC", features: ["Dominios ilimitados", "Panel multi-entidad", "Reporte ejecutivo mensual", "Respuesta a incidentes incluida", "Datos alojados en Quebec (Ley 25)"] },
+  ],
+};
 
-const CHAMBLY_TIERS = [
-  { nom: "Sentinelle", prix: "55 $",    cible: "~1-5 personnes",     features: ["Jusqu'à 5 comptes", "Gestion des rôles de base (RBAC)", "Tableau de bord des accès", "Rapport mensuel d'activité"], featured: false, forteresse: false },
-  { nom: "Gardien",    prix: "200 $",   cible: "PME 5-20 employés",  features: ["Jusqu'à 20 comptes", "RBAC complet & politiques granulaires", "Journaux d'audit en temps réel", "Alertes de connexions suspectes", "Support prioritaire"], featured: true, forteresse: false },
-  { nom: "Bouclier",   prix: "400 $",   cible: "PME 20-50 employés", features: ["Jusqu'à 50 comptes", "IAM avancé & intégrations AD/LDAP", "Rapports de conformité Loi 25", "Révision des accès automatisée", "Consultant dédié"], featured: false, forteresse: false },
-  { nom: "Forteresse", prix: "1 250 $", cible: "Municipalités & MRC", features: ["Comptes illimités", "Gouvernance des identités complète", "Hébergement Québec (Loi 25)", "Réponse aux incidents incluse", "Rapport exécutif mensuel"], featured: false, forteresse: true },
+const CHAMBLY_META = [
+  { nom: "Sentinelle", prix: "55 $", featured: false, forteresse: false },
+  { nom: "Gardien", prix: "200 $", featured: true, forteresse: false },
+  { nom: "Bouclier", prix: "400 $", featured: false, forteresse: false },
+  { nom: "Forteresse", prix: "1 250 $", featured: false, forteresse: true },
 ];
+const CHAMBLY_I18N: Record<"fr" | "en" | "es", { cible: string; features: string[] }[]> = {
+  fr: [
+    { cible: "~1-5 personnes", features: ["Jusqu'à 5 comptes", "Gestion des rôles de base (RBAC)", "Tableau de bord des accès", "Rapport mensuel d'activité"] },
+    { cible: "PME 5-20 employés", features: ["Jusqu'à 20 comptes", "RBAC complet & politiques granulaires", "Journaux d'audit en temps réel", "Alertes de connexions suspectes", "Support prioritaire"] },
+    { cible: "PME 20-50 employés", features: ["Jusqu'à 50 comptes", "IAM avancé & intégrations AD/LDAP", "Rapports de conformité Loi 25", "Révision des accès automatisée", "Consultant dédié"] },
+    { cible: "Municipalités & MRC", features: ["Comptes illimités", "Gouvernance des identités complète", "Hébergement Québec (Loi 25)", "Réponse aux incidents incluse", "Rapport exécutif mensuel"] },
+  ],
+  en: [
+    { cible: "~1-5 people", features: ["Up to 5 accounts", "Basic role management (RBAC)", "Access dashboard", "Monthly activity report"] },
+    { cible: "SMBs, 5-20 employees", features: ["Up to 20 accounts", "Full RBAC & granular policies", "Real-time audit logs", "Suspicious login alerts", "Priority support"] },
+    { cible: "SMBs, 20-50 employees", features: ["Up to 50 accounts", "Advanced IAM & AD/LDAP integrations", "Law 25 compliance reports", "Automated access reviews", "Dedicated consultant"] },
+    { cible: "Municipalities & MRCs", features: ["Unlimited accounts", "Full identity governance", "Hosted in Québec (Law 25)", "Incident response included", "Monthly executive report"] },
+  ],
+  es: [
+    { cible: "~1-5 personas", features: ["Hasta 5 cuentas", "Gestión básica de roles (RBAC)", "Panel de accesos", "Reporte mensual de actividad"] },
+    { cible: "Pymes de 5-20 empleados", features: ["Hasta 20 cuentas", "RBAC completo & políticas granulares", "Registros de auditoría en tiempo real", "Alertas de conexiones sospechosas", "Soporte prioritario"] },
+    { cible: "Pymes de 20-50 empleados", features: ["Hasta 50 cuentas", "IAM avanzado & integraciones AD/LDAP", "Reportes de cumplimiento (Ley 25)", "Revisión automatizada de accesos", "Consultor dedicado"] },
+    { cible: "Municipios & MRC", features: ["Cuentas ilimitadas", "Gobernanza completa de identidades", "Alojamiento en Quebec (Ley 25)", "Respuesta a incidentes incluida", "Reporte ejecutivo mensual"] },
+  ],
+};
 
 const DEV_PRODUCTS = [
   { nom: "Contrecoeur", desc: { fr: "Simulation phishing & formation employés", en: "Phishing simulation & employee training", es: "Simulación de phishing & formación de empleados" }, paliers: ["25 $", "40 $", "120 $", "250 $"] },
@@ -74,6 +114,10 @@ export default function TarificationPage() {
   const maintenance    = t.raw("maintenance")      as MaintenanceOption[];
   const heures         = t.raw("heures")           as HeureLine[];
   const socialPackages = t.raw("social_packages")  as SocialPackage[];
+
+  const l = (locale === "en" || locale === "es") ? locale : "fr";
+  const SAUREL_TIERS = SAUREL_META.map((m, i) => ({ ...m, ...SAUREL_I18N[l][i] }));
+  const CHAMBLY_TIERS = CHAMBLY_META.map((m, i) => ({ ...m, ...CHAMBLY_I18N[l][i] }));
 
   /* ── Labels multilingues ── */
   const anchorLabels = {
@@ -166,7 +210,7 @@ export default function TarificationPage() {
 
           <div className="mb-12">
             <span className="inline-block text-xs font-bold px-3 py-1.5 rounded-full mb-4 uppercase tracking-widest" style={{ backgroundColor: "rgba(0,153,209,0.12)", color: "#0099D1", border: "1px solid rgba(0,153,209,0.30)" }}>
-              Division Draveur — Développement Web
+              {isFR ? "Division Draveur — Développement Web" : isEN ? "Draveur Division — Web Development" : "División Draveur — Desarrollo Web"}
             </span>
             <h2 className="text-3xl font-bold mb-2" style={{ color: "#1D1D1B" }}>{t("web_title")}</h2>
           </div>
@@ -274,7 +318,7 @@ export default function TarificationPage() {
 
           <div className="mb-12">
             <span className="inline-block text-xs font-bold px-3 py-1.5 rounded-full mb-4 uppercase tracking-widest" style={{ backgroundColor: "rgba(87,98,162,0.12)", color: "#5762A2", border: "1px solid rgba(87,98,162,0.30)" }}>
-              Division Arpenteur — Graphisme & Marque
+              {isFR ? "Division Arpenteur — Graphisme & Marque" : isEN ? "Arpenteur Division — Graphic Design & Branding" : "División Arpenteur — Diseño Gráfico & Marca"}
             </span>
             <h2 className="text-3xl font-bold mb-2" style={{ color: "#1D1D1B" }}>
               {isFR ? "Votre marque, votre voix, votre image" : isEN ? "Your brand, your voice, your image" : "Su marca, su voz, su imagen"}
@@ -337,10 +381,10 @@ export default function TarificationPage() {
                 <h3 className="font-bold text-lg" style={{ color: "#1D1D1B" }}>{isFR ? "Identité de marque" : isEN ? "Brand identity" : "Identidad de marca"}</h3>
               </div>
               <ul className="flex flex-col gap-2 flex-1 text-sm" style={{ color: "rgba(29,29,27,0.70)" }}>
-                <li className="flex items-start gap-2"><span style={{ color: "#5762A2" }}>✓</span><span><strong style={{ color: "#1D1D1B" }}>Signature Locale</strong> — logo + palette + guide : dès 450 $</span></li>
-                <li className="flex items-start gap-2"><span style={{ color: "#5762A2" }}>✓</span><span><strong style={{ color: "#1D1D1B" }}>Identité Complète</strong> — + gabarits + carte : dès 900 $</span></li>
-                <li className="flex items-start gap-2"><span style={{ color: "#5762A2" }}>✓</span><span><strong style={{ color: "#1D1D1B" }}>Livre de marque complet</strong> : 1 500 $ – 4 000 $</span></li>
-                <li className="flex items-start gap-2"><span style={{ color: "#5762A2" }}>✓</span><span><strong style={{ color: "#1D1D1B" }}>Graphisme à la pièce</strong> : 45 – 65 $/h</span></li>
+                <li className="flex items-start gap-2"><span style={{ color: "#5762A2" }}>✓</span><span><strong style={{ color: "#1D1D1B" }}>{isFR ? "Signature Locale" : isEN ? "Local Signature" : "Firma Local"}</strong> — {isFR ? "logo + palette + guide" : isEN ? "logo + palette + guide" : "logo + paleta + guía"} : {summaryLabel.from} 450 $</span></li>
+                <li className="flex items-start gap-2"><span style={{ color: "#5762A2" }}>✓</span><span><strong style={{ color: "#1D1D1B" }}>{isFR ? "Identité Complète" : isEN ? "Complete Identity" : "Identidad Completa"}</strong> — {isFR ? "+ gabarits + carte" : isEN ? "+ templates + business card" : "+ plantillas + tarjeta"} : {summaryLabel.from} 900 $</span></li>
+                <li className="flex items-start gap-2"><span style={{ color: "#5762A2" }}>✓</span><span><strong style={{ color: "#1D1D1B" }}>{isFR ? "Livre de marque complet" : isEN ? "Complete brand book" : "Libro de marca completo"}</strong> : 1 500 $ – 4 000 $</span></li>
+                <li className="flex items-start gap-2"><span style={{ color: "#5762A2" }}>✓</span><span><strong style={{ color: "#1D1D1B" }}>{isFR ? "Graphisme à la pièce" : isEN ? "À la carte graphic design" : "Diseño gráfico a la carta"}</strong> : 45 – 65 $/h</span></li>
               </ul>
             </div>
 
@@ -351,9 +395,9 @@ export default function TarificationPage() {
                 <h3 className="font-bold text-lg" style={{ color: "#1D1D1B" }}>{isFR ? "Photographie & Communication imprimée" : isEN ? "Photography & Printed communications" : "Fotografía & Comunicación impresa"}</h3>
               </div>
               <ul className="flex flex-col gap-2 flex-1 text-sm" style={{ color: "rgba(29,29,27,0.70)" }}>
-                <li className="flex items-start gap-2"><span style={{ color: "#5762A2" }}>✓</span><span><strong style={{ color: "#1D1D1B" }}>{isFR ? "Séance produits" : isEN ? "Product shoot" : "Sesión productos"}</strong> — 20 {isFR ? "photos livrées" : isEN ? "delivered photos" : "fotos entregadas"} : dès 275 $</span></li>
-                <li className="flex items-start gap-2"><span style={{ color: "#5762A2" }}>✓</span><span><strong style={{ color: "#1D1D1B" }}>{isFR ? "Séance entreprise" : isEN ? "Business shoot" : "Sesión empresa"}</strong> — {isFR ? "équipe + espace" : isEN ? "team + space" : "equipo + espacio"} : dès 450 $</span></li>
-                <li className="flex items-start gap-2"><span style={{ color: "#5762A2" }}>✓</span><span><strong style={{ color: "#1D1D1B" }}>{isFR ? "Carte d'affaires, pamphlet, dépliant" : isEN ? "Business cards, pamphlets, flyers" : "Tarjetas, folletos, dípticos"}</strong> : dès 125 $</span></li>
+                <li className="flex items-start gap-2"><span style={{ color: "#5762A2" }}>✓</span><span><strong style={{ color: "#1D1D1B" }}>{isFR ? "Séance produits" : isEN ? "Product shoot" : "Sesión productos"}</strong> — 20 {isFR ? "photos livrées" : isEN ? "delivered photos" : "fotos entregadas"} : {summaryLabel.from} 275 $</span></li>
+                <li className="flex items-start gap-2"><span style={{ color: "#5762A2" }}>✓</span><span><strong style={{ color: "#1D1D1B" }}>{isFR ? "Séance entreprise" : isEN ? "Business shoot" : "Sesión empresa"}</strong> — {isFR ? "équipe + espace" : isEN ? "team + space" : "equipo + espacio"} : {summaryLabel.from} 450 $</span></li>
+                <li className="flex items-start gap-2"><span style={{ color: "#5762A2" }}>✓</span><span><strong style={{ color: "#1D1D1B" }}>{isFR ? "Carte d'affaires, pamphlet, dépliant" : isEN ? "Business cards, pamphlets, flyers" : "Tarjetas, folletos, dípticos"}</strong> : {summaryLabel.from} 125 $</span></li>
                 <li className="flex items-start gap-2"><span style={{ color: "#5762A2" }}>✓</span><span>{isFR ? "Photo à la pièce" : isEN ? "Per-photo rate" : "Tarifa por foto"} : 30 – 45 $/photo</span></li>
               </ul>
             </div>
@@ -363,7 +407,7 @@ export default function TarificationPage() {
               <div>
                 <div className="flex items-center gap-2 mb-1">
                   <p className="text-xs font-bold uppercase tracking-widest" style={{ color: "#5762A2" }}>{isFR ? "Communications — Alexandra Espin" : isEN ? "Communications — Alexandra Espin" : "Comunicaciones — Alexandra Espin"}</p>
-                  <span className="text-[10px] font-bold px-2 py-0.5 rounded-full uppercase" style={{ backgroundColor: "rgba(87,98,162,0.15)", color: "#5762A2" }}>Nouveau</span>
+                  <span className="text-[10px] font-bold px-2 py-0.5 rounded-full uppercase" style={{ backgroundColor: "rgba(87,98,162,0.15)", color: "#5762A2" }}>{isFR ? "Nouveau" : isEN ? "New" : "Nuevo"}</span>
                 </div>
                 <h3 className="font-bold text-lg" style={{ color: "#1D1D1B" }}>{commOfficiellesLabel.titre}</h3>
               </div>
@@ -392,7 +436,7 @@ export default function TarificationPage() {
 
           <div className="mb-12">
             <span className="inline-block text-xs font-bold px-3 py-1.5 rounded-full mb-4 uppercase tracking-widest" style={{ backgroundColor: "rgba(32,52,120,0.15)", color: "#203478", border: "1px solid rgba(32,52,120,0.30)" }}>
-              Division Carillon — Cybersécurité
+              {isFR ? "Division Carillon — Cybersécurité" : isEN ? "Carillon Division — Cybersecurity" : "División Carillon — Ciberseguridad"}
             </span>
             <h2 className="text-3xl font-bold mb-2" style={{ color: "#1D1D1B" }}>
               {isFR ? "Suite Carignan — La chaîne défensive complète" : isEN ? "Suite Carignan — The complete defensive chain" : "Suite Carignan — La cadena defensiva completa"}
