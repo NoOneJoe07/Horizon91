@@ -86,6 +86,40 @@
       ],
       "approche_titre": "Notre approche",
       "approche_texte": "Nous ne livrons pas des sites web à la chaîne. Chaque projet commence par comprendre votre entreprise, votre clientèle et vos objectifs. Notre maîtrise du flux numérique transforme votre présence en ligne en véritable moteur d'achalandage web — un outil qui génère de vraies retombées, pas juste une belle vitrine.",
+      "heritage_badge": "L'héritage",
+      "heritage_titre": "Maîtriser le flux, propulser votre achalandage",
+      "heritage_photo_caption": "Archives historiques — draveurs du Québec, fin XIXe – début XXe siècle",
+      "heritage_gallery": [
+        { "alt": "Bottes à crampons des draveurs — outil emblématique de la drave", "caption": "Bottes à crampons des draveurs — outil emblématique de la drave québécoise" },
+        { "alt": "Draveur en action sur les billots — rivière du Québec", "caption": "Draveur en action sur les billots — rivières du Québec, fin XIXe siècle" },
+        { "alt": "Draveurs guidant les billots — maîtrise du flux", "caption": "Draveurs guidant les billots — maîtrise du flux" },
+        { "alt": "La drave — héritage québécois du contrôle du flux", "caption": "La drave — héritage québécois du contrôle du flux" }
+      ],
+      "heritage_texte": [
+        "Au XIXe siècle, les draveurs du Québec sautaient courageusement sur les rivières tumultueuses pour guider des milliers de billots de bois vers les moulins. C'était un travail d'agilité pure, de synchronisation et de contrôle du flux. Un seul billot mal positionné, et c'était l'embâcle — le blocage qui paralysait toute l'économie de la région.",
+        "Aujourd'hui, la rivière, c'est le Web. Les flux de données, de trafic et d'utilisateurs déferlent chaque seconde. La Division Draveur conçoit des portails web robustes pour s'assurer que vos clients naviguent de manière fluide jusqu'à vous, sans aucun embâcle technique. Nous éliminons les bugs, optimisons votre SEO et guidons l'achalandage directement vers vos objectifs de conversion."
+      ],
+      "heritage_avantage_titre": "L'avantage Étoile Boréale",
+      "heritage_avantage_texte": "La Division Draveur ne recule devant aucun courant, aussi complexe soit votre chantier web. En éliminant la structure lourde et le flafla des grandes firmes, nous vous livrons des plateformes d'élite à un prix 20 % à 40 % plus bas — avec un cœur à l'ouvrage et une fierté locale que l'argent ne peut pas acheter.",
+      "stats_badge": "Saviez-vous que ?",
+      "stats": [
+        { "chiffre": "+22 %", "titre": "Croissance des revenus", "texte": "Selon la Banque de développement du Canada (BDC), les PME qui investissent activement dans leur présence numérique affichent une croissance de leurs revenus jusqu'à 22 % supérieure à celles qui négligent le web. C'est le levier de visibilité le plus puissant de l'ère moderne." },
+        { "chiffre": "3 k$ — 10 k$", "titre": "Le prix du marché canadien", "texte": "En moyenne, la conception d'un site web professionnel sur mesure par une agence canadienne varie entre 3 000 $ et 10 000 $ — et grimpe bien plus haut pour les plateformes complexes. L'avantage Étoile Boréale : service régional humain, ultra-réactif, sans les frais gonflés des grandes agences métropolitaines." }
+      ],
+      "pricing_badge": "Investissement",
+      "pricing_titre": "Des forfaits clairs pour chaque ambition",
+      "pricing_sous_titre": "Livraison unique, sans surprise. La maintenance mensuelle assure la santé de votre site sur le long terme.",
+      "pricing_populaire": "Le plus populaire",
+      "pricing_livraison_unique": "Livraison unique",
+      "forfaits": [
+        { "nom": "Vitrine Essentiel", "prix": "1 500 – 2 200 $", "features": ["Site vitrine sur mesure", "Mobile-first & ultra-rapide", "SEO de base inclus", "Jusqu'à 5 pages"] },
+        { "nom": "Pro Interactif", "prix": "3 000 – 4 500 $", "features": ["Réservation / blog / galerie", "Formulaires avancés", "SEO local renforcé", "Intégrations tierces"] },
+        { "nom": "Commerce Complet", "prix": "5 500 – 8 000 $+", "features": ["E-commerce & paiement Stripe", "Panel admin sur mesure", "Gestion de stock", "Architecture évolutive"] }
+      ],
+      "maintenance_titre": "+ Maintenance mensuelle",
+      "maintenance_texte": "Incluse dans tout contrat — à partir de 150 $/mois. Mises à jour, sécurité, monitoring et support continu.",
+      "maintenance_prix_range": "150 – 350 $/mois",
+      "pricing_cta": "Voir tous les détails & options →",
       "cta_titre": "Prêt à bâtir votre présence en ligne ?",
       "cta_bouton": "Parlons de votre projet",
       "cta_portfolio": "Voir nos réalisations"
@@ -106,6 +140,169 @@
       "approche_titre": "Sécurité sans jargon",
       "approche_texte": "La cybersécurité n'est pas réservée aux grandes entreprises. Une PME compromise, c'est des données clients volées, une réputation atteinte et des coûts de récupération importants. Nous rendons la protection accessible, compréhensible et proportionnelle à votre réalité.",
       "badge": "Division en développement actif",
+      "heritage_badge": "L'héritage",
+      "heritage_titre": "L'architecture défensive de votre empire numérique",
+      "heritage_photo_caption": "Archives historiques — Fort Carillon (Fort Ticonderoga), Bataille de 1758",
+      "heritage_gallery": [
+        { "alt": "Troupes britanniques à Carillon — Bataille de 1758", "caption": "Troupes britanniques marchant sur Fort Carillon — 1758" },
+        { "alt": "La victoire des troupes de Montcalm à Carillon — Henry Alexander Ogden", "caption": "La victoire de Montcalm à Carillon (1758) — Henry Alexander Ogden" },
+        { "alt": "Carte stratégique du Fort Carillon — 1758", "caption": "Carte stratégique du Fort Carillon, 1758" },
+        { "alt": "Fort Carillon — vue aérienne, lac Champlain", "caption": "Fort Carillon — vue aérienne (aujourd'hui Fort Ticonderoga)" }
+      ],
+      "heritage_texte": [
+        "En 1758, lors de la célèbre bataille du Fort Carillon, une armée de 3 600 soldats et miliciens d'ici a repoussé avec succès une force d'invasion de 15 000 hommes. Comment ? Grâce à une architecture défensive géniale — des abatis de bois stratégiquement positionnés — et une discipline de fer. Carillon est le symbole historique de la résistance intelligente face à un adversaire disproportionné.",
+        "Dans le monde numérique, votre entreprise est attaquée chaque jour par des menaces automatisées invisibles. La Division Carillon érige les murailles fortifiées autour de vos données, de vos serveurs et de vos applications. Nous concevons une architecture cyber sur mesure pour que votre entreprise reste un fort imprenable — peu importe la taille de la menace."
+      ],
+      "heritage_avantage_titre": "L'avantage Étoile Boréale",
+      "heritage_avantage_texte": "La Division Carillon ne fait pas que surveiller vos serveurs — elle documente et structure votre gouvernance de données. Conformité Loi 25, politiques de confidentialité, registres d'accès : en cas de contrôle, vous avez la preuve écrite que votre fort était défendu selon les règles de l'art.",
+      "stats_badge": "Saviez-vous que ?",
+      "stats": [
+        { "chiffre": "40 %", "titre": "Des cyberattaques visent les PME", "texte": "Contrairement aux idées reçues, Statistique Canada rapporte que près de 40 % des cyberattaques visent directement les petites et moyennes entreprises. Vous n'êtes pas trop petit pour être piraté — vous êtes simplement moins protégé." },
+        { "chiffre": "73 %", "titre": "Des PME canadiennes ont subi un incident", "texte": "Selon la Banque de développement du Canada (BDC, 2025), 73 % des PME canadiennes ont déjà subi un incident de cybersécurité — dont 61 % ciblées spécifiquement par du phishing par courriel. Nous ne vendons pas de la peur, nous coulons votre sécurité dans le béton." }
+      ],
+      "tiers_ui": {
+        "recommande": "Recommandé",
+        "demarrer": "Démarrer",
+        "acces_anticipe": "Accès anticipé →",
+        "nous_contacter": "Nous contacter",
+        "rejoindre_liste": "Rejoindre la liste →",
+        "unite_mois": "/ mois",
+        "tarifs_indicatifs": "Tarifs indicatifs — forfait par organisation, pas par utilisateur",
+        "contexte_badge": "Le contexte historique"
+      },
+      "saurel": {
+        "badge": "Produit phare — SaaS",
+        "tagline": "La vigie numérique des PME.",
+        "intro": "Surveillance du Dark Web en temps réel. Saurel scanne en continu les marchés clandestins, forums et fuites de données pour vous alerter dès que vos informations apparaissent — avant que les dommages soient faits.",
+        "tiers_cible": ["Indépendants & petits commerces", "PME & professionnels", "Entreprises multi-sites", "Municipalités & MRC"],
+        "tiers_features": [
+          ["Surveillance 1 domaine", "Alertes fuites de données (email)", "Rapport mensuel PDF", "Dashboard en ligne"],
+          ["Surveillance 3 domaines", "Alertes temps réel (email + SMS)", "Rapport hebdomadaire", "Scan Dark Web en continu", "Support prioritaire"],
+          ["Surveillance 10 domaines", "Alertes multi-canaux", "Rapport bi-mensuel détaillé", "Analyse de risque contextuelle", "Consultant dédié"],
+          ["Domaines illimités", "Tableau de bord multi-entités", "Rapport exécutif mensuel", "Réponse aux incidents incluse", "Données hébergées au Québec (Loi 25)"]
+        ],
+        "contexte_titre": "Le Verrou du Richelieu",
+        "contexte_paragraphs": [
+          "En 1665, Pierre de Saurel, capitaine au régiment de Carignan-Salières, érige le Fort Saurel à l'embouchure de la rivière Richelieu. À cette époque, cette rivière est l'autoroute des invasions. Le mandat du fort est crucial : agir comme une sentinelle avancée, bloquer les incursions surprises et verrouiller l'accès au fleuve Saint-Laurent pour protéger les colonies naissantes. Les soldats qui y montaient la garde devaient déceler la moindre anomalie sur l'eau ou dans les bois avant qu'elle ne devienne une menace fatale.",
+          "Tout comme le fort historique surveillait l'autoroute fluviale pour protéger la Nouvelle-France, le SaaS Saurel agit comme le verrou stratégique de votre entreprise. C'est une plateforme de monitoring intelligente qui surveille les flux de données, les performances et les angles morts opérationnels des PME. Il élimine l'effet de surprise : avant qu'une faille, un bug ou une baisse de performance ne vienne couler votre modèle d'affaires, Saurel a déjà sonné l'alarme."
+        ],
+        "sentinelles_titre": "Que font les Sentinelles de Saurel ?",
+        "sentinelles_paragraphs": [
+          "Dans le logiciel, les Sentinelles sont vos agents automatisés — vos scripts de surveillance, vos alertes de serveurs, vos traqueurs de bases de données. Les Sentinelles ne dorment jamais. Elles veillent au grain 24h/24 sur la santé numérique de votre PME.",
+          "Elles scannent l'horizon, détectent les anomalies de performance, valident l'intégrité des données et s'assurent que la forteresse business roule à pleine capacité. Si une Sentinelle repère un comportement anormal, elle isole la menace et vous transmet un rapport clair pour que vous puissiez agir avant l'impact."
+        ],
+        "avantage_texte": "Avec Saurel, vous n'attendez pas que la crise frappe pour colmater les brèches. Nos Sentinelles numériques surveillent vos arrières en continu, transformant le chaos imprévisible du web en une trajectoire stable, sécurisée et entièrement sous contrôle."
+      },
+      "chambly": {
+        "produit_badge": "Produit — IAM / Contrôle d'accès",
+        "acces_anticipe_badge": "Accès anticipé",
+        "tagline": "Qui entre dans la forteresse — et qui en sort.",
+        "intro": "Contrôle d'accès basé sur les rôles (RBAC), gestion des identités et journaux d'audit. Chambly verrouille chaque point d'entrée de votre organisation — parce qu'une brèche commence presque toujours de l'intérieur.",
+        "tiers_cible": ["Très petites équipes (~1-5 personnes)", "PME 5-20 employés", "PME 20-50 employés", "Municipalités & MRC"],
+        "tiers_features": [
+          ["Jusqu'à 5 comptes", "Gestion des rôles de base (RBAC)", "Tableau de bord des accès", "Rapport mensuel d'activité"],
+          ["Jusqu'à 20 comptes", "RBAC complet & politiques granulaires", "Journaux d'audit en temps réel", "Alertes de connexions suspectes", "Support prioritaire"],
+          ["Jusqu'à 50 comptes", "IAM avancé & intégrations AD/LDAP", "Rapports de conformité Loi 25", "Révision des accès automatisée", "Consultant dédié"],
+          ["Comptes illimités", "Gouvernance des identités complète", "Hébergement Québec (Loi 25)", "Réponse aux incidents incluse", "Rapport exécutif mensuel"]
+        ],
+        "contexte_titre": "Les guérites du Fort Chambly",
+        "contexte_paragraphs": [
+          "En 1665, le capitaine Jacques de Chambly érige un premier fort en bois aux rapides de la rivière Richelieu. Rebâti en pierre entre 1709 et 1711, le Fort Chambly devient l'un des ouvrages défensifs les mieux préservés de la Nouvelle-France. Sa particularité : quatre guérites d'angle, une à chaque coin du fort, qui permettaient aux soldats de surveiller simultanément chaque approche — aucun angle mort, aucune zone non gardée.",
+          "Ce principe de contrôle total des points d'accès est au cœur de Chambly (le produit). Chaque utilisateur de votre organisation est une porte. Chaque rôle est une clé. Le logiciel Chambly veille sur chacun de ces points d'entrée en temps réel — parce qu'une brèche de sécurité commence presque toujours par un accès mal géré, une permission trop large ou une identité compromise de l'intérieur."
+        ],
+        "guerites_titre": "Que contrôlent les guérites de Chambly ?",
+        "guerites_paragraphs": [
+          "Chaque guérite surveille un angle stratégique : qui se connecte, depuis où, à quoi ils accèdent et à quelle heure. Si un comportement sort du profil habituel d'un utilisateur — nouvelle localisation, heure inhabituelle, tentative d'accès à un dossier restreint — Chambly déclenche une alerte immédiate.",
+          "Le principe RBAC (Role-Based Access Control) garantit que chaque membre de votre équipe accède uniquement à ce dont il a besoin pour son rôle — ni plus, ni moins. La surface d'attaque se réduit. L'audit devient automatique. La conformité à la Loi 25 est documentée à chaque étape."
+        ],
+        "avantage_texte": "Chambly ne se contente pas de gérer les accès — il documente chaque décision. En cas d'audit Loi 25 ou d'incident de sécurité, vous disposez d'une traçabilité complète, horodatée et exportable. Vos guérites n'ont jamais dormi."
+      },
+      "contrecoeur": {
+        "categorie_badge": "Simulation phishing & ingénierie sociale",
+        "disponibilite_badge": "Disponible fin 2026",
+        "tagline": "La meilleure défense contre la tromperie, c'est de l'avoir déjà vue.",
+        "intro": "Simulation de campagnes de phishing réalistes et formation en ingénierie sociale. Contrecoeur teste vos employés avec de vrais scénarios avant que le véritable ennemi ne le fasse — chaque tentative devient un exercice de formation.",
+        "tiers": [
+          { "nom": "Sentinelle", "prix": "25 $", "cible": "~1-5 personnes", "features": ["1 simulation / trimestre", "Rapport de résultats", "Module de formation de base", "Tableau de bord équipe"] },
+          { "nom": "Gardien", "prix": "40 $", "cible": "PME 5-20 employés", "features": ["Simulations mensuelles", "Suivi individuel des clics", "Formation adaptative", "Rapport nominatif complet", "Support prioritaire"] },
+          { "nom": "Bouclier", "prix": "120 $", "cible": "PME 20-50 employés", "features": ["Simulations bi-mensuelles", "Scénarios personnalisés", "Suivi par département", "Rapport de conformité", "Consultant dédié"] },
+          { "nom": "Forteresse", "prix": "250 $", "cible": "Municipalités & MRC", "features": ["Simulations illimitées", "Multi-sites & multi-équipes", "Rapports exécutifs", "Tableau de bord centralisé", "SLA garanti"] }
+        ],
+        "contexte_titre": "Le verrou de Fort Duquesne",
+        "contexte_paragraphs": [
+          "En 1754, Pierre-Claude Pécaudy de Contrecoeur commande Fort Duquesne. Face à la progression britannique, il n'envoie pas d'abord des soldats — il envoie un émissaire. L'affaire Jumonville qui s'ensuit est l'un des premiers exemples documentés de manipulation tactique en Amérique du Nord : des messages apparemment officiels, des identités ambiguës, une situation fabriquée pour pousser l'adversaire à réagir sur de fausses prémisses. Le jeune George Washington signe même une capitulation rédigée en français qu'il ne comprend pas — admettant sans le savoir un « assassinat ».",
+          "Contrecoeur retourne cette tactique contre ceux qui l'utilisent aujourd'hui. Il simule des campagnes de phishing réalistes, teste vos employés avec de vrais scénarios d'ingénierie sociale, et transforme chaque tentative de manipulation en exercice de formation."
+        ],
+        "avantage_texte": "Selon la Banque de développement du Canada (BDC, 2025), 61 % des PME ont déjà été ciblées par des attaques d'hameçonnage. Chaque simulation Contrecœur génère un rapport nominatif complet : qui a cliqué, qui a soumis ses identifiants, qui a eu le bon réflexe de signaler l'attaque — avant que le véritable ennemi ne teste vos failles."
+      },
+      "berthier": {
+        "categorie_badge": "Analyseur de légitimité des courriels",
+        "disponibilite_badge": "Disponible fin 2026",
+        "tagline": "Aucun imposteur ne passe la guérite.",
+        "intro": "Analyseur de légitimité des courriels en temps réel. Berthier vérifie l'identité de l'expéditeur, l'authenticité du domaine et la signature cryptographique — avant que le message n'atteigne votre équipe.",
+        "tiers": [
+          { "nom": "Sentinelle", "prix": "30 $", "cible": "~1-5 personnes", "features": ["Filtrage SPF/DKIM/DMARC", "Blocage domaines suspects", "Rapport mensuel", "Dashboard simple"] },
+          { "nom": "Gardien", "prix": "40 $", "cible": "PME 5-20 employés", "features": ["Analyse avancée des en-têtes", "Détection d'usurpation d'identité", "Alertes en temps réel", "Rapport hebdomadaire", "Support prioritaire"] },
+          { "nom": "Bouclier", "prix": "115 $", "cible": "PME 20-50 employés", "features": ["Analyse comportementale", "Rapports d'activité détaillés", "Intégration messagerie d'entreprise", "Listes blanches gérées", "Consultant dédié"] },
+          { "nom": "Forteresse", "prix": "240 $", "cible": "Municipalités & MRC", "features": ["Tableau de bord multi-domaines", "Rapports exécutifs", "SLA de filtrage garanti", "Hébergement Québec (Loi 25)", "Zéro faux positifs critiques"] }
+        ],
+        "contexte_titre": "La guérite du Saint-Laurent",
+        "contexte_paragraphs": [
+          "La seigneurie de Berthier et son poste militaire sur le Saint-Laurent servaient de point de contrôle obligatoire sur la grande route fluviale de la Nouvelle-France. Marchands, messagers, soldats — tous devaient être identifiés avant de passer. Un laisser-passer compromis, un faux nom accepté, et c'est l'ensemble du réseau de communication colonial qui risquait d'être infiltré. La garnison de Berthier n'avait qu'une mission : distinguer l'allié de l'imposteur avant que la porte ne s'ouvre.",
+          "Berthier fait exactement ça pour votre boîte de réception. Chaque courriel entrant est un messager qui se présente à la porte — Berthier vérifie l'identité de l'expéditeur, l'authenticité du domaine, la validité de la signature cryptographique et la cohérence du routage, avant que le message n'atteigne jamais votre équipe. Les imposteurs sont bloqués à la guérite."
+        ],
+        "avantage_texte": "Berthier neutralise les cyberimposteurs en amont, directement à la racine de votre domaine DNS. Pas besoin d'entraîner vos employés, pas de changement dans vos habitudes de travail, et une configuration chirurgicale pour éliminer les faux positifs qui pourraient bloquer vos vrais clients."
+      },
+      "salieres": {
+        "categorie_badge": "Remédiation & réponse aux incidents",
+        "disponibilite_badge": "Disponible fin 2026",
+        "tagline": "Pas de négociation avec la Chimère.",
+        "intro": "Remédiation et réponse active aux incidents. Quand la brèche survient, Salières n'attend pas derrière le pare-feu — il isole, nettoie, restaure et documente chaque étape pour que ça ne se reproduise pas.",
+        "tiers": [
+          { "nom": "Sentinelle", "prix": "100 $", "cible": "~1-5 personnes", "features": ["Réponse aux incidents de base", "Isolation des systèmes touchés", "Rapport d'analyse post-incident", "Restauration guidée"] },
+          { "nom": "Gardien", "prix": "135 $", "cible": "PME 5-20 employés", "features": ["Isolation & nettoyage actif", "Restauration à partir de sauvegardes", "Rapport d'autopsie complet", "Recommandations de durcissement", "Support prioritaire"] },
+          { "nom": "Bouclier", "prix": "400 $", "cible": "PME 20-50 employés", "features": ["Restauration complète des systèmes", "Analyse forensique", "Plan de remédiation structuré", "Rapport de conformité Loi 25", "Consultant dédié"] },
+          { "nom": "Forteresse", "prix": "800 $", "cible": "Municipalités & MRC", "features": ["SLA de rétablissement garanti", "Réponse 24/7", "Multi-sites coordonné", "Rapport exécutif & légal", "Hébergement Québec (Loi 25)"] }
+        ],
+        "contexte_titre": "La contre-offensive du Richelieu",
+        "contexte_paragraphs": [
+          "Le Marquis de Salières ne s'est pas contenté de construire des forts. Quand les raids survenaient malgré les défenses, son régiment ne restait pas derrière les murs. En janvier et février 1666, les Carignan-Salières lancent des expéditions hivernales en territoire iroquois — la première doctrine de réponse active documentée en Amérique du Nord. Identifier la source, isoler la menace, neutraliser, remettre le territoire sous contrôle. Pas de négociation avec la Chimère.",
+          "Quand une brèche survient dans votre organisation — rançongiciel, données compromises, système infecté — Salières n'attend pas derrière le pare-feu. Il isole les machines touchées, nettoie les menaces actives, restaure les systèmes à partir de points de sauvegarde sains, et livre un rapport d'autopsie complet pour que ça ne se reproduise pas."
+        ],
+        "avantage_texte": "Une cyberattaque majeure peut paralyser une organisation pendant des semaines et engendrer des coûts de récupération dans les six chiffres. Salières transforme une crise potentiellement fatale en incident contenu, isolé et documenté — avec un temps de rétablissement mesuré en heures, pas en semaines."
+      },
+      "chaine_forts": {
+        "badge": "Suite Carignan — La doctrine",
+        "titre": "La force de la chaîne",
+        "sous_titre": "Un régiment ne gagne pas par sa taille. Il gagne par la précision de son dispositif.",
+        "narrative": [
+          "En 1665, le Régiment Carignan-Salières débarque en Nouvelle-France avec 1 200 soldats. Face à eux : des milliers de guerriers iroquois qui terrorisent les colonies depuis des années. Le déséquilibre de force est évident. Pourtant, en moins d'un an, le régiment rétablit la paix.",
+          "Leur secret n'est pas la bravoure aveugle — c'est l'architecture. Plutôt que de disperser ses hommes ou de chercher la confrontation directe, le régiment érige une chaîne de forts stratégiquement positionnés le long de la rivière Richelieu. Chaque fort couvre un secteur précis, surveille un angle mort et s'appuie sur ses voisins. Chaque maillon renforce le suivant. Ensemble, ils forment un périmètre sans faille qui coupe l'accès à toute la vallée du Saint-Laurent.",
+          "La force n'est pas dans chaque fort pris isolément. Elle est dans l'espacement, dans la coordination — dans le fait que chaque maillon surveille le suivant.",
+          "Suite Carignan s'inspire de cette doctrine. Pas une plateforme monolithique qui prétend tout faire. Cinq outils spécialisés, chacun maître de son périmètre cybersécurité, qui ensemble couvrent l'intégralité de votre surface d'attaque — de la vigie Dark Web jusqu'au contrôle des identités internes."
+        ],
+        "missions": [
+          "Vigie Dark Web — surveille les flux clandestins avant que la menace ne remonte le courant.",
+          "Simulation phishing & ingénierie sociale — teste vos défenses avant que l'ennemi ne le fasse.",
+          "Analyseur de légitimité des courriels — distingue l'allié de l'imposteur à la porte.",
+          "IAM — contrôle d'accès & identités — verrouille qui entre dans la forteresse et qui en sort.",
+          "Remédiation & réponse aux incidents — neutralise la menace, isole les systèmes, remet la forteresse sur pied."
+        ],
+        "statut_prod": "En prod.",
+        "statut_beta": "Accès anticipé"
+      },
+      "suite_carignan": {
+        "badge": "Suite Carignan",
+        "titre": "L'arsenal complet arrive.",
+        "texte": "D'autres outils de la Suite Carignan sont en développement actif. Accès restreint — zone de travaux.",
+        "acces_restreint": "Accès restreint",
+        "zone_travaux": "Zone de travaux",
+        "categories": [
+          "Simulation phishing & ingénierie sociale",
+          "Analyseur de légitimité des courriels",
+          "Remédiation & réponse aux incidents"
+        ]
+      },
       "cta_titre": "Vous souhaitez évaluer votre posture de sécurité ?",
       "cta_bouton": "Parler à notre équipe",
       "cta_portfolio": "Retour aux divisions"

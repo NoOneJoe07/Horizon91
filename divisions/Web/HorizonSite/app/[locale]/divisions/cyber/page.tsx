@@ -104,191 +104,83 @@ async function CyberServiceJsonLd() {
 type Service = { titre: string; desc: string };
 
 /* ─────────────────────────────────────────────────────────────
-   SAUREL — tiers tarifaires (données statiques, même en FR/EN/ES)
+   SAUREL / CHAMBLY — méta tarifaire statique (nom, prix, mise en avant)
+   Les champs traduisibles (cible, features) viennent de messages/*.json
    Saurel = Dark Web Monitoring SaaS (ex-Argos)
 ───────────────────────────────────────────────────────────────── */
-const SAUREL_TIERS = [
-  {
-    nom: "Sentinelle",
-    prix: "75 $",
-    unite: "/ mois",
-    cible: "Indépendants & petits commerces",
-    features: [
-      "Surveillance 1 domaine",
-      "Alertes fuites de données (email)",
-      "Rapport mensuel PDF",
-      "Dashboard en ligne",
-    ],
-    featured: false,
-    forteresse: false,
-  },
-  {
-    nom: "Gardien",
-    prix: "150 $",
-    unite: "/ mois",
-    cible: "PME & professionnels",
-    features: [
-      "Surveillance 3 domaines",
-      "Alertes temps réel (email + SMS)",
-      "Rapport hebdomadaire",
-      "Scan Dark Web en continu",
-      "Support prioritaire",
-    ],
-    featured: true,
-    forteresse: false,
-  },
-  {
-    nom: "Bouclier",
-    prix: "200 $",
-    unite: "/ mois",
-    cible: "Entreprises multi-sites",
-    features: [
-      "Surveillance 10 domaines",
-      "Alertes multi-canaux",
-      "Rapport bi-mensuel détaillé",
-      "Analyse de risque contextuelle",
-      "Consultant dédié",
-    ],
-    featured: false,
-    forteresse: false,
-  },
-  {
-    nom: "Forteresse",
-    prix: "350 $",
-    unite: "/ mois",
-    cible: "Municipalités & MRC",
-    features: [
-      "Domaines illimités",
-      "Tableau de bord multi-entités",
-      "Rapport exécutif mensuel",
-      "Réponse aux incidents incluse",
-      "Données hébergées au Québec (Loi 25)",
-    ],
-    featured: false,
-    forteresse: true,
-  },
+const SAUREL_META = [
+  { nom: "Sentinelle", prix: "75 $", featured: false, forteresse: false },
+  { nom: "Gardien", prix: "150 $", featured: true, forteresse: false },
+  { nom: "Bouclier", prix: "200 $", featured: false, forteresse: false },
+  { nom: "Forteresse", prix: "350 $", featured: false, forteresse: true },
 ];
 
-/* ─────────────────────────────────────────────────────────────
-   CHAMBLY — tiers tarifaires (IAM / Contrôle d'accès & identités)
-   Paliers unifiés Suite Carignan : Sentinelle/Gardien/Bouclier/Forteresse
-───────────────────────────────────────────────────────────────── */
-const CHAMBLY_TIERS = [
-  {
-    nom: "Sentinelle",
-    prix: "55 $",
-    unite: "/ mois",
-    cible: "Très petites équipes (~1-5 personnes)",
-    features: [
-      "Jusqu'à 5 comptes",
-      "Gestion des rôles de base (RBAC)",
-      "Tableau de bord des accès",
-      "Rapport mensuel d'activité",
-    ],
-    featured: false,
-    forteresse: false,
-  },
-  {
-    nom: "Gardien",
-    prix: "200 $",
-    unite: "/ mois",
-    cible: "PME 5-20 employés",
-    features: [
-      "Jusqu'à 20 comptes",
-      "RBAC complet & politiques granulaires",
-      "Journaux d'audit en temps réel",
-      "Alertes de connexions suspectes",
-      "Support prioritaire",
-    ],
-    featured: true,
-    forteresse: false,
-  },
-  {
-    nom: "Bouclier",
-    prix: "400 $",
-    unite: "/ mois",
-    cible: "PME 20-50 employés",
-    features: [
-      "Jusqu'à 50 comptes",
-      "IAM avancé & intégrations AD/LDAP",
-      "Rapports de conformité Loi 25",
-      "Révision des accès automatisée",
-      "Consultant dédié",
-    ],
-    featured: false,
-    forteresse: false,
-  },
-  {
-    nom: "Forteresse",
-    prix: "1 250 $",
-    unite: "/ mois",
-    cible: "Municipalités & MRC",
-    features: [
-      "Comptes illimités",
-      "Gouvernance des identités complète",
-      "Hébergement Québec (Loi 25)",
-      "Réponse aux incidents incluse",
-      "Rapport exécutif mensuel",
-    ],
-    featured: false,
-    forteresse: true,
-  },
+/* Paliers unifiés Suite Carignan : Sentinelle/Gardien/Bouclier/Forteresse */
+const CHAMBLY_META = [
+  { nom: "Sentinelle", prix: "55 $", featured: false, forteresse: false },
+  { nom: "Gardien", prix: "200 $", featured: true, forteresse: false },
+  { nom: "Bouclier", prix: "400 $", featured: false, forteresse: false },
+  { nom: "Forteresse", prix: "1 250 $", featured: false, forteresse: true },
 ];
 
 /* ─────────────────────────────────────────────────────────────
    SUITE CARIGNAN — produits à venir (blurred / zone de travaux)
+   nom = identité produit (non traduit), categorie vient des messages
 ───────────────────────────────────────────────────────────────── */
-const SUITE_CARIGNAN = [
-  { nom: "Contrecoeur", categorie: "Simulation phishing & ingénierie sociale" },
-  { nom: "Berthier",    categorie: "Analyseur de légitimité des courriels" },
-  { nom: "Salières",    categorie: "Remédiation & réponse aux incidents" },
-];
+const SUITE_CARIGNAN_NOMS = ["Contrecoeur", "Berthier", "Salières"];
 
 /* ─────────────────────────────────────────────────────────────
    LA CHAÎNE DES 5 FORTS — lore Carignan-Salières
+   fort/produit = identité (non traduits), mission vient des messages
 ───────────────────────────────────────────────────────────────── */
-const CHAINE_FORTS = [
-  {
-    fort: "Fort Saurel",
-    produit: "Saurel",
-    mission: "Vigie Dark Web — surveille les flux clandestins avant que la menace ne remonte le courant.",
-    statut: "production" as const,
-    accentColor: "#203478",
-  },
-  {
-    fort: "Fort Contrecoeur",
-    produit: "Contrecoeur",
-    mission: "Simulation phishing & ingénierie sociale — teste vos défenses avant que l'ennemi ne le fasse.",
-    statut: "dev" as const,
-    accentColor: "#203478",
-  },
-  {
-    fort: "Berthier",
-    produit: "Berthier",
-    mission: "Analyseur de légitimité des courriels — distingue l'allié de l'imposteur à la porte.",
-    statut: "dev" as const,
-    accentColor: "#203478",
-  },
-  {
-    fort: "Fort Chambly",
-    produit: "Chambly",
-    mission: "IAM — contrôle d'accès & identités — verrouille qui entre dans la forteresse et qui en sort.",
-    statut: "beta" as const,
-    accentColor: "#203478",
-  },
-  {
-    fort: "Fort Salières",
-    produit: "Salières",
-    mission: "Remédiation & réponse aux incidents — neutralise la menace, isole les systèmes, remet la forteresse sur pied.",
-    statut: "dev" as const,
-    accentColor: "#203478",
-  },
+const CHAINE_FORTS_META = [
+  { fort: "Fort Saurel", produit: "Saurel", statut: "production" as const, accentColor: "#203478" },
+  { fort: "Fort Contrecoeur", produit: "Contrecoeur", statut: "dev" as const, accentColor: "#203478" },
+  { fort: "Berthier", produit: "Berthier", statut: "dev" as const, accentColor: "#203478" },
+  { fort: "Fort Chambly", produit: "Chambly", statut: "beta" as const, accentColor: "#203478" },
+  { fort: "Fort Salières", produit: "Salières", statut: "dev" as const, accentColor: "#203478" },
 ];
+
+type Stat = { chiffre: string; titre: string; texte: string };
+type DevTier = { nom: string; prix: string; cible: string; features: string[] };
+type GalleryItem = { alt: string; caption: string };
 
 export default function DivisionCyberPage() {
   const t = useTranslations("divisions.divisionCyber");
   const tBrand = useTranslations("brand");
   const services = t.raw("services") as Service[];
+
+  const heritageTexte = t.raw("heritage_texte") as string[];
+  const stats = t.raw("stats") as Stat[];
+  const gallery = t.raw("heritage_gallery") as GalleryItem[];
+
+  const tuiRecommande = t("tiers_ui.recommande");
+  const tuiDemarrer = t("tiers_ui.demarrer");
+  const tuiAccesAnticipe = t("tiers_ui.acces_anticipe");
+  const tuiNousContacter = t("tiers_ui.nous_contacter");
+  const tuiRejoindreListe = t("tiers_ui.rejoindre_liste");
+  const tuiUniteMois = t("tiers_ui.unite_mois");
+  const tuiTarifsIndicatifs = t("tiers_ui.tarifs_indicatifs");
+  const tuiContexteBadge = t("tiers_ui.contexte_badge");
+  const avantageTitre = t("heritage_avantage_titre");
+
+  const saurelCibles = t.raw("saurel.tiers_cible") as string[];
+  const saurelFeatures = t.raw("saurel.tiers_features") as string[][];
+  const SAUREL_TIERS = SAUREL_META.map((m, i) => ({ ...m, unite: tuiUniteMois, cible: saurelCibles[i], features: saurelFeatures[i] }));
+
+  const chamblyCibles = t.raw("chambly.tiers_cible") as string[];
+  const chamblyFeatures = t.raw("chambly.tiers_features") as string[][];
+  const CHAMBLY_TIERS = CHAMBLY_META.map((m, i) => ({ ...m, unite: tuiUniteMois, cible: chamblyCibles[i], features: chamblyFeatures[i] }));
+
+  const contrecoeurTiers = t.raw("contrecoeur.tiers") as DevTier[];
+  const berthierTiers = t.raw("berthier.tiers") as DevTier[];
+  const salieresTiers = t.raw("salieres.tiers") as DevTier[];
+
+  const chaineMissions = t.raw("chaine_forts.missions") as string[];
+  const CHAINE_FORTS = CHAINE_FORTS_META.map((m, i) => ({ ...m, mission: chaineMissions[i] }));
+
+  const suiteCarignanCategories = t.raw("suite_carignan.categories") as string[];
+  const SUITE_CARIGNAN = SUITE_CARIGNAN_NOMS.map((nom, i) => ({ nom, categorie: suiteCarignanCategories[i] }));
 
   return (
     <>
@@ -395,70 +287,36 @@ export default function DivisionCyberPage() {
           {/* Narratif historique */}
           <div className="mb-14">
             <span className="inline-block text-xs font-bold px-3 py-1.5 rounded-full bg-h91-accretion/10 text-h91-accretion border border-h91-accretion/30 mb-6 uppercase tracking-widest">
-              L&apos;héritage
+              {t("heritage_badge")}
             </span>
             <h2 className="text-2xl md:text-3xl font-bold mb-6 whitespace-nowrap text-center" style={{ color: "#1D1D1B" }}>
-              L&apos;architecture défensive de votre empire numérique
+              {t("heritage_titre")}
             </h2>
 
             {/* Photos d'archives — Bataille de Carillon — cliquez pour agrandir */}
             <DivisionPhotoGallery
               accentColor="#203478"
               photos={[
-                {
-                  src: "/photos_images/British at Carillon.webp",
-                  alt: "Troupes britanniques à Carillon — Bataille de 1758",
-                  caption: "Troupes britanniques marchant sur Fort Carillon — 1758",
-                  objectPosition: "center center",
-                },
-                {
-                  src: "/photos_images/The_Victory_of_Montcalms_Troops_at_Carillon_by_Henry_Alexander_OgdenAAA.jpg",
-                  alt: "La victoire des troupes de Montcalm à Carillon — Henry Alexander Ogden",
-                  caption: "La victoire de Montcalm à Carillon (1758) — Henry Alexander Ogden",
-                  objectPosition: "center 70%",
-                },
-                {
-                  src: "/photos_images/Carillon_map.jpg",
-                  alt: "Carte stratégique du Fort Carillon — 1758",
-                  caption: "Carte stratégique du Fort Carillon, 1758",
-                  objectPosition: "center center",
-                },
-                {
-                  src: "/photos_images/Fort_Carillon_1.jpg",
-                  alt: "Fort Carillon — vue aérienne, lac Champlain",
-                  caption: "Fort Carillon — vue aérienne (aujourd'hui Fort Ticonderoga)",
-                  objectPosition: "center center",
-                },
+                { src: "/photos_images/British at Carillon.webp", alt: gallery[0].alt, caption: gallery[0].caption, objectPosition: "center center" },
+                { src: "/photos_images/The_Victory_of_Montcalms_Troops_at_Carillon_by_Henry_Alexander_OgdenAAA.jpg", alt: gallery[1].alt, caption: gallery[1].caption, objectPosition: "center 70%" },
+                { src: "/photos_images/Carillon_map.jpg", alt: gallery[2].alt, caption: gallery[2].caption, objectPosition: "center center" },
+                { src: "/photos_images/Fort_Carillon_1.jpg", alt: gallery[3].alt, caption: gallery[3].caption, objectPosition: "center center" },
               ]}
             />
             <p className="text-xs text-center mb-8 italic" style={{ color: "rgba(29,29,27,0.30)" }}>
-              Archives historiques — Fort Carillon (Fort Ticonderoga), Bataille de 1758
+              {t("heritage_photo_caption")}
             </p>
 
             <div className="space-y-5 text-lg leading-relaxed" style={{ color: "rgba(29,29,27,0.70)" }}>
-              <p>
-                En 1758, lors de la célèbre bataille du Fort Carillon, une armée de 3 600 soldats
-                et miliciens d&apos;ici a repoussé avec succès une force d&apos;invasion de 15 000 hommes.
-                Comment ? Grâce à une architecture défensive géniale — des abatis de bois
-                stratégiquement positionnés — et une discipline de fer. Carillon est le symbole
-                historique de la résistance intelligente face à un adversaire disproportionné.
-              </p>
-              <p>
-                Dans le monde numérique, votre entreprise est attaquée chaque jour par des menaces
-                automatisées invisibles. La Division Carillon érige les murailles fortifiées autour
-                de vos données, de vos serveurs et de vos applications. Nous concevons une
-                architecture cyber sur mesure pour que votre entreprise reste un fort imprenable
-                — peu importe la taille de la menace.
-              </p>
+              {heritageTexte.map((p, i) => (
+                <p key={i}>{p}</p>
+              ))}
               <div className="mt-2 p-6 rounded-xl" style={{ border: "1px solid rgba(32,52,120,0.25)", backgroundColor: "rgba(32,52,120,0.06)" }}>
                 <p className="font-bold text-sm uppercase tracking-widest mb-3" style={{ color: "#203478" }}>
-                  L&apos;avantage Étoile Boréale
+                  {avantageTitre}
                 </p>
                 <p>
-                  La Division Carillon ne fait pas que surveiller vos serveurs — elle documente
-                  et structure votre gouvernance de données. Conformité Loi 25, politiques de
-                  confidentialité, registres d&apos;accès : en cas de contrôle, vous avez la preuve
-                  écrite que votre fort était défendu selon les règles de l&apos;art.
+                  {t("heritage_avantage_texte")}
                 </p>
               </div>
             </div>
@@ -467,28 +325,18 @@ export default function DivisionCyberPage() {
           {/* Saviez-vous que ? */}
           <div className="rounded-2xl p-8" style={{ border: "1px solid rgba(32,52,120,0.20)", backgroundColor: "#E3E6EF" }}>
             <h3 className="font-bold text-sm uppercase tracking-widest mb-8 flex items-center gap-3" style={{ color: "#203478" }}>
-              <span className="text-xl">💡</span> Saviez-vous que ?
+              <span className="text-xl">💡</span> {t("stats_badge")}
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="p-5 rounded-xl" style={{ backgroundColor: "#FFFFFF", border: "1px solid rgba(32,52,120,0.20)" }}>
-                <p className="font-bold text-4xl mb-2" style={{ color: "#203478" }}>40 %</p>
-                <p className="font-semibold text-sm mb-3" style={{ color: "#1D1D1B" }}>Des cyberattaques visent les PME</p>
-                <p className="text-sm leading-relaxed" style={{ color: "rgba(29,29,27,0.60)" }}>
-                  Contrairement aux idées reçues, Statistique Canada rapporte que près de 40 % des
-                  cyberattaques visent directement les petites et moyennes entreprises. Vous n&apos;êtes
-                  pas trop petit pour être piraté — vous êtes simplement moins protégé.
-                </p>
-              </div>
-              <div className="p-5 rounded-xl" style={{ backgroundColor: "#FFFFFF", border: "1px solid rgba(32,52,120,0.20)" }}>
-                <p className="font-bold text-4xl mb-2" style={{ color: "#203478" }}>73 %</p>
-                <p className="font-semibold text-sm mb-3" style={{ color: "#1D1D1B" }}>Des PME canadiennes ont subi un incident</p>
-                <p className="text-sm leading-relaxed" style={{ color: "rgba(29,29,27,0.60)" }}>
-                  Selon la Banque de développement du Canada (BDC, 2025), 73 % des PME canadiennes
-                  ont déjà subi un incident de cybersécurité — dont 61 % ciblées spécifiquement par
-                  du phishing par courriel. Nous ne vendons pas de la peur, nous coulons votre
-                  sécurité dans le béton.
-                </p>
-              </div>
+              {stats.map((stat, i) => (
+                <div key={i} className="p-5 rounded-xl" style={{ backgroundColor: "#FFFFFF", border: "1px solid rgba(32,52,120,0.20)" }}>
+                  <p className="font-bold text-4xl mb-2" style={{ color: "#203478" }}>{stat.chiffre}</p>
+                  <p className="font-semibold text-sm mb-3" style={{ color: "#1D1D1B" }}>{stat.titre}</p>
+                  <p className="text-sm leading-relaxed" style={{ color: "rgba(29,29,27,0.60)" }}>
+                    {stat.texte}
+                  </p>
+                </div>
+              ))}
             </div>
           </div>
 
@@ -504,18 +352,16 @@ export default function DivisionCyberPage() {
           {/* En-tête */}
           <div className="text-center mb-16">
             <span className="inline-block text-xs font-bold px-3 py-1.5 rounded-full bg-h91-accretion/10 text-h91-accretion border border-h91-accretion/30 mb-6 uppercase tracking-widest">
-              Produit phare — SaaS
+              {t("saurel.badge")}
             </span>
             <h2 className="text-6xl md:text-7xl font-bold mb-5 tracking-tight" style={{ color: "#1D1D1B" }}>
               SAUREL
             </h2>
             <p className="font-semibold text-lg md:text-xl italic max-w-2xl mx-auto mb-5" style={{ color: "#203478" }}>
-              La vigie numérique des PME.
+              {t("saurel.tagline")}
             </p>
             <p className="text-base max-w-2xl mx-auto leading-relaxed" style={{ color: "rgba(29,29,27,0.65)" }}>
-              Surveillance du Dark Web en temps réel. Saurel scanne en continu les marchés
-              clandestins, forums et fuites de données pour vous alerter dès que vos
-              informations apparaissent — avant que les dommages soient faits.
+              {t("saurel.intro")}
             </p>
           </div>
 
@@ -535,7 +381,7 @@ export default function DivisionCyberPage() {
               >
                 {tier.featured && (
                   <span className="absolute -top-4 left-1/2 -translate-x-1/2 text-h91-gravity text-xs font-bold px-4 py-1 rounded-full uppercase tracking-widest whitespace-nowrap" style={{ backgroundColor: "#203478", color: "#F4F4F0" }}>
-                    Recommandé
+                    {tuiRecommande}
                   </span>
                 )}
 
@@ -583,7 +429,7 @@ export default function DivisionCyberPage() {
                       : { border: "1px solid rgba(32,52,120,0.40)", color: "#203478" }
                   }
                 >
-                  Démarrer
+                  {tuiDemarrer}
                 </Link>
               </div>
             ))}
@@ -600,63 +446,37 @@ export default function DivisionCyberPage() {
           {/* Contexte historique */}
           <div className="mb-10">
             <span className="inline-block text-xs font-bold px-3 py-1.5 rounded-full bg-h91-accretion/10 text-h91-accretion border border-h91-accretion/30 mb-6 uppercase tracking-widest">
-              Le contexte historique
+              {tuiContexteBadge}
             </span>
             <h3 className="text-2xl md:text-3xl font-bold mb-6" style={{ color: "#1D1D1B" }}>
-              Le Verrou du Richelieu
+              {t("saurel.contexte_titre")}
             </h3>
             <div className="space-y-5 text-lg leading-relaxed" style={{ color: "rgba(29,29,27,0.70)" }}>
-              <p>
-                En 1665, Pierre de Saurel, capitaine au régiment de Carignan-Salières, érige le
-                Fort Saurel à l&apos;embouchure de la rivière Richelieu. À cette époque, cette rivière
-                est l&apos;autoroute des invasions. Le mandat du fort est crucial : agir comme une
-                sentinelle avancée, bloquer les incursions surprises et verrouiller l&apos;accès au
-                fleuve Saint-Laurent pour protéger les colonies naissantes. Les soldats qui y
-                montaient la garde devaient déceler la moindre anomalie sur l&apos;eau ou dans les bois
-                avant qu&apos;elle ne devienne une menace fatale.
-              </p>
-              <p>
-                Tout comme le fort historique surveillait l&apos;autoroute fluviale pour protéger la
-                Nouvelle-France, le SaaS Saurel agit comme le verrou stratégique de votre
-                entreprise. C&apos;est une plateforme de monitoring intelligente qui surveille les flux
-                de données, les performances et les angles morts opérationnels des PME. Il élimine
-                l&apos;effet de surprise : avant qu&apos;une faille, un bug ou une baisse de performance ne
-                vienne couler votre modèle d&apos;affaires, Saurel a déjà sonné l&apos;alarme.
-              </p>
+              {(t.raw("saurel.contexte_paragraphs") as string[]).map((p, i) => (
+                <p key={i}>{p}</p>
+              ))}
             </div>
           </div>
 
           {/* Les Sentinelles */}
           <div className="mb-10 p-7 rounded-2xl" style={{ border: "1px solid rgba(32,52,120,0.20)", backgroundColor: "#E3E6EF" }}>
             <h3 className="text-xl font-bold mb-4" style={{ color: "#1D1D1B" }}>
-              Que font les Sentinelles de Saurel ?
+              {t("saurel.sentinelles_titre")}
             </h3>
             <div className="space-y-4 text-base leading-relaxed" style={{ color: "rgba(29,29,27,0.70)" }}>
-              <p>
-                Dans le logiciel, les Sentinelles sont vos agents automatisés — vos scripts de
-                surveillance, vos alertes de serveurs, vos traqueurs de bases de données. Les
-                Sentinelles ne dorment jamais. Elles veillent au grain 24h/24 sur la santé
-                numérique de votre PME.
-              </p>
-              <p>
-                Elles scannent l&apos;horizon, détectent les anomalies de performance, valident
-                l&apos;intégrité des données et s&apos;assurent que la forteresse business roule à pleine
-                capacité. Si une Sentinelle repère un comportement anormal, elle isole la menace
-                et vous transmet un rapport clair pour que vous puissiez agir avant l&apos;impact.
-              </p>
+              {(t.raw("saurel.sentinelles_paragraphs") as string[]).map((p, i) => (
+                <p key={i}>{p}</p>
+              ))}
             </div>
           </div>
 
           {/* Avantage Boréale */}
           <div className="p-6 rounded-xl" style={{ border: "1px solid rgba(32,52,120,0.25)", backgroundColor: "rgba(32,52,120,0.06)" }}>
             <p className="font-bold text-sm uppercase tracking-widest mb-3" style={{ color: "#203478" }}>
-              L&apos;avantage Étoile Boréale
+              {avantageTitre}
             </p>
             <p className="text-lg leading-relaxed" style={{ color: "rgba(29,29,27,0.70)" }}>
-              Avec Saurel, vous n&apos;attendez pas que la crise frappe pour colmater les
-              brèches. Nos Sentinelles numériques surveillent vos arrières en continu,
-              transformant le chaos imprévisible du web en une trajectoire stable, sécurisée
-              et entièrement sous contrôle.
+              {t("saurel.avantage_texte")}
             </p>
           </div>
 
@@ -673,22 +493,20 @@ export default function DivisionCyberPage() {
           <div className="text-center mb-16">
             <div className="flex items-center justify-center gap-3 mb-6">
               <span className="inline-block text-xs font-bold px-3 py-1.5 rounded-full bg-h91-accretion/10 text-h91-accretion border border-h91-accretion/30 uppercase tracking-widest">
-                Produit — IAM / Contrôle d&apos;accès
+                {t("chambly.produit_badge")}
               </span>
               <span className="inline-block text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-widest" style={{ backgroundColor: "rgba(201,168,76,0.15)", color: "#C9A84C", border: "1px solid rgba(201,168,76,0.40)" }}>
-                Accès anticipé
+                {t("chambly.acces_anticipe_badge")}
               </span>
             </div>
             <h2 className="text-6xl md:text-7xl font-bold mb-5 tracking-tight" style={{ color: "#1D1D1B" }}>
               CHAMBLY
             </h2>
             <p className="font-semibold text-lg md:text-xl italic max-w-2xl mx-auto mb-5" style={{ color: "#203478" }}>
-              Qui entre dans la forteresse — et qui en sort.
+              {t("chambly.tagline")}
             </p>
             <p className="text-base max-w-2xl mx-auto leading-relaxed" style={{ color: "rgba(29,29,27,0.65)" }}>
-              Contrôle d&apos;accès basé sur les rôles (RBAC), gestion des identités et journaux
-              d&apos;audit. Chambly verrouille chaque point d&apos;entrée de votre organisation — parce
-              qu&apos;une brèche commence presque toujours de l&apos;intérieur.
+              {t("chambly.intro")}
             </p>
           </div>
 
@@ -708,7 +526,7 @@ export default function DivisionCyberPage() {
               >
                 {tier.featured && (
                   <span className="absolute -top-4 left-1/2 -translate-x-1/2 text-xs font-bold px-4 py-1 rounded-full uppercase tracking-widest whitespace-nowrap" style={{ backgroundColor: "#203478", color: "#F4F4F0" }}>
-                    Recommandé
+                    {tuiRecommande}
                   </span>
                 )}
 
@@ -758,7 +576,7 @@ export default function DivisionCyberPage() {
                       : { border: "1px solid rgba(32,52,120,0.40)", color: "#203478" }
                   }
                 >
-                  {tier.forteresse ? "Nous contacter" : "Accès anticipé →"}
+                  {tier.forteresse ? tuiNousContacter : tuiAccesAnticipe}
                 </Link>
               </div>
             ))}
@@ -775,62 +593,37 @@ export default function DivisionCyberPage() {
           {/* Contexte historique */}
           <div className="mb-10">
             <span className="inline-block text-xs font-bold px-3 py-1.5 rounded-full bg-h91-accretion/10 text-h91-accretion border border-h91-accretion/30 mb-6 uppercase tracking-widest">
-              Le contexte historique
+              {tuiContexteBadge}
             </span>
             <h3 className="text-2xl md:text-3xl font-bold mb-6" style={{ color: "#1D1D1B" }}>
-              Les guérites du Fort Chambly
+              {t("chambly.contexte_titre")}
             </h3>
             <div className="space-y-5 text-lg leading-relaxed" style={{ color: "rgba(29,29,27,0.70)" }}>
-              <p>
-                En 1665, le capitaine Jacques de Chambly érige un premier fort en bois aux rapides
-                de la rivière Richelieu. Rebâti en pierre entre 1709 et 1711, le Fort Chambly
-                devient l&apos;un des ouvrages défensifs les mieux préservés de la Nouvelle-France.
-                Sa particularité : quatre guérites d&apos;angle, une à chaque coin du fort, qui
-                permettaient aux soldats de surveiller simultanément chaque approche — aucun angle
-                mort, aucune zone non gardée.
-              </p>
-              <p>
-                Ce principe de contrôle total des points d&apos;accès est au cœur de Chambly (le
-                produit). Chaque utilisateur de votre organisation est une porte. Chaque rôle est
-                une clé. Le logiciel Chambly veille sur chacun de ces points d&apos;entrée en temps
-                réel — parce qu&apos;une brèche de sécurité commence presque toujours par un accès
-                mal géré, une permission trop large ou une identité compromise de l&apos;intérieur.
-              </p>
+              {(t.raw("chambly.contexte_paragraphs") as string[]).map((p, i) => (
+                <p key={i}>{p}</p>
+              ))}
             </div>
           </div>
 
           {/* Que font les guérites */}
           <div className="mb-10 p-7 rounded-2xl" style={{ border: "1px solid rgba(32,52,120,0.20)", backgroundColor: "#E3E6EF" }}>
             <h3 className="text-xl font-bold mb-4" style={{ color: "#1D1D1B" }}>
-              Que contrôlent les guérites de Chambly ?
+              {t("chambly.guerites_titre")}
             </h3>
             <div className="space-y-4 text-base leading-relaxed" style={{ color: "rgba(29,29,27,0.70)" }}>
-              <p>
-                Chaque guérite surveille un angle stratégique : <strong>qui se connecte</strong>,
-                <strong> depuis où</strong>, <strong>à quoi ils accèdent</strong> et <strong>à
-                quelle heure</strong>. Si un comportement sort du profil habituel d&apos;un
-                utilisateur — nouvelle localisation, heure inhabituelle, tentative d&apos;accès à
-                un dossier restreint — Chambly déclenche une alerte immédiate.
-              </p>
-              <p>
-                Le principe RBAC (Role-Based Access Control) garantit que chaque membre de votre
-                équipe accède uniquement à ce dont il a besoin pour son rôle — ni plus, ni moins.
-                La surface d&apos;attaque se réduit. L&apos;audit devient automatique. La conformité
-                à la Loi 25 est documentée à chaque étape.
-              </p>
+              {(t.raw("chambly.guerites_paragraphs") as string[]).map((p, i) => (
+                <p key={i}>{p}</p>
+              ))}
             </div>
           </div>
 
           {/* Avantage Boréale */}
           <div className="p-6 rounded-xl" style={{ border: "1px solid rgba(32,52,120,0.25)", backgroundColor: "rgba(32,52,120,0.06)" }}>
             <p className="font-bold text-sm uppercase tracking-widest mb-3" style={{ color: "#203478" }}>
-              L&apos;avantage Étoile Boréale
+              {avantageTitre}
             </p>
             <p className="text-lg leading-relaxed" style={{ color: "rgba(29,29,27,0.70)" }}>
-              Chambly ne se contente pas de gérer les accès — il documente chaque décision.
-              En cas d&apos;audit Loi 25 ou d&apos;incident de sécurité, vous disposez d&apos;une
-              traçabilité complète, horodatée et exportable. Vos guérites n&apos;ont jamais
-              dormi.
+              {t("chambly.avantage_texte")}
             </p>
           </div>
 
@@ -847,48 +640,45 @@ export default function DivisionCyberPage() {
           <div className="text-center mb-16">
             <div className="flex items-center justify-center gap-3 mb-6">
               <span className="inline-block text-xs font-bold px-3 py-1.5 rounded-full bg-h91-accretion/10 text-h91-accretion border border-h91-accretion/30 uppercase tracking-widest">
-                Simulation phishing &amp; ingénierie sociale
+                {t("contrecoeur.categorie_badge")}
               </span>
               <span className="inline-block text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-widest" style={{ backgroundColor: "rgba(32,52,120,0.10)", color: "#203478", border: "1px solid rgba(32,52,120,0.25)" }}>
-                Disponible fin 2026
+                {t("contrecoeur.disponibilite_badge")}
               </span>
             </div>
             <h2 className="text-6xl md:text-7xl font-bold mb-5 tracking-tight" style={{ color: "#1D1D1B" }}>CONTRECOEUR</h2>
             <p className="font-semibold text-lg md:text-xl italic max-w-2xl mx-auto mb-5" style={{ color: "#203478" }}>
-              La meilleure défense contre la tromperie, c&apos;est de l&apos;avoir déjà vue.
+              {t("contrecoeur.tagline")}
             </p>
             <p className="text-base max-w-2xl mx-auto leading-relaxed" style={{ color: "rgba(29,29,27,0.65)" }}>
-              Simulation de campagnes de phishing réalistes et formation en ingénierie sociale.
-              Contrecoeur teste vos employés avec de vrais scénarios avant que le véritable
-              ennemi ne le fasse — chaque tentative devient un exercice de formation.
+              {t("contrecoeur.intro")}
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
-            {[
-              { nom: "Sentinelle", prix: "25 $", cible: "~1-5 personnes", features: ["1 simulation / trimestre", "Rapport de résultats", "Module de formation de base", "Tableau de bord équipe"], featured: false, forteresse: false },
-              { nom: "Gardien",    prix: "40 $", cible: "PME 5-20 employés", features: ["Simulations mensuelles", "Suivi individuel des clics", "Formation adaptative", "Rapport nominatif complet", "Support prioritaire"], featured: true, forteresse: false },
-              { nom: "Bouclier",   prix: "120 $", cible: "PME 20-50 employés", features: ["Simulations bi-mensuelles", "Scénarios personnalisés", "Suivi par département", "Rapport de conformité", "Consultant dédié"], featured: false, forteresse: false },
-              { nom: "Forteresse", prix: "250 $", cible: "Municipalités & MRC", features: ["Simulations illimitées", "Multi-sites & multi-équipes", "Rapports exécutifs", "Tableau de bord centralisé", "SLA garanti"], featured: false, forteresse: true },
-            ].map((tier, i) => (
+            {contrecoeurTiers.map((tier, i) => {
+              const featured = i === 1;
+              const forteresse = i === 3;
+              return (
               <div key={i} className="relative p-6 rounded-xl flex flex-col gap-4 transition card-lift"
-                style={tier.featured ? { backgroundColor: "#FFFFFF", border: "2px solid #203478" } : tier.forteresse ? { backgroundColor: "#FFFFFF", border: "1px solid rgba(201,168,76,0.40)" } : { backgroundColor: "#FFFFFF", border: "1px solid rgba(32,52,120,0.20)" }}>
-                {tier.featured && <span className="absolute -top-4 left-1/2 -translate-x-1/2 text-xs font-bold px-4 py-1 rounded-full uppercase tracking-widest whitespace-nowrap" style={{ backgroundColor: "#203478", color: "#F4F4F0" }}>Recommandé</span>}
+                style={featured ? { backgroundColor: "#FFFFFF", border: "2px solid #203478" } : forteresse ? { backgroundColor: "#FFFFFF", border: "1px solid rgba(201,168,76,0.40)" } : { backgroundColor: "#FFFFFF", border: "1px solid rgba(32,52,120,0.20)" }}>
+                {featured && <span className="absolute -top-4 left-1/2 -translate-x-1/2 text-xs font-bold px-4 py-1 rounded-full uppercase tracking-widest whitespace-nowrap" style={{ backgroundColor: "#203478", color: "#F4F4F0" }}>{tuiRecommande}</span>}
                 <div>
-                  <h3 className="text-xl font-bold" style={{ color: tier.featured ? "#203478" : tier.forteresse ? "#C9A84C" : "#1D1D1B" }}>{tier.nom}</h3>
+                  <h3 className="text-xl font-bold" style={{ color: featured ? "#203478" : forteresse ? "#C9A84C" : "#1D1D1B" }}>{tier.nom}</h3>
                   <p className="text-xs mt-1" style={{ color: "rgba(29,29,27,0.50)" }}>{tier.cible}</p>
                 </div>
-                <p className="text-3xl font-extrabold" style={{ color: tier.featured ? "#203478" : tier.forteresse ? "#C9A84C" : "#1D1D1B" }}>{tier.prix} <span className="text-sm font-normal" style={{ color: "rgba(29,29,27,0.50)" }}>/ mois</span></p>
+                <p className="text-3xl font-extrabold" style={{ color: featured ? "#203478" : forteresse ? "#C9A84C" : "#1D1D1B" }}>{tier.prix} <span className="text-sm font-normal" style={{ color: "rgba(29,29,27,0.50)" }}>{tuiUniteMois}</span></p>
                 <ul className="flex flex-col gap-2 flex-1">
                   {tier.features.map((f, fi) => <li key={fi} className="flex items-start gap-2 text-sm" style={{ color: "rgba(29,29,27,0.70)" }}><span className="mt-0.5 shrink-0" style={{ color: "#203478" }}>✓</span><span>{f}</span></li>)}
                 </ul>
                 <Link href="/rejoindre" className="mt-2 block text-center py-3 rounded-lg font-bold text-sm transition"
-                  style={tier.featured ? { backgroundColor: "#203478", color: "#F4F4F0" } : tier.forteresse ? { border: "1px solid rgba(201,168,76,0.50)", color: "#C9A84C" } : { border: "1px solid rgba(32,52,120,0.40)", color: "#203478" }}>
-                  {tier.forteresse ? "Nous contacter" : "Rejoindre la liste →"}
+                  style={featured ? { backgroundColor: "#203478", color: "#F4F4F0" } : forteresse ? { border: "1px solid rgba(201,168,76,0.50)", color: "#C9A84C" } : { border: "1px solid rgba(32,52,120,0.40)", color: "#203478" }}>
+                  {forteresse ? tuiNousContacter : tuiRejoindreListe}
                 </Link>
               </div>
-            ))}
+              );
+            })}
           </div>
-          <p className="text-center mt-5 text-xs italic" style={{ color: "rgba(29,29,27,0.40)" }}>Tarifs indicatifs — forfait par organisation, pas par utilisateur</p>
+          <p className="text-center mt-5 text-xs italic" style={{ color: "rgba(29,29,27,0.40)" }}>{tuiTarifsIndicatifs}</p>
         </div>
       </section>
 
@@ -896,34 +686,18 @@ export default function DivisionCyberPage() {
       <section className="py-20 px-6" style={{ backgroundColor: "#FFFFFF" }}>
         <div className="max-w-4xl mx-auto">
           <span className="inline-block text-xs font-bold px-3 py-1.5 rounded-full bg-h91-accretion/10 text-h91-accretion border border-h91-accretion/30 mb-6 uppercase tracking-widest">
-            Le contexte historique
+            {tuiContexteBadge}
           </span>
-          <h3 className="text-2xl md:text-3xl font-bold mb-6" style={{ color: "#1D1D1B" }}>Le verrou de Fort Duquesne</h3>
+          <h3 className="text-2xl md:text-3xl font-bold mb-6" style={{ color: "#1D1D1B" }}>{t("contrecoeur.contexte_titre")}</h3>
           <div className="space-y-5 text-lg leading-relaxed mb-8" style={{ color: "rgba(29,29,27,0.70)" }}>
-            <p>
-              En 1754, Pierre-Claude Pécaudy de Contrecoeur commande Fort Duquesne. Face à la
-              progression britannique, il n&apos;envoie pas d&apos;abord des soldats — il envoie un
-              émissaire. L&apos;affaire Jumonville qui s&apos;ensuit est l&apos;un des premiers exemples
-              documentés de manipulation tactique en Amérique du Nord : des messages apparemment
-              officiels, des identités ambiguës, une situation fabriquée pour pousser l&apos;adversaire
-              à réagir sur de fausses prémisses. Le jeune George Washington signe même une
-              capitulation rédigée en français qu&apos;il ne comprend pas — admettant sans le savoir
-              un &quot;assassinat&quot;.
-            </p>
-            <p>
-              Contrecoeur retourne cette tactique contre ceux qui l&apos;utilisent aujourd&apos;hui. Il
-              simule des campagnes de phishing réalistes, teste vos employés avec de vrais
-              scénarios d&apos;ingénierie sociale, et transforme chaque tentative de manipulation en
-              exercice de formation.
-            </p>
+            {(t.raw("contrecoeur.contexte_paragraphs") as string[]).map((p, i) => (
+              <p key={i}>{p}</p>
+            ))}
           </div>
           <div className="p-6 rounded-xl" style={{ border: "1px solid rgba(32,52,120,0.25)", backgroundColor: "rgba(32,52,120,0.06)" }}>
-            <p className="font-bold text-sm uppercase tracking-widest mb-3" style={{ color: "#203478" }}>L&apos;avantage Étoile Boréale</p>
+            <p className="font-bold text-sm uppercase tracking-widest mb-3" style={{ color: "#203478" }}>{avantageTitre}</p>
             <p className="text-lg leading-relaxed" style={{ color: "rgba(29,29,27,0.70)" }}>
-              Selon la Banque de développement du Canada (BDC, 2025), 61 % des PME ont déjà été
-              ciblées par des attaques d&apos;hameçonnage. Chaque simulation Contrecœur génère un
-              rapport nominatif complet : qui a cliqué, qui a soumis ses identifiants, qui a eu
-              le bon réflexe de signaler l&apos;attaque — avant que le véritable ennemi ne teste vos failles.
+              {t("contrecoeur.avantage_texte")}
             </p>
           </div>
         </div>
@@ -939,48 +713,45 @@ export default function DivisionCyberPage() {
           <div className="text-center mb-16">
             <div className="flex items-center justify-center gap-3 mb-6">
               <span className="inline-block text-xs font-bold px-3 py-1.5 rounded-full bg-h91-accretion/10 text-h91-accretion border border-h91-accretion/30 uppercase tracking-widest">
-                Analyseur de légitimité des courriels
+                {t("berthier.categorie_badge")}
               </span>
               <span className="inline-block text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-widest" style={{ backgroundColor: "rgba(32,52,120,0.10)", color: "#203478", border: "1px solid rgba(32,52,120,0.25)" }}>
-                Disponible fin 2026
+                {t("berthier.disponibilite_badge")}
               </span>
             </div>
             <h2 className="text-6xl md:text-7xl font-bold mb-5 tracking-tight" style={{ color: "#1D1D1B" }}>BERTHIER</h2>
             <p className="font-semibold text-lg md:text-xl italic max-w-2xl mx-auto mb-5" style={{ color: "#203478" }}>
-              Aucun imposteur ne passe la guérite.
+              {t("berthier.tagline")}
             </p>
             <p className="text-base max-w-2xl mx-auto leading-relaxed" style={{ color: "rgba(29,29,27,0.65)" }}>
-              Analyseur de légitimité des courriels en temps réel. Berthier vérifie l&apos;identité
-              de l&apos;expéditeur, l&apos;authenticité du domaine et la signature cryptographique —
-              avant que le message n&apos;atteigne votre équipe.
+              {t("berthier.intro")}
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
-            {[
-              { nom: "Sentinelle", prix: "30 $", cible: "~1-5 personnes", features: ["Filtrage SPF/DKIM/DMARC", "Blocage domaines suspects", "Rapport mensuel", "Dashboard simple"], featured: false, forteresse: false },
-              { nom: "Gardien",    prix: "40 $", cible: "PME 5-20 employés", features: ["Analyse avancée des en-têtes", "Détection d'usurpation d'identité", "Alertes en temps réel", "Rapport hebdomadaire", "Support prioritaire"], featured: true, forteresse: false },
-              { nom: "Bouclier",   prix: "115 $", cible: "PME 20-50 employés", features: ["Analyse comportementale", "Rapports d'activité détaillés", "Intégration messagerie d'entreprise", "Listes blanches gérées", "Consultant dédié"], featured: false, forteresse: false },
-              { nom: "Forteresse", prix: "240 $", cible: "Municipalités & MRC", features: ["Tableau de bord multi-domaines", "Rapports exécutifs", "SLA de filtrage garanti", "Hébergement Québec (Loi 25)", "Zéro faux positifs critiques"], featured: false, forteresse: true },
-            ].map((tier, i) => (
+            {berthierTiers.map((tier, i) => {
+              const featured = i === 1;
+              const forteresse = i === 3;
+              return (
               <div key={i} className="relative p-6 rounded-xl flex flex-col gap-4 transition card-lift"
-                style={tier.featured ? { backgroundColor: "#FFFFFF", border: "2px solid #203478" } : tier.forteresse ? { backgroundColor: "#FFFFFF", border: "1px solid rgba(201,168,76,0.40)" } : { backgroundColor: "#FFFFFF", border: "1px solid rgba(32,52,120,0.20)" }}>
-                {tier.featured && <span className="absolute -top-4 left-1/2 -translate-x-1/2 text-xs font-bold px-4 py-1 rounded-full uppercase tracking-widest whitespace-nowrap" style={{ backgroundColor: "#203478", color: "#F4F4F0" }}>Recommandé</span>}
+                style={featured ? { backgroundColor: "#FFFFFF", border: "2px solid #203478" } : forteresse ? { backgroundColor: "#FFFFFF", border: "1px solid rgba(201,168,76,0.40)" } : { backgroundColor: "#FFFFFF", border: "1px solid rgba(32,52,120,0.20)" }}>
+                {featured && <span className="absolute -top-4 left-1/2 -translate-x-1/2 text-xs font-bold px-4 py-1 rounded-full uppercase tracking-widest whitespace-nowrap" style={{ backgroundColor: "#203478", color: "#F4F4F0" }}>{tuiRecommande}</span>}
                 <div>
-                  <h3 className="text-xl font-bold" style={{ color: tier.featured ? "#203478" : tier.forteresse ? "#C9A84C" : "#1D1D1B" }}>{tier.nom}</h3>
+                  <h3 className="text-xl font-bold" style={{ color: featured ? "#203478" : forteresse ? "#C9A84C" : "#1D1D1B" }}>{tier.nom}</h3>
                   <p className="text-xs mt-1" style={{ color: "rgba(29,29,27,0.50)" }}>{tier.cible}</p>
                 </div>
-                <p className="text-3xl font-extrabold" style={{ color: tier.featured ? "#203478" : tier.forteresse ? "#C9A84C" : "#1D1D1B" }}>{tier.prix} <span className="text-sm font-normal" style={{ color: "rgba(29,29,27,0.50)" }}>/ mois</span></p>
+                <p className="text-3xl font-extrabold" style={{ color: featured ? "#203478" : forteresse ? "#C9A84C" : "#1D1D1B" }}>{tier.prix} <span className="text-sm font-normal" style={{ color: "rgba(29,29,27,0.50)" }}>{tuiUniteMois}</span></p>
                 <ul className="flex flex-col gap-2 flex-1">
                   {tier.features.map((f, fi) => <li key={fi} className="flex items-start gap-2 text-sm" style={{ color: "rgba(29,29,27,0.70)" }}><span className="mt-0.5 shrink-0" style={{ color: "#203478" }}>✓</span><span>{f}</span></li>)}
                 </ul>
                 <Link href="/rejoindre" className="mt-2 block text-center py-3 rounded-lg font-bold text-sm transition"
-                  style={tier.featured ? { backgroundColor: "#203478", color: "#F4F4F0" } : tier.forteresse ? { border: "1px solid rgba(201,168,76,0.50)", color: "#C9A84C" } : { border: "1px solid rgba(32,52,120,0.40)", color: "#203478" }}>
-                  {tier.forteresse ? "Nous contacter" : "Rejoindre la liste →"}
+                  style={featured ? { backgroundColor: "#203478", color: "#F4F4F0" } : forteresse ? { border: "1px solid rgba(201,168,76,0.50)", color: "#C9A84C" } : { border: "1px solid rgba(32,52,120,0.40)", color: "#203478" }}>
+                  {forteresse ? tuiNousContacter : tuiRejoindreListe}
                 </Link>
               </div>
-            ))}
+              );
+            })}
           </div>
-          <p className="text-center mt-5 text-xs italic" style={{ color: "rgba(29,29,27,0.40)" }}>Tarifs indicatifs — forfait par organisation, pas par utilisateur</p>
+          <p className="text-center mt-5 text-xs italic" style={{ color: "rgba(29,29,27,0.40)" }}>{tuiTarifsIndicatifs}</p>
         </div>
       </section>
 
@@ -988,34 +759,18 @@ export default function DivisionCyberPage() {
       <section className="py-20 px-6" style={{ backgroundColor: "#FFFFFF" }}>
         <div className="max-w-4xl mx-auto">
           <span className="inline-block text-xs font-bold px-3 py-1.5 rounded-full bg-h91-accretion/10 text-h91-accretion border border-h91-accretion/30 mb-6 uppercase tracking-widest">
-            Le contexte historique
+            {tuiContexteBadge}
           </span>
-          <h3 className="text-2xl md:text-3xl font-bold mb-6" style={{ color: "#1D1D1B" }}>La guérite du Saint-Laurent</h3>
+          <h3 className="text-2xl md:text-3xl font-bold mb-6" style={{ color: "#1D1D1B" }}>{t("berthier.contexte_titre")}</h3>
           <div className="space-y-5 text-lg leading-relaxed mb-8" style={{ color: "rgba(29,29,27,0.70)" }}>
-            <p>
-              La seigneurie de Berthier et son poste militaire sur le Saint-Laurent servaient
-              de point de contrôle obligatoire sur la grande route fluviale de la
-              Nouvelle-France. Marchands, messagers, soldats — tous devaient être identifiés
-              avant de passer. Un laisser-passer compromis, un faux nom accepté, et c&apos;est
-              l&apos;ensemble du réseau de communication colonial qui risquait d&apos;être infiltré.
-              La garnison de Berthier n&apos;avait qu&apos;une mission : distinguer l&apos;allié de
-              l&apos;imposteur avant que la porte ne s&apos;ouvre.
-            </p>
-            <p>
-              Berthier fait exactement ça pour votre boîte de réception. Chaque courriel
-              entrant est un messager qui se présente à la porte — Berthier vérifie l&apos;identité
-              de l&apos;expéditeur, l&apos;authenticité du domaine, la validité de la signature
-              cryptographique et la cohérence du routage, avant que le message n&apos;atteigne
-              jamais votre équipe. Les imposteurs sont bloqués à la guérite.
-            </p>
+            {(t.raw("berthier.contexte_paragraphs") as string[]).map((p, i) => (
+              <p key={i}>{p}</p>
+            ))}
           </div>
           <div className="p-6 rounded-xl" style={{ border: "1px solid rgba(32,52,120,0.25)", backgroundColor: "rgba(32,52,120,0.06)" }}>
-            <p className="font-bold text-sm uppercase tracking-widest mb-3" style={{ color: "#203478" }}>L&apos;avantage Étoile Boréale</p>
+            <p className="font-bold text-sm uppercase tracking-widest mb-3" style={{ color: "#203478" }}>{avantageTitre}</p>
             <p className="text-lg leading-relaxed" style={{ color: "rgba(29,29,27,0.70)" }}>
-              Berthier neutralise les cyberimposteurs en amont, directement à la racine de votre
-              domaine DNS. Pas besoin d&apos;entraîner vos employés, pas de changement dans vos
-              habitudes de travail, et une configuration chirurgicale pour éliminer les faux
-              positifs qui pourraient bloquer vos vrais clients.
+              {t("berthier.avantage_texte")}
             </p>
           </div>
         </div>
@@ -1031,48 +786,45 @@ export default function DivisionCyberPage() {
           <div className="text-center mb-16">
             <div className="flex items-center justify-center gap-3 mb-6">
               <span className="inline-block text-xs font-bold px-3 py-1.5 rounded-full bg-h91-accretion/10 text-h91-accretion border border-h91-accretion/30 uppercase tracking-widest">
-                Remédiation &amp; réponse aux incidents
+                {t("salieres.categorie_badge")}
               </span>
               <span className="inline-block text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-widest" style={{ backgroundColor: "rgba(32,52,120,0.10)", color: "#203478", border: "1px solid rgba(32,52,120,0.25)" }}>
-                Disponible fin 2026
+                {t("salieres.disponibilite_badge")}
               </span>
             </div>
             <h2 className="text-6xl md:text-7xl font-bold mb-5 tracking-tight" style={{ color: "#1D1D1B" }}>SALIÈRES</h2>
             <p className="font-semibold text-lg md:text-xl italic max-w-2xl mx-auto mb-5" style={{ color: "#203478" }}>
-              Pas de négociation avec la Chimère.
+              {t("salieres.tagline")}
             </p>
             <p className="text-base max-w-2xl mx-auto leading-relaxed" style={{ color: "rgba(29,29,27,0.65)" }}>
-              Remédiation et réponse active aux incidents. Quand la brèche survient, Salières
-              n&apos;attend pas derrière le pare-feu — il isole, nettoie, restaure et documente
-              chaque étape pour que ça ne se reproduise pas.
+              {t("salieres.intro")}
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
-            {[
-              { nom: "Sentinelle", prix: "100 $", cible: "~1-5 personnes", features: ["Réponse aux incidents de base", "Isolation des systèmes touchés", "Rapport d'analyse post-incident", "Restauration guidée"], featured: false, forteresse: false },
-              { nom: "Gardien",    prix: "135 $", cible: "PME 5-20 employés", features: ["Isolation & nettoyage actif", "Restauration à partir de sauvegardes", "Rapport d'autopsie complet", "Recommandations de durcissement", "Support prioritaire"], featured: true, forteresse: false },
-              { nom: "Bouclier",   prix: "400 $", cible: "PME 20-50 employés", features: ["Restauration complète des systèmes", "Analyse forensique", "Plan de remédiation structuré", "Rapport de conformité Loi 25", "Consultant dédié"], featured: false, forteresse: false },
-              { nom: "Forteresse", prix: "800 $", cible: "Municipalités & MRC", features: ["SLA de rétablissement garanti", "Réponse 24/7", "Multi-sites coordonné", "Rapport exécutif & légal", "Hébergement Québec (Loi 25)"], featured: false, forteresse: true },
-            ].map((tier, i) => (
+            {salieresTiers.map((tier, i) => {
+              const featured = i === 1;
+              const forteresse = i === 3;
+              return (
               <div key={i} className="relative p-6 rounded-xl flex flex-col gap-4 transition card-lift"
-                style={tier.featured ? { backgroundColor: "#FFFFFF", border: "2px solid #203478" } : tier.forteresse ? { backgroundColor: "#FFFFFF", border: "1px solid rgba(201,168,76,0.40)" } : { backgroundColor: "#FFFFFF", border: "1px solid rgba(32,52,120,0.20)" }}>
-                {tier.featured && <span className="absolute -top-4 left-1/2 -translate-x-1/2 text-xs font-bold px-4 py-1 rounded-full uppercase tracking-widest whitespace-nowrap" style={{ backgroundColor: "#203478", color: "#F4F4F0" }}>Recommandé</span>}
+                style={featured ? { backgroundColor: "#FFFFFF", border: "2px solid #203478" } : forteresse ? { backgroundColor: "#FFFFFF", border: "1px solid rgba(201,168,76,0.40)" } : { backgroundColor: "#FFFFFF", border: "1px solid rgba(32,52,120,0.20)" }}>
+                {featured && <span className="absolute -top-4 left-1/2 -translate-x-1/2 text-xs font-bold px-4 py-1 rounded-full uppercase tracking-widest whitespace-nowrap" style={{ backgroundColor: "#203478", color: "#F4F4F0" }}>{tuiRecommande}</span>}
                 <div>
-                  <h3 className="text-xl font-bold" style={{ color: tier.featured ? "#203478" : tier.forteresse ? "#C9A84C" : "#1D1D1B" }}>{tier.nom}</h3>
+                  <h3 className="text-xl font-bold" style={{ color: featured ? "#203478" : forteresse ? "#C9A84C" : "#1D1D1B" }}>{tier.nom}</h3>
                   <p className="text-xs mt-1" style={{ color: "rgba(29,29,27,0.50)" }}>{tier.cible}</p>
                 </div>
-                <p className="text-3xl font-extrabold" style={{ color: tier.featured ? "#203478" : tier.forteresse ? "#C9A84C" : "#1D1D1B" }}>{tier.prix} <span className="text-sm font-normal" style={{ color: "rgba(29,29,27,0.50)" }}>/ mois</span></p>
+                <p className="text-3xl font-extrabold" style={{ color: featured ? "#203478" : forteresse ? "#C9A84C" : "#1D1D1B" }}>{tier.prix} <span className="text-sm font-normal" style={{ color: "rgba(29,29,27,0.50)" }}>{tuiUniteMois}</span></p>
                 <ul className="flex flex-col gap-2 flex-1">
                   {tier.features.map((f, fi) => <li key={fi} className="flex items-start gap-2 text-sm" style={{ color: "rgba(29,29,27,0.70)" }}><span className="mt-0.5 shrink-0" style={{ color: "#203478" }}>✓</span><span>{f}</span></li>)}
                 </ul>
                 <Link href="/rejoindre" className="mt-2 block text-center py-3 rounded-lg font-bold text-sm transition"
-                  style={tier.featured ? { backgroundColor: "#203478", color: "#F4F4F0" } : tier.forteresse ? { border: "1px solid rgba(201,168,76,0.50)", color: "#C9A84C" } : { border: "1px solid rgba(32,52,120,0.40)", color: "#203478" }}>
-                  {tier.forteresse ? "Nous contacter" : "Rejoindre la liste →"}
+                  style={featured ? { backgroundColor: "#203478", color: "#F4F4F0" } : forteresse ? { border: "1px solid rgba(201,168,76,0.50)", color: "#C9A84C" } : { border: "1px solid rgba(32,52,120,0.40)", color: "#203478" }}>
+                  {forteresse ? tuiNousContacter : tuiRejoindreListe}
                 </Link>
               </div>
-            ))}
+              );
+            })}
           </div>
-          <p className="text-center mt-5 text-xs italic" style={{ color: "rgba(29,29,27,0.40)" }}>Tarifs indicatifs — forfait par organisation, pas par utilisateur</p>
+          <p className="text-center mt-5 text-xs italic" style={{ color: "rgba(29,29,27,0.40)" }}>{tuiTarifsIndicatifs}</p>
         </div>
       </section>
 
@@ -1080,34 +832,18 @@ export default function DivisionCyberPage() {
       <section className="py-20 px-6" style={{ backgroundColor: "#FFFFFF" }}>
         <div className="max-w-4xl mx-auto">
           <span className="inline-block text-xs font-bold px-3 py-1.5 rounded-full bg-h91-accretion/10 text-h91-accretion border border-h91-accretion/30 mb-6 uppercase tracking-widest">
-            Le contexte historique
+            {tuiContexteBadge}
           </span>
-          <h3 className="text-2xl md:text-3xl font-bold mb-6" style={{ color: "#1D1D1B" }}>La contre-offensive du Richelieu</h3>
+          <h3 className="text-2xl md:text-3xl font-bold mb-6" style={{ color: "#1D1D1B" }}>{t("salieres.contexte_titre")}</h3>
           <div className="space-y-5 text-lg leading-relaxed mb-8" style={{ color: "rgba(29,29,27,0.70)" }}>
-            <p>
-              Le Marquis de Salières ne s&apos;est pas contenté de construire des forts. Quand
-              les raids survenaient malgré les défenses, son régiment ne restait pas derrière
-              les murs. En janvier et février 1666, les Carignan-Salières lancent des
-              expéditions hivernales en territoire iroquois — la première doctrine de réponse
-              active documentée en Amérique du Nord. Identifier la source, isoler la menace,
-              neutraliser, remettre le territoire sous contrôle. Pas de négociation avec la
-              Chimère.
-            </p>
-            <p>
-              Quand une brèche survient dans votre organisation — rançongiciel, données
-              compromises, système infecté — Salières n&apos;attend pas derrière le pare-feu.
-              Il isole les machines touchées, nettoie les menaces actives, restaure les
-              systèmes à partir de points de sauvegarde sains, et livre un rapport d&apos;autopsie
-              complet pour que ça ne se reproduise pas.
-            </p>
+            {(t.raw("salieres.contexte_paragraphs") as string[]).map((p, i) => (
+              <p key={i}>{p}</p>
+            ))}
           </div>
           <div className="p-6 rounded-xl" style={{ border: "1px solid rgba(32,52,120,0.25)", backgroundColor: "rgba(32,52,120,0.06)" }}>
-            <p className="font-bold text-sm uppercase tracking-widest mb-3" style={{ color: "#203478" }}>L&apos;avantage Étoile Boréale</p>
+            <p className="font-bold text-sm uppercase tracking-widest mb-3" style={{ color: "#203478" }}>{avantageTitre}</p>
             <p className="text-lg leading-relaxed" style={{ color: "rgba(29,29,27,0.70)" }}>
-              Une cyberattaque majeure peut paralyser une organisation pendant des semaines et
-              engendrer des coûts de récupération dans les six chiffres. Salières transforme une
-              crise potentiellement fatale en incident contenu, isolé et documenté — avec un
-              temps de rétablissement mesuré en heures, pas en semaines.
+              {t("salieres.avantage_texte")}
             </p>
           </div>
         </div>
@@ -1123,41 +859,23 @@ export default function DivisionCyberPage() {
           <div className="text-center mb-14">
             <span className="inline-block text-xs font-bold px-3 py-1.5 rounded-full mb-6 uppercase tracking-widest"
               style={{ backgroundColor: "rgba(32,52,120,0.25)", color: "rgba(244,244,240,0.50)", border: "1px solid rgba(32,52,120,0.40)" }}>
-              Suite Carignan — La doctrine
+              {t("chaine_forts.badge")}
             </span>
             <h2 className="text-3xl md:text-4xl font-bold mb-6" style={{ color: "#F4F4F0" }}>
-              La force de la chaîne
+              {t("chaine_forts.titre")}
             </h2>
             <p className="text-lg leading-relaxed max-w-2xl mx-auto" style={{ color: "rgba(244,244,240,0.55)" }}>
-              Un régiment ne gagne pas par sa taille. Il gagne par la précision de son dispositif.
+              {t("chaine_forts.sous_titre")}
             </p>
           </div>
 
           {/* Narrative historique */}
           <div className="space-y-5 text-base leading-relaxed mb-14" style={{ color: "rgba(244,244,240,0.60)" }}>
-            <p>
-              En 1665, le Régiment Carignan-Salières débarque en Nouvelle-France avec 1 200 soldats.
-              Face à eux : des milliers de guerriers iroquois qui terrorisent les colonies depuis des années.
-              Le déséquilibre de force est évident. Pourtant, en moins d&apos;un an, le régiment rétablit la paix.
-            </p>
-            <p>
-              Leur secret n&apos;est pas la bravoure aveugle — c&apos;est l&apos;architecture. Plutôt que de disperser
-              ses hommes ou de chercher la confrontation directe, le régiment érige une chaîne de forts
-              stratégiquement positionnés le long de la rivière Richelieu. Chaque fort couvre un secteur
-              précis, surveille un angle mort et s&apos;appuie sur ses voisins. Chaque maillon renforce le
-              suivant. Ensemble, ils forment un périmètre sans faille qui coupe l&apos;accès à toute la
-              vallée du Saint-Laurent.
-            </p>
-            <p style={{ color: "rgba(244,244,240,0.40)", fontStyle: "italic" }}>
-              La force n&apos;est pas dans chaque fort pris isolément. Elle est dans l&apos;espacement,
-              dans la coordination — dans le fait que chaque maillon surveille le suivant.
-            </p>
-            <p>
-              Suite Carignan s&apos;inspire de cette doctrine. Pas une plateforme monolithique qui prétend
-              tout faire. Cinq outils spécialisés, chacun maître de son périmètre cybersécurité, qui
-              ensemble couvrent l&apos;intégralité de votre surface d&apos;attaque — de la vigie Dark Web jusqu&apos;au
-              contrôle des identités internes.
-            </p>
+            {(t.raw("chaine_forts.narrative") as string[]).map((p, i) => (
+              <p key={i} style={i === 2 ? { color: "rgba(244,244,240,0.40)", fontStyle: "italic" } : undefined}>
+                {p}
+              </p>
+            ))}
           </div>
 
           {/* La chaîne des 5 forts */}
@@ -1186,11 +904,11 @@ export default function DivisionCyberPage() {
                   >
                     {item.statut === "production" ? (
                       <span className="text-xs font-bold uppercase tracking-widest text-center px-2 leading-tight" style={{ color: "#F4F4F0" }}>
-                        En<br />prod.
+                        {t("chaine_forts.statut_prod")}
                       </span>
                     ) : item.statut === "beta" ? (
                       <span className="text-[10px] font-bold uppercase tracking-widest text-center px-2 leading-tight" style={{ color: "#C9A84C" }}>
-                        Accès<br />anticipé
+                        {t("chaine_forts.statut_beta")}
                       </span>
                     ) : (
                       <span className="text-lg">🚧</span>
@@ -1231,14 +949,13 @@ export default function DivisionCyberPage() {
           {/* En-tête */}
           <div className="text-center mb-14">
             <span className="inline-block text-xs font-bold px-3 py-1.5 rounded-full bg-h91-stellar/5 text-h91-stellar/30 border border-h91-stellar/15 mb-6 uppercase tracking-widest">
-              Suite Carignan
+              {t("suite_carignan.badge")}
             </span>
             <h2 className="text-4xl font-bold text-h91-stellar/25 mb-3">
-              L&apos;arsenal complet arrive.
+              {t("suite_carignan.titre")}
             </h2>
             <p className="text-h91-stellar/25 text-base max-w-xl mx-auto leading-relaxed">
-              D&apos;autres outils de la Suite Carignan sont en développement actif.
-              Accès restreint — zone de travaux.
+              {t("suite_carignan.texte")}
             </p>
           </div>
 
@@ -1265,13 +982,13 @@ export default function DivisionCyberPage() {
                 <div className="absolute inset-0 flex flex-col items-center justify-center bg-h91-gravity/65 backdrop-blur-[3px]">
                   <span className="text-3xl mb-3">🚧</span>
                   <span className="text-h91-stellar/50 text-xs font-bold uppercase tracking-[0.2em] text-center px-6 mb-1">
-                    Accès restreint
+                    {t("suite_carignan.acces_restreint")}
                   </span>
                   <span className="text-h91-accretion/60 text-sm font-semibold text-center px-6">
                     {outil.nom}
                   </span>
                   <span className="text-h91-stellar/25 text-xs text-center px-6 mt-1">
-                    Zone de travaux
+                    {t("suite_carignan.zone_travaux")}
                   </span>
                 </div>
               </div>

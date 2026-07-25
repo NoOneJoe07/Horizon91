@@ -83,11 +83,18 @@ async function WebServiceJsonLd() {
 }
 
 type Service = { titre: string; desc: string };
+type Stat = { chiffre: string; titre: string; texte: string };
+type Forfait = { nom: string; prix: string; features: string[] };
+type GalleryItem = { alt: string; caption: string };
 
 export default function DivisionWebPage() {
   const t = useTranslations("divisions.divisionWeb");
   const tBrand = useTranslations("brand");
   const services = t.raw("services") as Service[];
+  const heritageTexte = t.raw("heritage_texte") as string[];
+  const stats = t.raw("stats") as Stat[];
+  const forfaits = t.raw("forfaits") as Forfait[];
+  const gallery = t.raw("heritage_gallery") as GalleryItem[];
 
   return (
     <>
@@ -193,70 +200,36 @@ export default function DivisionWebPage() {
           {/* Narratif historique */}
           <div className="mb-14">
             <span className="inline-block text-xs font-bold px-3 py-1.5 rounded-full bg-h91-ion/10 text-h91-ion border border-h91-ion/30 mb-6 uppercase tracking-widest">
-              L&apos;héritage
+              {t("heritage_badge")}
             </span>
             <h2 className="text-3xl md:text-4xl font-bold mb-6" style={{ color: "#1D1D1B" }}>
-              Maîtriser le flux, propulser votre achalandage
+              {t("heritage_titre")}
             </h2>
 
             {/* Photos d'archives — Draveurs du Québec — cliquez pour agrandir */}
             <DivisionPhotoGallery
               accentColor="#0099D1"
               photos={[
-                {
-                  src: "/photos_images/Botte_draveur.jpg",
-                  alt: "Bottes à crampons des draveurs — outil emblématique de la drave",
-                  caption: "Bottes à crampons des draveurs — outil emblématique de la drave québécoise",
-                  objectPosition: "center center",
-                },
-                {
-                  src: "/photos_images/draveur_1.avif",
-                  alt: "Draveur en action sur les billots — rivière du Québec",
-                  caption: "Draveur en action sur les billots — rivières du Québec, fin XIXe siècle",
-                  objectPosition: "center top",
-                },
-                {
-                  src: "/photos_images/Draveur_2.jpg",
-                  alt: "Draveurs guidant les billots — maîtrise du flux",
-                  caption: "Draveurs guidant les billots — maîtrise du flux",
-                  objectPosition: "center center",
-                },
-                {
-                  src: "/photos_images/Draveur_3.avif",
-                  alt: "La drave — héritage québécois du contrôle du flux",
-                  caption: "La drave — héritage québécois du contrôle du flux",
-                  objectPosition: "center center",
-                },
+                { src: "/photos_images/Botte_draveur.jpg", alt: gallery[0].alt, caption: gallery[0].caption, objectPosition: "center center" },
+                { src: "/photos_images/draveur_1.avif", alt: gallery[1].alt, caption: gallery[1].caption, objectPosition: "center top" },
+                { src: "/photos_images/Draveur_2.jpg", alt: gallery[2].alt, caption: gallery[2].caption, objectPosition: "center center" },
+                { src: "/photos_images/Draveur_3.avif", alt: gallery[3].alt, caption: gallery[3].caption, objectPosition: "center center" },
               ]}
             />
             <p className="text-xs text-center mb-8 italic" style={{ color: "rgba(29,29,27,0.35)" }}>
-              Archives historiques — draveurs du Québec, fin XIXe – début XXe siècle
+              {t("heritage_photo_caption")}
             </p>
 
             <div className="space-y-5 text-lg leading-relaxed" style={{ color: "rgba(29,29,27,0.70)" }}>
-              <p>
-                Au XIXe siècle, les draveurs du Québec sautaient courageusement sur les rivières
-                tumultueuses pour guider des milliers de billots de bois vers les moulins. C&apos;était
-                un travail d&apos;agilité pure, de synchronisation et de contrôle du flux. Un seul billot
-                mal positionné, et c&apos;était l&apos;embâcle — le blocage qui paralysait toute l&apos;économie
-                de la région.
-              </p>
-              <p>
-                Aujourd&apos;hui, la rivière, c&apos;est le Web. Les flux de données, de trafic et
-                d&apos;utilisateurs déferlent chaque seconde. La Division Draveur conçoit des portails
-                web robustes pour s&apos;assurer que vos clients naviguent de manière fluide jusqu&apos;à vous,
-                sans aucun embâcle technique. Nous éliminons les bugs, optimisons votre SEO et guidons
-                l&apos;achalandage directement vers vos objectifs de conversion.
-              </p>
+              {heritageTexte.map((p, i) => (
+                <p key={i}>{p}</p>
+              ))}
               <div className="mt-2 p-6 rounded-xl" style={{ border: "1px solid rgba(0,153,209,0.30)", backgroundColor: "rgba(0,153,209,0.06)" }}>
                 <p className="font-bold text-sm uppercase tracking-widest mb-3" style={{ color: "#0099D1" }}>
-                  L&apos;avantage Étoile Boréale
+                  {t("heritage_avantage_titre")}
                 </p>
                 <p>
-                  La Division Draveur ne recule devant aucun courant, aussi complexe soit votre
-                  chantier web. En éliminant la structure lourde et le flafla des grandes firmes,
-                  nous vous livrons des plateformes d&apos;élite à un prix 20 % à 40 % plus bas — avec un
-                  cœur à l&apos;ouvrage et une fierté locale que l&apos;argent ne peut pas acheter.
+                  {t("heritage_avantage_texte")}
                 </p>
               </div>
             </div>
@@ -265,29 +238,18 @@ export default function DivisionWebPage() {
           {/* Saviez-vous que ? */}
           <div className="rounded-2xl p-8" style={{ border: "1px solid rgba(0,153,209,0.20)", backgroundColor: "#E0F4FB" }}>
             <h3 className="font-bold text-sm uppercase tracking-widest mb-8 flex items-center gap-3" style={{ color: "#0099D1" }}>
-              <span className="text-xl">💡</span> Saviez-vous que ?
+              <span className="text-xl">💡</span> {t("stats_badge")}
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="p-5 rounded-xl" style={{ backgroundColor: "#FFFFFF", border: "1px solid rgba(0,153,209,0.20)" }}>
-                <p className="font-bold text-4xl mb-2" style={{ color: "#0099D1" }}>+22 %</p>
-                <p className="font-semibold text-sm mb-3" style={{ color: "#1D1D1B" }}>Croissance des revenus</p>
-                <p className="text-sm leading-relaxed" style={{ color: "rgba(29,29,27,0.60)" }}>
-                  Selon la Banque de développement du Canada (BDC), les PME qui investissent
-                  activement dans leur présence numérique affichent une croissance de leurs revenus
-                  jusqu&apos;à 22 % supérieure à celles qui négligent le web. C&apos;est le levier de
-                  visibilité le plus puissant de l&apos;ère moderne.
-                </p>
-              </div>
-              <div className="p-5 rounded-xl" style={{ backgroundColor: "#FFFFFF", border: "1px solid rgba(0,153,209,0.20)" }}>
-                <p className="font-bold text-4xl mb-2" style={{ color: "#0099D1" }}>3 k$ — 10 k$</p>
-                <p className="font-semibold text-sm mb-3" style={{ color: "#1D1D1B" }}>Le prix du marché canadien</p>
-                <p className="text-sm leading-relaxed" style={{ color: "rgba(29,29,27,0.60)" }}>
-                  En moyenne, la conception d&apos;un site web professionnel sur mesure par une agence
-                  canadienne varie entre 3 000 $ et 10 000 $ — et grimpe bien plus haut pour les
-                  plateformes complexes. L&apos;avantage Étoile Boréale : service régional humain,
-                  ultra-réactif, sans les frais gonflés des grandes agences métropolitaines.
-                </p>
-              </div>
+              {stats.map((stat, i) => (
+                <div key={i} className="p-5 rounded-xl" style={{ backgroundColor: "#FFFFFF", border: "1px solid rgba(0,153,209,0.20)" }}>
+                  <p className="font-bold text-4xl mb-2" style={{ color: "#0099D1" }}>{stat.chiffre}</p>
+                  <p className="font-semibold text-sm mb-3" style={{ color: "#1D1D1B" }}>{stat.titre}</p>
+                  <p className="text-sm leading-relaxed" style={{ color: "rgba(29,29,27,0.60)" }}>
+                    {stat.texte}
+                  </p>
+                </div>
+              ))}
             </div>
           </div>
 
@@ -300,72 +262,49 @@ export default function DivisionWebPage() {
       <section style={{ backgroundColor: "#E0F4FB", color: "#1D1D1B" }} className="py-20 px-6">
         <div className="max-w-5xl mx-auto">
           <span className="inline-block text-xs font-bold px-3 py-1.5 rounded-full mb-6 uppercase tracking-widest" style={{ backgroundColor: "rgba(0,153,209,0.12)", color: "#0099D1", border: "1px solid rgba(0,153,209,0.30)" }}>
-            Investissement
+            {t("pricing_badge")}
           </span>
           <h2 className="text-3xl md:text-4xl font-bold mb-4" style={{ color: "#1D1D1B" }}>
-            Des forfaits clairs pour chaque ambition
+            {t("pricing_titre")}
           </h2>
           <p className="text-lg mb-12 max-w-2xl" style={{ color: "rgba(29,29,27,0.65)" }}>
-            Livraison unique, sans surprise. La maintenance mensuelle assure la santé
-            de votre site sur le long terme.
+            {t("pricing_sous_titre")}
           </p>
 
           {/* Forfaits */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-
-            {/* Vitrine Essentiel */}
-            <div className="p-6 rounded-xl flex flex-col gap-3 card-lift" style={{ backgroundColor: "#FFFFFF", border: "1px solid rgba(0,153,209,0.20)" }}>
-              <h3 className="font-bold text-lg" style={{ color: "#1D1D1B" }}>Vitrine Essentiel</h3>
-              <p className="font-bold text-3xl" style={{ color: "#0099D1" }}>1 500 – 2 200 $</p>
-              <p className="text-xs uppercase tracking-widest" style={{ color: "rgba(29,29,27,0.50)" }}>Livraison unique</p>
-              <ul className="text-sm space-y-1.5 mt-2 flex-1" style={{ color: "rgba(29,29,27,0.70)" }}>
-                <li>✓ Site vitrine sur mesure</li>
-                <li>✓ Mobile-first & ultra-rapide</li>
-                <li>✓ SEO de base inclus</li>
-                <li>✓ Jusqu&apos;à 5 pages</li>
-              </ul>
-            </div>
-
-            {/* Pro Interactif — Featured */}
-            <div className="p-6 rounded-xl flex flex-col gap-3 card-lift relative" style={{ backgroundColor: "#FFFFFF", border: "2px solid #0099D1" }}>
-              <span className="absolute -top-3 left-1/2 -translate-x-1/2 text-xs font-bold px-3 py-1 rounded-full whitespace-nowrap" style={{ backgroundColor: "#0099D1", color: "#F4F4F0" }}>
-                Le plus populaire
-              </span>
-              <h3 className="font-bold text-lg" style={{ color: "#1D1D1B" }}>Pro Interactif</h3>
-              <p className="font-bold text-3xl" style={{ color: "#0099D1" }}>3 000 – 4 500 $</p>
-              <p className="text-xs uppercase tracking-widest" style={{ color: "rgba(29,29,27,0.50)" }}>Livraison unique</p>
-              <ul className="text-sm space-y-1.5 mt-2 flex-1" style={{ color: "rgba(29,29,27,0.70)" }}>
-                <li>✓ Réservation / blog / galerie</li>
-                <li>✓ Formulaires avancés</li>
-                <li>✓ SEO local renforcé</li>
-                <li>✓ Intégrations tierces</li>
-              </ul>
-            </div>
-
-            {/* Commerce Complet */}
-            <div className="p-6 rounded-xl flex flex-col gap-3 card-lift" style={{ backgroundColor: "#FFFFFF", border: "1px solid rgba(0,153,209,0.20)" }}>
-              <h3 className="font-bold text-lg" style={{ color: "#1D1D1B" }}>Commerce Complet</h3>
-              <p className="font-bold text-3xl" style={{ color: "#0099D1" }}>5 500 – 8 000 $+</p>
-              <p className="text-xs uppercase tracking-widest" style={{ color: "rgba(29,29,27,0.50)" }}>Livraison unique</p>
-              <ul className="text-sm space-y-1.5 mt-2 flex-1" style={{ color: "rgba(29,29,27,0.70)" }}>
-                <li>✓ E-commerce & paiement Stripe</li>
-                <li>✓ Panel admin sur mesure</li>
-                <li>✓ Gestion de stock</li>
-                <li>✓ Architecture évolutive</li>
-              </ul>
-            </div>
+            {forfaits.map((forfait, i) => (
+              <div
+                key={i}
+                className="p-6 rounded-xl flex flex-col gap-3 card-lift relative"
+                style={i === 1 ? { backgroundColor: "#FFFFFF", border: "2px solid #0099D1" } : { backgroundColor: "#FFFFFF", border: "1px solid rgba(0,153,209,0.20)" }}
+              >
+                {i === 1 && (
+                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 text-xs font-bold px-3 py-1 rounded-full whitespace-nowrap" style={{ backgroundColor: "#0099D1", color: "#F4F4F0" }}>
+                    {t("pricing_populaire")}
+                  </span>
+                )}
+                <h3 className="font-bold text-lg" style={{ color: "#1D1D1B" }}>{forfait.nom}</h3>
+                <p className="font-bold text-3xl" style={{ color: "#0099D1" }}>{forfait.prix}</p>
+                <p className="text-xs uppercase tracking-widest" style={{ color: "rgba(29,29,27,0.50)" }}>{t("pricing_livraison_unique")}</p>
+                <ul className="text-sm space-y-1.5 mt-2 flex-1" style={{ color: "rgba(29,29,27,0.70)" }}>
+                  {forfait.features.map((f, fi) => (
+                    <li key={fi}>✓ {f}</li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
 
           {/* Maintenance */}
           <div className="p-5 rounded-xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-8" style={{ backgroundColor: "rgba(0,153,209,0.08)", border: "1px solid rgba(0,153,209,0.20)" }}>
             <div>
-              <p className="font-bold text-sm mb-1" style={{ color: "#1D1D1B" }}>+ Maintenance mensuelle</p>
+              <p className="font-bold text-sm mb-1" style={{ color: "#1D1D1B" }}>{t("maintenance_titre")}</p>
               <p className="text-sm" style={{ color: "rgba(29,29,27,0.70)" }}>
-                Incluse dans tout contrat — à partir de <span className="font-bold" style={{ color: "#1D1D1B" }}>150 $/mois</span>.
-                Mises à jour, sécurité, monitoring et support continu.
+                {t("maintenance_texte")}
               </p>
             </div>
-            <p className="font-bold text-2xl whitespace-nowrap" style={{ color: "#0099D1" }}>150 – 350 $/mois</p>
+            <p className="font-bold text-2xl whitespace-nowrap" style={{ color: "#0099D1" }}>{t("maintenance_prix_range")}</p>
           </div>
 
           {/* CTA vers tarification */}
@@ -375,7 +314,7 @@ export default function DivisionWebPage() {
               className="inline-block px-8 py-3 rounded-lg font-bold transition"
               style={{ border: "1px solid rgba(0,153,209,0.60)", color: "#0099D1" }}
             >
-              Voir tous les détails & options →
+              {t("pricing_cta")}
             </Link>
           </div>
         </div>

@@ -1,7 +1,27 @@
 @AGENTS.md
 
 # CONTEXTE PROJET — Groupe Étoile Boréale Inc. / HorizonSite
-Dernière mise à jour : 2026-07-17 — SESSION PAULINA — Photo + bio trilingue complète (14 ans, UX/UI, Division Arpenteur), homepage photo activée, messages/*.json mis à jour ✅
+Dernière mise à jour : 2026-07-25 — SESSION i18n DRAVEUR/CARILLON — Migration complète du contenu hardcodé FR vers messages/*.json (EN+ES traduits) ✅
+
+## Session 2026-07-25 — Migration i18n complète /divisions/web et /divisions/cyber
+- **Constat initial (signalé par Jonathan)** : sur les pages Division Draveur et Division Carillon, seuls le hero/services/approche/CTA passaient par next-intl. Tout le reste (héritage historique, "Saviez-vous que ?", tarification résumé pour Draveur ; héritage, stats, Fort Saurel, Chambly, Contrecoeur, Berthier, Salières, doctrine de la chaîne, Suite Carignan pour Carillon) était codé en dur en français, **sans aucune condition de langue** — donc l'anglais affichait aussi du français, pas seulement l'espagnol.
+- **Ampleur** : ~150 lignes hardcodées pour `divisions/web/page.tsx`, ~900 lignes pour `divisions/cyber/page.tsx` (à cause de Fort Saurel + Suite Carignan complet).
+- **Fix appliqué** :
+  - Nouvelles clés ajoutées sous `divisions.divisionWeb` et `divisions.divisionCyber` dans `messages/fr.json`, `en.json`, `es.json` (traduction FR→EN→ES faite directement par Claude, registre tú en espagnol pour cohérence avec le reste du site)
+  - Noms de marque/produits gardés non traduits dans les 3 langues (Sentinelle/Gardien/Bouclier/Forteresse, Saurel, Chambly, Contrecoeur, Berthier, Salières, noms de forts) — décision cohérente avec le branding historique déjà établi
+  - `app/[locale]/divisions/web/page.tsx` et `cyber/page.tsx` : tout le texte français en dur remplacé par `t()` / `t.raw()`
+  - `cyber/page.tsx` : les anciens tableaux module-level `SAUREL_TIERS`/`CHAMBLY_TIERS` (contenaient cible/features en dur) remplacés par `SAUREL_META`/`CHAMBLY_META` (juste nom/prix/featured, non traduits) fusionnés dans le composant avec `t.raw("saurel.tiers_cible")`/`tiers_features` par index. Même approche pour `CHAINE_FORTS` (missions) et `SUITE_CARIGNAN` (catégories). Contrecoeur/Berthier/Salières (tableaux tiers inline dans le JSX) migrés vers `t.raw("contrecoeur.tiers")` etc. (structure complète nom+prix+cible+features déjà dans le JSON)
+  - Simplification mineure assumée : le passage "qui se connecte / depuis où / à quoi ils accèdent" (Fort Chambly, guérites) avait des `<strong>` inline en FR — remplacé par texte plat dans les 3 langues (perte de gras, pas de perte de sens)
+- **Vérification** : les 3 fichiers `messages/*.json` validés avec `python json.load` ; `tsc --noEmit` sur les deux pages ne retourne que des erreurs de résolution de module (node_modules incomplet côté OneDrive) ; **`npm run build` complet côté WSL confirmé ✅** — compile en 1.4s, 0 erreur TypeScript, 69/69 pages statiques générées, aucune régression Turbopack sur les nouvelles clés `t.raw()` imbriquées
+- **⚠️ À faire prochaine session** : faire relire les traductions EN/ES par Alexandra (et ES par Paulina) — c'est une traduction Claude, pas encore révisée par une locutrice native. Puis git add/commit/push depuis WSL.
+
+## ⚠️ Incident 2026-07-17 (soir) — Site down après suppression projet Vercel doublon
+- Symptôme : 500 `MIDDLEWARE_INVOCATION_FAILED` sur etoileboreale.ca après push du commit `021eb21` (CLAUDE.md — doc only, aucun code touché)
+- Fausse piste éliminée : le commit ne touchait que CLAUDE.md → proxy.ts, i18n/routing.ts, next.config.ts, messages/*.json tous vérifiés valides
+- Vraie cause (trouvée via Vercel → Logs, pas Build Logs) : `Vercel Runtime Error: failed to load env vars: EnvFileReadError(Os { code: 2, kind: NotFound... })` — cache de build corrompu/stale, probablement séquelle de la suppression du projet Vercel doublon "horizon91" plus tôt la même session
+- **Fix** : simple Redeploy depuis Vercel (PAS besoin de décocher "Use existing Build Cache" — un redeploy standard a suffi à purger le cache corrompu)
+- **Leçon** : pour diagnostiquer un 500 MIDDLEWARE_INVOCATION_FAILED, aller dans l'onglet **Logs** du projet Vercel (pas les Build Logs d'un déploiement) — filtrer sur les erreurs runtime
+- **À surveiller** : si un autre 500 EnvFileReadError survient après une manipulation de projets Vercel, redeploy en premier réflexe avant de chercher un bug de code
 
 ## Fichiers de contexte global Horizon 91
 - **Master context :** `C:\Users\Pc\OneDrive\Documents\Horizon 91\horizon91_master.md`
