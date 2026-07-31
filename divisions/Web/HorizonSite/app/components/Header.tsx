@@ -3,7 +3,6 @@
 import { useState, useEffect } from "react";
 import { useTranslations, useLocale } from "next-intl";
 import { useRouter, usePathname, Link } from "@/i18n/navigation";
-import Image from "next/image";
 
 const locales = [
   { code: "fr", label: "FR" },
@@ -42,21 +41,20 @@ export default function Header() {
     <header className="fixed top-0 left-0 w-full z-50" style={{ backgroundColor: "#203478" }}>
       <div className="max-w-7xl mx-auto flex items-center px-6 py-3">
 
-        {/* ZONE GAUCHE — COMPAS + NOM */}
+        {/* ZONE GAUCHE — MOT-SYMBOLE 2 LIGNES (Figma "simple blanco") */}
         <div className="flex items-center" style={{ flex: "0 0 280px" }}>
-          <Link href="/" className="flex items-center gap-3">
-            <Image
-              src="/mark-etoile.svg"
-              alt="Compas Groupe Étoile Boréale"
-              width={36}
-              height={36}
-              style={{ width: "36px", height: "36px" }}
-            />
+          <Link href="/" className="flex flex-col leading-none">
             <span
-              className="text-base font-bold whitespace-nowrap"
-              style={{ color: "#F4F4F0", fontFamily: "var(--font-display, 'Gotham', 'Montserrat', system-ui)" }}
+              className="font-semibold uppercase"
+              style={{ color: "#FFFFFF", fontSize: "16px", letterSpacing: "0.04em", fontFamily: "var(--font-display, 'Gotham', 'Montserrat', system-ui)" }}
             >
-              {tBrand("short_name")}
+              {tBrand("short_name").split(" ")[0]}
+            </span>
+            <span
+              className="font-medium uppercase"
+              style={{ color: "rgba(255,255,255,0.60)", fontSize: "10px", letterSpacing: "0.15em" }}
+            >
+              {tBrand("short_name").split(" ").slice(1).join(" ")}
             </span>
           </Link>
         </div>
@@ -114,10 +112,10 @@ export default function Header() {
             )}
           </div>
 
-          {/* Bouton CTA — Bleu Polaire */}
+          {/* Bouton CTA — Bleu Polaire, pilule (cohérent avec hero/piliers/cta-final) */}
           <Link
             href="/rejoindre"
-            className="px-4 py-2 rounded-lg font-semibold text-sm whitespace-nowrap transition"
+            className="px-5 py-2 rounded-full font-bold text-sm whitespace-nowrap transition"
             style={{ backgroundColor: "#0099D1", color: "#F4F4F0" }}
             onMouseEnter={e => { (e.currentTarget as HTMLElement).style.backgroundColor = "#007eb0"; }}
             onMouseLeave={e => { (e.currentTarget as HTMLElement).style.backgroundColor = "#0099D1"; }}
