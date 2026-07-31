@@ -1,7 +1,36 @@
 @AGENTS.md
 
 # CONTEXTE PROJET — Groupe Étoile Boréale Inc. / HorizonSite
-Dernière mise à jour : 2026-07-25 — SESSION i18n DRAVEUR/CARILLON — Migration complète du contenu hardcodé FR vers messages/*.json (EN+ES traduits) ✅
+Dernière mise à jour : 2026-07-31 — SESSION REDESIGN HOMEPAGE (Figma Paulina) — Hero/Piliers/Équipe/Histoire/CTA final refaits + Footer 4 colonnes + pages /manifeste et /termes créées ✅ (build WSL à confirmer)
+
+## Session 2026-07-31 — Refonte page d'accueil selon maquette Figma de Paulina + i18n /tarification (suite)
+- **Contexte** : Paulina (Directrice Division Arpenteur) a soumis une maquette Figma complète de refonte de la page d'accueil (`figma.com/design/jislYThGeORKhKzUkKIfa9`). Jonathan a demandé une implémentation intégrale et fidèle ("on va structurer le tout exactement comme elle la fait") — pas juste le hero, mais hero + piliers + équipe + histoire + nouveau CTA final + footer.
+- **Blocage technique découvert et contourné** : le sandbox ne peut pas télécharger directement les assets bruts Figma (`curl`/`web_fetch` sur `figma.com/api/mcp/asset/*` → échec réseau, proxy 403). Aucun paramètre base64 sur `download_assets` (contrairement à `get_screenshot` qui a `enableBase64Response`). Solution retenue : Jonathan exporte lui-même les images depuis Figma (technique duplicata du cadre → suppression des calques texte/nav/overlay → export PNG du calque photo isolé) et les dépose dans `public/`, converties ensuite en `.jpg` et placées dans `public/photos_images/` (`hero-bg.jpg` 1440×860, `histoire-bg.jpg` 560×500).
+- **Décisions validées par Jonathan (AskUserQuestion)** :
+  - Footer : structure Figma (Marque/Divisions/Ressources/Contact) adoptée, MAIS Nordik Legion Studio + Le Crieur conservés discrètement (petite ligne en bas de footer, pas une colonne dédiée) — Jonathan ne voulait pas perdre ces liens.
+  - "Guide de marque" (lien footer Figma, page inexistante) → pointe vers `/divisions/arpenteur` (pas de nouvelle page brand book créée).
+  - Grille équipe homepage : 3 cartes seulement (Jonathan/Alexandra/Paulina) — Gabriel Patoine déjà retiré en amont, confirmé par Jonathan, non réintroduit.
+- **Contenu FR rédigé directement depuis le texte exact du fichier Figma** (`get_metadata`/`get_design_context` sur les node id du fichier), traduit ensuite EN+ES par Claude (à faire réviser par Alexandra/Paulina comme d'habitude) :
+  - Nouvelles clés `home.hero.{titre,sous_titre}`, `home.piliers.{eyebrow,cta}`, `home.team.eyebrow`, `home.histoire.{eyebrow,media_titre,media_soustitre}` (titre/p1/p2/cta remplacés), `home.cta_final.*` (nouvelle section), `footer.*` (nouveau namespace : tagline/divisions_label/ressources_label/guide_marque/contact_label/localisation/terms/aussi) — ajoutées dans `fr.json`, `en.json`, `es.json`
+  - Bios équipe (Jonathan/Alexandra/Paulina) et sous-titre équipe remplacés par le texte de Paulina (légèrement différent du texte précédent) ; clé `home.team.members.gabriel` retirée des 3 fichiers messages (nettoyage, plus référencée nulle part)
+  - Titre "Notre histoire" → "Tracer, draver, sonner l'alarme.", contenu réduit à 2 paragraphes (l'ancien texte narratif détaillé sur les 3 fondateurs vit maintenant sur leurs pages `/equipe/*` individuelles) — quote finale retirée
+- **`app/[locale]/page.tsx`** :
+  - Hero : `<StarField />` + 5 `aurora-orb` retirés, remplacés par photo réelle (`hero-bg.jpg`, `next/image fill`) + voile navy `rgba(32,52,120,0.55)` + 2 halos flous (teal + violet, inline style, mêmes valeurs que Figma) ; ancien H1 "Étoile Boréale" (nom de marque stylisé) remplacé par le titre bénéfice de Paulina ; compas réduit à 140px
+  - Piliers : eyebrow ajouté, CTA carte passé de `tDivisions(${p.key}.cta)` ("Voir la division →") à `t("piliers.cta")` ("En savoir plus") — clés `divisions.*.cta` inchangées (toujours utilisées ailleurs, ex. page /divisions)
+  - Équipe : eyebrow "L'Équipage" ajouté au-dessus du titre
+  - Histoire : refonte complète en 2 colonnes (photo+légende à gauche avec dégradé navy + texte HTML traduisible par-dessus, texte+CTA à droite) — CTA "Découvrir notre manifeste" pointe vers nouvelle page `/manifeste`
+  - Nouvelle section `#cta-final` ajoutée après histoire (fond navy #203478, 1 halo flou, titre+sous-titre+2 CTA)
+- **`app/components/Footer.tsx`** : passé de 3 à 4 colonnes (Marque/Divisions/Ressources/Contact), tagline mise à jour via nouvelle clé `footer.tagline` (`brand.tagline_footer` plus utilisé dans ce fichier), Nordik/Le Crieur déplacés en ligne discrète tout en bas (opacity 0.30, soulignés), ajout lien "Termes de service" → `/termes`
+- **Nouvelles pages créées** (suivent le patron établi de `confidentialite/page.tsx` : Server Component async, `generateMetadata` trilingue, composants `FR`/`EN`/`ES` avec classes `h91-*`) :
+  - `app/[locale]/manifeste/page.tsx` — manifeste de marque (3 gestes Arpenteur/Draveur/Carillon, ce qu'on refuse/ce qu'on tient), contenu original écrit par Claude en cohérence avec le CLAUDE.md existant (lore historique, positionnement régional)
+  - `app/[locale]/termes/page.tsx` — conditions générales de service (portée, soumissions, tarification/paiement, révisions, propriété intellectuelle, services tiers, garanties/limitation de responsabilité, confidentialité, résiliation, droit applicable Québec/district de Beauce, contact) — **contenu légal générique rédigé par Claude, PAS relu par un juriste, à valider avant de s'y fier en cas de litige réel**
+  - `app/sitemap.ts` avait déjà des entrées `/manifeste` et `/termes` (scaffoldées en amont) — aucune modification nécessaire
+- **Vérification** : `python json.load` sur les 3 `messages/*.json` ✅. `npx tsc --noEmit` échoue côté sandbox OneDrive (même limitation connue que la session précédente — node_modules incomplet, PAS une vraie erreur de code) → **build WSL (`npm run build`) restant à faire confirmer par Jonathan**, comme d'habitude.
+- **⚠️ À faire prochaine session** :
+  - Confirmer `npm run build` OK côté WSL, puis rsync + git add/commit/push
+  - Faire réviser les nouvelles traductions EN/ES (hero, piliers, équipe, histoire, CTA final, footer, manifeste, termes) par Alexandra/Paulina — pas encore relu par une locutrice native
+  - Faire réviser le contenu légal de `/termes` par un juriste avant de s'y fier en cas de litige (contenu générique, pas une consultation professionnelle)
+  - Étendre le même traitement (photo réelle + texte structuré) à d'autres pages si Paulina propose d'autres maquettes Figma
 
 ## Session 2026-07-25 — Migration i18n complète /divisions/web et /divisions/cyber
 - **Constat initial (signalé par Jonathan)** : sur les pages Division Draveur et Division Carillon, seuls le hero/services/approche/CTA passaient par next-intl. Tout le reste (héritage historique, "Saviez-vous que ?", tarification résumé pour Draveur ; héritage, stats, Fort Saurel, Chambly, Contrecoeur, Berthier, Salières, doctrine de la chaîne, Suite Carignan pour Carillon) était codé en dur en français, **sans aucune condition de langue** — donc l'anglais affichait aussi du français, pas seulement l'espagnol.

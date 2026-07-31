@@ -13,18 +13,35 @@
     "contacts": "Contactos",
     "join": "Contáctanos"
   },
+  "footer": {
+    "tagline": "La brújula digital de los emprendedores y fundadores de aquí. Tres áreas de experiencia soberanas reunidas bajo una misma bandera.",
+    "divisions_label": "Divisiones",
+    "ressources_label": "Recursos",
+    "guide_marque": "Guía de marca",
+    "contact_label": "Contacto & Oficina",
+    "localisation": "Sainte-Marie-de-Beauce, QC, Canadá",
+    "terms": "Términos de servicio",
+    "aussi": "También"
+  },
   "home": {
     "triptyque": "Crear · Construir · Proteger",
     "tagline": "Desde la primera idea de marca hasta la seguridad de su infraestructura — Grupo Estrella Boreal guía a los emprendedores en cada etapa de su presencia digital.",
     "cta_divisions": "Explorar nuestras divisiones",
     "cta_contact": "Hablar con el equipo",
+    "hero": {
+      "titre": "La arquitectura digital completa de tu empresa.",
+      "sous_titre": "Inspirada en el rigor de nuestros agrimensores y constructores quebequenses. Impulsamos, desarrollamos y protegemos la visión de los emprendedores de aquí."
+    },
     "piliers": {
+      "eyebrow": "Estructura & Sinergia",
       "title": "Tres pilares. Una sola visión.",
-      "subtitle": "Cada pilar tallado en el patrimonio quebequense, cada servicio diseñado para la realidad de los emprendedores locales."
+      "subtitle": "Para construir un ecosistema digital resiliente, necesitas orientar tu marca, estructurar tus herramientas y blindar tus accesos.",
+      "cta": "Saber más"
     },
     "team": {
+      "eyebrow": "La Tripulación",
       "title": "Nuestras estrellas",
-      "subtitle": "Los constructores detrás de su trayectoria digital. La Estrella Polar guió a los coureurs des bois en las noches más oscuras — nuestro equipo fusiona el rigor de nuestros constructores históricos con el poder de las tecnologías del mañana para guiar a los emprendedores regionales.",
+      "subtitle": "Los constructores detrás de tu trayectoria digital. La Estrella Polar guió a los coureurs des bois en las noches más oscuras — nuestro equipo fusiona esa resiliencia histórica con el poder de las tecnologías del mañana.",
       "badge_soon": "Próximamente",
       "cta_histoire": "Conocer más sobre mi trayectoria →",
       "cta_profile": "Ver perfil →",
@@ -32,32 +49,34 @@
         "jonathan": {
           "nom": "Jonathan Patoine",
           "titre": "Fundador y CEO — La Estrella Polar",
-          "bio": "Con experiencia en seguridad pública y privada, Jonathan se especializó en desarrollo de software y ciberseguridad. Fundó Grupo Estrella Boreal para acercar la tecnología a los emprendedores de la región."
+          "bio": "Con experiencia en seguridad pública e inteligencia estratégica, Jonathan orienta la visión global de Estrella Boreal, uniendo la audacia de aquí con las exigencias tecnológicas globales."
         },
         "alexandra": {
           "nom": "Alexandra Marcela Espin Espinoza",
           "titre": "Directora General — Comunicaciones",
-          "bio": "Experta en comunicación y gestión internacional — ex pilar del equipo de comunicaciones de la presidencia ecuatoriana —, Alexandra dirige las estrategias de comunicación y los contenidos multilingües de Estrella Boreal."
+          "bio": "Experta consumada en relaciones públicas y comunicación empresarial. Alexandra coordina la orquestación de las divisiones para garantizar entregas de gran envergadura."
         },
         "paulina": {
           "nom": "Paulina Jaramillo",
           "titre": "Directora — División Arpenteur",
-          "bio": "Diseñadora gráfica, fotógrafa y experta UX/UI con 14 años de experiencia en imagen de marca, Paulina dirige la División Arpenteur y pone su saber hacer al servicio de los emprendedores de Quebec."
-        },
-        "gabriel": {
-          "nom": "Gabriel Patoine",
-          "titre": "CISO — División Ciberseguridad",
-          "bio": "Gabriel se unirá oficialmente a Grupo Estrella Boreal como responsable de la seguridad de los sistemas de información. Su formación especializada y su red en ciberseguridad serán activos clave para proteger la infraestructura de nuestros clientes."
+          "bio": "Diseñadora gráfica, directora artística y fotógrafa de élite con 14 años de trayectoria. Traduce conceptos tecnológicos en ecosistemas gráficos inolvidables."
         }
       }
     },
     "histoire": {
-      "title": "Nuestra historia",
-      "p1": "Groupe Étoile Boréale nació del encuentro de tres trayectorias que parecían distintas — y que, en realidad, convergían hacia lo mismo. Jonathan Patoine, con experiencia en seguridad pública y privada, pivotó hacia el desarrollo de software y la ciberseguridad, convencido de que la tecnología puede ser un verdadero motor para las pymes regionales. Alexandra Espin, con una carrera internacional en comunicación y gestión — incluyendo la dirección del equipo de comunicaciones de la presidencia ecuatoriana entre 2015 y 2017 —, aporta rigor estratégico y una voz que llega lejos. Paulina Jaramillo, fotógrafa, diseñadora gráfica y especialista en marketing digital, cruzó un continente para instalarse en Quebec — y aquí encontró su lugar, comprometida con el desarrollo económico de una región que la acogió.",
-      "p2": "Tres áreas de experiencia. Tres divisiones. Un solo compromiso: ofrecer a los emprendedores locales servicios a la altura de sus ambiciones. La División Arpenteur da forma a la identidad visual. La División Draveur construye la presencia digital. La División Carillon protege datos y sistemas. Juntos, estos tres pilares forman un ecosistema coherente, diseñado para la realidad de las pymes de Beauce, Bellechasse y Chaudière-Appalaches.",
-      "p3": "La Estrella Polar guió durante generaciones a exploradores y viajeros que no tenían ni mapa ni brújula. Queremos ser ese punto de referencia para los constructores de hoy — cercanos, confiables y resueltos hacia el futuro.",
-      "quote": "Tres trayectorias, una estrella. Crear · Construir · Proteger.",
-      "cta": "Explorar nuestras divisiones"
+      "eyebrow": "Nuestra Historia",
+      "title": "Trazar, guiar, dar la alarma.",
+      "p1": "Fundada en el corazón de Quebec, Estrella Boreal toma su nombre de la guía eterna de navegantes y exploradores. Nuestra misión es transmitir esa misma fuerza de orientación al cambio tecnológico de nuestros socios.",
+      "p2": "Ya sea a través del diseño minucioso de tu imagen de marca (Arpenteur), la ingeniería y el despliegue de tus portales aplicativos (Draveur), o el blindaje continuo de tus defensas frente a las ciberamenazas (Carillon), ofrecemos un marco de excelencia unificado y arraigado localmente.",
+      "cta": "Descubrir nuestro manifiesto",
+      "media_titre": "El Norte como brújula.",
+      "media_soustitre": "El rigor de ayer, las herramientas de hoy."
+    },
+    "cta_final": {
+      "titre": "¿Listo para estructurar tu crecimiento?",
+      "sous_titre": "Ponte en contacto con nuestros directores de división hoy mismo y dale a tu empresa unas bases a prueba del tiempo.",
+      "cta_divisions": "Explorar nuestras divisiones",
+      "cta_expert": "Hablar con un experto"
     }
   },
   "divisions": {

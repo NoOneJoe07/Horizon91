@@ -3,7 +3,6 @@ import { useTranslations } from "next-intl";
 import { getLocale } from "next-intl/server";
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
-import StarField from "@/app/components/StarField";
 
 // ─────────────────────────────────────────────────────────
 // Metadata SEO — HomePage
@@ -179,7 +178,6 @@ const piliers = [
 // ─────────────────────────────────────────────────────────
 export default function HomePage() {
   const t = useTranslations("home");
-  const tBrand = useTranslations("brand");
   const tDivisions = useTranslations("divisions");
 
   return (
@@ -187,22 +185,36 @@ export default function HomePage() {
       <LocalBusinessJsonLd />
 
       {/* ================================================================
-          HERO — fond Space Black, compas centré, triptyque
+          HERO — photo étoilée Paulina, voile navy, compas + titre
       ================================================================ */}
       <section
         id="hero"
-        className="hero-dark relative flex flex-col items-center min-h-[100vh] text-center px-6 pb-20"
+        className="hero-dark relative flex flex-col items-center min-h-[100vh] text-center px-6 pb-20 overflow-hidden"
         style={{ marginTop: "-80px", paddingTop: "176px" }}
       >
-        {/* Champ d'étoiles animé — canvas 180 étoiles scintillantes */}
-        <StarField />
+        {/* Photo de fond — ciel étoilé au-dessus d'un horizon (Paulina, Figma) */}
+        <div className="absolute inset-0 overflow-hidden" aria-hidden="true">
+          <Image
+            src="/photos_images/hero-bg.jpg"
+            alt=""
+            fill
+            priority
+            className="object-cover"
+          />
+          <div className="absolute inset-0" style={{ backgroundColor: "rgba(32,52,120,0.55)" }} />
+        </div>
 
-        {/* Aurore numérique Claude — 5 blobs organiques inclinés */}
-        <div className="aurora-orb aurora-orb-1" aria-hidden="true" />
-        <div className="aurora-orb aurora-orb-2" aria-hidden="true" />
-        <div className="aurora-orb aurora-orb-3" aria-hidden="true" />
-        <div className="aurora-orb aurora-orb-4" aria-hidden="true" />
-        <div className="aurora-orb aurora-orb-5" aria-hidden="true" />
+        {/* Lueurs boréales — 2 halos, teal + violet */}
+        <div
+          aria-hidden="true"
+          className="absolute rounded-full pointer-events-none"
+          style={{ width: "600px", height: "600px", top: "-100px", left: "-200px", backgroundColor: "#0099D1", opacity: 0.18, filter: "blur(75px)" }}
+        />
+        <div
+          aria-hidden="true"
+          className="absolute rounded-full pointer-events-none"
+          style={{ width: "700px", height: "700px", top: "200px", right: "-250px", backgroundColor: "#5762A2", opacity: 0.15, filter: "blur(90px)" }}
+        />
 
         <div className="relative z-10 flex flex-col items-center">
 
@@ -211,47 +223,39 @@ export default function HomePage() {
             <Image
               src="/mark-etoile-color.svg"
               alt="Compas Groupe Étoile Boréale"
-              width={220}
-              height={220}
+              width={140}
+              height={140}
               priority
-              style={{ width: "220px", height: "220px" }}
+              style={{ width: "140px", height: "140px" }}
             />
           </div>
 
-          {/* Nom de marque */}
+          {/* Titre — architecture numérique */}
           <h1
-            className="text-5xl md:text-7xl font-bold mb-5 h91-title-gradient-animated"
-            style={{ fontFamily: "var(--font-display, 'Gotham', 'Montserrat', system-ui)" }}
+            className="text-4xl md:text-6xl font-semibold mb-5 max-w-4xl"
+            style={{ lineHeight: 1.1, fontFamily: "var(--font-display, 'Gotham', 'Montserrat', system-ui)" }}
           >
-            {tBrand("short_name")}
+            {t("hero.titre")}
           </h1>
 
-          {/* Triptyque */}
-          <p
-            className="text-lg md:text-xl font-bold tracking-widest uppercase mb-8"
-            style={{ color: "#0099D1", letterSpacing: "0.15em" }}
-          >
-            {t("triptyque")}
-          </p>
-
-          {/* Tagline */}
-          <p className="text-base md:text-lg max-w-2xl leading-relaxed mb-10" style={{ color: "rgba(244,244,240,0.75)" }}>
-            {t("tagline")}
+          {/* Sous-titre */}
+          <p className="text-base md:text-lg max-w-2xl leading-relaxed mb-10" style={{ color: "rgba(244,244,240,0.80)" }}>
+            {t("hero.sous_titre")}
           </p>
 
           {/* CTAs */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/divisions"
-              className="px-8 py-3 rounded-lg font-semibold text-sm transition"
+              className="px-8 py-3 rounded-full font-bold text-sm transition"
               style={{ backgroundColor: "#0099D1", color: "#F4F4F0" }}
             >
               {t("cta_divisions")}
             </Link>
             <Link
               href="/contacts"
-              className="px-8 py-3 rounded-lg font-semibold text-sm border transition"
-              style={{ borderColor: "rgba(244,244,240,0.30)", color: "rgba(244,244,240,0.85)" }}
+              className="px-8 py-3 rounded-full font-bold text-sm border transition"
+              style={{ borderColor: "rgba(244,244,240,0.30)", backgroundColor: "rgba(244,244,240,0.08)", color: "#F4F4F0" }}
             >
               {t("cta_contact")}
             </Link>
@@ -280,7 +284,7 @@ export default function HomePage() {
             className="text-center text-xs font-bold tracking-widest uppercase mb-3"
             style={{ color: "#0099D1" }}
           >
-            {tBrand("name")}
+            {t("piliers.eyebrow")}
           </p>
           <h2
             className="text-4xl md:text-5xl font-bold text-center mb-4"
@@ -323,7 +327,7 @@ export default function HomePage() {
                   className="text-xs font-bold uppercase tracking-widest"
                   style={{ color: p.couleur }}
                 >
-                  {tDivisions(`${p.key}.cta`)}
+                  {t("piliers.cta")}
                 </span>
               </Link>
             ))}
@@ -336,6 +340,12 @@ export default function HomePage() {
       ================================================================ */}
       <section id="equipe" className="py-20 px-6" style={{ backgroundColor: "#F4F4F0" }}>
         <div className="max-w-6xl mx-auto">
+          <p
+            className="text-center text-xs font-bold tracking-widest uppercase mb-3"
+            style={{ color: "#0099D1" }}
+          >
+            {t("team.eyebrow")}
+          </p>
           <h2
             className="text-4xl md:text-5xl font-bold text-center mb-4"
             style={{ color: "#1D1D1B", fontFamily: "var(--font-display, 'Gotham', 'Montserrat', system-ui)" }}
@@ -400,37 +410,103 @@ export default function HomePage() {
       </section>
 
       {/* ================================================================
-          NOTRE HISTOIRE
+          NOTRE HISTOIRE — photo + texte côte à côte
       ================================================================ */}
       <section id="histoire" className="py-20 px-6" style={{ backgroundColor: "#FFFFFF" }}>
-        <div className="max-w-4xl mx-auto">
-          <h2
-            className="text-4xl md:text-5xl font-bold text-center mb-14"
-            style={{ color: "#1D1D1B", fontFamily: "var(--font-display, 'Gotham', 'Montserrat', system-ui)" }}
-          >
-            {t("histoire.title")}
-          </h2>
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
 
-          <div className="space-y-6 text-lg leading-relaxed" style={{ color: "rgba(29,29,27,0.75)" }}>
-            <p className="scroll-fade">{t("histoire.p1")}</p>
-            <p className="scroll-fade">{t("histoire.p2")}</p>
-            <p className="scroll-fade">{t("histoire.p3")}</p>
-
-            <blockquote
-              className="scroll-fade border-l-4 pl-6 mt-8 italic text-base"
-              style={{ borderColor: "#0099D1", color: "rgba(29,29,27,0.55)" }}
+          {/* Média — photo aurore + légende */}
+          <div className="relative rounded-3xl overflow-hidden" style={{ aspectRatio: "560 / 500" }}>
+            <Image
+              src="/photos_images/histoire-bg.jpg"
+              alt=""
+              fill
+              className="object-cover"
+            />
+            <div
+              className="absolute inset-0 flex flex-col justify-end gap-2 p-8"
+              style={{ background: "linear-gradient(to bottom, rgba(32,52,120,0) 0%, rgba(32,52,120,0.8) 100%)" }}
             >
-              {t("histoire.quote")}
-            </blockquote>
+              <p className="text-white font-semibold" style={{ fontSize: "28px", lineHeight: 1.2 }}>
+                {t("histoire.media_titre")}
+              </p>
+              <p className="text-sm" style={{ color: "rgba(255,255,255,0.80)" }}>
+                {t("histoire.media_soustitre")}
+              </p>
+            </div>
           </div>
 
-          <div className="mt-14 text-center">
+          {/* Texte */}
+          <div>
+            <p
+              className="text-xs font-bold tracking-widest uppercase mb-3"
+              style={{ color: "#0099D1" }}
+            >
+              {t("histoire.eyebrow")}
+            </p>
+            <h2
+              className="text-4xl md:text-5xl font-bold mb-8"
+              style={{ color: "#1D1D1B", fontFamily: "var(--font-display, 'Gotham', 'Montserrat', system-ui)" }}
+            >
+              {t("histoire.title")}
+            </h2>
+
+            <div className="space-y-5 text-base leading-relaxed" style={{ color: "rgba(29,29,27,0.75)" }}>
+              <p className="scroll-fade">{t("histoire.p1")}</p>
+              <p className="scroll-fade">{t("histoire.p2")}</p>
+            </div>
+
+            <div className="mt-10">
+              <Link
+                href="/manifeste"
+                className="inline-flex items-center gap-2 font-bold px-7 py-3.5 rounded-full text-sm transition"
+                style={{ backgroundColor: "#203478", color: "#F4F4F0" }}
+              >
+                {t("histoire.cta")}
+                <span aria-hidden="true">→</span>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ================================================================
+          CTA FINAL — fond navy, halo boréal
+      ================================================================ */}
+      <section
+        id="cta-final"
+        className="relative overflow-hidden py-24 px-6 text-center"
+        style={{ backgroundColor: "#203478" }}
+      >
+        <div
+          aria-hidden="true"
+          className="absolute rounded-full pointer-events-none"
+          style={{ width: "700px", height: "500px", top: "-150px", left: "50%", transform: "translateX(-50%)", backgroundColor: "#0099D1", opacity: 0.15, filter: "blur(70px)" }}
+        />
+        <div className="relative z-10 max-w-3xl mx-auto">
+          <h2
+            className="text-4xl md:text-5xl font-semibold mb-5 text-white"
+            style={{ lineHeight: 1.15, fontFamily: "var(--font-display, 'Gotham', 'Montserrat', system-ui)" }}
+          >
+            {t("cta_final.titre")}
+          </h2>
+          <p className="text-base md:text-lg mb-10" style={{ color: "rgba(255,255,255,0.80)" }}>
+            {t("cta_final.sous_titre")}
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/divisions"
-              className="inline-block font-bold px-8 py-4 rounded-lg text-lg transition"
-              style={{ backgroundColor: "#203478", color: "#F4F4F0" }}
+              className="px-8 py-3 rounded-full font-bold text-sm transition"
+              style={{ backgroundColor: "#0099D1", color: "#F4F4F0" }}
             >
-              {t("histoire.cta")}
+              {t("cta_final.cta_divisions")}
+            </Link>
+            <Link
+              href="/contacts"
+              className="px-8 py-3 rounded-full font-bold text-sm border transition"
+              style={{ borderColor: "rgba(255,255,255,1)", backgroundColor: "rgba(255,255,255,0.08)", color: "#FFFFFF" }}
+            >
+              {t("cta_final.cta_expert")}
             </Link>
           </div>
         </div>

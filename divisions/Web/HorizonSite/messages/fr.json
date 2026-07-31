@@ -13,18 +13,35 @@
     "contacts": "Contacts",
     "join": "Nous joindre"
   },
+  "footer": {
+    "tagline": "La boussole numérique des repreneurs et fondateurs d'ici. Trois expertises souveraines réunies sous une même bannière.",
+    "divisions_label": "Divisions",
+    "ressources_label": "Ressources",
+    "guide_marque": "Guide de marque",
+    "contact_label": "Contact & Bureau",
+    "localisation": "Sainte-Marie-de-Beauce, QC, Canada",
+    "terms": "Termes de service",
+    "aussi": "Aussi"
+  },
   "home": {
     "triptyque": "Créer · Bâtir · Protéger",
     "tagline": "De la première idée de marque jusqu'à la sécurité de votre infrastructure — Groupe Étoile Boréale guide les entrepreneurs de la région à chaque étape de leur présence numérique.",
     "cta_divisions": "Explorer nos divisions",
     "cta_contact": "Parler à l'équipe",
+    "hero": {
+      "titre": "L'architecture numérique complète de votre entreprise.",
+      "sous_titre": "Inspirée par la rigueur de nos arpenteurs et bâtisseurs québécois. Nous propulsons, développons et sécurisons la vision des entrepreneurs d'ici."
+    },
     "piliers": {
+      "eyebrow": "Structure & Synergie",
       "title": "Trois piliers. Une seule vision.",
-      "subtitle": "Chaque pilier taillé dans l'héritage québécois, chaque service conçu pour la réalité des entrepreneurs d'ici."
+      "subtitle": "Pour bâtir un écosystème numérique résilient, vous devez orienter votre marque, structurer vos outils et blinder vos accès.",
+      "cta": "En savoir plus"
     },
     "team": {
+      "eyebrow": "L'Équipage",
       "title": "Nos étoiles",
-      "subtitle": "Les bâtisseurs derrière votre trajectoire numérique. L'Étoile Polaire a guidé les coureurs des bois à travers les nuits les plus noires — notre équipe fusionne la rigueur de nos bâtisseurs historiques à la puissance des technologies de demain pour guider les entrepreneurs de la région.",
+      "subtitle": "Les bâtisseurs derrière votre trajectoire numérique. L'Étoile Polaire a guidé les coureurs des bois à travers les nuits les plus noires — notre équipe fusionne cette résilience historique à la puissance des technologies de pointe.",
       "badge_soon": "Bientôt",
       "cta_histoire": "En savoir plus sur mon parcours →",
       "cta_profile": "Voir le profil →",
@@ -32,32 +49,34 @@
         "jonathan": {
           "nom": "Jonathan Patoine",
           "titre": "Fondateur & PDG — L'Étoile Polaire",
-          "bio": "Issu de la sécurité publique et privée, Jonathan s'est spécialisé en développement logiciel et cybersécurité. Il a fondé Groupe Étoile Boréale pour mettre la technologie au service des entrepreneurs d'ici."
+          "bio": "Issu de la sécurité publique et de l'intelligence stratégique, Jonathan oriente la vision globale d'Étoile Boréale en mariant l'audace d'ici aux exigences technologiques mondiales."
         },
         "alexandra": {
           "nom": "Alexandra Marcela Espin Espinoza",
           "titre": "Directrice générale — Communications",
-          "bio": "Experte en communication et gestion internationale — ancienne pilier des communications de la présidence équatorienne —, Alexandra dirige les stratégies de communication et les contenus multilingues d'Étoile Boréale."
+          "bio": "Experte chevronnée en relations publiques et communication d'affaires. Alexandra coordonne l'orchestration des divisions pour garantir des livraisons d'envergure."
         },
         "paulina": {
           "nom": "Paulina Jaramillo",
           "titre": "Directrice — Division Arpenteur",
-          "bio": "Graphiste, photographe et experte UX/UI avec 14 ans d'expérience en image de marque, Paulina dirige la Division Arpenteur et met son savoir-faire au service des entrepreneurs du Québec."
-        },
-        "gabriel": {
-          "nom": "Gabriel Patoine",
-          "titre": "CISO — Division Cybersécurité",
-          "bio": "Gabriel rejoindra officiellement Groupe Étoile Boréale à titre de responsable de la sécurité des systèmes d'information. Sa formation spécialisée et son réseau en cybersécurité seront des atouts majeurs pour la protection des infrastructures de nos clients."
+          "bio": "Graphiste, directrice artistique et photographe d'élite forte de 14 ans de parcours. Elle traduit des concepts technologiques en écosystèmes graphiques inoubliables."
         }
       }
     },
     "histoire": {
-      "title": "Notre histoire",
-      "p1": "Groupe Étoile Boréale est née de la rencontre de trois parcours que tout semblait opposer — et que tout, en fait, rapprochait. Jonathan Patoine, issu de la sécurité publique et privée, a bifurqué vers le développement logiciel et la cybersécurité, convaincu que la technologie peut être un outil d'émancipation pour les PME régionales. Alexandra Espin, forte d'une carrière internationale en communication et en gestion — ancienne directrice de l'équipe communications de la présidence équatorienne entre 2015 et 2017 —, apporte la rigueur stratégique et la voix qui porte loin. Paulina Jaramillo, photographe, graphiste et spécialiste du marketing numérique, a traversé un continent pour s'installer au Québec, et c'est ici qu'elle a trouvé sa place : au service du développement économique d'une région qui l'a adoptée.",
-      "p2": "Trois expertises. Trois divisions. Un seul engagement : offrir aux entrepreneurs d'ici des services à la hauteur de leurs ambitions. La Division Arpenteur trace l'identité visuelle. La Division Draveur bâtit la présence numérique. La Division Carillon protège les données et les systèmes. Ensemble, ces trois piliers forment un écosystème cohérent, pensé pour la réalité des PME de Beauce, de Bellechasse et de Chaudière-Appalaches.",
-      "p3": "L'Étoile Polaire a guidé des générations de coureurs des bois et de voyageurs qui n'avaient ni carte ni boussole. Nous voulons être ce repère pour les bâtisseurs d'aujourd'hui — proches, fiables, et résolument tournés vers l'avenir.",
-      "quote": "Trois parcours, une étoile. Créer · Bâtir · Protéger.",
-      "cta": "Explorer nos divisions"
+      "eyebrow": "Notre Histoire",
+      "title": "Tracer, draver, sonner l'alarme.",
+      "p1": "Fondée au cœur du Québec, Étoile Boréale tire son nom du guide éternel des navigateurs et des explorateurs. Notre mission est d'insuffler cette même force d'orientation dans le virage technologique de nos partenaires.",
+      "p2": "Que ce soit par le dessin minutieux de votre image de marque (Arpenteur), l'ingénierie et le déploiement de vos portails applicatifs (Draveur), ou le blindage continu de vos défenses face aux cybermenaces (Carillon), nous offrons un cadre d'excellence unifié et ancré localement.",
+      "cta": "Découvrir notre manifeste",
+      "media_titre": "Le Nord comme boussole.",
+      "media_soustitre": "La rigueur d'hier, les outils d'aujourd'hui."
+    },
+    "cta_final": {
+      "titre": "Prêt à structurer votre croissance ?",
+      "sous_titre": "Prenez contact avec nos directeurs de division aujourd'hui et donnez à votre entreprise des assises à l'épreuve du temps.",
+      "cta_divisions": "Explorer nos divisions",
+      "cta_expert": "Parler à un expert"
     }
   },
   "divisions": {

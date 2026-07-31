@@ -13,18 +13,35 @@
     "contacts": "Contacts",
     "join": "Contact Us"
   },
+  "footer": {
+    "tagline": "The digital compass for local owners and founders. Three sovereign areas of expertise united under one banner.",
+    "divisions_label": "Divisions",
+    "ressources_label": "Resources",
+    "guide_marque": "Brand Guide",
+    "contact_label": "Contact & Office",
+    "localisation": "Sainte-Marie-de-Beauce, QC, Canada",
+    "terms": "Terms of Service",
+    "aussi": "Also"
+  },
   "home": {
     "triptyque": "Create · Build · Protect",
     "tagline": "From the first brand idea to the security of your infrastructure — Boreal Star Group guides entrepreneurs at every step of their digital presence.",
     "cta_divisions": "Explore our divisions",
     "cta_contact": "Talk to the team",
+    "hero": {
+      "titre": "The complete digital architecture for your business.",
+      "sous_titre": "Inspired by the rigour of our Quebec surveyors and builders. We power, build and secure the vision of local entrepreneurs."
+    },
     "piliers": {
+      "eyebrow": "Structure & Synergy",
       "title": "Three pillars. One vision.",
-      "subtitle": "Each pillar forged from Quebec's heritage, each service designed for local entrepreneurs' reality."
+      "subtitle": "To build a resilient digital ecosystem, you need to steer your brand, structure your tools, and lock down your access.",
+      "cta": "Learn more"
     },
     "team": {
+      "eyebrow": "The Crew",
       "title": "Our Stars",
-      "subtitle": "The builders behind your digital trajectory. Polaris guided the coureurs des bois through the darkest nights — our team merges the rigour of our historical builders with the power of tomorrow's technologies to guide regional entrepreneurs.",
+      "subtitle": "The builders behind your digital trajectory. Polaris guided the coureurs des bois through the darkest nights — our team merges that historical resilience with the power of tomorrow's technologies.",
       "badge_soon": "Coming Soon",
       "cta_histoire": "Learn more about my journey →",
       "cta_profile": "View profile →",
@@ -32,32 +49,34 @@
         "jonathan": {
           "nom": "Jonathan Patoine",
           "titre": "Founder & CEO — The North Star",
-          "bio": "With a background in public and private security, Jonathan specialized in software development and cybersecurity. He founded Boreal Star Group to bring technology within reach of regional entrepreneurs."
+          "bio": "With a background in public security and strategic intelligence, Jonathan steers Boreal Star's overall vision, pairing local boldness with global technology standards."
         },
         "alexandra": {
           "nom": "Alexandra Marcela Espin Espinoza",
           "titre": "Chief Communications Officer",
-          "bio": "An expert in international communication and management — former cornerstone of Ecuador's presidential communications team —, Alexandra leads Boreal Star Group's multilingual content and communication strategies."
+          "bio": "A seasoned expert in public relations and business communication. Alexandra coordinates the divisions to guarantee large-scale, on-point delivery."
         },
         "paulina": {
           "nom": "Paulina Jaramillo",
           "titre": "Director — Division Arpenteur",
-          "bio": "Graphic designer, photographer and UX/UI specialist with 14 years of brand identity experience, Paulina leads Division Arpenteur and puts her expertise at the service of Quebec's entrepreneurs."
-        },
-        "gabriel": {
-          "nom": "Gabriel Patoine",
-          "titre": "CISO — Cybersecurity Division",
-          "bio": "Gabriel will officially join Boreal Star Group as Chief Information Security Officer. His specialized training and network in the cybersecurity field will be key assets in protecting our clients' infrastructure."
+          "bio": "Graphic designer, art director and elite photographer with 14 years on the job. She turns technology concepts into unforgettable visual ecosystems."
         }
       }
     },
     "histoire": {
-      "title": "Our Story",
-      "p1": "Groupe Étoile Boréale was born from the meeting of three journeys that seemed worlds apart — yet were headed in the same direction. Jonathan Patoine, with a background in public and private security, pivoted toward software development and cybersecurity, convinced that technology can be a genuine equalizer for regional businesses. Alexandra Espin, with an international career in communication and management — including leading the communications team of the Ecuadorian presidency between 2015 and 2017 — brings strategic rigor and a voice that carries. Paulina Jaramillo, photographer, graphic designer, and digital marketing specialist, crossed a continent to settle in Quebec — and found her place here, committed to the economic development of a region that welcomed her.",
-      "p2": "Three areas of expertise. Three divisions. One shared commitment: providing local entrepreneurs with services equal to their ambitions. Division Arpenteur shapes visual identity. Division Draveur builds digital presence. Division Carillon protects data and systems. Together, these three pillars form a cohesive ecosystem designed for the reality of SMBs in Beauce, Bellechasse, and Chaudière-Appalaches.",
-      "p3": "The North Star guided generations of explorers and voyageurs who had neither map nor compass. We want to be that beacon for today's builders — close, reliable, and resolutely forward-looking.",
-      "quote": "Three journeys, one star. Create · Build · Protect.",
-      "cta": "Explore our divisions"
+      "eyebrow": "Our Story",
+      "title": "Chart, drive, sound the alarm.",
+      "p1": "Founded in the heart of Quebec, Boreal Star takes its name from the eternal guide of navigators and explorers. Our mission is to bring that same sense of direction to our partners' digital shift.",
+      "p2": "Whether through the meticulous design of your brand image (Arpenteur), the engineering and deployment of your application portals (Draveur), or the continuous shielding of your defenses against cyberthreats (Carillon), we offer a unified, locally-rooted standard of excellence.",
+      "cta": "Discover our manifesto",
+      "media_titre": "The North as our compass.",
+      "media_soustitre": "Yesterday's rigour, today's tools."
+    },
+    "cta_final": {
+      "titre": "Ready to structure your growth?",
+      "sous_titre": "Get in touch with our division directors today and give your business a foundation built to last.",
+      "cta_divisions": "Explore our divisions",
+      "cta_expert": "Talk to an expert"
     }
   },
   "divisions": {

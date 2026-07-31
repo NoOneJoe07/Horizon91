@@ -12,6 +12,8 @@ const routes = [
   { path: "/actualites", priority: 0.85, changeFrequency: "weekly" as const },
   { path: "/portfolio", priority: 0.8, changeFrequency: "weekly" as const },
   { path: "/tarification", priority: 0.75, changeFrequency: "monthly" as const },
+  { path: "/manifeste", priority: 0.6, changeFrequency: "monthly" as const },
+  { path: "/termes", priority: 0.4, changeFrequency: "yearly" as const },
   { path: "/contacts", priority: 0.7, changeFrequency: "monthly" as const },
   { path: "/rejoindre", priority: 0.6, changeFrequency: "monthly" as const },
   { path: "/equipe/jonathan-patoine", priority: 0.65, changeFrequency: "monthly" as const },
