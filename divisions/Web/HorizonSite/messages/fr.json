@@ -36,7 +36,24 @@
       "eyebrow": "Structure & Synergie",
       "title": "Trois piliers. Une seule vision.",
       "subtitle": "Pour bâtir un écosystème numérique résilient, vous devez orienter votre marque, structurer vos outils et blinder vos accès.",
-      "cta": "En savoir plus"
+      "cta": "En savoir plus",
+      "items": {
+        "arpenteur": {
+          "nom": "Division Arpenteur",
+          "sous_titre": "Branding & Graphisme",
+          "description": "Comme Jean Bourdon a tracé les premières rues de la Nouvelle-France, la Division Arpenteur dessine votre identité de marque unique : Logotype, chartes graphiques, design éditorial et imagerie professionnelle."
+        },
+        "web": {
+          "nom": "Division Draveur",
+          "sous_titre": "Web & Développement",
+          "description": "Conception de portails web robustes, d'infrastructures cloud agiles et de systèmes applicatifs sur-mesure. Maîtres du flux numérique et de l'optimisation des performances pour les PME innovantes."
+        },
+        "cyber": {
+          "nom": "Division Carillon",
+          "sous_titre": "Cybersécurité",
+          "description": "Analyse avancée de vulnérabilités, audits de sécurité, sécurisation d'infrastructures critiques et formation intensive aux meilleures pratiques de protection contre les cybermenaces."
+        }
+      }
     },
     "team": {
       "eyebrow": "L'Équipage",

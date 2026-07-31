@@ -36,7 +36,24 @@
       "eyebrow": "Structure & Synergy",
       "title": "Three pillars. One vision.",
       "subtitle": "To build a resilient digital ecosystem, you need to steer your brand, structure your tools, and lock down your access.",
-      "cta": "Learn more"
+      "cta": "Learn more",
+      "items": {
+        "arpenteur": {
+          "nom": "Division Arpenteur",
+          "sous_titre": "Branding & Design",
+          "description": "Like Jean Bourdon surveyed New France's first streets, Division Arpenteur charts your unique brand identity: logo, brand guidelines, editorial design, and professional imagery."
+        },
+        "web": {
+          "nom": "Division Draveur",
+          "sous_titre": "Web & Development",
+          "description": "Building robust web portals, agile cloud infrastructure, and custom application systems. Masters of digital flow and performance optimization for ambitious SMBs."
+        },
+        "cyber": {
+          "nom": "Division Carillon",
+          "sous_titre": "Cybersecurity",
+          "description": "Advanced vulnerability analysis, security audits, critical infrastructure hardening, and intensive training in cyberthreat protection best practices."
+        }
+      }
     },
     "team": {
       "eyebrow": "The Crew",

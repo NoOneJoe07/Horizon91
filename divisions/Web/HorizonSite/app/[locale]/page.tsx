@@ -178,7 +178,6 @@ const piliers = [
 // ─────────────────────────────────────────────────────────
 export default function HomePage() {
   const t = useTranslations("home");
-  const tDivisions = useTranslations("divisions");
 
   return (
     <>
@@ -315,13 +314,16 @@ export default function HomePage() {
                   style={{ width: "44px", height: "44px", marginBottom: "16px", filter: p.markFilter ?? undefined }}
                 />
                 <h3
-                  className="text-xl font-bold mb-2"
+                  className="text-xl font-bold mb-0.5"
                   style={{ color: p.couleur, fontFamily: "var(--font-display, 'Gotham', 'Montserrat', system-ui)" }}
                 >
-                  {tDivisions(`${p.key}.nom`)}
+                  {t(`piliers.items.${p.key}.nom`)}
                 </h3>
+                <p className="text-xs font-semibold uppercase tracking-wide mb-3" style={{ color: "rgba(29,29,27,0.45)" }}>
+                  {t(`piliers.items.${p.key}.sous_titre`)}
+                </p>
                 <p className="text-sm leading-relaxed mb-4" style={{ color: "rgba(29,29,27,0.65)" }}>
-                  {tDivisions(`${p.key}.description`)}
+                  {t(`piliers.items.${p.key}.description`)}
                 </p>
                 <span
                   className="text-xs font-bold uppercase tracking-widest"

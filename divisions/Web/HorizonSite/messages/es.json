@@ -36,7 +36,24 @@
       "eyebrow": "Estructura & Sinergia",
       "title": "Tres pilares. Una sola visión.",
       "subtitle": "Para construir un ecosistema digital resiliente, necesitas orientar tu marca, estructurar tus herramientas y blindar tus accesos.",
-      "cta": "Saber más"
+      "cta": "Saber más",
+      "items": {
+        "arpenteur": {
+          "nom": "Division Arpenteur",
+          "sous_titre": "Marca & Diseño",
+          "description": "Como Jean Bourdon trazó las primeras calles de Nueva Francia, la Division Arpenteur diseña tu identidad de marca única: logotipo, manual de marca, diseño editorial e imagen profesional."
+        },
+        "web": {
+          "nom": "Division Draveur",
+          "sous_titre": "Web & Desarrollo",
+          "description": "Diseño de portales web robustos, infraestructura cloud ágil y sistemas aplicativos a medida. Maestros del flujo digital y la optimización del rendimiento para pymes innovadoras."
+        },
+        "cyber": {
+          "nom": "Division Carillon",
+          "sous_titre": "Ciberseguridad",
+          "description": "Análisis avanzado de vulnerabilidades, auditorías de seguridad, protección de infraestructuras críticas y formación intensiva en las mejores prácticas contra ciberamenazas."
+        }
+      }
     },
     "team": {
       "eyebrow": "La Tripulación",
