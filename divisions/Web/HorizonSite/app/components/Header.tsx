@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { useTranslations, useLocale } from "next-intl";
 import { useRouter, usePathname, Link } from "@/i18n/navigation";
+import Image from "next/image";
 
 const locales = [
   { code: "fr", label: "FR" },
@@ -39,23 +40,19 @@ export default function Header() {
   return (
     /* Bleu Nuit Boréal (#203478) — couleur header du brand book de Paulina */
     <header className="fixed top-0 left-0 w-full z-50" style={{ backgroundColor: "#203478" }}>
-      <div className="max-w-7xl mx-auto flex items-center px-6 py-3">
+      <div className="max-w-7xl mx-auto flex items-center px-6 py-4">
 
-        {/* ZONE GAUCHE — MOT-SYMBOLE 2 LIGNES (Figma "simple blanco") */}
+        {/* ZONE GAUCHE — LOGO "simple blanco" (compas intégré au O, fourni par Paulina) */}
         <div className="flex items-center" style={{ flex: "0 0 280px" }}>
-          <Link href="/" className="flex flex-col leading-none">
-            <span
-              className="font-semibold uppercase"
-              style={{ color: "#FFFFFF", fontSize: "16px", letterSpacing: "0.04em", fontFamily: "var(--font-display, 'Gotham', 'Montserrat', system-ui)" }}
-            >
-              {tBrand("short_name").split(" ")[0]}
-            </span>
-            <span
-              className="font-medium uppercase"
-              style={{ color: "rgba(255,255,255,0.60)", fontSize: "10px", letterSpacing: "0.15em" }}
-            >
-              {tBrand("short_name").split(" ").slice(1).join(" ")}
-            </span>
+          <Link href="/" className="flex items-center">
+            <Image
+              src="/logo-etoile-header.png"
+              alt={tBrand("name")}
+              width={114}
+              height={42}
+              priority
+              style={{ width: "114px", height: "42px" }}
+            />
           </Link>
         </div>
 
